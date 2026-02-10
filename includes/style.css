@@ -16,37 +16,52 @@ body {
 /* Header */
 .site-header {
   background: #111827;
-  padding: 2px 0; /* très peu d’espace haut/bas */
+  padding: 2px 0; /* espace réduit haut/bas */
   position: sticky;
   top: 0;
 }
 
 .site-header .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* logo au-dessus, nav en dessous */
   align-items: center;
-  line-height: 1; /* supprime espace fantôme */
+  line-height: 1; /* évite l'espace fantôme */
 }
 
-/* Logo recadré */
+/* Logo (recadré) */
 .logo {
-  width: 240px;     /* logo plus grand */
-  height: 60px;     /* fenêtre visible plus fine */
-  overflow: hidden;
+  width: 240px;      /* taille du logo */
+  height: 60px;      /* fenêtre visible (coupe le transparent haut/bas) */
+  overflow: hidden;  /* recadrage */
   display: block;
+  margin: 0;
+  text-decoration: none;
 }
 
 .logo img {
   width: 240px;
   height: auto;
-  transform: translateY(-28px); /* coupe haut/bas */
+  display: block;
+  margin: 0;
+  transform: translateY(-30px); /* ajuste le recadrage */
 }
 
 /* Navigation */
 .nav {
   display: flex;
+  justify-content: center;
   gap: 18px;
-  margin-top: 2px; /* très serré */
+  margin-top: 2px; /* espace serré entre logo et nav */
+}
+
+.nav a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: white;
 }
 
 /* Main content */
