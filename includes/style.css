@@ -39,10 +39,10 @@ body {
 }
 
 .logo img {
-  max-width: 300px; /* ajuste ici si besoin */
-  width: 100%;
+  width: 180px;   /* ← change ici la taille */
   height: auto;
-  display: block; /* évite un petit espace sous l’image */
+  display: block;
+  margin: auto;
 }
 
 /* Nav (si tu l’utilises encore) */
