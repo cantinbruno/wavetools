@@ -28,11 +28,11 @@ body {
   line-height: 1; /* évite l'espace fantôme */
 }
 
-/* Logo (recadré) */
+/* Logo (recadré mieux, bas moins coupé) */
 .logo {
-  width: 240px;      /* taille du logo */
-  height: 60px;      /* fenêtre visible (coupe le transparent haut/bas) */
-  overflow: hidden;  /* recadrage */
+  width: 240px;
+  height: 72px;      /* + haut = moins coupé en bas */
+  overflow: hidden;
   display: block;
   margin: 0;
   text-decoration: none;
@@ -43,7 +43,7 @@ body {
   height: auto;
   display: block;
   margin: 0;
-  transform: translateY(-30px); /* ajuste le recadrage */
+  transform: translateY(-22px); /* remonte moins = bas visible */
 }
 
 /* Navigation */
