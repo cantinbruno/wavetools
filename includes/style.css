@@ -23,13 +23,13 @@ body {
 
 .site-header .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* logo au-dessus, nav en dessous */
   align-items: center;
-  gap: 6px;
 }
 
 /* Logo */
 .logo {
+  display: block;
   text-decoration: none;
 }
 
@@ -42,7 +42,9 @@ body {
 /* Navigation */
 .nav {
   display: flex;
+  justify-content: center;
   gap: 20px;
+  margin-top: 8px; /* espace entre logo et nav */
 }
 
 .nav a {
