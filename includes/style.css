@@ -28,19 +28,18 @@ body {
   line-height: 1; /* supprime espace fantôme */
 }
 
-/* Logo */
+/* Logo recadré */
 .logo {
+  width: 240px;     /* logo plus grand */
+  height: 60px;     /* fenêtre visible plus fine */
+  overflow: hidden;
   display: block;
-  width: 200px;
-  height: 70px;      /* hauteur visible */
-  overflow: hidden;  /* coupe le haut/bas */
-  margin: 0;
 }
 
 .logo img {
-  width: 200px;
+  width: 240px;
   height: auto;
-  transform: translateY(-20px); /* décale l’image vers le haut */
+  transform: translateY(-28px); /* coupe haut/bas */
 }
 
 /* Navigation */
