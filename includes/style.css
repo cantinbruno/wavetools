@@ -13,19 +13,39 @@ body {
   top: 0;
 }
 
+/* Container global */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
 }
 
+/* Container spécifique au header (logo centré) */
+.site-header .container {
+  display: flex;
+  justify-content: center; /* centre horizontal */
+  align-items: center;     /* centre vertical */
+}
+
+/* Logo */
 .logo {
+  display: inline-flex; /* utile pour centrer l’image dans le lien */
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   font-size: 20px;
   color: white;
   text-decoration: none;
 }
 
+.logo img {
+  max-width: 300px; /* ajuste ici si besoin */
+  width: 100%;
+  height: auto;
+  display: block; /* évite un petit espace sous l’image */
+}
+
+/* Nav (si tu l’utilises encore) */
 .nav a {
   margin-left: 20px;
   color: #9ca3af;
