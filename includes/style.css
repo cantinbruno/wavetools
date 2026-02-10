@@ -1,3 +1,4 @@
+/* Global */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,55 +6,60 @@ body {
   color: #e5e7eb;
 }
 
-/* Header */
-.site-header {
-  background: #111827;
-  padding: 14px 0;
-  position: sticky;
-  top: 0;
-}
-
-/* Container global */
+/* Container */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
 }
 
-/* Container spécifique au header (logo centré) */
+/* Header */
+.site-header {
+  background: #111827;
+  padding: 6px 0;
+  position: sticky;
+  top: 0;
+}
+
 .site-header .container {
   display: flex;
-  justify-content: center; /* centre horizontal */
-  align-items: center;     /* centre vertical */
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
 /* Logo */
 .logo {
-  display: inline-flex; /* utile pour centrer l’image dans le lien */
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 20px;
-  color: white;
   text-decoration: none;
 }
 
 .logo img {
-  width: 180px;   /* ← change ici la taille */
+  width: 160px;
   height: auto;
   display: block;
-  margin: auto;
 }
 
-/* Nav (si tu l’utilises encore) */
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
 .nav a {
-  margin-left: 20px;
   color: #9ca3af;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .nav a:hover {
   color: white;
+}
+
+/* Main content */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 /* Footer */
@@ -64,11 +70,4 @@ body {
   text-align: center;
   font-size: 14px;
   color: #9ca3af;
-}
-
-/* Main content */
-main {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
 }
