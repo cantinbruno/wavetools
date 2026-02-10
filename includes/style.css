@@ -51,7 +51,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin-top: 2px; /* espace serré entre logo et nav */
+  margin-top: 5px; /* espace serré entre logo et nav */
 }
 
 .nav a {
