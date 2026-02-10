@@ -31,14 +31,16 @@ body {
 /* Logo */
 .logo {
   display: block;
+  width: 200px;
+  height: 70px;      /* hauteur visible */
+  overflow: hidden;  /* coupe le haut/bas */
   margin: 0;
 }
 
 .logo img {
-  width: 200px; /* un peu plus petit */
+  width: 200px;
   height: auto;
-  display: block;
-  margin: 0;
+  transform: translateY(-20px); /* décale l’image vers le haut */
 }
 
 /* Navigation */
