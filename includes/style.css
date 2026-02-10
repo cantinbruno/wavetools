@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+/* Header */
+.site-header {
+  background: #111827;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a {
+  margin-left: 20px;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: white;
+}
+
+/* Footer */
+.site-footer {
+  background: #111827;
+  padding: 20px 0;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* Main content */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
