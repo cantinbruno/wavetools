@@ -43,7 +43,7 @@ body {
   height: auto;
   display: block;
   margin: 0;
-  transform: translateY(-18px); /* remonte moins = bas visible */
+  transform: translateY(-12px); /* remonte moins = bas visible */
 }
 
 /* Navigation */
