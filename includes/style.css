@@ -3,7 +3,9 @@
    ========================= */
 *,
 *::before,
-*::after{ box-sizing: border-box; }
+*::after{
+  box-sizing: border-box;
+}
 
 html, body{
   height: 100%;
@@ -86,7 +88,7 @@ main,
    NAVBAR — BARRE UNIQUE (PC + MOBILE)
    - Pas de hamburger
    - Sur petit écran: wrap sur 2 lignes
-   - Dropdown: hover (PC) + focus-within (mobile tap)
+   - Dropdown: hover (PC) + focus-within (tap mobile)
    - Menus collés + pont anti trou
    ========================================================= */
 .navbar{
@@ -106,7 +108,7 @@ main,
   align-items: center;
   gap: 4px;
 
-  flex-wrap: wrap;          /* clé: pas de hamburger */
+  flex-wrap: wrap;
   row-gap: 2px;
 
   overflow: visible;
@@ -130,7 +132,7 @@ main,
   text-decoration: none;
   font-size: 14px;
 
-  text-shadow: none; /* plus clean */
+  text-shadow: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -139,7 +141,7 @@ main,
   background: rgba(255,255,255,0.06);
 }
 
-/* parent dropdown : petit chevron auto */
+/* parent dropdown : chevron */
 .menu > li.has-submenu > a::after{
   content: " ▾";
   opacity: .9;
@@ -160,7 +162,7 @@ main,
   box-shadow: 0 14px 40px rgba(0,0,0,0.45);
 
   position: absolute;
-  top: 100%;         /* COLLÉ */
+  top: 100%;
   left: 0;
   min-width: 220px;
   z-index: 999999;
@@ -177,7 +179,7 @@ main,
 .submenu-right{
   top: 0;
   left: 100%;
-  margin-left: 0;    /* COLLÉ */
+  margin-left: 0;
 }
 
 /* liens dans sous-menu */
@@ -206,7 +208,7 @@ main,
   opacity: .9;
 }
 
-/* ===== OUVERTURE : hover + focus-within ===== */
+/* ouverture : hover + focus-within */
 .menu > li.has-submenu:hover > .submenu,
 .menu > li.has-submenu:focus-within > .submenu{
   opacity: 1;
@@ -223,8 +225,6 @@ main,
   transform: translateY(0);
 }
 
-/* ===== PONTS INVISIBLES (anti sortie du menu) ===== */
-
 /* pont entre parent et submenu (niveau 1) */
 .menu > li.has-submenu > .submenu::before{
   content:"";
@@ -235,7 +235,7 @@ main,
   height: 10px;
 }
 
-/* pont entre submenu niveau 1 et niveau 2 (sur la gauche du niveau 2) */
+/* pont entre submenu niveau 1 et niveau 2 */
 .submenu > li.has-submenu > .submenu::before{
   content:"";
   position: absolute;
@@ -245,16 +245,14 @@ main,
   height: 100%;
 }
 
-/* améliore le tap mobile (focus visible) */
+/* focus visible */
 .menu a:focus{
   outline: 2px solid rgba(45,212,255,0.55);
   outline-offset: 2px;
   border-radius: 10px;
 }
 
-/* =========================
-   MOBILE — sans hamburger, juste plus compact
-   ========================= */
+/* MOBILE — sans hamburger, plus compact + anti overflow */
 @media (max-width:700px){
   .menu{
     justify-content: center;
@@ -268,7 +266,7 @@ main,
     font-size: 13.5px;
   }
 
-  /* sur mobile: éviter que le sous-menu sorte de l'écran */
+  /* sous-menu centré (évite sortie écran) */
   .submenu{
     left: 50%;
     transform: translate(-50%, 2px);
@@ -280,7 +278,7 @@ main,
     transform: translate(-50%, 0);
   }
 
-  /* niveau 2: on l'affiche en dessous (pas à droite) pour éviter overflow */
+  /* niveau 2 : en dessous */
   .submenu-right{
     left: 0;
     top: 100%;
@@ -293,7 +291,7 @@ main,
     transform: translateY(0);
   }
 
-  /* pont niveau 2 en mobile: inutile, on le désactive */
+  /* pont niveau 2 inutile sur mobile */
   .submenu > li.has-submenu > .submenu::before{
     display: none;
   }
@@ -334,6 +332,7 @@ main > *:not(.wt-showcase){
 
 /* =========================
    WaveTools Showcase — FULL CINEMATIC FORCED
+   + FIX: bloc reverse (image au-dessus sur mobile)
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -349,6 +348,7 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
+/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -357,6 +357,7 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
+/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -380,8 +381,15 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
+/* bloc 2 image gauche desktop */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
+}
+
+/* texte */
+.wt-card__text{
+  display: flex;
+  flex-direction: column;
 }
 
 .wt-title{
@@ -405,6 +413,7 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
+/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
@@ -424,6 +433,7 @@ main > *:not(.wt-showcase){
   50%{ transform:translateY(-14px); }
 }
 
+/* animations desktop */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
@@ -453,7 +463,9 @@ main > *:not(.wt-showcase){
   to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
 }
 
+/* MOBILE showcase */
 @media (max-width:980px){
+
   :root{ --zig:0px; --push:140px; }
 
   .wt-showcase{
@@ -478,9 +490,12 @@ main > *:not(.wt-showcase){
     text-align:center;
   }
 
-  .wt-showcase .wt-card:nth-child(1),
-  .wt-showcase .wt-card:nth-child(2),
-  .wt-showcase .wt-card:nth-child(3){
+  /* ✅ FIX demandé : bloc 2 (reverse) => image au-dessus */
+  .wt-card--reverse .wt-card__media{ order: -1; }
+  .wt-card--reverse .wt-card__text{ order: 1; }
+
+  /* sur mobile, pas de décalage horizontal */
+  .wt-showcase .wt-card{
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
