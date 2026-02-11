@@ -83,10 +83,10 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — DETAILS/SUMMARY (CSS ONLY, CROSS-PLATFORM)
-   - PC : hover (sans clic)
-   - Mobile : clic (details open)
-   - Menus collés + pont anti-trou
+   NAVBAR — 100% CLIC (PC + MOBILE) SANS JS
+   - même comportement partout : clic pour ouvrir/fermer
+   - sous-menus niveau 2 OK (pas de clipping)
+   - pas de hamburger
    ========================================================= */
 .navbar{
   width: 100%;
@@ -95,7 +95,7 @@ main,
   overflow: visible;
 }
 
-/* UL top-level */
+/* Top menu */
 .menu{
   list-style: none;
   margin: 0;
@@ -106,182 +106,201 @@ main,
   align-items: center;
 
   gap: 6px;
-  flex-wrap: wrap;      /* pas de hamburger */
+  flex-wrap: wrap;
   row-gap: 2px;
 
   overflow: visible;
 }
 
-.menu > li{ position: relative; overflow: visible; }
+.menu > li{
+  position: relative;
+  overflow: visible;
+}
 
-/* lien top-level simple */
+/* lien simple (Home) */
 .menu > li > a{
-  display:inline-flex;
-  align-items:center;
-  padding:10px 12px;
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 12px;
   border-radius: 10px;
 
-  color:#cbd5e1;
-  text-decoration:none;
-  font-size:14px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
 
   text-shadow: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .menu > li > a:hover{
-  color:#fff;
+  color: #fff;
   background: rgba(255,255,255,0.06);
 }
 
-/* details / summary */
+/* Details */
 .menu details{
   position: relative;
   overflow: visible;
 }
 
+/* Summary = bouton */
 .menu summary{
-  list-style:none;
-  cursor:pointer;
+  list-style: none;
+  cursor: pointer;
 
-  display:inline-flex;
-  align-items:center;
+  display: inline-flex;
+  align-items: center;
 
-  padding:10px 12px;
+  padding: 10px 12px;
   border-radius: 10px;
 
-  color:#cbd5e1;
-  font-size:14px;
-  user-select:none;
-  outline:none;
+  color: #cbd5e1;
+  font-size: 14px;
+  user-select: none;
+  outline: none;
 
   text-shadow: none;
   -webkit-tap-highlight-color: transparent;
 }
-.menu summary:hover{
-  color:#fff;
-  background: rgba(255,255,255,0.06);
-}
+
+/* enlever triangle natif */
 .menu summary::-webkit-details-marker{ display:none; }
 
-/* sous-menus */
+/* chevron niveau 1 */
+.menu summary::after{
+  content: " ▾";
+  font-size: 12px;
+  opacity: .85;
+  transform: translateY(1px);
+}
+
+.menu summary:hover{
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+/* Sous-menu style */
 .submenu{
-  list-style:none;
-  margin:0;
+  list-style: none;
+  margin: 0;
   padding: 6px 0;
 
   background: rgba(15,23,42,0.98);
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:12px;
-  box-shadow:0 14px 40px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
 
-  /* IMPORTANT : pas de display:none (Safari iOS) */
-  max-height: 0;
-  overflow: hidden;
+  z-index: 999999;
+}
+
+/* liens */
+.submenu a{
+  display: block;
+  padding: 10px 12px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.submenu a:hover{
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* Sous-menu fermé par défaut (desktop) */
+.menu details > .submenu{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transform: translateY(2px);
-  transition: max-height .22s ease, opacity .16s ease, transform .16s ease, visibility .16s ease;
+
+  transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
 }
 
-/* liens dans les sous-menus */
-.submenu a{
-  display:block;
-  padding:10px 12px;
-  color:#e5e7eb;
-  text-decoration:none;
-  font-size:14px;
-  white-space:nowrap;
-}
-.submenu a:hover{
-  background:rgba(255,255,255,0.06);
-  color:#fff;
+/* Ouvert uniquement au clic */
+.menu details[open] > .submenu{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-/* summary dans les sous-menus */
+/* --- Niveau 2 --- */
+.submenu > li{
+  position: relative;
+}
+
+/* summary de niveau 2 style "item" */
 .submenu summary{
-  display:flex;
-  justify-content: space-between;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  color: #e5e7eb;
+  background: transparent;
 }
 
-/* -------------------------
-   DESKTOP : dropdown au hover
-   ------------------------- */
-@media (min-width:981px){
-
-  /* position dropdown niveau 1 */
-  .menu > li > details > .submenu{
-    position:absolute;
-    top: 100%;            /* collé */
-    left: 0;
-    min-width: 220px;
-    z-index: 999999;
-  }
-
-  /* dropdown niveau 2 à droite */
-  .submenu > li > details > .submenu{
-    position:absolute;
-    top: 0;
-    left: 100%;
-    margin-left: 0;       /* collé */
-    min-width: 220px;
-    z-index: 999999;
-  }
-
-  /* OUVERTURE AU SURVOL (pas besoin de clic) */
-  .menu > li > details:hover > .submenu,
-  .menu > li > details:focus-within > .submenu,
-  .submenu > li > details:hover > .submenu,
-  .submenu > li > details:focus-within > .submenu{
-    padding: 6px 0;
-    max-height: 1000px;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: translateY(0);
-  }
-
-  /* pont anti-trou niveau 1 */
-  .menu > li > details > .submenu::before{
-    content:"";
-    position:absolute;
-    top:-10px;
-    left:0;
-    width:100%;
-    height:10px;
-  }
-
-  /* pont anti-trou niveau 2 (entre menu et sous-menu droite) */
-  .submenu > li > details > .submenu::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-10px;
-    width:10px;
-    height:100%;
-  }
+/* chevron niveau 2 -> ▸ */
+.submenu summary::after{
+  content: "▸";
+  font-size: 12px;
+  opacity: .85;
+  transform: translateY(0);
 }
 
-/* -------------------------
-   MOBILE : clic (details[open])
-   + pas de menu à droite, tout descend
-   ------------------------- */
+.submenu summary:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+/* position niveau 2 (à droite sur desktop) */
+.submenu > li > details > .submenu{
+  top: 0;
+  left: 100%;
+  margin-left: 0;
+  min-width: 230px;
+}
+
+/* pont anti-trou (niveau 1) */
+.menu details > .submenu::before{
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:100%;
+  height:10px;
+}
+
+/* pont anti-trou (niveau 2) */
+.submenu > li > details > .submenu::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-10px;
+  width:10px;
+  height:100%;
+}
+
+/* ===== MOBILE : tout descend (pas à droite) ===== */
 @media (max-width:980px){
 
   .menu{
-    justify-content: center;
+    padding: 0 6px 6px;
     gap: 4px;
     row-gap: 6px;
-    padding: 0 6px 6px;
   }
 
-  /* rendre les items “tap friendly” */
+  /* boutons plus gros */
   .menu > li > a,
   .menu summary{
     padding: 12px 14px;
@@ -290,24 +309,43 @@ main,
     border: 1px solid rgba(255,255,255,0.10);
   }
 
-  /* sous-menus dans le flux */
-  .menu > li > details > .submenu,
-  .submenu > li > details > .submenu{
-    position: static !important;
+  /* dropdown niveau 1 dans le flux (accordion) */
+  .menu details > .submenu{
+    position: static;
+    min-width: 0;
     margin-top: 6px;
+
     box-shadow: none;
     background: rgba(15,23,42,0.92);
-    transform: none;
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: max-height .22s ease, opacity .16s ease, visibility .16s ease;
   }
 
-  /* ouverture au clic (details open) */
-  details[open] > .submenu{
-    padding: 6px 0;
-    max-height: 1000px;
-
+  .menu details[open] > .submenu{
+    max-height: 1200px;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+
+  /* niveau 2 descend aussi */
+  .submenu > li > details > .submenu{
+    position: static;
+    min-width: 0;
+    margin-top: 6px;
+  }
+
+  /* ponts inutiles sur mobile */
+  .menu details > .submenu::before,
+  .submenu > li > details > .submenu::before{
+    display: none;
   }
 }
 
@@ -346,6 +384,7 @@ main > *:not(.wt-showcase){
 
 /* =========================
    WaveTools Showcase — FULL CINEMATIC FORCED
+   + FIX mobile bloc reverse : image au-dessus
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -361,6 +400,7 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
+/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -369,6 +409,7 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
+/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -392,8 +433,15 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
+/* bloc reverse (desktop) */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
+}
+
+/* texte */
+.wt-card__text{
+  display:flex;
+  flex-direction: column;
 }
 
 .wt-title{
@@ -417,15 +465,11 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
+/* media */
 .wt-card__media{
   display:flex;
   justify-content:center;
   align-items:center;
-}
-
-.wt-card__text{
-  display:flex;
-  flex-direction: column;
 }
 
 .wt-img{
@@ -472,7 +516,7 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   MOBILE (showcase)
+   MOBILE showcase
    ✅ FIX FIABLE : grid-template-areas
    ========================= */
 @media (max-width:980px){
@@ -483,7 +527,6 @@ main > *:not(.wt-showcase){
     gap: 18px;
   }
 
-  /* 1 colonne + areas (FIABLE PARTOUT) */
   .wt-card{
     width:100%;
     margin:0 !important;
@@ -500,7 +543,7 @@ main > *:not(.wt-showcase){
   .wt-card__text{ grid-area: text; }
   .wt-card__media{ grid-area: media; }
 
-  /* ✅ bloc 2 reverse : image AU-DESSUS */
+  /* ✅ bloc reverse : image au-dessus */
   .wt-card--reverse{
     grid-template-areas:
       "media"
