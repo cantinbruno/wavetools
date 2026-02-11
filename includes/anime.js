@@ -16,9 +16,9 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.18
 });
+cards.forEach(card => observer.observe(card));
 });
 
-cards.forEach(card => observer.observe(card));
 
 (() => {
   const c = document.getElementById("siteBg");
