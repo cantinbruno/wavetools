@@ -217,8 +217,9 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   WaveTools Showcase — cinematic (ORDER FORCED)
+   WaveTools Showcase — direction forcée
    ========================= */
+
 :root{
   --txt: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
@@ -229,10 +230,11 @@ main > *:not(.wt-showcase){
   --c2:#7c3aed;
   --r: 22px;
 
-  /* décalage zigzag desktop */
-  --zig: 70px;
+  --zig: 70px;      /* décalage zigzag desktop */
+  --push: 260px;    /* distance de départ animation */
 }
 
+/* wrapper */
 .wt-main{
   background: transparent;
   color: var(--txt);
@@ -249,7 +251,7 @@ main > *:not(.wt-showcase){
   max-width: 100%;
 }
 
-/* cartes */
+/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -276,6 +278,7 @@ main > *:not(.wt-showcase){
   will-change: transform, opacity;
 }
 
+/* halo */
 .wt-card::before{
   content:"";
   position:absolute;
@@ -287,20 +290,6 @@ main > *:not(.wt-showcase){
   z-index:0;
 }
 .wt-card > *{ position:relative; z-index:1; }
-
-/* zigzag permanent + alignement */
-.wt-showcase .wt-card:nth-child(1){
-  margin-right: auto;
-  transform: translateX(calc(var(--zig) * -1));
-}
-.wt-showcase .wt-card:nth-child(2){
-  margin-left: auto;
-  transform: translateX(var(--zig));
-}
-.wt-showcase .wt-card:nth-child(3){
-  margin-right: auto;
-  transform: translateX(calc(var(--zig) * -1));
-}
 
 /* bloc 2 image gauche */
 .wt-card--reverse{
@@ -368,51 +357,76 @@ main > *:not(.wt-showcase){
   animation: float 10s ease-in-out infinite;
 }
 
-/* ===== PC : animations forcées par l'ordre (cinématique) ===== */
-@media (min-width:981px){
-  .wt-card{ animation: none; } /* on gère uniquement via nth-child */
-
-  .wt-showcase .wt-card:nth-child(1){
-    animation: slideCard1 8s cubic-bezier(.12,.85,.12,1) both;
-    animation-delay: .3s;
-  }
-  .wt-showcase .wt-card:nth-child(2){
-    animation: slideCard2 8s cubic-bezier(.12,.85,.12,1) both;
-    animation-delay: 1.6s;
-  }
-  .wt-showcase .wt-card:nth-child(3){
-    animation: slideCard3 8s cubic-bezier(.12,.85,.12,1) both;
-    animation-delay: 3s;
-  }
-
-  /* 1 : gauche -> zigzag gauche */
-  @keyframes slideCard1{
-    from{ opacity:0; transform: translateX(calc(var(--zig) * -1 - 260px)); }
-    to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
-  }
-
-  /* 2 : droite -> zigzag droite */
-  @keyframes slideCard2{
-    from{ opacity:0; transform: translateX(calc(var(--zig) + 260px)); }
-    to  { opacity:1; transform: translateX(var(--zig)); }
-  }
-
-  /* 3 : gauche -> zigzag gauche */
-  @keyframes slideCard3{
-    from{ opacity:0; transform: translateX(calc(var(--zig) * -1 - 260px)); }
-    to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
-  }
-}
-
 @keyframes float{
   0%,100%{ transform:translateY(0); }
   50%{ transform:translateY(-14px); }
 }
 
 /* =========================
-   MOBILE — beau + bulles alignées
+   DIRECTION FORCÉE PAR BLOC
+   (fonctionne PC + mobile)
+   ========================= */
+
+/* 1 : gauche -> position zigzag gauche */
+.wt-showcase .wt-card:nth-child(1){
+  margin-right:auto;
+  animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
+  animation-delay: .3s;
+}
+@keyframes cardLeft{
+  from{
+    opacity:0;
+    transform: translateX(calc(var(--zig) * -1 - var(--push)));
+  }
+  to{
+    opacity:1;
+    transform: translateX(calc(var(--zig) * -1));
+  }
+}
+
+/* 2 : droite -> position zigzag droite */
+.wt-showcase .wt-card:nth-child(2){
+  margin-left:auto;
+  animation: cardRight 8s cubic-bezier(.12,.85,.12,1) both;
+  animation-delay: 1.6s;
+}
+@keyframes cardRight{
+  from{
+    opacity:0;
+    transform: translateX(calc(var(--zig) + var(--push)));
+  }
+  to{
+    opacity:1;
+    transform: translateX(var(--zig));
+  }
+}
+
+/* 3 : gauche -> position zigzag gauche */
+.wt-showcase .wt-card:nth-child(3){
+  margin-right:auto;
+  animation: cardLeft3 8s cubic-bezier(.12,.85,.12,1) both;
+  animation-delay: 3s;
+}
+@keyframes cardLeft3{
+  from{
+    opacity:0;
+    transform: translateX(calc(var(--zig) * -1 - var(--push)));
+  }
+  to{
+    opacity:1;
+    transform: translateX(calc(var(--zig) * -1));
+  }
+}
+
+/* =========================
+   MOBILE
    ========================= */
 @media (max-width:980px){
+
+  :root{
+    --zig: 0px;     /* zigzag annulé */
+    --push: 140px;  /* départ moins violent */
+  }
 
   .wt-showcase{
     max-width: 520px;
@@ -427,9 +441,6 @@ main > *:not(.wt-showcase){
     padding: 16px;
     grid-template-columns: 1fr;
     gap: 14px;
-
-    /* annule zigzag */
-    transform: none !important;
   }
 
   .wt-title{
@@ -442,8 +453,6 @@ main > *:not(.wt-showcase){
     margin-bottom: 14px;
   }
 
-  .wt-card__media{ justify-content: center; }
-
   .wt-img{
     width: min(320px, 100%);
     margin: 0 auto;
@@ -451,34 +460,30 @@ main > *:not(.wt-showcase){
 
   /* bulles parfaitement alignées */
   .wt-actions{
-    display: grid;
-    gap: 12px;
-    justify-items: stretch;
+    display:grid;
+    gap:12px;
+    justify-items:stretch;
   }
 
   .wt-btn{
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+    width:100%;
+    text-align:center;
+    justify-content:center;
   }
 
-  /* mobile : entrée lente (mais moins longue que PC) */
-  .wt-card:nth-child(1){ animation: slideM1 6s cubic-bezier(.12,.85,.12,1) both; animation-delay:.2s; }
-  .wt-card:nth-child(2){ animation: slideM2 6s cubic-bezier(.12,.85,.12,1) both; animation-delay:1.1s; }
-  .wt-card:nth-child(3){ animation: slideM3 6s cubic-bezier(.12,.85,.12,1) both; animation-delay:2s; }
-
-  @keyframes slideM1{ from{opacity:0;transform:translateX(-120px);} to{opacity:1;transform:translateX(0);} }
-  @keyframes slideM2{ from{opacity:0;transform:translateX(120px);}  to{opacity:1;transform:translateX(0);} }
-  @keyframes slideM3{ from{opacity:0;transform:translateX(-120px);} to{opacity:1;transform:translateX(0);} }
+  /* durée mobile un peu plus courte */
+  .wt-showcase .wt-card:nth-child(1),
+  .wt-showcase .wt-card:nth-child(2),
+  .wt-showcase .wt-card:nth-child(3){
+    animation-duration: 6s;
+  }
 }
 
-/* bonus très petit écran */
 @media (max-width:420px){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
 
-/* accessibilité */
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
