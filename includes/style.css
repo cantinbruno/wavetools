@@ -31,7 +31,7 @@ body {
 /* Logo (recadrage doux + stable) */
 .logo {
   display: block;
-  width: 320px;   /* plus large pour voir "WAVETOOLS" */
+  width: 360px;   /* plus large pour voir "WAVETOOLS" */
   height: 90px;   /* assez haut pour ne pas couper */
 }
 
@@ -43,23 +43,84 @@ body {
   display: block;
 }
 
-/* Navigation */
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin: 0;
-  padding: 0;
+/* NAVBAR */
+.navbar {
+  width: 100%;
 }
 
-.nav a {
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Top links */
+.menu > li {
+  position: relative;
+}
+
+.menu > li > a {
+  display: block;
+  padding: 10px 12px;
   color: #9ca3af;
   text-decoration: none;
   font-size: 14px;
 }
 
-.nav a:hover {
-  color: white;
+.menu > li > a:hover {
+  color: #ffffff;
+}
+
+/* Submenu */
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 210px;
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.submenu li {
+  position: relative;
+}
+
+.submenu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.submenu a:hover {
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+}
+
+/* Level 2 submenu -> opens right */
+.submenu-right {
+  top: 0;
+  left: 100%;
+  margin-left: 6px;
+}
+
+/* Open on hover */
+.has-submenu:hover > .submenu {
+  display: block;
 }
 
 /* Main content */
