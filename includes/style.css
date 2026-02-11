@@ -83,10 +83,9 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — 100% CLIC (PC + MOBILE) SANS JS
-   - PC: dropdown (absolute) + clic
-   - Mobile: POPUP overlay (fixed) + clic
-   - Pas de hamburger
+   NAVBAR — CLIC ONLY (PC + MOBILE) SANS JS
+   - PC: dropdown absolute (ne grandit pas header)
+   - Mobile: popup fixed overlay (ne grandit pas header)
    ========================================================= */
 .navbar{
   width: 100%;
@@ -164,7 +163,6 @@ main,
   -webkit-tap-highlight-color: transparent;
 }
 
-/* enlever triangle natif */
 .menu summary::-webkit-details-marker{ display:none; }
 
 /* chevron niveau 1 */
@@ -209,18 +207,16 @@ main,
   color: #fff;
 }
 
-/* Sous-menu fermé par défaut */
+/* --------- ETATS OUVERT/FERME (commun) --------- */
 .menu details > .submenu,
 .submenu details > .submenu{
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(2px);
-
   transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
 }
 
-/* Ouvert uniquement au clic */
 .menu details[open] > .submenu,
 .submenu details[open] > .submenu{
   opacity: 1;
@@ -230,9 +226,7 @@ main,
 }
 
 /* --- Niveau 2 --- */
-.submenu > li{
-  position: relative;
-}
+.submenu > li{ position: relative; }
 
 /* summary de niveau 2 style "item" */
 .submenu summary{
@@ -248,22 +242,21 @@ main,
   background: transparent;
 }
 
-/* chevron niveau 2 -> ▸ */
 .submenu summary::after{
   content: "▸";
   font-size: 12px;
   opacity: .85;
-  transform: translateY(0);
 }
 
 .submenu summary:hover{
   background: rgba(255,255,255,0.06);
 }
 
-/* ===== DESKTOP : dropdown en absolute ===== */
+/* =========================
+   DESKTOP : dropdown absolute
+   ========================= */
 @media (min-width:981px){
 
-  /* niveau 1 */
   .menu > li > details > .submenu{
     position: absolute;
     top: 100%;
@@ -271,7 +264,6 @@ main,
     min-width: 230px;
   }
 
-  /* niveau 2 à droite */
   .submenu > li > details > .submenu{
     position: absolute;
     top: 0;
@@ -280,7 +272,7 @@ main,
     margin-left: 0;
   }
 
-  /* pont anti-trou niveau 1 */
+  /* pont anti-trou */
   .menu > li > details > .submenu::before{
     content:"";
     position:absolute;
@@ -289,8 +281,6 @@ main,
     width:100%;
     height:10px;
   }
-
-  /* pont anti-trou niveau 2 */
   .submenu > li > details > .submenu::before{
     content:"";
     position:absolute;
@@ -301,10 +291,14 @@ main,
   }
 }
 
-/* ===== MOBILE/TABLET : navbar compacte + POPUP overlay ===== */
-@media (max-width:980px){
+/* =========================================================
+   MOBILE (TOUCH) : POPUP FIXED overlay
+   -> ne grandit pas le header
+   -> marche même si max-width est bancal
+   ========================================================= */
+@media (hover: none), (pointer: coarse){
 
-  /* barre sur une ligne, scroll horizontal */
+  /* barre compacte + scroll horizontal */
   .menu{
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -338,25 +332,26 @@ main,
     border-radius: 10px !important;
   }
 
-  /* popup niveau 1 (overlay) */
+  /* popup niveau 1 */
   .menu > li > details > .submenu{
     position: fixed !important;
 
-    /* Ajuste cette valeur si nécessaire */
-    top: 140px; /* hauteur approximative logo + nav */
-    left: 50%;
-    transform: translateX(-50%);
+    /* Ajuste si besoin : hauteur logo + nav */
+    top: 140px !important;
 
-    width: min(92vw, 360px);
-    max-height: 65vh;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 
-    overflow: auto;
+    width: min(92vw, 380px) !important;
+    max-height: 65vh !important;
+
+    overflow: auto !important;
     -webkit-overflow-scrolling: touch;
 
-    box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.55) !important;
   }
 
-  /* niveau 2 : on l’affiche DANS le même popup, en dessous */
+  /* niveau 2 : en dessous dans le popup */
   .submenu > li > details > .submenu{
     position: static !important;
     min-width: 0 !important;
@@ -364,6 +359,12 @@ main,
 
     box-shadow: none !important;
     background: rgba(15,23,42,0.92) !important;
+
+    /* IMPORTANT : on laisse visible */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
   }
 
   /* pas de ponts sur mobile */
