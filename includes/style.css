@@ -3,7 +3,9 @@
    ========================= */
 *,
 *::before,
-*::after{ box-sizing: border-box; }
+*::after{
+  box-sizing: border-box;
+}
 
 html, body{
   height: 100%;
@@ -31,7 +33,9 @@ body{
   pointer-events: none;
 }
 
-.site-header, main, .site-footer{
+.site-header,
+main,
+.site-footer{
   position: relative;
   z-index: 1;
 }
@@ -64,6 +68,7 @@ body{
   overflow: visible !important;
 }
 
+/* Logo */
 .site-header .logo{
   display: block;
   width: 380px;
@@ -154,13 +159,21 @@ body{
   margin-left: 6px;
 }
 
-/* ouverture desktop hover */
+/* Desktop hover + clavier */
 .menu li.has-submenu:hover > .submenu,
 .menu li.has-submenu:focus-within > .submenu{
   display: block;
 }
 
-/* Pont vertical */
+/* IMPORTANT : ouvertures via JS (.open) */
+.menu li.has-submenu.open > .submenu{
+  display: block;
+}
+.submenu li.has-submenu.open > .submenu{
+  display: block;
+}
+
+/* Ponts desktop */
 .menu li.has-submenu > .submenu::before{
   content: "";
   position: absolute;
@@ -170,7 +183,6 @@ body{
   height: 10px;
 }
 
-/* Pont horizontal */
 .submenu li.has-submenu::after{
   content: "";
   position: absolute;
@@ -333,19 +345,19 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   MOBILE : menus EN DESSOUS (sans JS)
+   MOBILE : sous-menus EN DESSOUS + ouverture JS
    ========================= */
 @media (max-width:980px){
 
   :root{ --zig:0px; --push:140px; }
 
-  /* IMPORTANT : sur mobile on empile le menu, sinon iOS galère */
+  /* Menu plus tolérant en largeur */
   .menu{
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  /* ✅ Le sous-menu devient "dans le flow" => s'affiche EN DESSOUS */
+  /* Sous-menu en dessous (dans le flow) */
   .submenu{
     position: static !important;
     top: auto !important;
@@ -356,48 +368,36 @@ main > *:not(.wt-showcase){
     width: 100% !important;
     min-width: 0 !important;
 
-    max-height: none !important;
-    overflow: visible !important;
-
     margin: 6px 0 0 0 !important;
     border-radius: 12px;
   }
 
-  /* sous-sous-menu aussi en dessous */
+  /* Sous-sous-menu en dessous aussi */
   .submenu .submenu{
     position: static !important;
     margin: 6px 0 0 0 !important;
     width: 100% !important;
   }
 
-  /* ✅ ouverture fiable au tap iPhone : focus-within sur le LI */
-  /* Quand tu touches le lien, iOS donne le focus => le submenu s'affiche */
-  .menu li.has-submenu:focus-within > .submenu{
-    display: block;
-  }
-  .submenu li.has-submenu:focus-within > .submenu{
-    display: block;
-  }
-
-  /* on coupe le hover sur mobile */
+  /* On coupe l’hover sur mobile (c’est JS qui gère .open) */
   .menu li.has-submenu:hover > .submenu,
   .submenu li.has-submenu:hover > .submenu{
-    display: none;
+    display: none !important;
   }
 
-  /* ponts inutiles */
+  /* Ponts inutiles */
   .menu li.has-submenu > .submenu::before,
   .submenu li.has-submenu::after{
     display: none !important;
   }
 
-  /* confort tap */
+  /* Tap confort */
   .menu > li > a,
   .submenu a{
     padding: 12px 14px;
   }
 
-  /* Showcase mobile (inchangé) */
+  /* Showcase mobile */
   .wt-showcase{
     padding: 10px 12px;
     gap: 18px;
