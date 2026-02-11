@@ -59,14 +59,14 @@ main,
   position: sticky;
   top: 0;
   z-index: 9999;
-  overflow: visible !important; /* important dropdown iOS */
+  overflow: visible !important;
 }
 
 .site-header .container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: visible !important; /* important dropdown iOS */
+  overflow: visible !important;
 }
 
 /* Logo */
@@ -85,11 +85,9 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — SANS JS (DETAILS) + FIX iOS (Safari)
-   - Desktop: dropdown (absolute)
-   - Mobile: accordéon dans le flux
+   NAVBAR — Desktop: HOVER (sans clic)
+   Mobile: CLICK via <details>
    ========================================================= */
-
 .navbar{
   width: 100%;
   position: relative;
@@ -97,7 +95,6 @@ main,
   overflow: visible;
 }
 
-/* UL top-level */
 .menu{
   list-style: none;
   margin: 0;
@@ -107,15 +104,15 @@ main,
   justify-content: center;
   gap: 6px;
 
-  overflow: visible; /* iOS */
+  overflow: visible;
 }
 
 .menu > li{
   position: relative;
-  overflow: visible; /* iOS */
+  overflow: visible;
 }
 
-/* lien top-level simple (Home) */
+/* top-level simple */
 .menu > li > a{
   display:block;
   padding:10px 12px;
@@ -132,15 +129,14 @@ main,
   overflow: visible;
 }
 
-/* summary top-level */
 .menu summary{
   list-style:none;
   cursor:pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 
   padding:10px 12px;
   color:#9ca3af;
@@ -155,11 +151,9 @@ main,
 .menu summary:hover{ color:#fff; }
 .menu summary::-webkit-details-marker{ display:none; }
 
-/* ---------------------------------------------------------
-   SOUS-MENUS : éviter display:none (bug iOS sur <details>)
-   fermé = invisible + non cliquable
-   ouvert = visible + cliquable
-   --------------------------------------------------------- */
+/* -------------------------
+   Sous-menus (base)
+   ------------------------- */
 .submenu{
   list-style:none;
   margin:0;
@@ -170,30 +164,23 @@ main,
   border-radius:10px;
   box-shadow:0 10px 30px rgba(0,0,0,0.35);
 
-  /* fermé */
-  max-height:0;
-  overflow:hidden;
+  /* caché par défaut */
+  max-height: 0;
+  overflow: hidden;
 
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 
   transition:
     max-height .25s ease,
-    opacity .18s ease;
+    opacity .18s ease,
+    transform .18s ease;
+
+  transform: translateY(6px);
 }
 
-/* ouvert (niveau 1 et niveau 2) */
-details[open] > .submenu{
-  padding:8px 0;
-  max-height:1000px;
-
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
-}
-
-/* liens dans les sous-menus */
+/* liens dans sous-menus */
 .submenu a{
   display:block;
   padding:10px 12px;
@@ -207,7 +194,7 @@ details[open] > .submenu{
   color:#fff;
 }
 
-/* summary dans les sous-menus */
+/* summary dans sous-menus */
 .submenu summary{
   list-style:none;
   cursor:pointer;
@@ -219,15 +206,15 @@ details[open] > .submenu{
   padding:10px 12px;
   color:#cbd5e1;
   font-size:14px;
-  user-select:none;
 
+  user-select:none;
   -webkit-tap-highlight-color: transparent;
 }
 .submenu summary:hover{ color:#fff; }
 .submenu summary::-webkit-details-marker{ display:none; }
 
 /* =========================
-   DESKTOP : dropdown en absolute
+   DESKTOP : ouverture AU SURVOL (pas de clic)
    ========================= */
 @media (min-width:981px){
 
@@ -259,10 +246,35 @@ details[open] > .submenu{
     width:100%;
     height:10px;
   }
+
+  /* OUVERTURE AU HOVER / FOCUS */
+  .menu > li:hover > details > .submenu,
+  .menu > li:focus-within > details > .submenu{
+    padding: 8px 0;
+    max-height: 1000px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+  .submenu > li:hover > details > .submenu,
+  .submenu > li:focus-within > details > .submenu{
+    padding: 8px 0;
+    max-height: 1000px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
 }
 
 /* =========================
-   MOBILE : accordéon en dessous
+   MOBILE : ouverture AU CLIC
    ========================= */
 @media (max-width:980px){
 
@@ -280,13 +292,24 @@ details[open] > .submenu{
     border-radius: 12px;
   }
 
-  /* sous-menus dans le flux (en dessous) */
+  /* sous-menus dans le flux */
   .menu > li > details > .submenu,
   .submenu > li > details > .submenu{
     position: static !important;
     margin-top: 6px;
     box-shadow: none;
     background: rgba(15,23,42,0.92);
+    transform: none;
+  }
+
+  /* ouvert sur mobile uniquement via details[open] */
+  details[open] > .submenu{
+    padding: 8px 0;
+    max-height: 1000px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   /* confort tap */
