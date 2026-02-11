@@ -59,14 +59,14 @@ main,
   position: sticky;
   top: 0;
   z-index: 9999;
-  overflow: visible !important;
+  overflow: visible !important; /* important dropdown iOS */
 }
 
 .site-header .container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: visible !important;
+  overflow: visible !important; /* important dropdown iOS */
 }
 
 /* Logo */
@@ -85,15 +85,16 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — SANS JS (DETAILS) + FIX iPhone
-   - Desktop: dropdown
-   - Mobile: accordéon en dessous
+   NAVBAR — SANS JS (DETAILS) + FIX iOS (Safari)
+   - Desktop: dropdown (absolute)
+   - Mobile: accordéon dans le flux
    ========================================================= */
+
 .navbar{
   width: 100%;
   position: relative;
   z-index: 10000;
-  overflow: visible !important;
+  overflow: visible;
 }
 
 /* UL top-level */
@@ -101,12 +102,18 @@ main,
   list-style: none;
   margin: 0;
   padding: 0;
+
   display: flex;
   justify-content: center;
   gap: 6px;
+
+  overflow: visible; /* iOS */
 }
 
-.menu > li{ position: relative; }
+.menu > li{
+  position: relative;
+  overflow: visible; /* iOS */
+}
 
 /* lien top-level simple (Home) */
 .menu > li > a{
@@ -115,48 +122,75 @@ main,
   color:#9ca3af;
   text-decoration:none;
   font-size:14px;
+  -webkit-tap-highlight-color: transparent;
 }
 .menu > li > a:hover{ color:#fff; }
 
 /* details/summary */
-.menu details{ position: relative; }
+.menu details{
+  position: relative;
+  overflow: visible;
+}
 
+/* summary top-level */
 .menu summary{
   list-style:none;
   cursor:pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
   padding:10px 12px;
   color:#9ca3af;
   font-size:14px;
+
   user-select:none;
   outline:none;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 .menu summary:hover{ color:#fff; }
 .menu summary::-webkit-details-marker{ display:none; }
 
 /* ---------------------------------------------------------
-   SOUS-MENUS : PAS de display:none (bug iOS)
-   fermé: max-height:0 / ouvert: max-height:1000px
+   SOUS-MENUS : éviter display:none (bug iOS sur <details>)
+   fermé = invisible + non cliquable
+   ouvert = visible + cliquable
    --------------------------------------------------------- */
 .submenu{
   list-style:none;
   margin:0;
   padding:0;
 
-  overflow:hidden;
-  max-height:0;
-
   background:#0f172a;
   border:1px solid rgba(255,255,255,0.10);
   border-radius:10px;
   box-shadow:0 10px 30px rgba(0,0,0,0.35);
 
-  transition: max-height .25s ease;
+  /* fermé */
+  max-height:0;
+  overflow:hidden;
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transition:
+    max-height .25s ease,
+    opacity .18s ease;
 }
 
 /* ouvert (niveau 1 et niveau 2) */
 details[open] > .submenu{
   padding:8px 0;
-  max-height: 1000px;
+  max-height:1000px;
+
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
 }
 
 /* liens dans les sous-menus */
@@ -177,10 +211,17 @@ details[open] > .submenu{
 .submenu summary{
   list-style:none;
   cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
   padding:10px 12px;
   color:#cbd5e1;
   font-size:14px;
   user-select:none;
+
+  -webkit-tap-highlight-color: transparent;
 }
 .submenu summary:hover{ color:#fff; }
 .submenu summary::-webkit-details-marker{ display:none; }
