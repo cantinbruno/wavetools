@@ -1,13 +1,13 @@
 /* =========================
    GLOBAL
    ========================= */
-html, body {
+html, body{
   height: 100%;
   margin: 0;
   background: transparent;
 }
 
-body {
+body{
   font-family: Arial, sans-serif;
   color: #e5e7eb;
   text-shadow: 0 2px 10px rgba(0,0,0,0.55);
@@ -16,7 +16,7 @@ body {
 /* =========================
    CANVAS BACKGROUND
    ========================= */
-#siteBg {
+#siteBg{
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -28,7 +28,7 @@ body {
 /* =========================
    CONTAINER
    ========================= */
-.container {
+.container{
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
@@ -37,22 +37,28 @@ body {
 /* =========================
    HEADER
    ========================= */
-.site-header {
+.site-header{
   background: #111827;
   padding: 6px 0;
   position: sticky;
   top: 0;
   z-index: 9999;
+
+  /* IMPORTANT : ne coupe pas les menus */
+  overflow: visible !important;
 }
 
-.site-header .container {
+.site-header .container{
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* IMPORTANT : ne coupe pas les menus */
+  overflow: visible !important;
 }
 
 /* Logo */
-.site-header .logo {
+.site-header .logo{
   display: block;
   width: 380px;
   height: 90px;
@@ -60,7 +66,7 @@ body {
   text-decoration: none;
 }
 
-.site-header .logo img {
+.site-header .logo img{
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -69,13 +75,16 @@ body {
 /* =========================
    NAVBAR
    ========================= */
-.navbar {
+.navbar{
   width: 100%;
   position: relative;
   z-index: 10000;
+
+  /* IMPORTANT : ne coupe pas les menus */
+  overflow: visible !important;
 }
 
-.menu {
+.menu{
   list-style: none;
   margin: 0;
   padding: 0;
@@ -84,11 +93,12 @@ body {
   gap: 6px;
 }
 
-.menu > li {
+.menu > li{
   position: relative;
 }
 
-.menu > li > a {
+/* Top links */
+.menu > li > a{
   display: block;
   padding: 10px 12px;
   color: #9ca3af;
@@ -96,49 +106,89 @@ body {
   font-size: 14px;
 }
 
-.menu > li > a:hover {
+.menu > li > a:hover{
   color: #ffffff;
 }
 
-/* Submenu */
-.submenu {
+/* =========================
+   SUBMENUS (niveau 1 + niveau 2)
+   ========================= */
+.submenu{
   list-style: none;
   margin: 0;
   padding: 8px 0;
+
   position: absolute;
-  top: calc(100% + 2px);
+  top: calc(100% + 6px);
   left: 0;
-  min-width: 210px;
+
+  min-width: 220px;
   background: #0f172a;
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px;
+
   display: none;
-  z-index: 20000;
+
+  /* AU-DESSUS de tout */
+  z-index: 999999;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-.submenu a {
+.submenu li{
+  position: relative;
+}
+
+/* Sous-sous-menu : s'ouvre à droite */
+.submenu .submenu{
+  top: 0;
+  left: 100%;
+  margin-left: 6px;
+}
+
+.submenu a{
   display: block;
   padding: 10px 12px;
   color: #cbd5e1;
   text-decoration: none;
   font-size: 14px;
+  white-space: nowrap;
 }
 
-.submenu a:hover {
+.submenu a:hover{
   background: rgba(255,255,255,0.06);
   color: #ffffff;
 }
 
-.has-submenu:hover > .submenu,
-.has-submenu:focus-within > .submenu {
+/* Affichage au hover */
+.menu li.has-submenu:hover > .submenu,
+.menu li.has-submenu:focus-within > .submenu{
   display: block;
 }
 
+/* Pont vertical (évite trou entre menu et submenu) */
+.menu li.has-submenu > .submenu::before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+/* Pont horizontal (évite trou entre submenu et sous-submenu) */
+.submenu li.has-submenu::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+}
+
 /* =========================
-   MAIN — NO BOX
+   MAIN — TRANSPARENT (pas de box)
    ========================= */
-main {
+main{
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px 20px;
@@ -149,8 +199,8 @@ main {
   box-shadow: none !important;
 }
 
-/* Enlève toute box dans le contenu */
-main > * {
+/* Enlève toute box dans le contenu du main */
+main > *{
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -160,7 +210,7 @@ main > * {
 /* =========================
    FOOTER
    ========================= */
-.site-footer {
+.site-footer{
   background: #111827;
   padding: 20px 0;
   margin-top: 40px;
