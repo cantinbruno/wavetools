@@ -87,7 +87,7 @@ main,
 /* =========================================================
    NAVBAR (FIABLE PC + MOBILE) — Dropdown + Subdropdown
    PC: hover / clavier
-   Mobile: tap via checkbox (sans JS)
+   Mobile: tap via checkbox (sans JS) + fermeture via JS
    ========================================================= */
 .navbar{
   width: 100%;
@@ -97,30 +97,79 @@ main,
   padding: 6px 0 10px;
 }
 
-/* burger */
+/* ============ BURGER (mobile) ============ */
 .nav-toggle{
   position: absolute;
   left: -9999px;
 }
 
 .nav-burger{
-  display: none;
+  display: none; /* visible uniquement sur mobile */
   user-select: none;
   cursor: pointer;
 
-  margin: 6px auto 0;
-  width: fit-content;
+  margin: 8px auto 0;
+  width: min(520px, calc(100% - 20px));
 
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  box-shadow: 0 12px 35px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
+
   color: #e5e7eb;
+
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 
   -webkit-tap-highlight-color: transparent;
 }
 
-/* menu */
+.burger-text{
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: rgba(229,231,235,0.92);
+}
+
+/* 3 lignes animées */
+.burger-lines{
+  width: 22px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.burger-lines span{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(229,231,235,0.92);
+  transition: transform .18s ease, top .18s ease, opacity .18s ease;
+}
+
+.burger-lines span:nth-child(1){ top: 0; }
+.burger-lines span:nth-child(2){ top: 7px; opacity: 0.95; }
+.burger-lines span:nth-child(3){ top: 14px; }
+
+/* burger ouvert -> croix */
+.nav-toggle:checked + .nav-burger .burger-lines span:nth-child(1){
+  top: 7px;
+  transform: rotate(45deg);
+}
+.nav-toggle:checked + .nav-burger .burger-lines span:nth-child(2){
+  opacity: 0;
+}
+.nav-toggle:checked + .nav-burger .burger-lines span:nth-child(3){
+  top: 7px;
+  transform: rotate(-45deg);
+}
+
+/* ============ MENU (desktop) ============ */
 .menu{
   list-style: none;
   margin: 0;
@@ -167,7 +216,7 @@ main,
   left: -9999px;
 }
 
-/* caret cliquable (sert au tap sur mobile, marche aussi PC) */
+/* caret cliquable (tap) */
 .dd-caret{
   cursor: pointer;
   padding: 10px 10px;
@@ -182,7 +231,7 @@ main,
   padding-left: 6px;
 }
 
-/* Sous-menus base (cachés) */
+/* Sous-menus base */
 .submenu{
   list-style: none;
   margin: 0;
@@ -190,18 +239,18 @@ main,
 
   background: #0f172a;
   border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
 
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 220px;
+  min-width: 230px;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(8px);
+  transform: translateY(10px);
 
   transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
   z-index: 999999;
@@ -211,7 +260,7 @@ main,
 .submenu-right{
   top: 0;
   left: 100%;
-  margin-left: 6px;
+  margin-left: 8px;
 }
 
 /* liens sous-menu */
@@ -234,7 +283,6 @@ main,
 /* ---------- OUVERTURE PC : hover / focus ---------- */
 @media (min-width:981px){
 
-  /* hover sur le LI ouvre le submenu */
   .menu > li.dropdown:hover > .submenu,
   .menu > li.dropdown:focus-within > .submenu{
     opacity: 1;
@@ -243,7 +291,6 @@ main,
     transform: translateY(0);
   }
 
-  /* hover sur le LI interne ouvre le sous-sous-menu */
   .submenu > li.dropdown:hover > .submenu,
   .submenu > li.dropdown:focus-within > .submenu{
     opacity: 1;
@@ -256,18 +303,18 @@ main,
   .menu > li.dropdown > .submenu::before{
     content:"";
     position:absolute;
-    top:-10px;
+    top:-12px;
     left:0;
     width:100%;
-    height:10px;
+    height:12px;
   }
 }
 
-/* ---------- OUVERTURE MOBILE : tap (checkbox) ---------- */
+/* ---------- MOBILE : menu en panneau + tap ---------- */
 @media (max-width:980px){
 
   .nav-burger{
-    display: block;
+    display: flex;
   }
 
   /* menu caché tant que burger fermé */
@@ -275,8 +322,18 @@ main,
     display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
-    padding: 10px 6px 0;
+    gap: 10px;
+    padding: 12px 10px 12px;
+
+    width: min(520px, calc(100% - 20px));
+    margin: 10px auto 0;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(17,24,39,0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.45);
   }
 
   /* burger ouvert => menu visible */
@@ -288,26 +345,21 @@ main,
     display: block;
   }
 
-  /* look bouton */
+  /* look boutons */
   .menu > li > a,
   .menu > li > .dd-link{
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 12px;
+    border-radius: 14px;
   }
 
-  /* dropdown caret mieux tap */
-  .dropdown{
-    position: relative;
-  }
-
-  /* sous-menus dans le flux sur mobile */
+  /* sous-menus dans le flux */
   .submenu{
     position: static;
     min-width: 0;
-    margin-top: 6px;
+    margin-top: 8px;
 
-    opacity: 1;            /* on gère l'affichage via display */
+    opacity: 1;
     visibility: visible;
     transform: none;
     pointer-events: auto;
@@ -315,6 +367,7 @@ main,
     display: none;
     box-shadow: none;
     background: rgba(15,23,42,0.92);
+    border-radius: 14px;
   }
 
   /* checkbox checked => affiche submenu */
@@ -322,7 +375,6 @@ main,
     display: block;
   }
 
-  /* niveau 2 aussi dans le flux */
   .submenu-right{
     margin-left: 0;
   }
