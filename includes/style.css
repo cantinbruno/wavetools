@@ -689,3 +689,96 @@ main > *:not(.wt-showcase){
     overflow-y: visible;
   }
 }
+
+/* =========================================================
+   FIX ULTIME MOBILE : dropdowns en OVERLAY (fixed)
+   - au-dessus de tout
+   - n'agrandit pas le header
+   - ne se fait pas clipper par le scroll horizontal
+   ========================================================= */
+@media (max-width:980px){
+
+  /* Ajuste cette hauteur si besoin (dépend de ton header/logo) */
+  :root{ --headerH: 140px; }
+
+  /* Important: éviter tout clipping */
+  .site-header,
+  .site-header .container,
+  .navbar,
+  .menu,
+  .menu > li,
+  .menu details{
+    overflow: visible !important;
+  }
+
+  /* Niveau 1 = overlay fixé au viewport */
+  .menu details > .submenu{
+    position: fixed !important;
+
+    /* s’affiche sous le header (ajuste --headerH si nécessaire) */
+    top: calc(var(--headerH) + 8px) !important;
+    left: 12px !important;
+    right: 12px !important;
+
+    /* taille + scroll interne */
+    min-width: 0 !important;
+    max-width: none !important;
+    max-height: calc(100vh - var(--headerH) - 20px) !important;
+    overflow: auto !important;
+
+    /* annule complètement le mode accordion */
+    margin-top: 0 !important;
+    box-shadow: 0 16px 45px rgba(0,0,0,.55) !important;
+
+    /* état fermé */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(8px) scale(.985) !important;
+    transition: opacity .16s ease, transform .16s ease, visibility .16s ease !important;
+
+    z-index: 9999999 !important;
+  }
+
+  .menu details[open] > .submenu{
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  /* Niveau 2 : sur mobile, on le met EN DESSOUS dans le même panneau (fiable) */
+  .submenu > li > details > .submenu{
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 6px 0 0 !important;
+
+    max-height: none !important;
+    overflow: visible !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+
+    box-shadow: none !important;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(15,23,42,0.92);
+  }
+
+  /* On enlève les "ponts" (inutiles en fixed/static) */
+  .menu details > .submenu::before,
+  .submenu > li > details > .submenu::before{
+    display: none !important;
+  }
+}
+
+/* Cas spécifique mobile nav scroll horizontal */
+@media (max-width:700px){
+  .menu{
+    overflow-x: auto !important;
+    overflow-y: visible !important; /* au cas où */
+  }
+}
