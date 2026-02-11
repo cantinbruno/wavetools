@@ -222,7 +222,7 @@ main > *{
 /*-------------------index-----------*/
 
 /* =========================
-   WaveTools cinematic zigzag
+   WaveTools cinematic zigzag FIX
    ========================= */
 
 :root{
@@ -239,21 +239,21 @@ main > *{
 .wt-main{
   background: transparent;
   color: var(--txt);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 /* ===== zone globale ===== */
 .wt-showcase{
-  max-width: 1100px;        /* plus large zone */
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 140px 18px 140px;
+  padding: 60px 18px 60px;   /* ↓ moins d'espace haut/bas */
   display: grid;
-  gap: 110px;               /* énorme espace vertical */
+  gap: 80px;
 }
 
 /* ===== carte ===== */
 .wt-card{
-  width: 58%;               /* beaucoup plus étroit */
+  width: 62%;
   display: grid;
   grid-template-columns: 1.25fr .75fr;
   gap: 22px;
@@ -269,20 +269,24 @@ main > *{
     inset 0 1px 0 rgba(255,255,255,.06);
 
   padding: 22px;
-  overflow: hidden;
   position: relative;
 }
 
-/* zigzag extrême */
+/* ===== zigzag VISIBLE ===== */
 .wt-showcase .wt-card:nth-child(1){
-  margin-left: -40px;
+  transform: translateX(-120px);
 }
 .wt-showcase .wt-card:nth-child(2){
   margin-left: auto;
-  margin-right: -40px;
+  transform: translateX(120px);
 }
 .wt-showcase .wt-card:nth-child(3){
-  margin-left: -40px;
+  transform: translateX(-120px);
+}
+
+/* bloc 2 inversé */
+.wt-card--reverse{
+  grid-template-columns: .75fr 1.25fr;
 }
 
 /* halo */
@@ -293,138 +297,111 @@ main > *{
   background:
     radial-gradient(520px 260px at 18% 0%, rgba(45,212,255,.16), transparent 62%),
     radial-gradient(520px 280px at 90% 18%, rgba(124,58,237,.14), transparent 64%);
-  opacity:.9;
   pointer-events:none;
-}
-
-.wt-card--reverse{
-  grid-template-columns: .75fr 1.25fr;
 }
 
 /* texte */
 .wt-card__text{ max-width: 58ch; }
 
 .wt-badge{
-  margin: 0 0 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.18);
-  color: var(--muted);
-  font-weight: 800;
-  font-size: .92rem;
+  margin-bottom: 14px;
+  display:inline-flex;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.18);
+  color:var(--muted);
+  font-weight:800;
 }
 
 .wt-dot{
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, var(--c1), rgba(45,212,255,.2));
-  box-shadow: 0 0 18px rgba(45,212,255,.40);
-  animation: pulse 3.5s ease-in-out infinite;
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:var(--c1);
+  box-shadow:0 0 18px rgba(45,212,255,.4);
+  animation:pulse 3.5s infinite;
 }
 
 .wt-title{
-  margin: 0 0 10px;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom:10px;
+  font-size:clamp(1.8rem,3vw,2.4rem);
 }
 
 .wt-accent{
-  background: linear-gradient(90deg, var(--c1), var(--c2));
-  -webkit-background-clip: text;
-  color: transparent;
+  background:linear-gradient(90deg,var(--c1),var(--c2));
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .wt-desc{
-  margin: 0 0 16px;
-  color: var(--muted);
-  line-height: 1.65;
+  margin-bottom:16px;
+  color:var(--muted);
+  line-height:1.6;
 }
 
 /* boutons */
-.wt-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap: wrap;
-}
+.wt-actions{ display:flex; gap:12px; }
 
 .wt-btn{
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.04);
-  font-weight: 900;
-  transition: .3s;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.04);
+  font-weight:900;
+  transition:.3s;
 }
 
 .wt-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.07);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.07);
 }
 
 .wt-btn--primary{
-  background: linear-gradient(135deg, rgba(45,212,255,.30), rgba(124,58,237,.20));
+  background:linear-gradient(135deg,rgba(45,212,255,.3),rgba(124,58,237,.2));
 }
 
 /* image */
 .wt-card__media{
   display:flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
 }
 
 .wt-img{
-  width: min(240px, 100%);
-  border-radius: 16px;
-  box-shadow: 0 18px 55px rgba(0,0,0,.45);
-  animation: float 10s ease-in-out infinite;
+  width:min(240px,100%);
+  border-radius:16px;
+  box-shadow:0 18px 55px rgba(0,0,0,.45);
+  animation:float 10s ease-in-out infinite;
 }
 
-/* animations ultra lentes */
-.wt-in-ltr{
-  animation: slideLTR 4.8s cubic-bezier(.18,.9,.18,1) both;
-}
-.wt-in-rtl{
-  animation: slideRTL 4.8s cubic-bezier(.18,.9,.18,1) both;
-}
-
-.wt-showcase .wt-card:nth-child(1){ animation-delay: .3s; }
-.wt-showcase .wt-card:nth-child(2){ animation-delay: 1.5s; }
-.wt-showcase .wt-card:nth-child(3){ animation-delay: 2.7s; }
+/* animations lentes */
+.wt-in-ltr{ animation:slideLTR 4.8s both; }
+.wt-in-rtl{ animation:slideRTL 4.8s both; }
 
 @keyframes slideLTR{
-  from{ opacity:0; transform: translateX(-220px); }
-  to{ opacity:1; transform: translateX(0); }
+  from{opacity:0;transform:translateX(-260px);}
+  to{opacity:1;transform:translateX(-120px);}
 }
 
 @keyframes slideRTL{
-  from{ opacity:0; transform: translateX(220px); }
-  to{ opacity:1; transform: translateX(0); }
+  from{opacity:0;transform:translateX(260px);}
+  to{opacity:1;transform:translateX(120px);}
 }
 
 @keyframes float{
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-16px); }
+  50%{transform:translateY(-16px);}
 }
 
 @keyframes pulse{
-  0%,100%{ transform: scale(1); opacity:.9; }
-  50%{ transform: scale(1.6); opacity:.4; }
+  50%{transform:scale(1.6);opacity:.4;}
 }
 
 /* responsive */
-@media (max-width: 980px){
+@media (max-width:980px){
   .wt-card{
-    width: 100%;
-    margin: 0 !important;
-    grid-template-columns: 1fr;
+    width:100%;
+    transform:none !important;
+    grid-template-columns:1fr;
   }
-}
-
-/* accessibilité */
-@media (prefers-reduced-motion: reduce){
-  *{ animation:none !important; transition:none !important; }
 }
