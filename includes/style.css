@@ -11,14 +11,13 @@ html, body{
   height: 100%;
   margin: 0;
   background: transparent;
-  overflow-x: hidden; /* évite le "carré blanc" iOS + scroll horizontal */
+  overflow-x: hidden;
 }
 
 body{
   font-family: Arial, sans-serif;
   color: #e5e7eb;
   text-shadow: 0 2px 10px rgba(0,0,0,0.55);
-  -webkit-overflow-scrolling: touch;
 }
 
 /* =========================
@@ -29,25 +28,16 @@ body{
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;          /* ✅ visible */
+  z-index: 0;
   pointer-events: none;
 }
 
-/* contenu au-dessus du canvas */
+/* contenu au-dessus */
 .site-header,
 main,
 .site-footer{
   position: relative;
   z-index: 1;
-}
-
-/* =========================
-   CONTAINER
-   ========================= */
-.container{
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
 }
 
 /* =========================
@@ -59,149 +49,35 @@ main,
   position: sticky;
   top: 0;
   z-index: 9999;
-  overflow: visible !important;
 }
 
-.site-header .container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: visible !important;
+.container{
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-/* Logo */
 .site-header .logo{
   display: block;
   width: 380px;
   height: 90px;
   margin: 0 auto;
-  text-decoration: none;
 }
 
-.site-header .logo img{
+.site-header img{
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 /* =========================
-   NAVBAR
-   ========================= */
-.navbar{
-  width: 100%;
-  position: relative;
-  z-index: 10000;
-  overflow: visible !important;
-}
-
-.menu{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-}
-
-.menu > li{ position: relative; }
-
-.menu > li > a{
-  display: block;
-  padding: 10px 12px;
-  color: #9ca3af;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.menu > li > a:hover{ color: #ffffff; }
-
-/* =========================
-   SUBMENUS
-   ========================= */
-.submenu{
-  list-style: none;
-  margin: 0;
-  padding: 8px 0;
-
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-
-  min-width: 220px;
-  background: #0f172a;
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 10px;
-
-  display: none;
-  z-index: 999999;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-
-.submenu li{ position: relative; }
-
-.submenu .submenu{
-  top: 0;
-  left: 100%;
-  margin-left: 6px;
-}
-
-.submenu a{
-  display: block;
-  padding: 10px 12px;
-  color: #cbd5e1;
-  text-decoration: none;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.submenu a:hover{
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
-}
-
-.menu li.has-submenu:hover > .submenu,
-.menu li.has-submenu:focus-within > .submenu{
-  display: block;
-}
-
-.menu li.has-submenu > .submenu::before{
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-}
-
-.submenu li.has-submenu::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -10px;
-  width: 10px;
-  height: 100%;
-}
-
-/* =========================
-   MAIN — TRANSPARENT
+   MAIN
    ========================= */
 main{
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px 20px;
-
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* ne pas casser le showcase */
-main > *:not(.wt-showcase){
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  background: transparent;
 }
 
 /* =========================
@@ -217,38 +93,29 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   WaveTools Showcase — FIX PC animations
+   WaveTools Showcase
    ========================= */
 
 :root{
-  --txt: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.68);
-  --stroke: rgba(255,255,255,.16);
-  --glassA: rgba(10,16,28,.42);
-  --glassB: rgba(10,16,28,.26);
-  --c1:#2dd4ff;
-  --c2:#7c3aed;
-  --r: 22px;
-
   --zig: 70px;
   --push: 260px;
-}
-
-.wt-main{
-  background: transparent;
-  color: var(--txt);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --glassA: rgba(10,16,28,.42);
+  --glassB: rgba(10,16,28,.26);
+  --stroke: rgba(255,255,255,.16);
+  --txt: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.68);
+  --c1:#2dd4ff;
+  --c2:#7c3aed;
 }
 
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
-  padding: 10px 18px;
   display: grid;
   gap: 34px;
-  max-width: 100%;
 }
 
+/* cartes */
 .wt-card{
   width: 78%;
   display: grid;
@@ -256,62 +123,61 @@ main > *:not(.wt-showcase){
   gap: 20px;
   align-items: center;
 
-  border-radius: var(--r);
+  border-radius: 22px;
   border: 1px solid var(--stroke);
-  background: linear-gradient(180deg, var(--glassA), var(--glassB));
+  background: linear-gradient(180deg,var(--glassA),var(--glassB));
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 
-  box-shadow:
-    0 22px 70px rgba(0,0,0,.52),
-    inset 0 1px 0 rgba(255,255,255,.06);
-
+  box-shadow: 0 22px 70px rgba(0,0,0,.52);
   padding: 22px;
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-  max-width: 100%;
-
-  will-change: transform, opacity;
 }
 
-.wt-card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:
-    radial-gradient(520px 260px at 18% 0%, rgba(45,212,255,.16), transparent 62%),
-    radial-gradient(520px 280px at 90% 18%, rgba(124,58,237,.14), transparent 64%);
-  pointer-events:none;
-  z-index:0;
+/* zigzag */
+.wt-showcase .wt-card:nth-child(1){
+  margin-right:auto;
+  animation: cardLeft 8s both;
 }
-.wt-card > *{ position:relative; z-index:1; }
-
-.wt-card--reverse{
-  grid-template-columns: .75fr 1.25fr;
+.wt-showcase .wt-card:nth-child(2){
+  margin-left:auto;
+  animation: cardRight 8s both 1.6s;
+}
+.wt-showcase .wt-card:nth-child(3){
+  margin-right:auto;
+  animation: cardLeft 8s both 3s;
 }
 
+/* animations PC */
+@keyframes cardLeft{
+  from{opacity:0;transform:translateX(calc(-1*var(--push)));}
+  to{opacity:1;transform:translateX(calc(-1*var(--zig)));}
+}
+
+@keyframes cardRight{
+  from{opacity:0;transform:translateX(var(--push));}
+  to{opacity:1;transform:translateX(var(--zig));}
+}
+
+/* texte */
 .wt-title{
-  margin: 0 0 10px;
-  font-size: clamp(1.7rem, 3vw, 2.45rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.7rem,3vw,2.4rem);
+  margin-bottom:10px;
 }
 
 .wt-accent{
-  background: linear-gradient(90deg,var(--c1),var(--c2));
+  background:linear-gradient(90deg,var(--c1),var(--c2));
   -webkit-background-clip:text;
-  background-clip:text;
   color:transparent;
 }
 
 .wt-desc{
-  margin: 0 0 16px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-size: 1.03rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:16px;
 }
 
+/* boutons desktop */
 .wt-actions{
   display:flex;
   gap:12px;
@@ -323,124 +189,62 @@ main > *:not(.wt-showcase){
   border-radius:14px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.04);
-  color: var(--txt);
   font-weight:900;
   text-decoration:none;
-  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  color:white;
 }
 
-.wt-btn:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,.07);
-  border-color:rgba(255,255,255,.28);
-}
-
+/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
-  align-items:center;
 }
 
 .wt-img{
-  width:min(240px,100%);
+  width:240px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,.14);
   box-shadow:0 18px 55px rgba(0,0,0,.45);
-  animation: float 10s ease-in-out infinite;
-}
-
-/* ✅ FORCER la direction par bloc (robuste PC) */
-.wt-showcase > .wt-card:nth-of-type(1){
-  margin-right:auto;
-  animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both !important;
-  animation-delay: .3s;
-}
-.wt-showcase > .wt-card:nth-of-type(2){
-  margin-left:auto;
-  animation: cardRight 8s cubic-bezier(.12,.85,.12,1) both !important;
-  animation-delay: 1.6s;
-}
-.wt-showcase > .wt-card:nth-of-type(3){
-  margin-right:auto;
-  animation: cardLeft3 8s cubic-bezier(.12,.85,.12,1) both !important;
-  animation-delay: 3s;
-}
-
-@keyframes cardLeft{
-  from{ opacity:0; transform: translateX(calc(-1 * var(--zig) - var(--push))); }
-  to  { opacity:1; transform: translateX(calc(-1 * var(--zig))); }
-}
-@keyframes cardRight{
-  from{ opacity:0; transform: translateX(calc(var(--zig) + var(--push))); }
-  to  { opacity:1; transform: translateX(var(--zig)); }
-}
-@keyframes cardLeft3{
-  from{ opacity:0; transform: translateX(calc(-1 * var(--zig) - var(--push))); }
-  to  { opacity:1; transform: translateX(calc(-1 * var(--zig))); }
-}
-
-@keyframes float{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-14px); }
 }
 
 /* =========================
    MOBILE
    ========================= */
 @media (max-width:980px){
-  :root{ --zig: 0px; --push: 140px; }
 
-  .wt-showcase{
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 10px 12px;
-    gap: 18px;
+  :root{
+    --zig:0px;
+    --push:140px;
   }
 
   .wt-card{
-    width: 100%;
-    margin: 0 !important;
-    padding: 16px;
-    grid-template-columns: 1fr;
-    gap: 14px;
+    width:100%;
+    margin:0 !important;
+    grid-template-columns:1fr;
   }
 
-  .wt-title{
-    text-align: center;
-    font-size: clamp(1.55rem, 6vw, 2.05rem);
-  }
-
+  .wt-title,
   .wt-desc{
-    text-align: center;
-    margin-bottom: 14px;
-  }
-
-  .wt-img{
-    width: min(320px, 100%);
-    margin: 0 auto;
+    text-align:center;
   }
 
   .wt-actions{
     display:grid;
     gap:12px;
-    justify-items:stretch;
   }
 
   .wt-btn{
     width:100%;
     text-align:center;
-    justify-content:center;
   }
 
-  .wt-showcase > .wt-card:nth-of-type(1),
-  .wt-showcase > .wt-card:nth-of-type(2),
-  .wt-showcase > .wt-card:nth-of-type(3){
-    animation-duration: 6s !important;
+  .wt-img{
+    width:320px;
   }
 }
 
-/* ✅ IMPORTANT : ne coupe plus TOUTES les animations */
+/* accessibilité */
 @media (prefers-reduced-motion: reduce){
-  .wt-img{ animation: none !important; } /* on coupe juste le float */
-  /* on garde les slides */
+  .wt-card{
+    animation-duration:0.01ms !important;
+  }
 }
