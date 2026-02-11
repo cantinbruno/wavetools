@@ -604,21 +604,3 @@ main > *:not(.wt-showcase){
     white-space: nowrap;
   }
 }
-/* =========================
-   MOBILE NAV — style plat
-   ========================= */
-@media (max-width:700px){
-
-  .menu > li > a,
-  .menu summary{
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    padding: 8px 10px;
-  }
-
-  .menu > li > a:hover,
-  .menu summary:hover{
-    background: rgba(255,255,255,0.08);
-  }
-}
