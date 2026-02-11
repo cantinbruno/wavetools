@@ -20,62 +20,85 @@
 
 <div id="header"></div>
 
-<main class="tb-main">
-  <section class="tb-hero" aria-labelledby="tb-title">
-    <div class="tb-wrap">
+<main class="wt-main">
+  <section class="wt-showcase" aria-label="Présentation WaveTools">
 
-      <div class="glass hero-text">
-        <p class="badge"><span class="dot"></span>Boîte à outils numérique</p>
+    <!-- Bloc 1 (gauche -> droite) -->
+    <article class="wt-card wt-in-ltr">
+      <div class="wt-card__text">
+        <p class="wt-badge"><span class="wt-dot"></span>Boîte à outils numérique</p>
 
-        <h1 id="tb-title" class="title">
-          Ta <span class="accent">boîte à outils</span><br>
-          pour aller plus vite.
-        </h1>
+        <h2 class="wt-title">
+          Tous tes outils<br>
+          <span class="wt-accent">au même endroit</span>
+        </h2>
 
-        <p class="subtitle">
-          Convertir, analyser, générer, diagnostiquer.
-          Tous les outils utiles du quotidien réunis au même endroit.
+        <p class="wt-desc">
+          Un espace unique pour convertir, analyser et diagnostiquer rapidement.
+          Simple, clair, efficace.
         </p>
 
-        <div class="actions">
-          <a class="btn primary" href="#outils">Ouvrir la toolbox</a>
-          <a class="btn ghost" href="#categories">Modules</a>
-        </div>
-
-        <div class="pills">
-          <span class="pill">⚡ Instantané</span>
-          <span class="pill">🧰 Tout-en-un</span>
-          <span class="pill">🔒 Fiable</span>
-          <span class="pill">🌍 Partout</span>
+        <div class="wt-actions">
+          <a class="wt-btn wt-btn--primary" href="#outils">Découvrir</a>
+          <a class="wt-btn wt-btn--ghost" href="#modules">Modules</a>
         </div>
       </div>
 
-      <div class="toolbox" aria-hidden="true">
-        <div class="tool tool--1">
-          <div class="tool-h"><span class="chip">Convert</span><span class="led"></span></div>
-          <div class="tool-line"><span>Base64</span><b>Encode</b></div>
-          <div class="tool-line"><span>JSON</span><b>Format</b></div>
-          <div class="tool-line"><span>Hash</span><b>SHA256</b></div>
-        </div>
+      <div class="wt-card__media">
+        <img class="wt-img" src="img/toolbox.png" alt="Aperçu de la toolbox WaveTools">
+      </div>
+    </article>
 
-        <div class="tool tool--2">
-          <div class="tool-h"><span class="chip chip--alt">Analyse</span></div>
-          <div class="kpi">&lt; 2s</div>
-          <div class="kpi-sub">réponse moyenne</div>
-        </div>
+    <!-- Bloc 2 (droite -> gauche) -->
+    <article class="wt-card wt-in-rtl">
+      <div class="wt-card__text">
+        <p class="wt-badge"><span class="wt-dot"></span>Module Réseau</p>
 
-        <div class="tool tool--3">
-          <div class="tool-h"><span class="chip chip--ok">Sécurité</span></div>
-          <div class="tags">
-            <span class="tag">DNS</span>
-            <span class="tag">WHOIS</span>
-            <span class="tag">SPF</span>
-          </div>
-        </div>
+        <h2 class="wt-title">
+          Diagnostique réseau<br>
+          <span class="wt-accent">en quelques secondes</span>
+        </h2>
 
+        <p class="wt-desc">
+          IP/CIDR, DNS Lookup, WHOIS… des résultats propres et rapides pour travailler sans perdre de temps.
+        </p>
+
+        <div class="wt-actions">
+          <a class="wt-btn wt-btn--primary" href="#reseau">Ouvrir Réseau</a>
+          <a class="wt-btn wt-btn--ghost" href="#outils">Voir tous les outils</a>
+        </div>
       </div>
 
-    </div>
+      <div class="wt-card__media">
+        <img class="wt-img" src="img/network.png" alt="Illustration réseau">
+      </div>
+    </article>
+
+    <!-- Bloc 3 (gauche -> droite) -->
+    <article class="wt-card wt-in-ltr">
+      <div class="wt-card__text">
+        <p class="wt-badge"><span class="wt-dot"></span>Pro & sécurisé</p>
+
+        <h2 class="wt-title">
+          Vérifie & sécurise<br>
+          <span class="wt-accent">tes configurations</span>
+        </h2>
+
+        <p class="wt-desc">
+          Contrôles utiles et outils orientés fiabilité : moins d’erreurs, plus de confiance.
+        </p>
+
+        <div class="wt-actions">
+          <a class="wt-btn wt-btn--primary" href="#securite">Ouvrir Sécurité</a>
+          <a class="wt-btn wt-btn--ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="wt-card__media">
+        <img class="wt-img" src="img/security.png" alt="Illustration sécurité">
+      </div>
+    </article>
+
   </section>
 </main>
 
