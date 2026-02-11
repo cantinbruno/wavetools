@@ -5,85 +5,113 @@
 
 <nav class="navbar" aria-label="Navigation principale">
   <ul class="menu">
+
     <li><a href="/">Home</a></li>
 
-    <li class="has-submenu">
-      <a class="nav-parent" aria-haspopup="true">Services</a>
-      <ul class="submenu">
-        <li><a href="/services/installation.html">Installation</a></li>
-        <li><a href="/services/maintenance.html">Maintenance</a></li>
+    <!-- Services -->
+    <li>
+      <details>
+        <summary>Nos services</summary>
+        <ul class="submenu">
 
-        <li class="has-submenu">
-          <a class="nav-parent" aria-haspopup="true">Sécurité</a>
-          <ul class="submenu submenu-right">
-            <li><a href="/services/securite/videosurveillance.html">Vidéosurveillance</a></li>
-            <li><a href="/services/securite/controle-acces.html">Contrôle d’accès</a></li>
-            <li><a href="/services/securite/alarme.html">Alarme</a></li>
-          </ul>
-        </li>
+          <li><a href="/services/installation.html">Installation</a></li>
+          <li><a href="/services/maintenance.html">Maintenance</a></li>
 
-        <li><a href="/services/reseau.html">Réseau</a></li>
-      </ul>
+          <li>
+            <details>
+              <summary>Sécurité</summary>
+              <ul class="submenu">
+                <li><a href="/services/securite/videosurveillance.html">Vidéosurveillance</a></li>
+                <li><a href="/services/securite/controle-acces.html">Contrôle d’accès</a></li>
+                <li><a href="/services/securite/alarme.html">Alarme</a></li>
+              </ul>
+            </details>
+          </li>
+
+          <li><a href="/services/reseau.html">Réseau</a></li>
+
+        </ul>
+      </details>
     </li>
 
-    <li class="has-submenu">
-      <a class="nav-parent" aria-haspopup="true">Outils</a>
-      <ul class="submenu">
-        <li class="has-submenu">
-          <a class="nav-parent" aria-haspopup="true">Réseau</a>
-          <ul class="submenu submenu-right">
-            <li><a href="/outils/ip.html">IP / CIDR</a></li>
-            <li><a href="/outils/dns.html">DNS Lookup</a></li>
-            <li><a href="/outils/whois.html">WHOIS</a></li>
-          </ul>
-        </li>
+    <!-- Outils -->
+    <li>
+      <details>
+        <summary>Outils</summary>
+        <ul class="submenu">
 
-        <li class="has-submenu">
-          <a class="nav-parent" aria-haspopup="true">Admin</a>
-          <ul class="submenu submenu-right">
-            <li><a href="/outils/hash.html">Hash</a></li>
-            <li><a href="/outils/base64.html">Base64</a></li>
-            <li><a href="/outils/uuid.html">UUID</a></li>
-          </ul>
-        </li>
+          <li>
+            <details>
+              <summary>Réseau</summary>
+              <ul class="submenu">
+                <li><a href="/outils/ip.html">IP / CIDR</a></li>
+                <li><a href="/outils/dns.html">DNS Lookup</a></li>
+                <li><a href="/outils/whois.html">WHOIS</a></li>
+              </ul>
+            </details>
+          </li>
 
-        <li class="has-submenu">
-          <a class="nav-parent" aria-haspopup="true">Email</a>
-          <ul class="submenu submenu-right">
-            <li><a href="/outils/spf.html">SPF</a></li>
-            <li><a href="/outils/dkim.html">DKIM</a></li>
-            <li><a href="/outils/dmarc.html">DMARC</a></li>
-          </ul>
-        </li>
+          <li>
+            <details>
+              <summary>Admin</summary>
+              <ul class="submenu">
+                <li><a href="/outils/hash.html">Hash</a></li>
+                <li><a href="/outils/base64.html">Base64</a></li>
+                <li><a href="/outils/uuid.html">UUID</a></li>
+              </ul>
+            </details>
+          </li>
 
-        <li class="has-submenu">
-          <a class="nav-parent" aria-haspopup="true">Dev</a>
-          <ul class="submenu submenu-right">
-            <li><a href="/outils/json.html">JSON Formatter</a></li>
-            <li><a href="/outils/regex.html">Regex</a></li>
-            <li><a href="/outils/urlencode.html">URL Encode</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li>
+            <details>
+              <summary>Email</summary>
+              <ul class="submenu">
+                <li><a href="/outils/spf.html">SPF</a></li>
+                <li><a href="/outils/dkim.html">DKIM</a></li>
+                <li><a href="/outils/dmarc.html">DMARC</a></li>
+              </ul>
+            </details>
+          </li>
+
+          <li>
+            <details>
+              <summary>Dev</summary>
+              <ul class="submenu">
+                <li><a href="/outils/json.html">JSON Formatter</a></li>
+                <li><a href="/outils/regex.html">Regex</a></li>
+                <li><a href="/outils/urlencode.html">URL Encode</a></li>
+              </ul>
+            </details>
+          </li>
+
+        </ul>
+      </details>
     </li>
 
-    <li class="has-submenu">
-      <a class="nav-parent" aria-haspopup="true">Entreprise</a>
-      <ul class="submenu">
-        <li><a href="/entreprise/a-propos.html">À propos</a></li>
-        <li><a href="/entreprise/equipe.html">Équipe</a></li>
-        <li><a href="/entreprise/partenaires.html">Partenaires</a></li>
-      </ul>
+    <!-- Entreprise -->
+    <li>
+      <details>
+        <summary>Entreprise</summary>
+        <ul class="submenu">
+          <li><a href="/entreprise/a-propos.html">À propos</a></li>
+          <li><a href="/entreprise/equipe.html">Équipe</a></li>
+          <li><a href="/entreprise/partenaires.html">Partenaires</a></li>
+        </ul>
+      </details>
     </li>
 
-    <li class="has-submenu">
-      <a class="nav-parent" aria-haspopup="true">Contact</a>
-      <ul class="submenu">
-        <li><a href="/contact.html">Formulaire de contact</a></li>
-        <li><a href="/devis.html">Demander un devis</a></li>
-        <li><a href="/support.html">Support</a></li>
-      </ul>
+    <!-- Contact -->
+    <li>
+      <details>
+        <summary>Contactez-nous</summary>
+        <ul class="submenu">
+          <li><a href="/contact.html">Formulaire de contact</a></li>
+          <li><a href="/devis.html">Demander un devis</a></li>
+          <li><a href="/support.html">Support</a></li>
+        </ul>
+      </details>
     </li>
+
   </ul>
 </nav>
 

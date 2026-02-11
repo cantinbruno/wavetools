@@ -3,9 +3,7 @@
    ========================= */
 *,
 *::before,
-*::after{
-  box-sizing: border-box;
-}
+*::after{ box-sizing: border-box; }
 
 html, body{
   height: 100%;
@@ -85,10 +83,9 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — BARRE UNIQUE (PC + MOBILE)
-   - Pas de hamburger
-   - Wrap sur petits écrans
-   - Dropdown: hover (PC) + focus-within (tap mobile)
+   NAVBAR — DETAILS/SUMMARY (CSS ONLY, CROSS-PLATFORM)
+   - PC : hover (sans clic)
+   - Mobile : clic (details open)
    - Menus collés + pont anti-trou
    ========================================================= */
 .navbar{
@@ -98,6 +95,7 @@ main,
   overflow: visible;
 }
 
+/* UL top-level */
 .menu{
   list-style: none;
   margin: 0;
@@ -107,189 +105,209 @@ main,
   justify-content: center;
   align-items: center;
 
-  gap: 4px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: wrap;      /* pas de hamburger */
   row-gap: 2px;
 
   overflow: visible;
 }
 
-.menu > li{
-  position: relative;
-  overflow: visible;
-}
+.menu > li{ position: relative; overflow: visible; }
 
-/* liens top-level */
+/* lien top-level simple */
 .menu > li > a{
-  display: inline-flex;
-  align-items: center;
+  display:inline-flex;
+  align-items:center;
+  padding:10px 12px;
+  border-radius: 10px;
 
-  padding: 10px 12px;
-  border-radius: 8px;
-
-  color: #cbd5e1;
-  text-decoration: none;
-  font-size: 14px;
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:14px;
 
   text-shadow: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .menu > li > a:hover{
-  color: #fff;
+  color:#fff;
   background: rgba(255,255,255,0.06);
 }
 
-/* parent dropdown : chevron */
-.menu > li.has-submenu > a::after{
-  content: " ▾";
-  opacity: .9;
-  font-size: 12px;
-  transform: translateY(1px);
+/* details / summary */
+.menu details{
+  position: relative;
+  overflow: visible;
 }
 
-/* Sous-menu base */
+.menu summary{
+  list-style:none;
+  cursor:pointer;
+
+  display:inline-flex;
+  align-items:center;
+
+  padding:10px 12px;
+  border-radius: 10px;
+
+  color:#cbd5e1;
+  font-size:14px;
+  user-select:none;
+  outline:none;
+
+  text-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.menu summary:hover{
+  color:#fff;
+  background: rgba(255,255,255,0.06);
+}
+.menu summary::-webkit-details-marker{ display:none; }
+
+/* sous-menus */
 .submenu{
-  list-style: none;
-  margin: 0;
+  list-style:none;
+  margin:0;
   padding: 6px 0;
 
   background: rgba(15,23,42,0.98);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 12px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:12px;
+  box-shadow:0 14px 40px rgba(0,0,0,0.45);
 
-  position: absolute;
-  top: 100%;          /* collé */
-  left: 0;
-  min-width: 220px;
+  /* IMPORTANT : pas de display:none (Safari iOS) */
+  max-height: 0;
+  overflow: hidden;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 
   transform: translateY(2px);
-  transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
-
-  z-index: 999999;
+  transition: max-height .22s ease, opacity .16s ease, transform .16s ease, visibility .16s ease;
 }
 
-/* sous-menu niveau 2 à droite */
-.submenu-right{
-  top: 0;
-  left: 100%;
-  margin-left: 0;     /* collé */
-}
-
+/* liens dans les sous-menus */
 .submenu a{
-  display: block;
-  padding: 10px 12px;
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 14px;
-  white-space: nowrap;
+  display:block;
+  padding:10px 12px;
+  color:#e5e7eb;
+  text-decoration:none;
+  font-size:14px;
+  white-space:nowrap;
 }
-
 .submenu a:hover{
-  background: rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.06);
+  color:#fff;
 }
 
-/* chevron sur item qui a un sous-menu */
-.submenu > li.has-submenu > a{
-  display: flex;
+/* summary dans les sous-menus */
+.submenu summary{
+  display:flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.submenu > li.has-submenu > a::after{
-  content: "▸";
-  opacity: .9;
-}
-
-/* ouverture hover + focus-within */
-.menu > li.has-submenu:hover > .submenu,
-.menu > li.has-submenu:focus-within > .submenu{
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.submenu > li.has-submenu:hover > .submenu,
-.submenu > li.has-submenu:focus-within > .submenu{
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* pont invisible niveau 1 */
-.menu > li.has-submenu > .submenu::before{
-  content:"";
-  position: absolute;
-  top: -10px;
-  left: 0;
   width: 100%;
-  height: 10px;
 }
 
-/* pont invisible niveau 2 */
-.submenu > li.has-submenu > .submenu::before{
-  content:"";
-  position: absolute;
-  top: 0;
-  left: -10px;
-  width: 10px;
-  height: 100%;
-}
+/* -------------------------
+   DESKTOP : dropdown au hover
+   ------------------------- */
+@media (min-width:981px){
 
-.menu a:focus{
-  outline: 2px solid rgba(45,212,255,0.55);
-  outline-offset: 2px;
-  border-radius: 10px;
-}
-
-/* MOBILE navbar : compact + évite overflow */
-@media (max-width:700px){
-  .menu{
-    justify-content: center;
-    gap: 2px;
-    row-gap: 4px;
-    padding: 0 6px;
-  }
-
-  .menu > li > a{
-    padding: 10px 10px;
-    font-size: 13.5px;
-  }
-
-  /* sous-menu centré (évite sortie écran) */
-  .submenu{
-    left: 50%;
-    transform: translate(-50%, 2px);
-    min-width: min(92vw, 320px);
-  }
-
-  .menu > li.has-submenu:hover > .submenu,
-  .menu > li.has-submenu:focus-within > .submenu{
-    transform: translate(-50%, 0);
-  }
-
-  /* niveau 2 : en dessous (pas à droite) */
-  .submenu-right{
+  /* position dropdown niveau 1 */
+  .menu > li > details > .submenu{
+    position:absolute;
+    top: 100%;            /* collé */
     left: 0;
-    top: 100%;
-    transform: translateY(2px);
-    min-width: 100%;
+    min-width: 220px;
+    z-index: 999999;
   }
 
-  .submenu > li.has-submenu:hover > .submenu,
-  .submenu > li.has-submenu:focus-within > .submenu{
+  /* dropdown niveau 2 à droite */
+  .submenu > li > details > .submenu{
+    position:absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 0;       /* collé */
+    min-width: 220px;
+    z-index: 999999;
+  }
+
+  /* OUVERTURE AU SURVOL (pas besoin de clic) */
+  .menu > li > details:hover > .submenu,
+  .menu > li > details:focus-within > .submenu,
+  .submenu > li > details:hover > .submenu,
+  .submenu > li > details:focus-within > .submenu{
+    padding: 6px 0;
+    max-height: 1000px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
     transform: translateY(0);
   }
 
-  .submenu > li.has-submenu > .submenu::before{
-    display: none;
+  /* pont anti-trou niveau 1 */
+  .menu > li > details > .submenu::before{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:0;
+    width:100%;
+    height:10px;
+  }
+
+  /* pont anti-trou niveau 2 (entre menu et sous-menu droite) */
+  .submenu > li > details > .submenu::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-10px;
+    width:10px;
+    height:100%;
+  }
+}
+
+/* -------------------------
+   MOBILE : clic (details[open])
+   + pas de menu à droite, tout descend
+   ------------------------- */
+@media (max-width:980px){
+
+  .menu{
+    justify-content: center;
+    gap: 4px;
+    row-gap: 6px;
+    padding: 0 6px 6px;
+  }
+
+  /* rendre les items “tap friendly” */
+  .menu > li > a,
+  .menu summary{
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+
+  /* sous-menus dans le flux */
+  .menu > li > details > .submenu,
+  .submenu > li > details > .submenu{
+    position: static !important;
+    margin-top: 6px;
+    box-shadow: none;
+    background: rgba(15,23,42,0.92);
+    transform: none;
+  }
+
+  /* ouverture au clic (details open) */
+  details[open] > .submenu{
+    padding: 6px 0;
+    max-height: 1000px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 
@@ -307,7 +325,6 @@ main{
   box-shadow: none !important;
 }
 
-/* ne pas casser le showcase */
 main > *:not(.wt-showcase){
   background: transparent !important;
   border: 0 !important;
@@ -329,7 +346,6 @@ main > *:not(.wt-showcase){
 
 /* =========================
    WaveTools Showcase — FULL CINEMATIC FORCED
-   + FIX MOBILE: bloc reverse => image au-dessus
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -345,7 +361,6 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
-/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -354,7 +369,6 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
-/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -378,12 +392,10 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
-/* bloc reverse (image gauche desktop) */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
 }
 
-/* texte */
 .wt-title{
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
@@ -405,7 +417,6 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
-/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
@@ -460,9 +471,11 @@ main > *:not(.wt-showcase){
   to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
 }
 
-/* MOBILE showcase */
+/* =========================
+   MOBILE (showcase)
+   ✅ FIX FIABLE : grid-template-areas
+   ========================= */
 @media (max-width:980px){
-
   :root{ --zig:0px; --push:140px; }
 
   .wt-showcase{
@@ -470,7 +483,7 @@ main > *:not(.wt-showcase){
     gap: 18px;
   }
 
-  /* ✅ on force une grille 1 colonne avec AREAS (fiable partout) */
+  /* 1 colonne + areas (FIABLE PARTOUT) */
   .wt-card{
     width:100%;
     margin:0 !important;
@@ -487,7 +500,7 @@ main > *:not(.wt-showcase){
   .wt-card__text{ grid-area: text; }
   .wt-card__media{ grid-area: media; }
 
-  /* ✅ bloc reverse : on inverse les areas -> image au-dessus */
+  /* ✅ bloc 2 reverse : image AU-DESSUS */
   .wt-card--reverse{
     grid-template-areas:
       "media"
@@ -503,8 +516,10 @@ main > *:not(.wt-showcase){
     text-align:center;
   }
 
-  /* mobile: pas d'anim horizontale */
-  .wt-showcase .wt-card{
+  /* pas d'anim horizontale mobile */
+  .wt-showcase .wt-card:nth-child(1),
+  .wt-showcase .wt-card:nth-child(2),
+  .wt-showcase .wt-card:nth-child(3){
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
