@@ -27,7 +27,7 @@ body{
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 0 !important;
   pointer-events: none;
 }
 
@@ -56,8 +56,13 @@ main,
   padding: 6px 0;
   position: sticky;
   top: 0;
-  z-index: 9999;
+
+  /* FIX: au-dessus du canvas/popup */
+  z-index: 100000 !important;
+
   overflow: visible !important;
+  transform: none !important;
+  filter: none !important;
 }
 
 .site-header .container{
@@ -84,14 +89,20 @@ main,
 
 /* =========================================================
    NAVBAR — CLIC ONLY (PC + MOBILE) SANS JS
-   - PC: dropdown absolute (ne grandit pas header)
+   - PC: dropdown absolute
    - Mobile: popup fixed overlay (ne grandit pas header)
+   - FIX: z-index au-dessus du background
    ========================================================= */
 .navbar{
   width: 100%;
   position: relative;
-  z-index: 10000;
+
+  /* FIX: au-dessus du canvas */
+  z-index: 100001 !important;
+
   overflow: visible;
+  transform: none !important;
+  filter: none !important;
 }
 
 /* Top menu */
@@ -262,6 +273,7 @@ main,
     top: 100%;
     left: 0;
     min-width: 230px;
+    z-index: 100010 !important;
   }
 
   .submenu > li > details > .submenu{
@@ -270,6 +282,7 @@ main,
     left: 100%;
     min-width: 230px;
     margin-left: 0;
+    z-index: 100011 !important;
   }
 
   /* pont anti-trou */
@@ -294,7 +307,7 @@ main,
 /* =========================================================
    MOBILE (TOUCH) : POPUP FIXED overlay
    -> ne grandit pas le header
-   -> marche même si max-width est bancal
+   -> au-dessus du canvas
    ========================================================= */
 @media (hover: none), (pointer: coarse){
 
@@ -348,6 +361,7 @@ main,
     overflow: auto !important;
     -webkit-overflow-scrolling: touch;
 
+    z-index: 100002 !important;
     box-shadow: 0 18px 60px rgba(0,0,0,0.55) !important;
   }
 
@@ -360,7 +374,6 @@ main,
     box-shadow: none !important;
     background: rgba(15,23,42,0.92) !important;
 
-    /* IMPORTANT : on laisse visible */
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
