@@ -221,7 +221,8 @@ main > *{
 
 /*-------------------index-----------*/
 /* =========================
-   WaveTools Showcase FINAL
+   WaveTools Showcase (NO JS)
+   Animations lentes + mobile clean
    ========================= */
 
 :root{
@@ -241,16 +242,16 @@ main > *{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* ===== zone globale ===== */
+/* zone globale */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
-  padding: 12px 18px;
+  padding: 10px 18px;     /* peu d’espace haut/bas */
   display: grid;
-  gap: 32px;
+  gap: 34px;              /* espace entre blocs */
 }
 
-/* ===== cartes ===== */
+/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -274,7 +275,7 @@ main > *{
   isolation: isolate;
 }
 
-/* halo glass */
+/* halo */
 .wt-card::before{
   content:"";
   position:absolute;
@@ -285,34 +286,35 @@ main > *{
   pointer-events:none;
   z-index:0;
 }
-
-.wt-card > *{
-  position:relative;
-  z-index:1;
-}
+.wt-card > *{ position:relative; z-index:1; }
 
 /* zig-zag centré */
 .wt-showcase .wt-card:nth-child(1){ margin-right:auto; }
 .wt-showcase .wt-card:nth-child(2){ margin-left:auto; }
 .wt-showcase .wt-card:nth-child(3){ margin-right:auto; }
 
-/* bloc 2 image gauche */
+/* bloc 2 inversé (image à gauche) */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
 }
 
-/* ===== texte ===== */
+/* badge supprimé si présent dans ton HTML */
+.wt-badge, .wt-dot{ display:none !important; }
+
+/* texte */
 .wt-card__text{ max-width: 58ch; }
 
 .wt-title{
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
   line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .wt-accent{
   background: linear-gradient(90deg,var(--c1),var(--c2));
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 
@@ -331,6 +333,9 @@ main > *{
 }
 
 .wt-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.18);
@@ -338,20 +343,22 @@ main > *{
   color:var(--txt);
   font-weight:900;
   text-decoration:none;
-  transition:.25s;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
 
 .wt-btn:hover{
   transform:translateY(-2px);
   background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.28);
 }
 
 .wt-btn--primary{
   background:linear-gradient(135deg,rgba(45,212,255,.30),rgba(124,58,237,.20));
   border-color:rgba(45,212,255,.35);
+  box-shadow: 0 16px 50px rgba(0,0,0,.35);
 }
 
-/* ===== image ===== */
+/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
@@ -364,66 +371,71 @@ main > *{
   border-radius:16px;
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 18px 55px rgba(0,0,0,.45);
-  animation:float 10s ease-in-out infinite;
+  opacity:.95;
+  animation: float 10s ease-in-out infinite;
 }
 
-/* ===== reveal scroll ===== */
-.wt-reveal{
-  opacity:0;
-  will-change:transform, opacity;
+/* ===== Animations d'entrée (AUTOMATIQUES et TRÈS lentes) ===== */
+.wt-in-ltr{
+  animation: slideLTR 6.5s cubic-bezier(.18,.9,.18,1) both;
+}
+.wt-in-rtl{
+  animation: slideRTL 6.5s cubic-bezier(.18,.9,.18,1) both;
 }
 
-.wt-reveal.wt-in-ltr{ transform:translateX(-60px); }
-.wt-reveal.wt-in-rtl{ transform:translateX(60px); }
+/* delays doux (sinon tout arrive d’un coup) */
+.wt-showcase .wt-card:nth-child(1){ animation-delay: .25s; }
+.wt-showcase .wt-card:nth-child(2){ animation-delay: 1.25s; }
+.wt-showcase .wt-card:nth-child(3){ animation-delay: 2.25s; }
 
-.wt-reveal.is-visible{
-  opacity:1;
-  transform:translateX(0);
-  transition:transform 3.2s cubic-bezier(.18,.9,.18,1),
-             opacity 3.2s ease;
+@keyframes slideLTR{
+  from{ opacity:0; transform: translateX(-160px); }
+  to{ opacity:1; transform: translateX(0); }
 }
 
-/* animations secondaires */
+@keyframes slideRTL{
+  from{ opacity:0; transform: translateX(160px); }
+  to{ opacity:1; transform: translateX(0); }
+}
+
 @keyframes float{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-14px); }
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
 }
 
-/* ===== MOBILE ===== */
+/* ===== MOBILE =====
+   Oui: les blocs "les uns sous les autres" -> c'est le bon rendu.
+   On rend juste ça plus compact et beau. */
 @media (max-width:980px){
 
   .wt-showcase{
-    padding:6px 14px;
-    gap:22px;
+    padding: 6px 14px;
+    gap: 20px;
   }
 
   .wt-card{
-    width:100%;
-    grid-template-columns:1fr;
-    padding:18px;
-    margin:0 !important;
+    width: 100%;
+    margin: 0 !important;
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .wt-card__media{
+    min-height: auto;
+    margin-top: 6px;
   }
 
   .wt-img{
-    width:min(340px,100%);
+    width: min(360px, 100%);
   }
 
-  .wt-reveal.wt-in-ltr{ transform:translateX(-24px); }
-  .wt-reveal.wt-in-rtl{ transform:translateX(24px); }
-  .wt-reveal.is-visible{
-    transition:transform 2.4s ease,
-               opacity 2.4s ease;
+  /* animation plus courte sur mobile (sinon trop lente à scroller) */
+  .wt-in-ltr, .wt-in-rtl{
+    animation-duration: 3.6s;
   }
 }
 
 /* accessibilité */
 @media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-  }
-  .wt-reveal{
-    opacity:1 !important;
-    transform:none !important;
-  }
+  *{ animation:none !important; transition:none !important; }
 }
