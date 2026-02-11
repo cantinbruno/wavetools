@@ -1,7 +1,6 @@
 /* =========================================
-   WaveTools — Animated Global Background
+   WaveTools — Cyber Animated Background
    File: site-bg.js
-   (Canvas 2D, no WebGL)
    ========================================= */
 
 (() => {
@@ -12,13 +11,11 @@
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
   let W=0, H=0, DPR=1;
-  let t=0;
   let mx=0.5, my=0.5;
-  let scrollT=0, scrollV=0;
+  let t=0;
 
-  // Particles
   const P = [];
-  const COUNT = reduceMotion ? 0 : 85;
+  const COUNT = reduceMotion ? 0 : 120;
 
   function resize(){
     DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
@@ -29,7 +26,7 @@
     canvas.height = Math.floor(H * DPR);
     canvas.style.width = W + "px";
     canvas.style.height = H + "px";
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
   }
 
   function rnd(a,b){ return Math.random()*(b-a)+a; }
@@ -39,111 +36,91 @@
     for(let i=0;i<COUNT;i++){
       P.push({
         x:rnd(0,W), y:rnd(0,H),
-        vx:rnd(-0.18,0.18), vy:rnd(-0.14,0.14),
-        r:rnd(0.8,2.1),
-        a:rnd(0.12,0.55),
-        hue:rnd(186,208)
+        vx:rnd(-0.35,0.35),
+        vy:rnd(-0.25,0.25),
+        r:rnd(0.8,2.2),
+        a:rnd(0.12,0.7),
+        hue: rnd(185,210) // cyan range
       });
     }
   }
 
-  function onPointerMove(e){
+  function onMove(e){
     mx = e.clientX / Math.max(1, W);
     my = e.clientY / Math.max(1, H);
   }
 
-  function onScroll(){
-    // Parallax léger (ajuste 800 -> plus petit = plus sensible)
-    scrollT = (window.scrollY || 0) / 800;
-  }
+  // micro glitch on hover anywhere
+  let glitchTimer = 0;
+  window.addEventListener("pointerdown", () => {
+    if (reduceMotion) return;
+    document.body.classList.add("cyber-glitch");
+    clearTimeout(glitchTimer);
+    glitchTimer = setTimeout(()=>document.body.classList.remove("cyber-glitch"), 180);
+  });
 
-  // Liquid field (shader-like)
-  function field(x, y, time){
-    const nx = x / W, ny = y / H;
-
-    const a = Math.sin((nx*8.5 + time*0.80) + Math.sin(ny*5.0 - time*0.55));
-    const b = Math.cos((ny*7.5 - time*0.70) + Math.cos(nx*6.0 + time*0.45));
-    const c = Math.sin((nx*4.0 + ny*3.6) * 2.0 + time*0.35);
-
-    // Subtle cursor swirl
-    const dx = nx - mx, dy = ny - my;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    const swirl = Math.cos(dist*16 - time*2.0) * Math.exp(-dist*5.6);
-
-    // Scroll parallax influence
-    const par = Math.sin((nx*2.5 - ny*1.8) + scrollV*0.9);
-
-    return (a*0.46 + b*0.34 + c*0.22 + swirl*0.55 + par*0.16);
-  }
-
-  function loop(){
-    if (reduceMotion){
-      ctx.clearRect(0,0,W,H);
-      const g = ctx.createRadialGradient(W*0.25, H*0.22, 0, W*0.25, H*0.22, Math.max(W,H));
-      g.addColorStop(0, "rgba(0,212,255,0.10)");
-      g.addColorStop(0.55, "rgba(106,92,255,0.07)");
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,W,H);
-      return;
-    }
-
-    scrollV += (scrollT - scrollV) * 0.06;
-    t += 0.016;
-
-    ctx.clearRect(0,0,W,H);
-
-    // Tile size = perf/quality (plus petit = plus beau)
-    const tile = (W < 900) ? 7 : 5;
-
-    for (let y=0; y<H; y+=tile){
-      for (let x=0; x<W; x+=tile){
-        const v = field(x + tile*0.5, y + tile*0.5, t);
-
-        // Color map (cyan <-> violet)
-        const hue = 190 + v * 32;
-        const alpha = 0.06 + Math.min(0.36, Math.abs(v) * 0.19);
-
-        ctx.fillStyle = `hsla(${hue}, 95%, 60%, ${alpha})`;
-        ctx.fillRect(x, y, tile, tile);
-      }
-    }
-
-    // Soft fog
-    const fog = ctx.createRadialGradient(W*0.30, H*0.20, 0, W*0.30, H*0.20, Math.max(W,H));
-    fog.addColorStop(0, "rgba(0,212,255,0.10)");
-    fog.addColorStop(0.45,"rgba(106,92,255,0.08)");
-    fog.addColorStop(1, "rgba(0,0,0,0)");
-    ctx.fillStyle = fog;
+  function drawBackgroundGlow(){
+    // base aurora gradients
+    const g1 = ctx.createRadialGradient(W*0.22, H*0.22, 0, W*0.22, H*0.22, Math.max(W,H));
+    g1.addColorStop(0, "rgba(0,212,255,0.10)");
+    g1.addColorStop(0.55, "rgba(0,212,255,0.00)");
+    ctx.fillStyle = g1;
     ctx.fillRect(0,0,W,H);
 
-    // Soft beam (subtle)
-    ctx.fillStyle = "rgba(255,255,255,0.02)";
-    ctx.fillRect(0, H*0.24 + Math.sin(t*0.6)*10, W, 70);
+    const g2 = ctx.createRadialGradient(W*0.78, H*0.28, 0, W*0.78, H*0.28, Math.max(W,H));
+    g2.addColorStop(0, "rgba(106,92,255,0.10)");
+    g2.addColorStop(0.6, "rgba(106,92,255,0.00)");
+    ctx.fillStyle = g2;
+    ctx.fillRect(0,0,W,H);
 
-    // Particles
+    // cursor glow
+    const cx = mx * W, cy = my * H;
+    const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W,H)*0.35);
+    cg.addColorStop(0, "rgba(0,255,168,0.08)");
+    cg.addColorStop(1, "rgba(0,255,168,0)");
+    ctx.fillStyle = cg;
+    ctx.fillRect(0,0,W,H);
+  }
+
+  function drawBeam(){
+    // neon beam moving slowly
+    const y = (H*0.20) + Math.sin(t*0.45) * (H*0.08);
+    const beam = ctx.createLinearGradient(0, y, 0, y+120);
+    beam.addColorStop(0, "rgba(0,0,0,0)");
+    beam.addColorStop(0.3, "rgba(0,212,255,0.06)");
+    beam.addColorStop(0.5, "rgba(255,255,255,0.03)");
+    beam.addColorStop(0.7, "rgba(106,92,255,0.05)");
+    beam.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = beam;
+    ctx.fillRect(0, y-80, W, 220);
+  }
+
+  function drawParticles(){
+    // particles
     for(const p of P){
-      p.x += p.vx; p.y += p.vy;
-      if(p.x < -30) p.x = W+30;
-      if(p.x > W+30) p.x = -30;
-      if(p.y < -30) p.y = H+30;
-      if(p.y > H+30) p.y = -30;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if(p.x < -40) p.x = W+40;
+      if(p.x > W+40) p.x = -40;
+      if(p.y < -40) p.y = H+40;
+      if(p.y > H+40) p.y = -40;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = `hsla(${p.hue}, 95%, 66%, ${p.a})`;
+      ctx.fillStyle = `hsla(${p.hue}, 95%, 65%, ${p.a})`;
       ctx.fill();
     }
 
-    // Connections (discreet)
+    // connections
     for(let i=0;i<P.length;i++){
       for(let j=i+1;j<P.length;j++){
         const a=P[i], b=P[j];
         const dx=a.x-b.x, dy=a.y-b.y;
         const dist=Math.hypot(dx,dy);
-        if(dist < 140){
-          const alpha = (1 - dist/140) * 0.085;
-          ctx.strokeStyle = `rgba(170,220,255,${alpha})`;
+        if(dist < 135){
+          const alpha=(1 - dist/135) * 0.14;
+          ctx.strokeStyle = `rgba(160,220,255,${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x,a.y);
@@ -152,18 +129,50 @@
         }
       }
     }
+  }
+
+  // occasional glitch slice (canvas only)
+  function glitchSlice(){
+    if (reduceMotion) return;
+    if (Math.random() > 0.06) return;
+
+    const sliceY = rnd(0, H);
+    const sliceH = rnd(8, 32);
+    const shiftX = rnd(-18, 18);
+
+    const img = ctx.getImageData(0, sliceY, W, sliceH);
+    ctx.putImageData(img, shiftX, sliceY);
+
+    // tiny RGB split look using translucent overlays
+    ctx.fillStyle = "rgba(0,212,255,0.03)";
+    ctx.fillRect(0, sliceY, W, sliceH);
+
+    ctx.fillStyle = "rgba(106,92,255,0.03)";
+    ctx.fillRect(0, sliceY+2, W, sliceH);
+  }
+
+  function loop(){
+    t += 0.016;
+
+    ctx.clearRect(0,0,W,H);
+
+    // base dark
+    ctx.fillStyle = "rgba(5,9,20,1)";
+    ctx.fillRect(0,0,W,H);
+
+    drawBackgroundGlow();
+    drawBeam();
+    drawParticles();
+    glitchSlice();
 
     requestAnimationFrame(loop);
   }
 
-  // Init
   resize();
   seed();
-  onScroll();
-
   window.addEventListener("resize", () => { resize(); seed(); });
-  window.addEventListener("scroll", onScroll, { passive:true });
-  window.addEventListener("pointermove", onPointerMove, { passive:true });
+  window.addEventListener("pointermove", onMove, { passive:true });
 
-  requestAnimationFrame(loop);
+  if (!reduceMotion) requestAnimationFrame(loop);
+  else loop();
 })();

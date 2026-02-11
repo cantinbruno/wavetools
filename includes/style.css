@@ -173,107 +173,121 @@ main {
 }
 
 /* =========================================
-   WaveTools — Animated Global Background
+   WaveTools — Cyber Animated Background
    File: site-bg.css
    ========================================= */
 
 :root{
-  --bg-top: #07122a;
-  --bg-bottom: #050914;
+  --bg0:#050914;
+  --bg1:#07122a;
 
-  --glass: rgba(17,24,39,.62);
-  --glass-border: rgba(255,255,255,.08);
+  --neonC:#00d4ff;  /* cyan */
+  --neonP:#6a5cff;  /* purple */
+  --neonG:#00ffa8;  /* green */
 
-  --scanline-opacity: 0.05;   /* baisse encore si tu veux */
-  --grain-opacity: 0.07;      /* baisse si besoin */
+  --glass: rgba(10,16,30,.62);
+  --glassBorder: rgba(255,255,255,.10);
+
+  --noiseOpacity: .10;
+  --scanOpacity: .045;
+  --gridOpacity: .18;
 }
 
-/* Fallback si JS/canvas ne tourne pas */
+/* Fallback */
 html, body{
-  height: 100%;
-  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  height:100%;
+  background: radial-gradient(1200px 800px at 20% 20%, rgba(0,212,255,.10), transparent 60%),
+              radial-gradient(1000px 800px at 80% 25%, rgba(106,92,255,.10), transparent 60%),
+              linear-gradient(180deg, var(--bg1), var(--bg0));
 }
 
-/* Canvas global derrière tout */
+/* Canvas anim (particles + glow) */
 #siteBg{
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none;
-  z-index: -2;
+  pointer-events:none;
+  z-index:-3;
 }
 
-/* Overlays derrière le site mais au-dessus du canvas */
+/* Cyber overlays */
 .site-bg-overlay{
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: -1;
+  pointer-events:none;
+  z-index:-2;
 }
 
-/* Scanlines (TRÈS léger) */
+/* GRID néon (même sans canvas) */
+.site-bg-grid{
+  opacity: var(--gridOpacity);
+  background:
+    linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  transform: perspective(900px) rotateX(58deg) translateY(18%);
+  transform-origin: 50% 60%;
+  mask-image: radial-gradient(circle at 50% 60%, rgba(0,0,0,1), rgba(0,0,0,0) 70%);
+  animation: gridDrift 14s linear infinite;
+}
+
+@keyframes gridDrift{
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 220px 0, 0 220px; }
+}
+
+/* Scanlines très fines (pas de grosses bandes) */
 .site-bg-scanlines{
-  opacity: var(--scanline-opacity);
+  opacity: var(--scanOpacity);
   background:
     repeating-linear-gradient(
       to bottom,
       rgba(255,255,255,.06) 0px,
       rgba(255,255,255,.06) 1px,
-      rgba(0,0,0,0) 3px,
-      rgba(0,0,0,0) 9px
+      rgba(0,0,0,0) 2px,
+      rgba(0,0,0,0) 6px
     );
   mix-blend-mode: overlay;
-  animation: scanMove 3.8s linear infinite;
+  animation: scanMove 2.2s linear infinite;
 }
 
 @keyframes scanMove{
   from { background-position: 0 0; }
-  to   { background-position: 0 30px; }
+  to   { background-position: 0 18px; }
 }
 
-/* Vignette (assombrit les bords -> plus premium) */
+/* Vignette */
 .site-bg-vignette{
-  background:
-    radial-gradient(circle at 50% 35%,
-      rgba(0,0,0,0) 0 52%,
-      rgba(0,0,0,.62) 100%
-    );
-  opacity: .96;
+  background: radial-gradient(circle at 50% 35%, rgba(0,0,0,0) 0 55%, rgba(0,0,0,.68) 100%);
+  opacity: .95;
 }
 
-/* Grain “cinéma” très subtil */
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events:none;
-  z-index: 999999; /* au-dessus, mais très transparent */
-  opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+/* Noise (casse le banding) */
+.site-bg-noise{
+  opacity: var(--noiseOpacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
 
-/* Ton contenu au-dessus (important) */
+/* Content stays above */
 .site-header, main, .site-footer{
   position: relative;
   z-index: 10;
 }
 
-/* Header/Footer plus “glass” (optionnel mais joli) */
-.site-header,
-.site-footer{
+/* Glass header/footer (cyber) */
+.site-header, .site-footer{
   background: var(--glass);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
-
 .site-footer{
   border-bottom: none;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
-/* Si tu veux aussi donner un look “card” au main (optionnel)
+/* Optional: card main (si tu veux) */
 main{
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.08);
@@ -282,10 +296,16 @@ main{
   box-shadow: 0 20px 70px rgba(0,0,0,.35);
   padding: 28px 22px;
 }
-*/
 
-/* Accessibilité */
+/* Glitch effect when hovering interactive zones (class toggled by JS) */
+body.cyber-glitch .site-header,
+body.cyber-glitch main,
+body.cyber-glitch .site-footer{
+  filter: drop-shadow(-2px 0 rgba(0,212,255,.12))
+          drop-shadow(2px 0 rgba(106,92,255,.12));
+}
+
+/* Accessibility */
 @media (prefers-reduced-motion: reduce){
-  .site-bg-scanlines{ animation: none !important; }
-  body::after{ display:none; }
+  .site-bg-grid, .site-bg-scanlines{ animation: none !important; }
 }
