@@ -11,7 +11,7 @@ html, body{
   height: 100%;
   margin: 0;
   background: transparent;
-  overflow-x: hidden; /* évite scroll horizontal iOS */
+  overflow-x: hidden;
 }
 
 body{
@@ -85,16 +85,42 @@ main,
 }
 
 /* =========================================================
-   NAVBAR — Desktop: HOVER (sans clic)
-   Mobile: CLICK via <details>
+   NAVBAR (FIABLE PC + MOBILE) — Dropdown + Subdropdown
+   PC: hover / clavier
+   Mobile: tap via checkbox (sans JS)
    ========================================================= */
 .navbar{
   width: 100%;
   position: relative;
   z-index: 10000;
   overflow: visible;
+  padding: 6px 0 10px;
 }
 
+/* burger */
+.nav-toggle{
+  position: absolute;
+  left: -9999px;
+}
+
+.nav-burger{
+  display: none;
+  user-select: none;
+  cursor: pointer;
+
+  margin: 6px auto 0;
+  width: fit-content;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #e5e7eb;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* menu */
 .menu{
   list-style: none;
   margin: 0;
@@ -112,133 +138,122 @@ main,
   overflow: visible;
 }
 
-/* top-level simple */
-.menu > li > a{
-  display:block;
-  padding:10px 12px;
-  color:#9ca3af;
-  text-decoration:none;
-  font-size:14px;
-  -webkit-tap-highlight-color: transparent;
-}
-.menu > li > a:hover{ color:#fff; }
-
-/* details/summary */
-.menu details{
-  position: relative;
-  overflow: visible;
-}
-
-.menu summary{
-  list-style:none;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-
-  padding:10px 12px;
-  color:#9ca3af;
-  font-size:14px;
-
-  user-select:none;
-  outline:none;
+/* liens top-level */
+.menu > li > a,
+.menu > li > .dd-link{
+  display: block;
+  padding: 10px 12px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
 
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
 }
-.menu summary:hover{ color:#fff; }
-.menu summary::-webkit-details-marker{ display:none; }
 
-/* -------------------------
-   Sous-menus (base)
-   ------------------------- */
+.menu > li > a:hover,
+.menu > li > .dd-link:hover{
+  color: #fff;
+}
+
+/* items dropdown */
+.dropdown{
+  display: flex;
+  align-items: center;
+}
+
+/* checkbox submenu (invisible) */
+.dd-toggle{
+  position: absolute;
+  left: -9999px;
+}
+
+/* caret cliquable (sert au tap sur mobile, marche aussi PC) */
+.dd-caret{
+  cursor: pointer;
+  padding: 10px 10px;
+  color: #9ca3af;
+  user-select: none;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+.dd-caret:hover{ color:#fff; }
+
+.dd-caret-right{
+  padding-left: 6px;
+}
+
+/* Sous-menus base (cachés) */
 .submenu{
-  list-style:none;
-  margin:0;
-  padding:0;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
 
-  background:#0f172a;
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 
-  /* caché par défaut */
-  max-height: 0;
-  overflow: hidden;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 220px;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(8px);
 
-  transition:
-    max-height .25s ease,
-    opacity .18s ease,
-    transform .18s ease;
-
-  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index: 999999;
 }
 
-/* liens dans sous-menus */
-.submenu a{
-  display:block;
-  padding:10px 12px;
-  color:#cbd5e1;
-  text-decoration:none;
-  font-size:14px;
-  white-space:nowrap;
-}
-.submenu a:hover{
-  background:rgba(255,255,255,0.06);
-  color:#fff;
+/* sous-menu niveau 2 à droite */
+.submenu-right{
+  top: 0;
+  left: 100%;
+  margin-left: 6px;
 }
 
-/* summary dans sous-menus */
-.submenu summary{
-  list-style:none;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:10px 12px;
-  color:#cbd5e1;
-  font-size:14px;
-
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
+/* liens sous-menu */
+.submenu a,
+.submenu .dd-link{
+  display: block;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
 }
-.submenu summary:hover{ color:#fff; }
-.submenu summary::-webkit-details-marker{ display:none; }
 
-/* =========================
-   DESKTOP : ouverture AU SURVOL (pas de clic)
-   ========================= */
+.submenu a:hover,
+.submenu .dd-link:hover{
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* ---------- OUVERTURE PC : hover / focus ---------- */
 @media (min-width:981px){
 
-  /* dropdown niveau 1 */
-  .menu > li > details > .submenu{
-    position:absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    min-width: 220px;
-    z-index: 999999;
+  /* hover sur le LI ouvre le submenu */
+  .menu > li.dropdown:hover > .submenu,
+  .menu > li.dropdown:focus-within > .submenu{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
-  /* dropdown niveau 2 (à droite) */
-  .submenu > li > details > .submenu{
-    position:absolute;
-    top: 0;
-    left: 100%;
-    margin-left: 6px;
-    min-width: 220px;
-    z-index: 999999;
+  /* hover sur le LI interne ouvre le sous-sous-menu */
+  .submenu > li.dropdown:hover > .submenu,
+  .submenu > li.dropdown:focus-within > .submenu{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
-  /* pont anti "trou" */
-  .menu > li > details > .submenu::before{
+  /* pont anti “trou” */
+  .menu > li.dropdown > .submenu::before{
     content:"";
     position:absolute;
     top:-10px;
@@ -246,77 +261,78 @@ main,
     width:100%;
     height:10px;
   }
-
-  /* OUVERTURE AU HOVER / FOCUS */
-  .menu > li:hover > details > .submenu,
-  .menu > li:focus-within > details > .submenu{
-    padding: 8px 0;
-    max-height: 1000px;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: translateY(0);
-  }
-
-  .submenu > li:hover > details > .submenu,
-  .submenu > li:focus-within > details > .submenu{
-    padding: 8px 0;
-    max-height: 1000px;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: translateY(0);
-  }
 }
 
-/* =========================
-   MOBILE : ouverture AU CLIC
-   ========================= */
+/* ---------- OUVERTURE MOBILE : tap (checkbox) ---------- */
 @media (max-width:980px){
 
+  .nav-burger{
+    display: block;
+  }
+
+  /* menu caché tant que burger fermé */
   .menu{
+    display: none;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    padding: 0 6px;
+    padding: 10px 6px 0;
   }
 
-  /* gros bouton tap */
-  .menu summary{
+  /* burger ouvert => menu visible */
+  .nav-toggle:checked ~ .menu{
+    display: flex;
+  }
+
+  .menu > li{
+    display: block;
+  }
+
+  /* look bouton */
+  .menu > li > a,
+  .menu > li > .dd-link{
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.10);
     border-radius: 12px;
   }
 
-  /* sous-menus dans le flux */
-  .menu > li > details > .submenu,
-  .submenu > li > details > .submenu{
-    position: static !important;
+  /* dropdown caret mieux tap */
+  .dropdown{
+    position: relative;
+  }
+
+  /* sous-menus dans le flux sur mobile */
+  .submenu{
+    position: static;
+    min-width: 0;
     margin-top: 6px;
+
+    opacity: 1;            /* on gère l'affichage via display */
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+
+    display: none;
     box-shadow: none;
     background: rgba(15,23,42,0.92);
-    transform: none;
   }
 
-  /* ouvert sur mobile uniquement via details[open] */
-  details[open] > .submenu{
-    padding: 8px 0;
-    max-height: 1000px;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  /* checkbox checked => affiche submenu */
+  .dd-toggle:checked ~ .submenu{
+    display: block;
   }
 
-  /* confort tap */
+  /* niveau 2 aussi dans le flux */
+  .submenu-right{
+    margin-left: 0;
+  }
+
+  /* padding tap */
   .menu > li > a,
-  .menu summary,
+  .menu > li > .dd-link,
+  .dd-caret,
   .submenu a,
-  .submenu summary{
+  .submenu .dd-link{
     padding: 12px 14px;
   }
 }
@@ -335,7 +351,6 @@ main{
   box-shadow: none !important;
 }
 
-/* ne pas casser le showcase */
 main > *:not(.wt-showcase){
   background: transparent !important;
   border: 0 !important;
@@ -357,7 +372,6 @@ main > *:not(.wt-showcase){
 
 /* =========================
    WaveTools Showcase — FULL CINEMATIC FORCED
-   (ANIMATIONS PC OK)
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -373,7 +387,6 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
-/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -382,7 +395,6 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
-/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -406,12 +418,10 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
-/* bloc 2 image gauche */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
 }
 
-/* texte */
 .wt-title{
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
@@ -433,7 +443,6 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
-/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
@@ -453,7 +462,6 @@ main > *:not(.wt-showcase){
   50%{ transform:translateY(-14px); }
 }
 
-/* animations par bloc (PC) */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
@@ -483,11 +491,7 @@ main > *:not(.wt-showcase){
   to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
 }
 
-/* =========================
-   MOBILE (showcase)
-   ========================= */
 @media (max-width:980px){
-
   :root{ --zig:0px; --push:140px; }
 
   .wt-showcase{
@@ -512,7 +516,6 @@ main > *:not(.wt-showcase){
     text-align:center;
   }
 
-  /* sur mobile, pas de décalage horizontal */
   .wt-showcase .wt-card:nth-child(1),
   .wt-showcase .wt-card:nth-child(2),
   .wt-showcase .wt-card:nth-child(3){
