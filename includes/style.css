@@ -16,34 +16,29 @@ body {
 /* Header */
 .site-header {
   background: #111827;
-  padding: 2px 0; /* espace réduit haut/bas */
+  padding: 6px 0;
   position: sticky;
   top: 0;
 }
 
 .site-header .container {
   display: flex;
-  flex-direction: column; /* logo au-dessus, nav en dessous */
+  flex-direction: column;
   align-items: center;
-  line-height: 1; /* évite l'espace fantôme */
+  gap: 6px; /* espace propre logo/nav */
 }
 
-/* Logo (recadré mieux, bas moins coupé) */
+/* Logo (propre, jamais coupé) */
 .logo {
-  width: 240px;
-  height: 72px;      /* + haut = moins coupé en bas */
-  overflow: hidden;
   display: block;
-  margin: 0;
   text-decoration: none;
 }
 
 .logo img {
-  width: 320px;
-  height: auto;
   display: block;
-  margin: 0;
-  transform: translateY(-24px); /* remonte moins = bas visible */
+  width: 240px;     /* ajuste la taille ici */
+  height: auto;
+  max-height: 90px; /* évite un logo trop haut */
 }
 
 /* Navigation */
@@ -51,7 +46,8 @@ body {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin-top: 2px; /* espace serré entre logo et nav */
+  margin: 0;
+  padding: 0;
 }
 
 .nav a {
