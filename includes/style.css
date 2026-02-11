@@ -176,46 +176,15 @@ main {
    WaveTools — Simple Animated Background
    File: site-bg.css
    ========================================= */
-
-:root{
-  --bg0:#050914;
-  --bg1:#07122a;
-}
-
-html, body{
-  height: 100%;
-  margin: 0;
-  background: linear-gradient(180deg, var(--bg1), var(--bg0)); /* fallback */
-}
-
-/* Un seul canvas qui couvre tout l’écran */
 #siteBg{
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
   pointer-events: none;
-  z-index: -1; /* derrière ton site */
 }
 
-/* Ton contenu au-dessus */
-.site-header, main, .site-footer{
-  position: relative;
-  z-index: 10;
-}
-
-/* Option: header/footer un peu plus “glass” (tu peux enlever si tu veux) */
-.site-header, .site-footer{
-  background: rgba(17,24,39,.70);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.site-footer{
-  border-bottom: none;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-
-/* Respect de l’accessibilité */
-@media (prefers-reduced-motion: reduce){
-  #siteBg{ display:none; }
+html, body{
+  background: linear-gradient(180deg, #07122a, #050914);
 }
