@@ -1,15 +1,22 @@
+/* =========================================
+   WaveTools — Animated Global Background
+   File: site-bg.js
+   (Canvas 2D, no WebGL)
+   ========================================= */
+
 (() => {
   const canvas = document.getElementById("siteBg");
   if (!canvas) return;
 
   const ctx = canvas.getContext("2d", { alpha: true });
-  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
   let W=0, H=0, DPR=1;
-  let t=0, mx=0.5, my=0.5;
+  let t=0;
+  let mx=0.5, my=0.5;
   let scrollT=0, scrollV=0;
 
-  // Particules
+  // Particles
   const P = [];
   const COUNT = reduceMotion ? 0 : 85;
 
@@ -46,10 +53,11 @@
   }
 
   function onScroll(){
+    // Parallax léger (ajuste 800 -> plus petit = plus sensible)
     scrollT = (window.scrollY || 0) / 800;
   }
 
-  // Champ “liquide”
+  // Liquid field (shader-like)
   function field(x, y, time){
     const nx = x / W, ny = y / H;
 
@@ -57,12 +65,12 @@
     const b = Math.cos((ny*7.5 - time*0.70) + Math.cos(nx*6.0 + time*0.45));
     const c = Math.sin((nx*4.0 + ny*3.6) * 2.0 + time*0.35);
 
-    // swirl curseur (subtil)
+    // Subtle cursor swirl
     const dx = nx - mx, dy = ny - my;
     const dist = Math.sqrt(dx*dx + dy*dy);
     const swirl = Math.cos(dist*16 - time*2.0) * Math.exp(-dist*5.6);
 
-    // parallax scroll
+    // Scroll parallax influence
     const par = Math.sin((nx*2.5 - ny*1.8) + scrollV*0.9);
 
     return (a*0.46 + b*0.34 + c*0.22 + swirl*0.55 + par*0.16);
@@ -85,21 +93,23 @@
 
     ctx.clearRect(0,0,W,H);
 
-    // ✅ Moins “carré” : tuiles dynamiques + micro-blur via surcouche
+    // Tile size = perf/quality (plus petit = plus beau)
     const tile = (W < 900) ? 7 : 5;
 
     for (let y=0; y<H; y+=tile){
       for (let x=0; x<W; x+=tile){
         const v = field(x + tile*0.5, y + tile*0.5, t);
-        const hue = 190 + v * 32;               // cyan->violet
-        const alpha = 0.07 + Math.min(0.38, Math.abs(v) * 0.20);
+
+        // Color map (cyan <-> violet)
+        const hue = 190 + v * 32;
+        const alpha = 0.06 + Math.min(0.36, Math.abs(v) * 0.19);
 
         ctx.fillStyle = `hsla(${hue}, 95%, 60%, ${alpha})`;
         ctx.fillRect(x, y, tile, tile);
       }
     }
 
-    // Fog + “light beams”
+    // Soft fog
     const fog = ctx.createRadialGradient(W*0.30, H*0.20, 0, W*0.30, H*0.20, Math.max(W,H));
     fog.addColorStop(0, "rgba(0,212,255,0.10)");
     fog.addColorStop(0.45,"rgba(106,92,255,0.08)");
@@ -107,11 +117,11 @@
     ctx.fillStyle = fog;
     ctx.fillRect(0,0,W,H);
 
-    // Light beam horizontal doux
-    ctx.fillStyle = "rgba(255,255,255,0.03)";
+    // Soft beam (subtle)
+    ctx.fillStyle = "rgba(255,255,255,0.02)";
     ctx.fillRect(0, H*0.24 + Math.sin(t*0.6)*10, W, 70);
 
-    // Particules
+    // Particles
     for(const p of P){
       p.x += p.vx; p.y += p.vy;
       if(p.x < -30) p.x = W+30;
@@ -125,14 +135,14 @@
       ctx.fill();
     }
 
-    // Liens (plus discret)
+    // Connections (discreet)
     for(let i=0;i<P.length;i++){
       for(let j=i+1;j<P.length;j++){
         const a=P[i], b=P[j];
         const dx=a.x-b.x, dy=a.y-b.y;
         const dist=Math.hypot(dx,dy);
         if(dist < 140){
-          const alpha = (1 - dist/140) * 0.09;
+          const alpha = (1 - dist/140) * 0.085;
           ctx.strokeStyle = `rgba(170,220,255,${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -146,6 +156,7 @@
     requestAnimationFrame(loop);
   }
 
+  // Init
   resize();
   seed();
   onScroll();
