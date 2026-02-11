@@ -19,8 +19,6 @@ body {
   padding: 6px 0;
   position: sticky;
   top: 0;
-
-  /* IMPORTANT: ne pas couper les dropdowns + rester au-dessus */
   overflow: visible;
   z-index: 9999;
 }
@@ -30,10 +28,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  overflow: visible; /* évite que le container coupe les menus */
+  overflow: visible;
 }
 
-/* Logo (recadrage doux + stable) */
+/* Logo */
 .logo {
   display: block;
   width: 360px;
@@ -83,22 +81,18 @@ body {
   color: #ffffff;
 }
 
-/* Submenu (niveau 1) */
+/* Submenu niveau 1 */
 .submenu {
   list-style: none;
   margin: 0;
   padding: 8px 0;
   position: absolute;
-
-  /* petit offset sans “trou” */
   top: calc(100% + 2px);
   left: 0;
-
   min-width: 210px;
   background: #0f172a;
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px;
-
   display: none;
   z-index: 20000;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
@@ -109,7 +103,7 @@ body {
 }
 
 .submenu a {
-  display: block; /* mieux pour cliquer */
+  display: block;
   padding: 10px 12px;
   color: #cbd5e1;
   text-decoration: none;
@@ -126,16 +120,16 @@ body {
 .submenu-right {
   top: 0;
   left: 100%;
-  margin-left: 0; /* IMPORTANT: pas de gap sinon impossible à sélectionner */
+  margin-left: -1px; /* chevauche pour éviter le trou */
 }
 
-/* OUVERTURE: hover + clic (focus) */
+/* OUVERTURE hover + clic */
 .has-submenu:hover > .submenu,
 .has-submenu:focus-within > .submenu {
   display: block;
 }
 
-/* “pont” invisible pour éviter la fermeture quand on descend la souris */
+/* Pont invisible entre menu et sous-menu vertical */
 .has-submenu > .submenu::before {
   content: "";
   position: absolute;
@@ -143,6 +137,22 @@ body {
   left: 0;
   width: 100%;
   height: 10px;
+}
+
+/* Pont invisible horizontal pour sous-menu droit */
+.submenu li.has-submenu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -14px;
+  width: 14px;
+  height: 100%;
+}
+
+/* Garder ouvert sur le pont */
+.submenu li.has-submenu:hover > .submenu,
+.submenu li.has-submenu:focus-within > .submenu {
+  display: block;
 }
 
 /* Main content */
