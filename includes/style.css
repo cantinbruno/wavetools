@@ -573,3 +573,34 @@ main > *:not(.wt-showcase){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
+
+/* =========================
+   MOBILE NAV — version compacte
+   ========================= */
+@media (max-width:700px){
+
+  .menu{
+    flex-wrap: nowrap;          /* plus d'empilement */
+    overflow-x: auto;           /* scroll horizontal */
+    justify-content: flex-start;
+    padding: 6px;
+    gap: 6px;
+
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar{
+    display: none;
+  }
+
+  .menu > li{
+    flex: 0 0 auto;
+  }
+
+  .menu > li > a,
+  .menu summary{
+    padding: 8px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
