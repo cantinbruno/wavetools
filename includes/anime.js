@@ -40,7 +40,7 @@
 
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle="rgba(0,255,255,0.7)";
+      ctx.fillStyle="rgba(0,255,255,0.75)";
       ctx.fill();
     }
   }
@@ -70,32 +70,19 @@
   }
 
   /* =====================
-     HALO CYBER
+     HALO CYBER (lent)
      ===================== */
   function glow(){
-    const gx=W*(0.5+0.2*Math.sin(t*0.3));
-    const gy=H*(0.5+0.2*Math.cos(t*0.25));
+    const gx=W*(0.5+0.15*Math.sin(t*0.2));
+    const gy=H*(0.5+0.15*Math.cos(t*0.18));
 
     const g=ctx.createRadialGradient(gx,gy,0,gx,gy,Math.max(W,H));
-    g.addColorStop(0,"rgba(0,255,255,0.15)");
-    g.addColorStop(0.5,"rgba(80,0,255,0.08)");
+    g.addColorStop(0,"rgba(0,255,255,0.12)");
+    g.addColorStop(0.5,"rgba(80,0,255,0.06)");
     g.addColorStop(1,"rgba(0,0,0,0)");
 
     ctx.fillStyle=g;
     ctx.fillRect(0,0,W,H);
-  }
-
-  /* =====================
-     SCANLINE DOUCE
-     ===================== */
-  function scanline(){
-    const y=(t*120)%H;
-    const g=ctx.createLinearGradient(0,y-60,0,y+60);
-    g.addColorStop(0,"rgba(0,0,0,0)");
-    g.addColorStop(0.5,"rgba(0,255,255,0.06)");
-    g.addColorStop(1,"rgba(0,0,0,0)");
-    ctx.fillStyle=g;
-    ctx.fillRect(0,y-60,W,120);
   }
 
   /* =====================
@@ -110,7 +97,6 @@
     glow();
     drawLinks();
     drawParticles();
-    scanline();
 
     requestAnimationFrame(loop);
   }
