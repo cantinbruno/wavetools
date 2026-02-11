@@ -1,3 +1,25 @@
+/* =========================
+   WaveTools scroll reveal
+   ========================= */
+document.addEventListener("DOMContentLoaded", () => {
+const cards = document.querySelectorAll('.wt-card.wt-in-ltr, .wt-card.wt-in-rtl');
+
+cards.forEach(card => card.classList.add('wt-reveal'));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.18
+});
+});
+
+cards.forEach(card => observer.observe(card));
+
 (() => {
   const c = document.getElementById("siteBg");
   if (!c) return;
@@ -103,3 +125,4 @@
 
   loop();
 })();
+
