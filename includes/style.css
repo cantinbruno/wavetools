@@ -29,7 +29,7 @@ body{
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;          /* ✅ visible */
+  z-index: 0;          /* visible */
   pointer-events: none;
 }
 
@@ -219,7 +219,6 @@ main > *:not(.wt-showcase){
 /* =========================
    WaveTools Showcase — direction forcée
    ========================= */
-
 :root{
   --txt: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
@@ -318,13 +317,26 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
-/* boutons */
-.wt-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+/* ===== BOUTONS ===== */
+
+/* Desktop : bulles horizontales */
+@media (min-width:981px){
+  .wt-actions{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .wt-btn{
+    width: auto !important;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
+/* Base */
 .wt-btn{
   padding:12px 14px;
   border-radius:14px;
@@ -363,59 +375,39 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   DIRECTION FORCÉE PAR BLOC
-   (fonctionne PC + mobile)
+   ANIMATIONS PAR BLOC (PC + mobile)
    ========================= */
-
-/* 1 : gauche -> position zigzag gauche */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
   animation-delay: .3s;
 }
-@keyframes cardLeft{
-  from{
-    opacity:0;
-    transform: translateX(calc(var(--zig) * -1 - var(--push)));
-  }
-  to{
-    opacity:1;
-    transform: translateX(calc(var(--zig) * -1));
-  }
-}
 
-/* 2 : droite -> position zigzag droite */
 .wt-showcase .wt-card:nth-child(2){
   margin-left:auto;
   animation: cardRight 8s cubic-bezier(.12,.85,.12,1) both;
   animation-delay: 1.6s;
 }
-@keyframes cardRight{
-  from{
-    opacity:0;
-    transform: translateX(calc(var(--zig) + var(--push)));
-  }
-  to{
-    opacity:1;
-    transform: translateX(var(--zig));
-  }
-}
 
-/* 3 : gauche -> position zigzag gauche */
 .wt-showcase .wt-card:nth-child(3){
   margin-right:auto;
   animation: cardLeft3 8s cubic-bezier(.12,.85,.12,1) both;
   animation-delay: 3s;
 }
+
+@keyframes cardLeft{
+  from{ opacity:0; transform: translateX(calc(var(--zig) * -1 - var(--push))); }
+  to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
+}
+
+@keyframes cardRight{
+  from{ opacity:0; transform: translateX(calc(var(--zig) + var(--push))); }
+  to  { opacity:1; transform: translateX(var(--zig)); }
+}
+
 @keyframes cardLeft3{
-  from{
-    opacity:0;
-    transform: translateX(calc(var(--zig) * -1 - var(--push)));
-  }
-  to{
-    opacity:1;
-    transform: translateX(calc(var(--zig) * -1));
-  }
+  from{ opacity:0; transform: translateX(calc(var(--zig) * -1 - var(--push))); }
+  to  { opacity:1; transform: translateX(calc(var(--zig) * -1)); }
 }
 
 /* =========================
@@ -424,8 +416,8 @@ main > *:not(.wt-showcase){
 @media (max-width:980px){
 
   :root{
-    --zig: 0px;     /* zigzag annulé */
-    --push: 140px;  /* départ moins violent */
+    --zig: 0px;
+    --push: 140px;
   }
 
   .wt-showcase{
@@ -458,20 +450,20 @@ main > *:not(.wt-showcase){
     margin: 0 auto;
   }
 
-  /* bulles parfaitement alignées */
+  /* Mobile : bulles verticales alignées */
   .wt-actions{
-    display:grid;
+    display:grid !important;
     gap:12px;
     justify-items:stretch;
   }
 
   .wt-btn{
-    width:100%;
+    width:100% !important;
     text-align:center;
     justify-content:center;
   }
 
-  /* durée mobile un peu plus courte */
+  /* durée mobile plus courte */
   .wt-showcase .wt-card:nth-child(1),
   .wt-showcase .wt-card:nth-child(2),
   .wt-showcase .wt-card:nth-child(3){
@@ -484,6 +476,16 @@ main > *:not(.wt-showcase){
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
 
+/* =========================
+   ACCESSIBILITÉ
+   (ne tue pas les animations, les rend quasi instant)
+   ========================= */
 @media (prefers-reduced-motion: reduce){
-  *{ animation:none !important; transition:none !important; }
+  .wt-img{ animation: none !important; }
+
+  .wt-showcase .wt-card{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
