@@ -27,21 +27,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
   overflow: visible;
 }
 
-/* Logo */
+/* Logo — FIX CENTRAGE */
 .logo {
-  display: block;
-  width: 360px;
-  height: 90px;
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .logo img {
-  width: 100%;
-  height: 100%;
+  width: 360px;
+  height: 90px;
   object-fit: contain;
   object-position: center;
   display: block;
@@ -116,20 +115,20 @@ body {
   color: #ffffff;
 }
 
-/* Sous-menu niveau 2 (à droite) */
+/* Sous-menu niveau 2 */
 .submenu-right {
   top: 0;
   left: 100%;
-  margin-left: -1px; /* chevauche pour éviter le trou */
+  margin-left: -1px;
 }
 
-/* OUVERTURE hover + clic */
+/* Hover */
 .has-submenu:hover > .submenu,
 .has-submenu:focus-within > .submenu {
   display: block;
 }
 
-/* Pont invisible entre menu et sous-menu vertical */
+/* Pont vertical */
 .has-submenu > .submenu::before {
   content: "";
   position: absolute;
@@ -139,7 +138,7 @@ body {
   height: 10px;
 }
 
-/* Pont invisible horizontal pour sous-menu droit */
+/* Pont horizontal */
 .submenu li.has-submenu::after {
   content: "";
   position: absolute;
@@ -149,13 +148,12 @@ body {
   height: 100%;
 }
 
-/* Garder ouvert sur le pont */
 .submenu li.has-submenu:hover > .submenu,
 .submenu li.has-submenu:focus-within > .submenu {
   display: block;
 }
 
-/* Main content */
+/* Main */
 main {
   max-width: 1100px;
   margin: 40px auto;
