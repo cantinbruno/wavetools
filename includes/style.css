@@ -575,7 +575,7 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   MOBILE NAV — version compacte
+   MOBILE NAV — version compacte (scroll horizontal)
    ========================= */
 @media (max-width:700px){
 
@@ -584,8 +584,8 @@ main > *:not(.wt-showcase){
     overflow-x: auto;           /* scroll horizontal */
     justify-content: flex-start;
     padding: 6px;
-    gap: 6px;
 
+    gap: 6px;
     scrollbar-width: none;
   }
 
@@ -602,5 +602,74 @@ main > *:not(.wt-showcase){
     padding: 8px 12px;
     font-size: 13px;
     white-space: nowrap;
+  }
+}
+
+/* =========================
+   MOBILE NAV — sans "bulles" (esthétique mobile only)
+   (à la fin pour écraser le bloc ci-dessus)
+   ========================= */
+@media (max-width:700px){
+
+  /* barre nav plus "flat" */
+  .menu{
+    padding: 6px 8px;
+    gap: 10px;
+  }
+
+  /* liens + summary : plus de fond/bordure/radius */
+  .menu > li > a,
+  .menu summary{
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    padding: 10px 10px;   /* zone de tap confortable */
+    font-size: 13px;
+    white-space: nowrap;
+    color: rgba(203,213,225,.92);
+  }
+
+  /* hover/active plus subtil */
+  .menu > li > a:hover,
+  .menu summary:hover{
+    background: transparent !important;
+    color: #fff;
+  }
+
+  /* underline discret au hover */
+  .menu > li > a,
+  .menu summary{
+    position: relative;
+  }
+
+  .menu > li > a::after,
+  .menu summary::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    opacity: 0;
+    transform: scaleX(.7);
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .menu > li > a:hover::after,
+  .menu summary:hover::before{
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  /* quand un dropdown est ouvert, on "marque" le bouton */
+  .menu details[open] > summary{
+    color: #fff;
+  }
+  .menu details[open] > summary::before{
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
