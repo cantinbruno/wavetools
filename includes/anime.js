@@ -1,23 +1,47 @@
-/* =========================
-   WaveTools scroll reveal
-   ========================= */
-document.addEventListener("DOMContentLoaded", () => {
-const cards = document.querySelectorAll('.wt-card.wt-in-ltr, .wt-card.wt-in-rtl');
+(function () {
+  function initReveal() {
+    const cards = document.querySelectorAll('.wt-card.wt-in-ltr, .wt-card.wt-in-rtl');
 
-cards.forEach(card => card.classList.add('wt-reveal'));
+    // Debug simple: si 0, c'est que le sélecteur ne matche rien
+    // console.log('[WaveTools] cards found:', cards.length);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
+    if (!cards.length) return;
+
+    cards.forEach(card => card.classList.add('wt-reveal'));
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    cards.forEach(card => {
+      // évite de ré-observer un bloc déjà révélé
+      if (!card.classList.contains('is-visible')) observer.observe(card);
+    });
+  }
+
+  // 1) au chargement
+  document.addEventListener('DOMContentLoaded', initReveal);
+
+  // 2) si ton site utilise des pages en hash (#/outils etc.)
+  window.addEventListener('hashchange', () => {
+    // laisse le temps au contenu de se rendre
+    setTimeout(initReveal, 50);
   });
-}, {
-  threshold: 0.18
-});
-cards.forEach(card => observer.observe(card));
-});
+
+  // 3) si le contenu est injecté dynamiquement (SPA), on écoute le DOM
+  const mo = new MutationObserver(() => {
+    // throttle simple
+    clearTimeout(window.__wtRevealTimer);
+    window.__wtRevealTimer = setTimeout(initReveal, 80);
+  });
+
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+})();
 
 
 (() => {
