@@ -28,17 +28,19 @@ body {
   gap: 6px; /* espace propre logo/nav */
 }
 
-/* Logo (propre, jamais coupé) */
+/* Logo (recadrage doux + stable) */
 .logo {
   display: block;
-  text-decoration: none;
+  width: 320px;   /* plus large pour voir "WAVETOOLS" */
+  height: 90px;   /* assez haut pour ne pas couper */
 }
 
 .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* ne coupe pas */
+  object-position: center;      /* centré */
   display: block;
-  width: 240px;     /* ajuste la taille ici */
-  height: auto;
-  max-height: 90px; /* évite un logo trop haut */
 }
 
 /* Navigation */
