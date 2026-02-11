@@ -172,203 +172,77 @@ main {
   color: #9ca3af;
 }
 
-/* ----------------------------Main Animé------------------------------*/
+/* ================================
+   GLOBAL ANIMATED BACKGROUND
+   (ajout à la fin du CSS existant)
+================================ */
 
-:root{
-  --bg0:#050914;
-  --bg1:#07122a;
-  --c1:#00d4ff;
-  --c2:#6a5cff;
-  --c3:#00ffa8;
-  --stroke: rgba(255,255,255,.14);
-  --glass: rgba(255,255,255,.06);
+/* Important : ton body gardera un fallback si JS/canvas HS */
+body {
+  background: linear-gradient(180deg, #07122a, #050914);
 }
 
-.liquid-hero{
-  position: relative;
-  min-height: 64vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  color: #eaf2ff;
-  background: linear-gradient(180deg, var(--bg1), var(--bg0));
-  isolation: isolate;
-
-  /* glitch vars */
-  --glitch-x: 0px;
-  --glitch-y: 0px;
-  --glitch-a: 0;
+/* Canvas fond animé derrière tout */
+#siteBg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;           /* derrière le site */
+  pointer-events: none;  /* ne bloque aucun clic */
 }
 
-.liquid-hero__canvas{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  transform: translate(var(--glitch-x), var(--glitch-y));
-  filter: saturate(1.15) contrast(1.05);
-  z-index:0;
+/* Overlays subtils (scanlines + vignette) */
+.site-bg-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;            /* au-dessus du canvas, mais derrière ton contenu */
 }
 
-.liquid-hero__overlays{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:2;
-}
-
-/* Scanlines */
-.liquid-hero__scanlines{
-  position:absolute;
-  inset:0;
-  opacity: .12;
+/* scanlines */
+.site-bg-scanlines {
+  opacity: .08;
   background:
     repeating-linear-gradient(
       to bottom,
-      rgba(255,255,255,.06) 0px,
-      rgba(255,255,255,.06) 1px,
+      rgba(255,255,255,.05) 0px,
+      rgba(255,255,255,.05) 1px,
       rgba(0,0,0,0) 3px,
-      rgba(0,0,0,0) 6px
+      rgba(0,0,0,0) 7px
     );
   mix-blend-mode: overlay;
-  animation: scanMove 2.8s linear infinite;
+  animation: scanMove 3.2s linear infinite;
 }
 
 @keyframes scanMove{
   from { background-position: 0 0; }
-  to   { background-position: 0 18px; }
+  to   { background-position: 0 22px; }
 }
 
-/* Vignette */
-.liquid-hero__vignette{
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0) 0 45%, rgba(0,0,0,.62) 100%);
-  opacity:.95;
+/* vignette */
+.site-bg-vignette{
+  background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0) 0 45%, rgba(0,0,0,.60) 100%);
+  opacity: .95;
 }
 
-/* Content */
-.liquid-hero__content{
-  position:relative;
-  z-index:3;
-  width: min(980px, 92vw);
-  padding: 9vh 0;
-  display:flex;
-  justify-content:center;
+/* Pour que ton contenu passe au-dessus des overlays */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 10;
 }
 
-.liquid-hero__card{
-  width: min(820px, 100%);
-  padding: clamp(18px, 3.2vw, 34px);
-  border-radius: 22px;
-  border: 1px solid var(--stroke);
-  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
-  backdrop-filter: blur(14px);
-  box-shadow: 0 20px 80px rgba(0,0,0,.45);
-  transform: translateZ(0);
-  transition: transform .25s ease, box-shadow .25s ease;
+/* Option: header plus “glass” (tu peux ajuster) */
+.site-header{
+  background: rgba(17,24,39,.72); /* remplace ton #111827 visuellement */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.liquid-hero__card:hover{
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 28px 105px rgba(0,0,0,.55);
-}
-
-.liquid-hero__badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  color: rgba(234,242,255,.92);
-  font-size: 14px;
-  width: fit-content;
-}
-
-.liquid-hero__dot{
-  width:10px; height:10px; border-radius:50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--c1));
-  box-shadow: 0 0 18px rgba(0,212,255,.65);
-}
-
-.liquid-hero__title{
-  margin: 16px 0 10px;
-  font-size: clamp(34px, 5vw, 62px);
-  line-height: 1.05;
-  letter-spacing: .2px;
-  text-shadow: 0 0 30px rgba(0,212,255,.18);
-}
-
-.liquid-hero__subtitle{
-  margin: 0 0 18px;
-  color: rgba(234,242,255,.78);
-  line-height: 1.6;
-  max-width: 70ch;
-}
-
-.liquid-hero__actions{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-/* Buttons */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 12px 16px;
-  border-radius: 14px;
-  text-decoration:none;
-  font-weight: 650;
-  border: 1px solid rgba(255,255,255,.16);
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
-  color: rgba(234,242,255,.92);
-  background: rgba(255,255,255,.05);
-}
-.btn:hover{ transform: translateY(-2px); }
-
-.btn--primary{
-  background: linear-gradient(90deg, rgba(0,212,255,.22), rgba(106,92,255,.22));
-  border-color: rgba(255,255,255,.22);
-}
-.btn--ghost{
-  background: rgba(255,255,255,.03);
-}
-
-/* Glitch overlay (only on hover) */
-.liquid-hero__glitch{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:4;
-  opacity: var(--glitch-a);
-  background:
-    linear-gradient(90deg, rgba(0,212,255,.18), rgba(106,92,255,.14)),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.0) 0 10px,
-      rgba(255,255,255,.08) 10px 12px,
-      rgba(255,255,255,.0) 12px 22px
-    );
-  mix-blend-mode: screen;
-  transform: translate(var(--glitch-x), var(--glitch-y));
-  filter: blur(.25px) saturate(1.2);
-  transition: opacity .15s ease;
-}
-
-/* extra "RGB split" feel on hover */
-.liquid-hero.is-hover .liquid-hero__card{
-  box-shadow:
-    0 24px 100px rgba(0,0,0,.55),
-    -8px 0 30px rgba(0,212,255,.10),
-    8px 0 30px rgba(106,92,255,.10);
-}
-
-/* Accessibility */
+/* Accessibilité */
 @media (prefers-reduced-motion: reduce){
-  .liquid-hero__scanlines{ animation:none !important; }
+  .site-bg-scanlines { animation: none !important; }
 }
+
