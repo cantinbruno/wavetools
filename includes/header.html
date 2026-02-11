@@ -3,122 +3,85 @@
         <img src="img/logo.png" alt="WaveTools">
     </a>
 
-<nav class="navbar" id="navbar">
-  <!-- burger mobile -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+<nav class="navbar" aria-label="Navigation principale">
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
 
-  <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu" aria-controls="main-menu">
-    <span class="burger-lines" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </span>
-    <span class="burger-text">Menu</span>
-  </label>
-
-  <ul class="menu" id="main-menu">
-    <li><a href="/" data-close>Home</a></li>
-
-    <li class="dropdown">
-      <input type="checkbox" id="m-services" class="dd-toggle">
-      <a href="#" class="dd-link" aria-haspopup="true">Nos services</a>
-      <label for="m-services" class="dd-caret" aria-label="Ouvrir Nos services">▾</label>
-
+    <li class="has-submenu">
+      <a href="/services/" class="nav-parent" aria-haspopup="true">Nos services</a>
       <ul class="submenu">
-        <li><a href="/services/installation.html" data-close>Installation</a></li>
-        <li><a href="/services/maintenance.html" data-close>Maintenance</a></li>
+        <li><a href="/services/installation.html">Installation</a></li>
+        <li><a href="/services/maintenance.html">Maintenance</a></li>
 
-        <li class="dropdown">
-          <input type="checkbox" id="m-services-sec" class="dd-toggle">
-          <a href="#" class="dd-link" aria-haspopup="true">Sécurité</a>
-          <label for="m-services-sec" class="dd-caret dd-caret-right" aria-label="Ouvrir Sécurité">▸</label>
-
+        <li class="has-submenu">
+          <a href="/services/securite/" class="nav-parent" aria-haspopup="true">Sécurité</a>
           <ul class="submenu submenu-right">
-            <li><a href="/services/securite/videosurveillance.html" data-close>Vidéosurveillance</a></li>
-            <li><a href="/services/securite/controle-acces.html" data-close>Contrôle d’accès</a></li>
-            <li><a href="/services/securite/alarme.html" data-close>Alarme</a></li>
+            <li><a href="/services/securite/videosurveillance.html">Vidéosurveillance</a></li>
+            <li><a href="/services/securite/controle-acces.html">Contrôle d’accès</a></li>
+            <li><a href="/services/securite/alarme.html">Alarme</a></li>
           </ul>
         </li>
 
-        <li><a href="/services/reseau.html" data-close>Réseau</a></li>
+        <li><a href="/services/reseau.html">Réseau</a></li>
       </ul>
     </li>
 
-    <li class="dropdown">
-      <input type="checkbox" id="m-outils" class="dd-toggle">
-      <a href="#" class="dd-link" aria-haspopup="true">Outils</a>
-      <label for="m-outils" class="dd-caret" aria-label="Ouvrir Outils">▾</label>
-
+    <li class="has-submenu">
+      <a href="/outils/" class="nav-parent" aria-haspopup="true">Outils</a>
       <ul class="submenu">
-        <li class="dropdown">
-          <input type="checkbox" id="m-outils-reseau" class="dd-toggle">
-          <a href="#" class="dd-link" aria-haspopup="true">Réseau</a>
-          <label for="m-outils-reseau" class="dd-caret dd-caret-right" aria-label="Ouvrir Réseau">▸</label>
-
+        <li class="has-submenu">
+          <a href="/outils/reseau/" class="nav-parent" aria-haspopup="true">Réseau</a>
           <ul class="submenu submenu-right">
-            <li><a href="/outils/ip.html" data-close>IP / CIDR</a></li>
-            <li><a href="/outils/dns.html" data-close>DNS Lookup</a></li>
-            <li><a href="/outils/whois.html" data-close>WHOIS</a></li>
+            <li><a href="/outils/ip.html">IP / CIDR</a></li>
+            <li><a href="/outils/dns.html">DNS Lookup</a></li>
+            <li><a href="/outils/whois.html">WHOIS</a></li>
           </ul>
         </li>
 
-        <li class="dropdown">
-          <input type="checkbox" id="m-outils-admin" class="dd-toggle">
-          <a href="#" class="dd-link" aria-haspopup="true">Admin</a>
-          <label for="m-outils-admin" class="dd-caret dd-caret-right" aria-label="Ouvrir Admin">▸</label>
-
+        <li class="has-submenu">
+          <a href="/outils/admin/" class="nav-parent" aria-haspopup="true">Admin</a>
           <ul class="submenu submenu-right">
-            <li><a href="/outils/hash.html" data-close>Hash</a></li>
-            <li><a href="/outils/base64.html" data-close>Base64</a></li>
-            <li><a href="/outils/uuid.html" data-close>UUID</a></li>
+            <li><a href="/outils/hash.html">Hash</a></li>
+            <li><a href="/outils/base64.html">Base64</a></li>
+            <li><a href="/outils/uuid.html">UUID</a></li>
           </ul>
         </li>
 
-        <li class="dropdown">
-          <input type="checkbox" id="m-outils-email" class="dd-toggle">
-          <a href="#" class="dd-link" aria-haspopup="true">Email</a>
-          <label for="m-outils-email" class="dd-caret dd-caret-right" aria-label="Ouvrir Email">▸</label>
-
+        <li class="has-submenu">
+          <a href="/outils/email/" class="nav-parent" aria-haspopup="true">Email</a>
           <ul class="submenu submenu-right">
-            <li><a href="/outils/spf.html" data-close>SPF</a></li>
-            <li><a href="/outils/dkim.html" data-close>DKIM</a></li>
-            <li><a href="/outils/dmarc.html" data-close>DMARC</a></li>
+            <li><a href="/outils/spf.html">SPF</a></li>
+            <li><a href="/outils/dkim.html">DKIM</a></li>
+            <li><a href="/outils/dmarc.html">DMARC</a></li>
           </ul>
         </li>
 
-        <li class="dropdown">
-          <input type="checkbox" id="m-outils-dev" class="dd-toggle">
-          <a href="#" class="dd-link" aria-haspopup="true">Dev</a>
-          <label for="m-outils-dev" class="dd-caret dd-caret-right" aria-label="Ouvrir Dev">▸</label>
-
+        <li class="has-submenu">
+          <a href="/outils/dev/" class="nav-parent" aria-haspopup="true">Dev</a>
           <ul class="submenu submenu-right">
-            <li><a href="/outils/json.html" data-close>JSON Formatter</a></li>
-            <li><a href="/outils/regex.html" data-close>Regex</a></li>
-            <li><a href="/outils/urlencode.html" data-close>URL Encode</a></li>
+            <li><a href="/outils/json.html">JSON Formatter</a></li>
+            <li><a href="/outils/regex.html">Regex</a></li>
+            <li><a href="/outils/urlencode.html">URL Encode</a></li>
           </ul>
         </li>
       </ul>
     </li>
 
-    <li class="dropdown">
-      <input type="checkbox" id="m-entreprise" class="dd-toggle">
-      <a href="#" class="dd-link" aria-haspopup="true">Entreprise</a>
-      <label for="m-entreprise" class="dd-caret" aria-label="Ouvrir Entreprise">▾</label>
-
+    <li class="has-submenu">
+      <a href="/entreprise/" class="nav-parent" aria-haspopup="true">Entreprise</a>
       <ul class="submenu">
-        <li><a href="/entreprise/a-propos.html" data-close>À propos</a></li>
-        <li><a href="/entreprise/equipe.html" data-close>Équipe</a></li>
-        <li><a href="/entreprise/partenaires.html" data-close>Partenaires</a></li>
+        <li><a href="/entreprise/a-propos.html">À propos</a></li>
+        <li><a href="/entreprise/equipe.html">Équipe</a></li>
+        <li><a href="/entreprise/partenaires.html">Partenaires</a></li>
       </ul>
     </li>
 
-    <li class="dropdown">
-      <input type="checkbox" id="m-contact" class="dd-toggle">
-      <a href="#" class="dd-link" aria-haspopup="true">Contactez-nous</a>
-      <label for="m-contact" class="dd-caret" aria-label="Ouvrir Contactez-nous">▾</label>
-
+    <li class="has-submenu">
+      <a href="/contact.html" class="nav-parent" aria-haspopup="true">Contactez-nous</a>
       <ul class="submenu">
-        <li><a href="/contact.html" data-close>Formulaire de contact</a></li>
-        <li><a href="/devis.html" data-close>Demander un devis</a></li>
-        <li><a href="/support.html" data-close>Support</a></li>
+        <li><a href="/contact.html">Formulaire de contact</a></li>
+        <li><a href="/devis.html">Demander un devis</a></li>
+        <li><a href="/support.html">Support</a></li>
       </ul>
     </li>
   </ul>
