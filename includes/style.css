@@ -235,7 +235,7 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   WaveTools Showcase — slow cinematic
+   WaveTools Showcase — slow cinematic (PC animations FIX)
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -246,6 +246,9 @@ main > *:not(.wt-showcase){
   --c1:#2dd4ff;
   --c2:#7c3aed;
   --r: 22px;
+
+  /* ✅ décalage desktop */
+  --zig: 70px;
 }
 
 .wt-main{
@@ -254,7 +257,6 @@ main > *:not(.wt-showcase){
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -286,8 +288,10 @@ main > *:not(.wt-showcase){
   position: relative;
   overflow: hidden;
   isolation: isolate;
-
   max-width: 100%;
+
+  /* IMPORTANT : évite le "bug" d'animation sur certains navigateurs */
+  will-change: transform, opacity;
 }
 
 .wt-card::before{
@@ -298,15 +302,23 @@ main > *:not(.wt-showcase){
     radial-gradient(520px 260px at 18% 0%, rgba(45,212,255,.16), transparent 62%),
     radial-gradient(520px 280px at 90% 18%, rgba(124,58,237,.14), transparent 64%);
   pointer-events:none;
-  z-index: 0;
+  z-index:0;
 }
-
 .wt-card > *{ position:relative; z-index:1; }
 
-/* zigzag */
-.wt-showcase .wt-card:nth-child(1){ margin-right:auto; }
-.wt-showcase .wt-card:nth-child(2){ margin-left:auto; }
-.wt-showcase .wt-card:nth-child(3){ margin-right:auto; }
+/* zigzag (décalage permanent) */
+.wt-showcase .wt-card:nth-child(1){
+  margin-right: auto;
+  transform: translateX(calc(var(--zig) * -1));
+}
+.wt-showcase .wt-card:nth-child(2){
+  margin-left: auto;
+  transform: translateX(var(--zig));
+}
+.wt-showcase .wt-card:nth-child(3){
+  margin-right: auto;
+  transform: translateX(calc(var(--zig) * -1));
+}
 
 /* bloc 2 image gauche */
 .wt-card--reverse{
@@ -374,36 +386,46 @@ main > *:not(.wt-showcase){
   animation: float 10s ease-in-out infinite;
 }
 
-/* animation ultra lente */
-.wt-in-ltr{
-  animation: slideLTR 8s cubic-bezier(.12,.85,.12,1) both;
-}
-.wt-in-rtl{
-  animation: slideRTL 8s cubic-bezier(.12,.85,.12,1) both;
-}
+/* ✅ animations longues (partent plus loin puis reviennent au zigzag) */
+.wt-in-ltr{ animation: slideLTR 8s cubic-bezier(.12,.85,.12,1) both; }
+.wt-in-rtl{ animation: slideRTL 8s cubic-bezier(.12,.85,.12,1) both; }
 
+/* delays */
 .wt-showcase .wt-card:nth-child(1){ animation-delay: .3s; }
 .wt-showcase .wt-card:nth-child(2){ animation-delay: 1.6s; }
 .wt-showcase .wt-card:nth-child(3){ animation-delay: 3s; }
 
 @keyframes slideLTR{
-  from{ opacity:0; transform:translateX(-220px); }
-  to{ opacity:1; transform:translateX(0); }
+  from{
+    opacity:0;
+    transform: translateX(calc(var(--zig) * -1 - 220px));
+  }
+  to{
+    opacity:1;
+    transform: translateX(calc(var(--zig) * -1));
+  }
 }
+
 @keyframes slideRTL{
-  from{ opacity:0; transform:translateX(220px); }
-  to{ opacity:1; transform:translateX(0); }
+  from{
+    opacity:0;
+    transform: translateX(calc(var(--zig) + 220px));
+  }
+  to{
+    opacity:1;
+    transform: translateX(var(--zig));
+  }
 }
+
 @keyframes float{
   0%,100%{ transform:translateY(0); }
   50%{ transform:translateY(-14px); }
 }
 
 /* =========================
-   MOBILE — beau + bulles alignées
+   MOBILE
    ========================= */
 @media (max-width:980px){
-
   .wt-showcase{
     max-width: 520px;
     margin: 0 auto;
@@ -417,6 +439,9 @@ main > *:not(.wt-showcase){
     padding: 16px;
     grid-template-columns: 1fr;
     gap: 14px;
+
+    /* annule zigzag */
+    transform: none !important;
   }
 
   .wt-title{
@@ -429,16 +454,12 @@ main > *:not(.wt-showcase){
     margin-bottom: 14px;
   }
 
-  .wt-card__media{
-    justify-content: center;
-  }
-
   .wt-img{
     width: min(320px, 100%);
     margin: 0 auto;
   }
 
-  /* bulles parfaitement alignées */
+  /* bulles alignées */
   .wt-actions{
     display: grid;
     gap: 12px;
@@ -451,19 +472,28 @@ main > *:not(.wt-showcase){
     justify-content: center;
   }
 
+  /* animation lente mais pas trop sur mobile */
   .wt-in-ltr,
   .wt-in-rtl{
     animation-duration: 6s;
   }
+
+  /* keyframes mobile (sans zigzag) */
+  @keyframes slideLTR{
+    from{ opacity:0; transform: translateX(-120px); }
+    to{ opacity:1; transform: translateX(0); }
+  }
+  @keyframes slideRTL{
+    from{ opacity:0; transform: translateX(120px); }
+    to{ opacity:1; transform: translateX(0); }
+  }
 }
 
-/* bonus très petit écran */
 @media (max-width:420px){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
 
-/* accessibilité */
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
