@@ -11,7 +11,7 @@ html, body{
   height: 100%;
   margin: 0;
   background: transparent;
-  overflow-x: hidden;
+  overflow-x: hidden; /* évite scroll horizontal iOS */
 }
 
 body{
@@ -29,10 +29,11 @@ body{
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 0;          /* ✅ visible */
   pointer-events: none;
 }
 
+/* contenu au-dessus du canvas */
 .site-header,
 main,
 .site-footer{
@@ -84,7 +85,7 @@ main,
 }
 
 /* =========================
-   NAVBAR
+   NAVBAR + MENU (PC + iPhone)
    ========================= */
 .navbar{
   width: 100%;
@@ -93,6 +94,7 @@ main,
   overflow: visible !important;
 }
 
+/* menu horizontal desktop */
 .menu{
   list-style: none;
   margin: 0;
@@ -114,9 +116,7 @@ main,
 
 .menu > li > a:hover{ color: #ffffff; }
 
-/* =========================
-   SUBMENUS (DESKTOP)
-   ========================= */
+/* ---------- SUBMENUS (desktop base) ---------- */
 .submenu{
   list-style: none;
   margin: 0;
@@ -132,6 +132,7 @@ main,
   border-radius: 10px;
 
   display: none;
+
   z-index: 999999;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
@@ -152,28 +153,24 @@ main,
   color: #ffffff;
 }
 
-/* sous-sous-menu à droite (desktop) */
+/* sous-sous-menu : à droite par défaut */
 .submenu .submenu{
   top: 0;
   left: 100%;
   margin-left: 6px;
 }
 
-/* Desktop hover + clavier */
-.menu li.has-submenu:hover > .submenu,
-.menu li.has-submenu:focus-within > .submenu{
-  display: block;
+/* Desktop : hover ouvre (confort PC) */
+@media (hover:hover) and (pointer:fine){
+  .menu li.has-submenu:hover > .submenu{ display:block; }
+  .submenu li.has-submenu:hover > .submenu{ display:block; }
 }
 
-/* IMPORTANT : ouvertures via JS (.open) */
-.menu li.has-submenu.open > .submenu{
-  display: block;
-}
-.submenu li.has-submenu.open > .submenu{
-  display: block;
-}
+/* Partout (mobile/desktop) : JS met .open => affiche */
+.menu li.has-submenu.open > .submenu{ display: block; }
+.submenu li.has-submenu.open > .submenu{ display: block; }
 
-/* Ponts desktop */
+/* Ponts (desktop) */
 .menu li.has-submenu > .submenu::before{
   content: "";
   position: absolute;
@@ -192,6 +189,18 @@ main,
   height: 100%;
 }
 
+/* Flip (si JS ajoute .flip quand ça dépasse) */
+.submenu.flip{
+  left: auto !important;
+  right: 0 !important;
+}
+.submenu.flip .submenu{
+  left: auto !important;
+  right: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 6px !important;
+}
+
 /* =========================
    MAIN — TRANSPARENT
    ========================= */
@@ -206,6 +215,7 @@ main{
   box-shadow: none !important;
 }
 
+/* ne pas casser le showcase */
 main > *:not(.wt-showcase){
   background: transparent !important;
   border: 0 !important;
@@ -242,6 +252,7 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
+/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -250,6 +261,7 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
+/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -273,7 +285,9 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
-.wt-card--reverse{ grid-template-columns: .75fr 1.25fr; }
+.wt-card--reverse{
+  grid-template-columns: .75fr 1.25fr;
+}
 
 .wt-title{
   margin: 0 0 10px;
@@ -291,8 +305,8 @@ main > *:not(.wt-showcase){
 
 .wt-desc{
   margin: 0 0 16px;
-  color: var(--muted);
-  line-height: 1.6;
+  color:var(--muted);
+  line-height:1.6;
   font-size: 1.03rem;
 }
 
@@ -315,6 +329,7 @@ main > *:not(.wt-showcase){
   50%{ transform:translateY(-14px); }
 }
 
+/* animations par bloc */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
@@ -345,56 +360,44 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   MOBILE : sous-menus EN DESSOUS + ouverture JS
+   MOBILE (menu EN DESSOUS + showcase)
    ========================= */
 @media (max-width:980px){
 
   :root{ --zig:0px; --push:140px; }
 
-  /* Menu plus tolérant en largeur */
+  /* menu : on garde ton style, mais les sous-menus passent en dessous */
   .menu{
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
   }
 
-  /* Sous-menu en dessous (dans le flow) */
   .submenu{
     position: static !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
-    transform: none !important;
 
     width: 100% !important;
     min-width: 0 !important;
 
     margin: 6px 0 0 0 !important;
-    border-radius: 12px;
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Sous-sous-menu en dessous aussi */
   .submenu .submenu{
     position: static !important;
-    margin: 6px 0 0 0 !important;
     width: 100% !important;
+    margin: 6px 0 0 0 !important;
   }
 
-  /* On coupe l’hover sur mobile (c’est JS qui gère .open) */
-  .menu li.has-submenu:hover > .submenu,
-  .submenu li.has-submenu:hover > .submenu{
-    display: none !important;
-  }
-
-  /* Ponts inutiles */
+  /* ponts inutiles */
   .menu li.has-submenu > .submenu::before,
   .submenu li.has-submenu::after{
     display: none !important;
-  }
-
-  /* Tap confort */
-  .menu > li > a,
-  .submenu a{
-    padding: 12px 14px;
   }
 
   /* Showcase mobile */
@@ -422,4 +425,9 @@ main > *:not(.wt-showcase){
 @media (max-width:420px){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
+}
+
+/* accessibilité */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
 }
