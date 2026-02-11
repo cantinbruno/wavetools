@@ -116,7 +116,7 @@ main,
 .menu > li > a:hover{ color: #ffffff; }
 
 /* =========================
-   SUBMENUS (desktop)
+   SUBMENUS (base)
    ========================= */
 .submenu{
   list-style: none;
@@ -133,7 +133,6 @@ main,
   border-radius: 10px;
 
   display: none;
-
   z-index: 999999;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
@@ -154,20 +153,32 @@ main,
   color: #ffffff;
 }
 
-/* sous-sous-menu : s'ouvre à droite par défaut (desktop) */
+/* sous-sous-menu (desktop par défaut à droite) */
 .submenu .submenu{
   top: 0;
   left: 100%;
   margin-left: 6px;
 }
 
-/* Affichage au hover (desktop) */
-.menu li.has-submenu:hover > .submenu,
-.menu li.has-submenu:focus-within > .submenu{
+/* =========================
+   OUVERTURE (JS = .open)
+   -> fonctionne partout
+   ========================= */
+.menu li.has-submenu.open > .submenu{
+  display: block;
+}
+.submenu li.has-submenu.open > .submenu{
   display: block;
 }
 
-/* Pont vertical (évite trou entre menu et submenu) */
+/* Desktop : on garde aussi le hover (confort) */
+@media (hover:hover){
+  .menu li.has-submenu:hover > .submenu{
+    display: block;
+  }
+}
+
+/* Ponts (desktop) */
 .menu li.has-submenu > .submenu::before{
   content: "";
   position: absolute;
@@ -177,7 +188,6 @@ main,
   height: 10px;
 }
 
-/* Pont horizontal (évite trou entre submenu et sous-submenu) */
 .submenu li.has-submenu::after{
   content: "";
   position: absolute;
@@ -188,12 +198,14 @@ main,
 }
 
 /* =========================
-   FLIP (optionnel si tu gardes le script flip)
+   FLIP (si le JS ajoute .flip)
    ========================= */
 .submenu.flip{
   left: auto !important;
   right: 0 !important;
 }
+
+/* flip pour sous-sous-menu */
 .submenu.flip .submenu{
   left: auto !important;
   right: 100% !important;
@@ -208,14 +220,12 @@ main{
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px 20px;
-
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
-/* ne pas casser le showcase */
 main > *:not(.wt-showcase){
   background: transparent !important;
   border: 0 !important;
@@ -252,7 +262,6 @@ main > *:not(.wt-showcase){
   --push: 260px;
 }
 
-/* layout */
 .wt-showcase{
   max-width: 1050px;
   margin: 0 auto;
@@ -261,7 +270,6 @@ main > *:not(.wt-showcase){
   gap: 34px;
 }
 
-/* carte */
 .wt-card{
   width: 78%;
   display: grid;
@@ -285,12 +293,10 @@ main > *:not(.wt-showcase){
   isolation: isolate;
 }
 
-/* bloc 2 image gauche */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
 }
 
-/* texte */
 .wt-title{
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
@@ -312,7 +318,6 @@ main > *:not(.wt-showcase){
   font-size: 1.03rem;
 }
 
-/* image */
 .wt-card__media{
   display:flex;
   justify-content:center;
@@ -332,7 +337,6 @@ main > *:not(.wt-showcase){
   50%{ transform:translateY(-14px); }
 }
 
-/* animations par bloc */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
@@ -363,7 +367,7 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   MOBILE (showcase + menu tap JS)
+   MOBILE (menu panneau + accordéon)
    ========================= */
 @media (max-width:980px){
 
@@ -387,9 +391,7 @@ main > *:not(.wt-showcase){
     font-size: clamp(1.55rem, 6vw, 2.05rem);
   }
 
-  .wt-desc{
-    text-align:center;
-  }
+  .wt-desc{ text-align:center; }
 
   .wt-actions{
     display:grid;
@@ -402,7 +404,7 @@ main > *:not(.wt-showcase){
     justify-content:center;
   }
 
-  /* ✅ MENU MOBILE : panneau centré + hauteur max + scroll */
+  /* Menu panneau centré */
   .submenu{
     left: 50% !important;
     right: auto !important;
@@ -418,21 +420,13 @@ main > *:not(.wt-showcase){
     padding: 8px 0 !important;
   }
 
-  /* ✅ SUR MOBILE : on NE dépend plus du hover/focus, c'est JS qui met .open */
-  .menu li.has-submenu:hover > .submenu{
-    display: none !important;
-  }
-  .menu li.has-submenu.open > .submenu{
-    display: block !important;
-  }
-
-  /* ✅ Ponts inutiles sur mobile */
+  /* Ponts off mobile */
   .menu li.has-submenu > .submenu::before,
   .submenu li.has-submenu::after{
     display: none !important;
   }
 
-  /* ✅ SOUS-SOUS-MENU : accordéon en dessous */
+  /* Sous-sous-menu en dessous */
   .submenu .submenu{
     position: static !important;
     left: auto !important;
@@ -452,12 +446,6 @@ main > *:not(.wt-showcase){
     box-shadow: 0 10px 22px rgba(0,0,0,.30);
   }
 
-  /* ouverture du sous-sous-menu via .open (JS) */
-  .submenu li.has-submenu.open > .submenu{
-    display: block !important;
-  }
-
-  /* confort sur les liens mobile */
   .submenu a{
     padding: 12px 14px !important;
   }
