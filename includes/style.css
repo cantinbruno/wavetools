@@ -1,7 +1,208 @@
 /* =========================
-   WaveTools Showcase — slow cinematic (FULL)
+   GLOBAL
    ========================= */
+html, body{
+  height: 100%;
+  margin: 0;
+  background: transparent;
+}
 
+body{
+  font-family: Arial, sans-serif;
+  color: #e5e7eb;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+
+/* =========================
+   CANVAS BACKGROUND
+   ========================= */
+#siteBg{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================
+   CONTAINER
+   ========================= */
+.container{
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.site-header{
+  background: #111827;
+  padding: 6px 0;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  overflow: visible !important;
+}
+
+.site-header .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible !important;
+}
+
+.site-header .logo{
+  display: block;
+  width: 380px;
+  height: 90px;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.site-header .logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar{
+  width: 100%;
+  position: relative;
+  z-index: 10000;
+  overflow: visible !important;
+}
+
+.menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.menu > li{ position: relative; }
+
+.menu > li > a{
+  display: block;
+  padding: 10px 12px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu > li > a:hover{ color: #ffffff; }
+
+/* =========================
+   SUBMENUS
+   ========================= */
+.submenu{
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+
+  min-width: 220px;
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+
+  display: none;
+  z-index: 999999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.submenu li{ position: relative; }
+
+.submenu .submenu{
+  top: 0;
+  left: 100%;
+  margin-left: 6px;
+}
+
+.submenu a{
+  display: block;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.submenu a:hover{
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+}
+
+.menu li.has-submenu:hover > .submenu,
+.menu li.has-submenu:focus-within > .submenu{
+  display: block;
+}
+
+.menu li.has-submenu > .submenu::before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.submenu li.has-submenu::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+}
+
+/* =========================
+   MAIN — TRANSPARENT
+   ========================= */
+main{
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px 20px;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ✅ IMPORTANT : on NE CASSE PAS WaveTools
+   On enlève le reset pour .wt-showcase (sinon tes cartes “disparaissent” si elles sont direct dans main) */
+main > *:not(.wt-showcase){
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.site-footer{
+  background: #111827;
+  padding: 20px 0;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* =========================
+   WaveTools Showcase — slow cinematic
+   ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
@@ -52,7 +253,6 @@
   isolation: isolate;
 }
 
-/* halo */
 .wt-card::before{
   content:"";
   position:absolute;
@@ -61,15 +261,11 @@
     radial-gradient(520px 260px at 18% 0%, rgba(45,212,255,.16), transparent 62%),
     radial-gradient(520px 280px at 90% 18%, rgba(124,58,237,.14), transparent 64%);
   pointer-events:none;
-  z-index:0;
+  z-index: 0;
 }
+.wt-card > *{ position:relative; z-index:1; }
 
-.wt-card > *{
-  position: relative;
-  z-index: 1;
-}
-
-/* zigzag desktop */
+/* zigzag */
 .wt-showcase .wt-card:nth-child(1){ margin-right:auto; }
 .wt-showcase .wt-card:nth-child(2){ margin-left:auto; }
 .wt-showcase .wt-card:nth-child(3){ margin-right:auto; }
@@ -80,10 +276,6 @@
 }
 
 /* texte */
-.wt-card__text{
-  max-width: 58ch;
-}
-
 .wt-title{
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
@@ -100,12 +292,12 @@
 
 .wt-desc{
   margin: 0 0 16px;
-  color: var(--muted);
-  line-height: 1.6;
+  color:var(--muted);
+  line-height:1.6;
   font-size: 1.03rem;
 }
 
-/* boutons ("bulles") */
+/* boutons */
 .wt-actions{
   display:flex;
   gap:12px;
@@ -141,19 +333,17 @@
   border-radius:16px;
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 18px 55px rgba(0,0,0,.45);
-  animation:float 10s ease-in-out infinite;
+  animation: float 10s ease-in-out infinite;
 }
 
-/* ===== animation ultra lente ===== */
+/* animation ultra lente */
 .wt-in-ltr{
   animation: slideLTR 8s cubic-bezier(.12,.85,.12,1) both;
 }
-
 .wt-in-rtl{
   animation: slideRTL 8s cubic-bezier(.12,.85,.12,1) both;
 }
 
-/* delays doux */
 .wt-showcase .wt-card:nth-child(1){ animation-delay: .3s; }
 .wt-showcase .wt-card:nth-child(2){ animation-delay: 1.6s; }
 .wt-showcase .wt-card:nth-child(3){ animation-delay: 3s; }
@@ -162,19 +352,17 @@
   from{ opacity:0; transform:translateX(-220px); }
   to{ opacity:1; transform:translateX(0); }
 }
-
 @keyframes slideRTL{
   from{ opacity:0; transform:translateX(220px); }
   to{ opacity:1; transform:translateX(0); }
 }
-
 @keyframes float{
   0%,100%{ transform:translateY(0); }
   50%{ transform:translateY(-14px); }
 }
 
 /* =========================
-   MOBILE — rendu propre + centré
+   MOBILE — rendu propre + centré (FIX)
    ========================= */
 @media (max-width:980px){
 
@@ -193,7 +381,6 @@
     gap: 14px;
   }
 
-  /* Texte centré sur mobile */
   .wt-title{
     text-align: center;
     font-size: clamp(1.55rem, 6vw, 2.05rem);
@@ -204,7 +391,6 @@
     margin-bottom: 14px;
   }
 
-  /* Image centrée */
   .wt-card__media{
     justify-content: center;
   }
@@ -214,26 +400,26 @@
     margin: 0 auto;
   }
 
-  /* Bulles centrées uniquement sur téléphone */
+  /* bulles centrées uniquement sur téléphone */
   .wt-actions{
     justify-content: center;
   }
 
-  /* Animation lente aussi sur mobile */
+  /* animation lente sur mobile */
   .wt-in-ltr,
   .wt-in-rtl{
     animation-duration: 6s;
   }
 }
 
-/* Bonus très petit écran */
+/* bonus très petit écran */
 @media (max-width:420px){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
   .wt-btn{ width: 100%; justify-content: center; }
 }
 
-/* Accessibilité */
+/* accessibilité */
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
