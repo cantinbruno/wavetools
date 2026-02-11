@@ -613,15 +613,13 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================================================
-   VERSION FINALE MOBILE : DROPDOWNS EN OVERLAY (FIXED) ROBUSTE
-   - au-dessus de tout
-   - n’agrandit pas le header
-   - marche même si .submenu n’est pas enfant direct
+   MOBILE FINAL FIX : dropdowns au-dessus (sans agrandir le header)
+   - niveau 1 en overlay fixed
+   - niveau 2 en accordéon DANS le panneau
    ========================================================= */
 @media (max-width:980px){
 
-  /* ajuste si besoin (hauteur réelle du header mobile) */
-  :root{ --headerH: 140px; }
+  :root{ --headerH: 140px; } /* ajuste si besoin */
 
   /* éviter tout clipping */
   .site-header,
@@ -631,12 +629,17 @@ main > *:not(.wt-showcase){
     overflow: visible !important;
   }
 
-  /* -------- NIVEAU 1 -------- */
-  .menu details .submenu{
-    display: none !important; /* fermé */
+  /* -------------------------
+     NIVEAU 1 (top menu)
+     ------------------------- */
+
+  /* fermé */
+  .menu > li > details > .submenu{
+    display: none !important;
   }
 
-  .menu details[open] .submenu{
+  /* ouvert */
+  .menu > li > details[open] > .submenu{
     display: block !important;
     position: fixed !important;
 
@@ -650,38 +653,41 @@ main > *:not(.wt-showcase){
     z-index: 2147483647 !important;
   }
 
-  .menu details[open] > summary{
+  /* summary au-dessus aussi (pour rester cliquable/visible) */
+  .menu > li > details[open] > summary{
     position: relative;
     z-index: 2147483647;
   }
 
-  /* -------- NIVEAU 2 : dans le panneau -------- */
-  .submenu details .submenu{
+  /* -------------------------
+     NIVEAU 2 (dans le panneau)
+     ------------------------- */
+
+  /* fermé */
+  .submenu > li > details > .submenu{
+    display: none !important;
     position: static !important;
-    left: auto !important;
-    top: auto !important;
     margin: 6px 0 0 !important;
 
     box-shadow: none !important;
     background: rgba(15,23,42,0.92) !important;
     border: 1px solid rgba(255,255,255,0.10) !important;
     border-radius: 12px !important;
-
-    display: none !important; /* fermé */
   }
 
-  .submenu details[open] .submenu{
-    display: block !important; /* ouvert */
+  /* ouvert */
+  .submenu > li > details[open] > .submenu{
+    display: block !important;
   }
 
-  /* ponts inutiles */
-  .menu details .submenu::before,
-  .submenu details .submenu::before{
+  /* ponts inutiles en mobile */
+  .menu details > .submenu::before,
+  .submenu > li > details > .submenu::before{
     display: none !important;
   }
 }
 
-/* cas menu scroll horizontal */
+/* menu scroll horizontal */
 @media (max-width:700px){
   .menu{
     overflow-x: auto !important;
