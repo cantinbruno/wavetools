@@ -479,3 +479,27 @@ main > *:not(.wt-showcase){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
+
+/* =========================
+   Smart submenu flip
+   ========================= */
+
+/* par défaut → ouvre à droite */
+.submenu{
+  left: 0;
+  right: auto;
+}
+
+/* si dépasse écran → ouvre à gauche */
+.submenu.flip{
+  left: auto;
+  right: 0;
+}
+
+/* sous-sous-menu */
+.submenu.flip .submenu{
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 6px;
+}
