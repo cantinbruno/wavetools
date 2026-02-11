@@ -223,6 +223,7 @@ main > *{
 
 /* =========================
    WaveTools MAIN showcase
+   version lente / espacée
    ========================= */
 
 :root{
@@ -236,27 +237,26 @@ main > *{
   --r: 22px;
 }
 
-/* main transparent (fond animé visible) */
 .wt-main{
   background: transparent;
   color: var(--txt);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* zone globale */
+/* ===== zone globale ===== */
 .wt-showcase{
   max-width: 980px;
   margin: 0 auto;
-  padding: 64px 18px 50px;
+  padding: 90px 18px 80px;   /* + espace vertical */
   display: grid;
-  gap: 18px;
+  gap: 38px;                 /* + espace entre les blocs */
 }
 
-/* ===== Carte glass ===== */
+/* ===== carte glass ===== */
 .wt-card{
   display: grid;
   grid-template-columns: 1.25fr .75fr;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
 
   border-radius: var(--r);
@@ -269,7 +269,7 @@ main > *{
     0 22px 70px rgba(0,0,0,.52),
     inset 0 1px 0 rgba(255,255,255,.06);
 
-  padding: 18px;
+  padding: 22px;
   overflow: hidden;
   position: relative;
   isolation: isolate;
@@ -293,12 +293,12 @@ main > *{
   z-index: 1;
 }
 
-/* bloc 2 inversé (image à gauche) */
+/* bloc 2 inversé */
 .wt-card--reverse{
   grid-template-columns: .75fr 1.25fr;
 }
 
-/* ===== Texte ===== */
+/* ===== texte ===== */
 .wt-card__text{
   max-width: 62ch;
 }
@@ -323,7 +323,7 @@ main > *{
   border-radius: 999px;
   background: radial-gradient(circle at 30% 30%, var(--c1), rgba(45,212,255,.2));
   box-shadow: 0 0 18px rgba(45,212,255,.40);
-  animation: pulse 1.8s ease-in-out infinite;
+  animation: pulse 2.6s ease-in-out infinite;
 }
 
 .wt-title{
@@ -351,7 +351,7 @@ main > *{
 /* boutons */
 .wt-actions{
   display:flex;
-  gap:10px;
+  gap:12px;
   flex-wrap: wrap;
 }
 
@@ -366,7 +366,7 @@ main > *{
   color: var(--txt);
   background: rgba(255,255,255,.04);
   font-weight: 900;
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
 
 .wt-btn:hover{
@@ -385,7 +385,7 @@ main > *{
   background: transparent;
 }
 
-/* ===== Image ===== */
+/* ===== image ===== */
 .wt-card__media{
   display:flex;
   justify-content: center;
@@ -395,43 +395,42 @@ main > *{
 
 .wt-img{
   width: min(280px, 100%);
-  height: auto;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 18px 55px rgba(0,0,0,.45);
   opacity: .95;
 
-  animation: float 6.5s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
 }
 
-/* ===== Animations de slide ===== */
+/* ===== animations lentes ===== */
 
 .wt-in-ltr{
-  animation: slideLTR 1.35s cubic-bezier(.18,.9,.18,1) both;
+  animation: slideLTR 2.6s cubic-bezier(.18,.9,.18,1) both;
 }
 
 .wt-in-rtl{
-  animation: slideRTL 1.35s cubic-bezier(.18,.9,.18,1) both;
+  animation: slideRTL 2.6s cubic-bezier(.18,.9,.18,1) both;
 }
 
-/* décalage progressif */
-.wt-showcase .wt-card:nth-child(1){ animation-delay: .10s; }
-.wt-showcase .wt-card:nth-child(2){ animation-delay: .28s; }
-.wt-showcase .wt-card:nth-child(3){ animation-delay: .46s; }
+/* délais progressifs */
+.wt-showcase .wt-card:nth-child(1){ animation-delay: .2s; }
+.wt-showcase .wt-card:nth-child(2){ animation-delay: .6s; }
+.wt-showcase .wt-card:nth-child(3){ animation-delay: 1s; }
 
 @keyframes slideLTR{
-  from{ opacity:0; transform: translateX(-60px); }
+  from{ opacity:0; transform: translateX(-120px); }
   to{ opacity:1; transform: translateX(0); }
 }
 
 @keyframes slideRTL{
-  from{ opacity:0; transform: translateX(60px); }
+  from{ opacity:0; transform: translateX(120px); }
   to{ opacity:1; transform: translateX(0); }
 }
 
 @keyframes float{
   0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-10px); }
+  50%{ transform: translateY(-12px); }
 }
 
 @keyframes pulse{
@@ -439,11 +438,12 @@ main > *{
   50%{ transform: scale(1.5); opacity:.45; }
 }
 
-/* ===== Responsive ===== */
+/* ===== responsive ===== */
 
 @media (max-width: 980px){
   .wt-showcase{
     max-width: 680px;
+    gap: 28px;
   }
 
   .wt-card,
@@ -456,7 +456,7 @@ main > *{
   }
 }
 
-/* Accessibilité */
+/* accessibilité */
 @media (prefers-reduced-motion: reduce){
   *{
     animation: none !important;
