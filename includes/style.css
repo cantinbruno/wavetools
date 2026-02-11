@@ -11,7 +11,7 @@ html, body{
   height: 100%;
   margin: 0;
   background: transparent;
-  overflow-x: hidden; /* évite le "carré blanc" iOS + scroll horizontal */
+  overflow-x: hidden;
 }
 
 body{
@@ -29,7 +29,7 @@ body{
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;          /* visible */
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -217,7 +217,7 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   WaveTools Showcase — direction forcée
+   WaveTools Showcase — FULL CINEMATIC FORCED
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -229,8 +229,8 @@ main > *:not(.wt-showcase){
   --c2:#7c3aed;
   --r: 22px;
 
-  --zig: 70px;      /* décalage zigzag desktop */
-  --push: 260px;    /* distance de départ animation */
+  --zig: 70px;      /* zigzag desktop */
+  --push: 260px;    /* distance départ */
 }
 
 /* wrapper */
@@ -336,7 +336,13 @@ main > *:not(.wt-showcase){
   }
 }
 
-/* Base */
+/* Base boutons */
+.wt-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
 .wt-btn{
   padding:12px 14px;
   border-radius:14px;
@@ -375,20 +381,18 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================
-   ANIMATIONS PAR BLOC (PC + mobile)
+   FULL CINEMATIC : animations par bloc
    ========================= */
 .wt-showcase .wt-card:nth-child(1){
   margin-right:auto;
   animation: cardLeft 8s cubic-bezier(.12,.85,.12,1) both;
   animation-delay: .3s;
 }
-
 .wt-showcase .wt-card:nth-child(2){
   margin-left:auto;
   animation: cardRight 8s cubic-bezier(.12,.85,.12,1) both;
   animation-delay: 1.6s;
 }
-
 .wt-showcase .wt-card:nth-child(3){
   margin-right:auto;
   animation: cardLeft3 8s cubic-bezier(.12,.85,.12,1) both;
@@ -450,7 +454,7 @@ main > *:not(.wt-showcase){
     margin: 0 auto;
   }
 
-  /* Mobile : bulles verticales alignées */
+  /* Mobile : bulles verticales */
   .wt-actions{
     display:grid !important;
     gap:12px;
@@ -463,7 +467,7 @@ main > *:not(.wt-showcase){
     justify-content:center;
   }
 
-  /* durée mobile plus courte */
+  /* mobile un peu plus court */
   .wt-showcase .wt-card:nth-child(1),
   .wt-showcase .wt-card:nth-child(2),
   .wt-showcase .wt-card:nth-child(3){
@@ -474,18 +478,4 @@ main > *:not(.wt-showcase){
 @media (max-width:420px){
   .wt-showcase{ padding: 8px 10px; }
   .wt-card{ padding: 14px; border-radius: 18px; }
-}
-
-/* =========================
-   ACCESSIBILITÉ
-   (ne tue pas les animations, les rend quasi instant)
-   ========================= */
-@media (prefers-reduced-motion: reduce){
-  .wt-img{ animation: none !important; }
-
-  .wt-showcase .wt-card{
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
