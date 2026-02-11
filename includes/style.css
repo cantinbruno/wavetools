@@ -84,15 +84,17 @@ main,
 
 /* =========================================================
    NAVBAR — 100% CLIC (PC + MOBILE) SANS JS
-   - même comportement partout : clic pour ouvrir/fermer
-   - sous-menus niveau 2 OK (pas de clipping)
-   - pas de hamburger
    ========================================================= */
 .navbar{
   width: 100%;
   position: relative;
   z-index: 10000;
   overflow: visible;
+}
+
+/* Wrapper scrollable (utilisé en mobile <=700px) */
+.nav-scroll{
+  width: 100%;
 }
 
 /* Top menu */
@@ -209,7 +211,7 @@ main,
   color: #fff;
 }
 
-/* Sous-menu fermé par défaut (desktop) */
+/* Desktop dropdown niveau 1 */
 .menu details > .submenu{
   position: absolute;
   top: 100%;
@@ -459,7 +461,6 @@ main > *:not(.wt-showcase){
 
 /* =========================
    MOBILE showcase
-   ✅ FIX FIABLE : grid-template-areas
    ========================= */
 @media (max-width:980px){
   :root{ --zig:0px; --push:140px; }
@@ -485,7 +486,6 @@ main > *:not(.wt-showcase){
   .wt-card__text{ grid-area: text; }
   .wt-card__media{ grid-area: media; }
 
-  /* ✅ bloc reverse : image au-dessus */
   .wt-card--reverse{
     grid-template-areas:
       "media"
@@ -501,7 +501,6 @@ main > *:not(.wt-showcase){
     text-align:center;
   }
 
-  /* pas d'anim horizontale mobile */
   .wt-showcase .wt-card:nth-child(1),
   .wt-showcase .wt-card:nth-child(2),
   .wt-showcase .wt-card:nth-child(3){
@@ -516,47 +515,30 @@ main > *:not(.wt-showcase){
   .wt-card{ padding: 14px; border-radius: 18px; }
 }
 
-/* =========================
-   MOBILE NAV — version compacte (scroll horizontal)
-   ========================= */
+/* =========================================================
+   MOBILE NAV (<=700px) : scroll horizontal SUR WRAPPER + sans bulles
+   ========================================================= */
 @media (max-width:700px){
+
+  .nav-scroll{
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px;
+    scrollbar-width: none;
+  }
+  .nav-scroll::-webkit-scrollbar{ display:none; }
 
   .menu{
     flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: visible;
+    overflow: visible !important;   /* clé : pas de clipping */
     justify-content: flex-start;
-    padding: 6px;
-
-    gap: 6px;
-    scrollbar-width: none;
-  }
-
-  .menu::-webkit-scrollbar{
-    display: none;
-  }
-
-  .menu > li{
-    flex: 0 0 auto;
-  }
-
-  .menu > li > a,
-  .menu summary{
-    padding: 8px 12px;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-}
-
-/* =========================
-   MOBILE NAV — sans "bulles" (esthétique mobile only)
-   ========================= */
-@media (max-width:700px){
-
-  .menu{
-    padding: 6px 8px;
+    padding: 0;
+    margin: 0;
     gap: 10px;
   }
+
+  .menu > li{ flex: 0 0 auto; }
 
   .menu > li > a,
   .menu summary{
@@ -613,98 +595,72 @@ main > *:not(.wt-showcase){
 }
 
 /* =========================================================
-   FINAL NAV FIX (mobile)
-   - scroll horizontal sur wrapper (pas sur .menu)
-   - dropdowns en overlay (ne pousse pas le header)
+   MOBILE (<=980px) : DROPDOWN EN PANNEAU FIXED
+   - pas d’accordion qui agrandit le header
+   - toujours visible (ne sort pas de l’écran)
+   - niveau 2 reste dans le panneau
    ========================================================= */
-
-/* WRAPPER scrollable */
-.nav-scroll{
-  width: 100%;
-}
-
-/* MOBILE: scroll horizontal MAIS sans clip des dropdowns */
-@media (max-width:700px){
-  .nav-scroll{
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 6px;
-  }
-  .nav-scroll::-webkit-scrollbar{ display:none; }
-
-  /* IMPORTANT: .menu ne scrolle plus => plus de clipping */
-  .menu{
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 10px;
-
-    overflow: visible !important; /* clé */
-    padding: 0;
-    margin: 0;
-  }
-
-  /* style sans bulles */
-  .menu > li > a,
-  .menu summary{
-    background: transparent !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-
-    padding: 10px 10px;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-}
-
-/* MOBILE <=980: dropdown en overlay (ABSOLUTE) = ne pousse pas le header */
 @media (max-width:980px){
 
-  /* on annule le mode accordion qui agrandit le header */
-  .menu details > .submenu{
-    position: absolute !important;
-    top: calc(100% + 8px) !important;
-    left: 0 !important;
+  :root{ --headerH: 140px; } /* ajuste si besoin */
 
-    min-width: 240px;
-    max-width: min(92vw, 340px);
-
-    /* on retire les contraintes accordion */
-    max-height: none !important;
+  .site-header,
+  .site-header .container,
+  .navbar,
+  .nav-scroll,
+  .menu{
     overflow: visible !important;
-
-    /* état fermé par défaut */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(6px);
-    transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
-
-    z-index: 9999999;
-    box-shadow: 0 16px 45px rgba(0,0,0,.55);
   }
 
-  /* ouvert */
-  .menu details[open] > .submenu{
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
+  /* NIVEAU 1 : fermé */
+  .menu > li > details > .submenu{
+    display: none !important;
+    /* on neutralise les effets desktop (opacity/visibility) */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    transition: none !important;
   }
 
-  /* niveau 2 : à droite (desktop-like), reste overlay */
+  /* NIVEAU 1 : ouvert => panneau fixed */
+  .menu > li > details[open] > .submenu{
+    display: block !important;
+    position: fixed !important;
+
+    top: calc(var(--headerH) + 8px) !important;
+    left: 12px !important;
+    right: 12px !important;
+
+    max-height: calc(100vh - var(--headerH) - 20px) !important;
+    overflow: auto !important;
+
+    z-index: 2147483647 !important;
+  }
+
+  /* NIVEAU 2 : dans le panneau (pas à droite) */
   .submenu > li > details > .submenu{
-    position: absolute !important;
-    top: 0 !important;
-    left: 100% !important;
-    margin-left: 8px !important;
+    position: static !important;
+    display: none !important;
+    margin: 6px 0 0 !important;
 
-    min-width: 230px;
-    max-width: min(82vw, 320px);
+    box-shadow: none !important;
+    background: rgba(15,23,42,0.92) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    border-radius: 12px !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    transition: none !important;
   }
 
-  /* ponts inutiles sur mobile overlay */
+  .submenu > li > details[open] > .submenu{
+    display: block !important;
+  }
+
+  /* ponts inutiles */
   .menu details > .submenu::before,
   .submenu > li > details > .submenu::before{
     display: none !important;
