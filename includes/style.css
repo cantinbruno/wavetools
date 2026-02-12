@@ -501,13 +501,6 @@ main > *:not(.wt-showcase){
     text-align:center;
   }
 
-  .wt-showcase .wt-card:nth-child(1),
-  .wt-showcase .wt-card:nth-child(2),
-  .wt-showcase .wt-card:nth-child(3){
-    animation: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
 }
 
 @media (max-width:420px){
