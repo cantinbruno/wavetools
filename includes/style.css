@@ -779,3 +779,86 @@ main > *:not(.wt-showcase){
     min-height: 200px;
   }
 }
+
+/* ===== Formulaire de contact centré ===== */
+
+.shell-block form{
+  max-width: 700px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* labels */
+.shell-block label{
+  display: block;
+  text-align: left;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* champs */
+.shell-block input,
+.shell-block textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(5,10,18,0.55);
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.shell-block input::placeholder,
+.shell-block textarea::placeholder{
+  color: rgba(255,255,255,0.35);
+}
+
+.shell-block textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* focus glow */
+.shell-block input:focus,
+.shell-block textarea:focus{
+  border-color: rgba(0,214,255,0.6);
+  box-shadow:
+    0 0 0 3px rgba(0,214,255,0.12),
+    0 0 20px rgba(118,86,255,0.12);
+}
+
+/* bouton centré (FIABLE) */
+.shell-block button{
+  display: block;              /* important */
+  margin: 10px auto 0;         /* centre horizontal */
+  width: 220px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(135deg,
+    rgba(0,214,255,0.25),
+    rgba(118,86,255,0.25)
+  );
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shell-block button:hover{
+  border-color: rgba(0,214,255,0.5);
+  box-shadow:
+    0 0 20px rgba(0,214,255,0.18),
+    0 0 20px rgba(118,86,255,0.18);
+  transform: translateY(-1px);
+}
+
+.shell-block button:active{
+  transform: translateY(1px);
+}

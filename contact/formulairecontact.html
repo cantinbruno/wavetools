@@ -5,8 +5,8 @@
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mentions légales</title>
-  <meta name="description" content="WaveTools : Mention légales.">
+  <title>Formulaire de contact</title>
+  <meta name="description" content="WaveTools : Formulaire de contact.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="content-language" content="fr">
   <meta name="author" content="WaveTools">
@@ -24,28 +24,26 @@
 <section class="shell-section">
   <div class="shell-block">
 
-    <h2 class="shell-title">Mentions légales</h2>
+    <h2 class="shell-title">Formulaire de contact</h2>
 
-    <form action="https://formsubmit.co/cantin.bruno@gmx.fr" method="POST">
-
-  <input type="text" name="name" placeholder="Nom" required>
-
-  <input type="email" name="email" placeholder="Email" required>
-
-  <textarea name="message" rows="6" placeholder="Message" required></textarea>
-
-  <!-- Anti-spam (honeypot invisible) -->
-  <input type="text" name="_honey" style="display:none">
-
-  <!-- Désactive captcha formsubmit -->
-  <input type="hidden" name="_captcha" value="false">
-
-  <!-- Redirection après envoi -->
-  <input type="hidden" name="_next" value="/contact/envoyer.html">
-
-  <button type="submit">Envoyer</button>
-
-</form>
+ <form action="https://formsubmit.co/cantin.bruno@gmx.fr" method="POST">
+  <p class="shell-text-left">
+      <strong>Votre nom:</strong><br>
+      <input type="text" name="name" placeholder="Nom" required>
+      <br><br><strong>Votre prenom:</strong><br>
+      <input type="text" name="prenom" placeholder="Prénom" required>
+      <br><br><strong>Votre adresse mail:</strong><br>
+      <input type="email" name="email" placeholder="Email" required>
+      <br><br><strong>Téléphone (facultatif) :</strong><br>
+      <input type="tel" name="telephone" placeholder="06 xx xx xx xx">
+      <br><br><strong>Votre message:</strong><br>
+      <textarea name="message" rows="6" placeholder="Message" required></textarea>
+      <!-- Anti-spam -->
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" value="/contact/envoyer.html">
+      <button type="submit">Envoyer</button>
+    </form>
 
   </div>
 </section>
