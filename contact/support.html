@@ -5,8 +5,8 @@
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formulaire de contact</title>
-  <meta name="description" content="WaveTools : Formulaire de contact.">
+  <title>Support</title>
+  <meta name="description" content="WaveTools : Support.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="content-language" content="fr">
   <meta name="author" content="WaveTools">
@@ -24,9 +24,11 @@
 <section class="shell-section">
   <div class="shell-block">
 
-    <h2 class="shell-title">Formulaire de contact</h2>
+    <h2 class="shell-title">Demande de suppport</h2>
 
- <form action="https://formsubmit.co/cantin.bruno@gmx.fr" method="POST">
+ <form action="https://formsubmit.co/cantin.bruno@gmx.fr"
+      method="POST"
+      enctype="multipart/form-data">
   <p class="shell-text-left">
       <strong>Votre nom:</strong><br>
       <input type="text" name="name" placeholder="Nom" required>
@@ -38,8 +40,10 @@
       <input type="tel" name="telephone" placeholder="06 xx xx xx xx">
       <br><br><strong>Entreprise (facultatif) :</strong><br>
       <input type="text" name="entreprise" placeholder="Entreprise">
-      <br><br><strong>Votre message:</strong><br>
+      <br><br><strong>Votre problème rencontré:</strong><br>
       <textarea name="message" rows="6" placeholder="Message" required></textarea>
+      <br><br><strong>Pièce jointe (optionnel) :</strong><br>
+      <input type="file" name="attachment" accept=".pdf,.png,.jpg,.jpeg">
       <br><br>
       <!-- Anti-spam -->
       <input type="text" name="_honey" style="display:none">
