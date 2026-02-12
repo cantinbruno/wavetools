@@ -1,36 +1,50 @@
-function initMenuAutoClose() {
-  const navbar = document.querySelector(".navbar");
-  if (!navbar) {
-    // le header n'est pas encore chargé → on réessaie
-    setTimeout(initMenuAutoClose, 100);
-    return;
+(function () {
+  function closeAll() {
+    document.querySelectorAll(".menu details[open]").forEach(d => d.removeAttribute("open"));
   }
 
-  const allDetails = document.querySelectorAll(".menu details");
+  function initMenu() {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) {
+      setTimeout(initMenu, 100);
+      return;
+    }
 
-  // Un seul menu ouvert
-  allDetails.forEach(d => {
-    d.addEventListener("toggle", () => {
-      if (!d.open) return;
+    // 1) Un seul "bloc" ouvert, sans fermer parents/enfants
+    navbar.querySelectorAll(".menu details").forEach((d) => {
+      d.addEventListener("toggle", () => {
+        if (!d.open) return;
 
-      allDetails.forEach(other => {
-        if (other !== d) other.removeAttribute("open");
+        const all = Array.from(navbar.querySelectorAll(".menu details"));
+
+        all.forEach((other) => {
+          const keep =
+            other === d ||          // lui-même
+            other.contains(d) ||    // parent
+            d.contains(other);      // enfant
+
+          if (!keep) other.removeAttribute("open");
+        });
       });
     });
-  });
 
-  // Clic à côté
-  document.addEventListener("click", (e) => {
-    if (navbar.contains(e.target)) return;
-    allDetails.forEach(d => d.removeAttribute("open"));
-  });
+    // 2) Fermer au touch/clic en dehors (pointerdown = top sur mobile)
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        const path = e.composedPath ? e.composedPath() : null;
+        const inside = path ? path.includes(navbar) : navbar.contains(e.target);
 
-  // Échap
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      allDetails.forEach(d => d.removeAttribute("open"));
-    }
-  });
-}
+        if (!inside) closeAll();
+      },
+      { capture: true }
+    );
 
-initMenuAutoClose();
+    // 3) Échap = fermer
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAll();
+    });
+  }
+
+  initMenu();
+})();
