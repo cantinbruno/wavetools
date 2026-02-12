@@ -328,7 +328,6 @@ main > *:not(.wt-showcase){
 
 /* =========================
    WaveTools Showcase — FULL CINEMATIC FORCED
-   + FIX mobile bloc reverse : image au-dessus
    ========================= */
 :root{
   --txt: rgba(255,255,255,.92);
@@ -486,10 +485,11 @@ main > *:not(.wt-showcase){
   .wt-card__text{ grid-area: text; }
   .wt-card__media{ grid-area: media; }
 
+  /* ✅ FIX : sur mobile, même les "reverse" restent texte puis image */
   .wt-card--reverse{
     grid-template-areas:
-      "media"
-      "text";
+      "text"
+      "media";
   }
 
   .wt-title{
@@ -524,7 +524,7 @@ main > *:not(.wt-showcase){
 
   .menu{
     flex-wrap: nowrap;
-    overflow: visible !important;   /* clé : pas de clipping */
+    overflow: visible !important;
     justify-content: flex-start;
     padding: 0;
     margin: 0;
@@ -551,7 +551,6 @@ main > *:not(.wt-showcase){
     color: #fff;
   }
 
-  /* underline discret */
   .menu > li > a,
   .menu summary{
     position: relative;
@@ -589,13 +588,10 @@ main > *:not(.wt-showcase){
 
 /* =========================================================
    MOBILE (<=980px) : DROPDOWN EN PANNEAU FIXED
-   - pas d’accordion qui agrandit le header
-   - toujours visible (ne sort pas de l’écran)
-   - niveau 2 reste dans le panneau
    ========================================================= */
 @media (max-width:980px){
 
-  :root{ --headerH: 140px; } /* ajuste si besoin */
+  :root{ --headerH: 140px; }
 
   .site-header,
   .site-header .container,
@@ -605,10 +601,8 @@ main > *:not(.wt-showcase){
     overflow: visible !important;
   }
 
-  /* NIVEAU 1 : fermé */
   .menu > li > details > .submenu{
     display: none !important;
-    /* on neutralise les effets desktop (opacity/visibility) */
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
@@ -616,7 +610,6 @@ main > *:not(.wt-showcase){
     transition: none !important;
   }
 
-  /* NIVEAU 1 : ouvert => panneau fixed */
   .menu > li > details[open] > .submenu{
     display: block !important;
     position: fixed !important;
@@ -631,7 +624,6 @@ main > *:not(.wt-showcase){
     z-index: 2147483647 !important;
   }
 
-  /* NIVEAU 2 : dans le panneau (pas à droite) */
   .submenu > li > details > .submenu{
     position: static !important;
     display: none !important;
@@ -653,7 +645,6 @@ main > *:not(.wt-showcase){
     display: block !important;
   }
 
-  /* ponts inutiles */
   .menu details > .submenu::before,
   .submenu > li > details > .submenu::before{
     display: none !important;
