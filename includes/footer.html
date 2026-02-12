@@ -1,5 +1,30 @@
 <footer class="site-footer">
-  <div class="container">
-    <p>© 2026 WaveTools — Outils IT gratuits</p>
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <img src="img/logo.png" alt="WaveTools logo" class="footer-logo">
+    </div>
+
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <span>•</span>
+      <a href="/confidentialite">Confidentialité</a>
+      <span>•</span>
+      <a href="/contact">Contact</a>
+    </div>
+
+    <div class="footer-copy">
+      © <span id="year"></span> WaveTools — Tous droits réservés
+    </div>
+
   </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const year = document.getElementById("year");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+});
+</script>
