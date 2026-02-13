@@ -89,7 +89,7 @@ async function run(){
 
   try{
     // 1) lancer ping
-    const start = await fetch(`https://api.allorigins.win/raw?url=https://check-host.net/check-ping?host=${host}&max_nodes=5`);
+    const start = await fetch(`https://check-host.net/check-ping?host=${encodeURIComponent(host)}&max_nodes=5`);
     const job = await start.json();
 
     const requestId = job.request_id;
@@ -97,7 +97,7 @@ async function run(){
     // attendre résultat
     await new Promise(r=>setTimeout(r,2000));
 
-    const res = await fetch(`https://api.allorigins.win/raw?url=https://check-host.net/check-result/${requestId}`);
+    const res = await fetch(`https://check-host.net/check-result/${requestId}`);
     const data = await res.json();
 
     clearOut();
