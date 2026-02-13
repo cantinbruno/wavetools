@@ -28,7 +28,7 @@
     <div class="ad-box">PUB GAUCHE</div>
   </aside>
 -->
-   <main class="tool-main">
+ <main class="tool-main">
     <section class="shell-section">
       <div class="ip-card">
         <h1 class="tool-title">Géolocaliser une IP</h1>
@@ -36,7 +36,7 @@
         <div class="terminal-body">
           <div class="line">
             IP :
-            <input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8" />
+            <input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8">
           </div>
 
           <button class="copy-btn" id="btnSearch">Rechercher</button>
@@ -48,21 +48,23 @@
           <div class="line">Latitude : <span id="lat">—</span></div>
           <div class="line">Longitude : <span id="lon">—</span></div>
 
-          <div class="line">Carte :</div>
-
-          <!-- IMPORTANT: display:block + height forcée (si ton CSS écrase) -->
-          <iframe
-            id="mapFrame"
-            style="display:none;width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <!-- ✅ Tout ce bloc est caché avant recherche => plus de grand vide -->
+          <div id="mapWrap" style="display:none;">
+            <div class="line">Carte :</div>
+            <iframe
+              id="mapFrame"
+              style="width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
 
         <button class="copy-btn" id="btnCopy">Copier le résultat</button>
       </div>
     </section>
   </main>
+
 <!--
   <aside class="tool-ads">
     <div class="ad-box">PUB DROITE</div>
@@ -71,72 +73,66 @@
 -->
 
 <script>
-    console.log("✅ Script chargé");
+  console.log("✅ Script chargé");
 
-    const $ = (id) => document.getElementById(id);
+const $ = id => document.getElementById(id);
 
-    function setText(id, v) {
-      $(id).textContent = (v === undefined || v === null || v === "") ? "N/A" : v;
+function setText(id, v){
+  $(id).textContent = v ?? "N/A";
+}
+
+function resetMap(){
+  const frame = $("mapFrame");
+  frame.style.display = "none";
+  frame.src = "about:blank";
+}
+
+function setLoading(){
+  setText("country","Détection...");
+  setText("city","Détection...");
+  setText("region","Détection...");
+  setText("org","Détection...");
+  setText("lat","Détection...");
+  setText("lon","Détection...");
+  resetMap();
+}
+
+async function geoIP(){
+  const ip = $("ipInput").value.trim();
+  if(!ip) return;
+
+  console.log("🔎 Recherche:", ip);
+  setLoading();
+
+  try{
+    const res = await fetch(`https://ipapi.co/${ip}/json/`);
+    const data = await res.json();
+    console.log("📦", data);
+
+    if(data.error) throw new Error(data.reason);
+
+    setText("country", data.country_name);
+    setText("city", data.city);
+    setText("region", data.region);
+    setText("org", data.org);
+    setText("lat", data.latitude);
+    setText("lon", data.longitude);
+
+    if(data.latitude && data.longitude){
+      const frame = $("mapFrame");
+      frame.src = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
+      frame.style.display = "block";
     }
 
-    function setLoading() {
-      setText("country", "Détection...");
-      setText("city", "Détection...");
-      setText("region", "Détection...");
-      setText("org", "Détection...");
-      setText("lat", "Détection...");
-      setText("lon", "Détection...");
-      $("mapFrame").src = "about:blank";
-    }
+  }catch(e){
+    console.error(e);
+    resetMap();
+  }
+}
 
-    async function geoIP() {
-      const ip = $("ipInput").value.trim();
-      if (!ip) return alert("Entre une IP.");
-
-      console.log("🔎 Recherche IP:", ip);
-      setLoading();
-
-      try {
-        // Test simple de connectivité
-        const url = `https://ipapi.co/${encodeURIComponent(ip)}/json/`;
-        console.log("➡️ fetch:", url);
-
-        const res = await fetch(url, { cache: "no-store" });
-        console.log("⬅️ status:", res.status);
-
-        const data = await res.json();
-        console.log("📦 data:", data);
-
-        if (data && data.error) {
-          throw new Error(data.reason || "IP invalide / requête refusée");
-        }
-
-        setText("country", data.country_name);
-        setText("city", data.city);
-        setText("region", data.region);
-        setText("org", data.org);
-        setText("lat", data.latitude);
-        setText("lon", data.longitude);
-
-        // Carte Google embed
-        if (data.latitude && data.longitude) {
-          const mapURL = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
-          console.log("🗺️ map:", mapURL);
-          $("mapFrame").src = mapURL;
-        } else {
-          $("mapFrame").src = "about:blank";
-        }
-
-      } catch (e) {
-        console.error("❌ Erreur geoIP:", e);
-        alert("Erreur : " + (e.message || "Impossible de géolocaliser cette IP."));
-        ["country","city","region","org","lat","lon"].forEach(id => setText(id, "—"));
-        $("mapFrame").src = "about:blank";
-      }
-    }
-
-    function copyResult() {
+function copyResult(){
   const ip = $("ipInput").value.trim() || "—";
+
   const txt =
 `IP: ${ip}
 Pays: ${$("country").textContent}
@@ -146,17 +142,15 @@ FAI: ${$("org").textContent}
 Latitude: ${$("lat").textContent}
 Longitude: ${$("lon").textContent}`;
 
-  navigator.clipboard.writeText(txt).catch(() => {});
+  navigator.clipboard.writeText(txt).catch(()=>{});
 }
 
-    // On bind les events (plus fiable que onclick="")
-    $("btnSearch").addEventListener("click", geoIP);
-    $("btnCopy").addEventListener("click", copyResult);
+$("btnSearch").addEventListener("click", geoIP);
+$("btnCopy").addEventListener("click", copyResult);
 
-    // Entrée = rechercher
-    $("ipInput").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") geoIP();
-    });
+$("ipInput").addEventListener("keydown", e=>{
+  if(e.key==="Enter") geoIP();
+});
 </script>
 
 <!-- ****************************************************************************************************** -->
