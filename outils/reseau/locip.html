@@ -28,7 +28,7 @@
     <div class="ad-box">PUB GAUCHE</div>
   </aside>
 -->
- <main class="tool-main">
+  <main class="tool-main">
     <section class="shell-section">
       <div class="ip-card">
         <h1 class="tool-title">Géolocaliser une IP</h1>
@@ -36,7 +36,7 @@
         <div class="terminal-body">
           <div class="line">
             IP :
-            <input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8">
+            <input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8" />
           </div>
 
           <button class="copy-btn" id="btnSearch">Rechercher</button>
@@ -48,16 +48,13 @@
           <div class="line">Latitude : <span id="lat">—</span></div>
           <div class="line">Longitude : <span id="lon">—</span></div>
 
-          <!-- ✅ Tout ce bloc est caché avant recherche => plus de grand vide -->
-          <div id="mapWrap" style="display:none;">
-            <div class="line">Carte :</div>
-            <iframe
-              id="mapFrame"
-              style="width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+          <div class="line">Carte :</div>
+          <iframe
+            id="mapFrame"
+            style="width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
 
         <button class="copy-btn" id="btnCopy">Copier le résultat</button>
@@ -73,67 +70,66 @@
 -->
 
 <script>
-  console.log("✅ Script chargé");
+  const $ = (id) => document.getElementById(id);
 
-const $ = id => document.getElementById(id);
+    // cacher la carte au chargement (pas de vide)
+    $("mapFrame").style.display = "none";
 
-function setText(id, v){
-  $(id).textContent = v ?? "N/A";
-}
-
-function resetMap(){
-  const frame = $("mapFrame");
-  frame.style.display = "none";
-  frame.src = "about:blank";
-}
-
-function setLoading(){
-  setText("country","Détection...");
-  setText("city","Détection...");
-  setText("region","Détection...");
-  setText("org","Détection...");
-  setText("lat","Détection...");
-  setText("lon","Détection...");
-  resetMap();
-}
-
-async function geoIP(){
-  const ip = $("ipInput").value.trim();
-  if(!ip) return;
-
-  console.log("🔎 Recherche:", ip);
-  setLoading();
-
-  try{
-    const res = await fetch(`https://ipapi.co/${ip}/json/`);
-    const data = await res.json();
-    console.log("📦", data);
-
-    if(data.error) throw new Error(data.reason);
-
-    setText("country", data.country_name);
-    setText("city", data.city);
-    setText("region", data.region);
-    setText("org", data.org);
-    setText("lat", data.latitude);
-    setText("lon", data.longitude);
-
-    if(data.latitude && data.longitude){
-      const frame = $("mapFrame");
-      frame.src = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
-      frame.style.display = "block";
+    function setText(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "N/A" : v;
     }
 
-  }catch(e){
-    console.error(e);
-    resetMap();
-  }
-}
+    function resetMap() {
+      const frame = $("mapFrame");
+      frame.style.display = "none";
+      frame.src = "about:blank";
+    }
 
-function copyResult(){
-  const ip = $("ipInput").value.trim() || "—";
+    function setLoading() {
+      setText("country", "Détection...");
+      setText("city", "Détection...");
+      setText("region", "Détection...");
+      setText("org", "Détection...");
+      setText("lat", "Détection...");
+      setText("lon", "Détection...");
+      resetMap();
+    }
 
-  const txt =
+    async function geoIP() {
+      const ip = $("ipInput").value.trim();
+      if (!ip) return;
+
+      setLoading();
+
+      try {
+        const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`, { cache: "no-store" });
+        const data = await res.json();
+
+        if (data && data.error) throw new Error(data.reason || "Erreur API");
+
+        setText("country", data.country_name);
+        setText("city", data.city);
+        setText("region", data.region);
+        setText("org", data.org);
+        setText("lat", data.latitude);
+        setText("lon", data.longitude);
+
+        if (data.latitude && data.longitude) {
+          const frame = $("mapFrame");
+          frame.src = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
+          frame.style.display = "block"; // afficher la carte après recherche
+        } else {
+          resetMap();
+        }
+      } catch (e) {
+        ["country","city","region","org","lat","lon"].forEach(id => setText(id, "—"));
+        resetMap();
+      }
+    }
+
+    function copyResult() {
+      const ip = $("ipInput").value.trim() || "—";
+      const txt =
 `IP: ${ip}
 Pays: ${$("country").textContent}
 Ville: ${$("city").textContent}
@@ -142,15 +138,13 @@ FAI: ${$("org").textContent}
 Latitude: ${$("lat").textContent}
 Longitude: ${$("lon").textContent}`;
 
-  navigator.clipboard.writeText(txt).catch(()=>{});
-}
+      // copie silencieuse (sans popup)
+      navigator.clipboard.writeText(txt).catch(() => {});
+    }
 
-$("btnSearch").addEventListener("click", geoIP);
-$("btnCopy").addEventListener("click", copyResult);
-
-$("ipInput").addEventListener("keydown", e=>{
-  if(e.key==="Enter") geoIP();
-});
+    $("btnSearch").addEventListener("click", geoIP);
+    $("btnCopy").addEventListener("click", copyResult);
+    $("ipInput").addEventListener("keydown", (e) => { if (e.key === "Enter") geoIP(); });
 </script>
 
 <!-- ****************************************************************************************************** -->
