@@ -29,38 +29,43 @@
   </aside>
 -->
   <main class="tool-main">
-    <section class="shell-section">
-      <div class="ip-card">
-        <h1 class="tool-title">Géolocaliser une IP</h1>
+<section class="shell-section">
+<div class="ip-card">
 
-        <div class="terminal-body">
-          <div class="line">
-            IP :
-            <input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8" />
-          </div>
+<h1 class="tool-title">Géolocaliser une IP</h1>
 
-          <button class="copy-btn" id="btnSearch">Rechercher</button>
+<div class="terminal-body">
 
-          <div class="line">Pays : <span id="country">—</span></div>
-          <div class="line">Ville : <span id="city">—</span></div>
-          <div class="line">Région : <span id="region">—</span></div>
-          <div class="line">FAI : <span id="org">—</span></div>
-          <div class="line">Latitude : <span id="lat">—</span></div>
-          <div class="line">Longitude : <span id="lon">—</span></div>
+<div class="line">
+IP :
+<input id="ipInput" placeholder="Ex: 8.8.8.8" value="8.8.8.8">
+</div>
 
-          <div class="line">Carte :</div>
-          <iframe
-            id="mapFrame"
-            style="width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+<button class="copy-btn" id="btnSearch">Rechercher</button>
 
-        <button class="copy-btn" id="btnCopy">Copier le résultat</button>
-      </div>
-    </section>
-  </main>
+<div class="line">Pays : <span id="country">—</span></div>
+<div class="line">Ville : <span id="city">—</span></div>
+<div class="line">Région : <span id="region">—</span></div>
+<div class="line">FAI : <span id="org">—</span></div>
+<div class="line">Latitude : <span id="lat">—</span></div>
+<div class="line">Longitude : <span id="lon">—</span></div>
+
+<div class="line">Carte : <span id="mapStatus">—</span></div>
+
+<iframe
+  id="mapFrame"
+  style="display:none;width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+</div>
+
+<button class="copy-btn" id="btnCopy">Copier le résultat</button>
+
+</div>
+</section>
+</main>
 
 <!--
   <aside class="tool-ads">
@@ -70,66 +75,65 @@
 -->
 
 <script>
-  const $ = (id) => document.getElementById(id);
+const $ = id => document.getElementById(id);
 
-    // cacher la carte au chargement (pas de vide)
-    $("mapFrame").style.display = "none";
+function setText(id,v){
+  $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+}
 
-    function setText(id, v) {
-      $(id).textContent = (v === undefined || v === null || v === "") ? "N/A" : v;
-    }
+function resetMap(){
+  $("mapFrame").style.display = "none";
+  $("mapFrame").src = "about:blank";
+  $("mapStatus").textContent = "—";
+}
 
-    function resetMap() {
-      const frame = $("mapFrame");
-      frame.style.display = "none";
-      frame.src = "about:blank";
-    }
+function setLoading(){
+  setText("country","Détection...");
+  setText("city","Détection...");
+  setText("region","Détection...");
+  setText("org","Détection...");
+  setText("lat","Détection...");
+  setText("lon","Détection...");
+  resetMap();
+}
 
-    function setLoading() {
-      setText("country", "Détection...");
-      setText("city", "Détection...");
-      setText("region", "Détection...");
-      setText("org", "Détection...");
-      setText("lat", "Détection...");
-      setText("lon", "Détection...");
+async function geoIP(){
+  const ip = $("ipInput").value.trim();
+  if(!ip) return;
+
+  setLoading();
+
+  try{
+    const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`,{cache:"no-store"});
+    const data = await res.json();
+
+    if(data.error) throw new Error(data.reason);
+
+    setText("country",data.country_name);
+    setText("city",data.city);
+    setText("region",data.region);
+    setText("org",data.org);
+    setText("lat",data.latitude);
+    setText("lon",data.longitude);
+
+    if(data.latitude && data.longitude){
+      $("mapFrame").src =
+        `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
+      $("mapFrame").style.display = "block";
+      $("mapStatus").textContent = "";
+    }else{
       resetMap();
     }
 
-    async function geoIP() {
-      const ip = $("ipInput").value.trim();
-      if (!ip) return;
+  }catch(e){
+    ["country","city","region","org","lat","lon"].forEach(id=>setText(id,"—"));
+    resetMap();
+  }
+}
 
-      setLoading();
-
-      try {
-        const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`, { cache: "no-store" });
-        const data = await res.json();
-
-        if (data && data.error) throw new Error(data.reason || "Erreur API");
-
-        setText("country", data.country_name);
-        setText("city", data.city);
-        setText("region", data.region);
-        setText("org", data.org);
-        setText("lat", data.latitude);
-        setText("lon", data.longitude);
-
-        if (data.latitude && data.longitude) {
-          const frame = $("mapFrame");
-          frame.src = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
-          frame.style.display = "block"; // afficher la carte après recherche
-        } else {
-          resetMap();
-        }
-      } catch (e) {
-        ["country","city","region","org","lat","lon"].forEach(id => setText(id, "—"));
-        resetMap();
-      }
-    }
-
-    function copyResult() {
-      const ip = $("ipInput").value.trim() || "—";
-      const txt =
+function copyResult(){
+  const ip = $("ipInput").value.trim() || "—";
+  const txt =
 `IP: ${ip}
 Pays: ${$("country").textContent}
 Ville: ${$("city").textContent}
@@ -138,13 +142,17 @@ FAI: ${$("org").textContent}
 Latitude: ${$("lat").textContent}
 Longitude: ${$("lon").textContent}`;
 
-      // copie silencieuse (sans popup)
-      navigator.clipboard.writeText(txt).catch(() => {});
-    }
+  navigator.clipboard.writeText(txt).catch(()=>{});
+}
 
-    $("btnSearch").addEventListener("click", geoIP);
-    $("btnCopy").addEventListener("click", copyResult);
-    $("ipInput").addEventListener("keydown", (e) => { if (e.key === "Enter") geoIP(); });
+$("btnSearch").addEventListener("click",geoIP);
+$("btnCopy").addEventListener("click",copyResult);
+$("ipInput").addEventListener("keydown",e=>{
+  if(e.key==="Enter") geoIP();
+});
+
+// état initial
+resetMap();
 </script>
 
 <!-- ****************************************************************************************************** -->
