@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon IP</title>
+  <meta name="description" content="WaveTools : mon IP.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<main class="wt-main">
+
+<!-- ****************************************************************************************************** -->
+
+<div class="tool-layout">
+
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+
+  <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Quelle est mon adresse IP ?</h1>
+
+        <div class="terminal-body">
+          <div class="line">IPv4 : <span id="ipv4">Détection…</span></div>
+          <div class="line">IPv6 : <span id="ipv6">Détection…</span></div>
+        </div>
+
+        <button class="copy-btn" onclick="copyIP()">Copier l'IP</button>
+      </div>
+    </section>
+  </main>
+
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+
+</div>
+
+<script>
+async function fetchIP() {
+  try {
+    const v4 = await fetch("https://api.ipify.org?format=json").then(r=>r.json());
+    document.getElementById("ipv4").textContent = v4.ip;
+  } catch { document.getElementById("ipv4").textContent="Non dispo"; }
+
+  try {
+    const v6 = await fetch("https://api64.ipify.org?format=json").then(r=>r.json());
+    document.getElementById("ipv6").textContent = v6.ip;
+  } catch { document.getElementById("ipv6").textContent="Non dispo"; }
+}
+
+function copyIP() {
+  const text =
+`IPv4: ${document.getElementById("ipv4").textContent}
+IPv6: ${document.getElementById("ipv6").textContent}`;
+  navigator.clipboard.writeText(text);
+}
+
+fetchIP();
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+</main>
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>

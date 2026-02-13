@@ -2176,3 +2176,173 @@ main > *:not(.wt-showcase){
   .net-dashboard{ grid-template-columns: 1fr; }
   .net-columns{ grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   OUTIL + PUBS : CSS COMPLET (fonctionnel, anti-décalage)
+   A placer tout en bas de ton CSS (après ton thème)
+   ========================================================= */
+
+/* --- Grille 3 colonnes --- */
+.tool-layout{
+  width: min(1600px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 60px 20px !important;
+
+  display: grid !important;
+  grid-template-columns: 300px minmax(720px, 1fr) 300px !important;
+  gap: 40px !important;
+
+  justify-content: center !important;   /* centre la grille */
+  justify-items: center !important;     /* centre chaque colonne */
+  align-items: center !important;       /* aligne verticalement */
+}
+
+/* --- Colonne centrale --- */
+.tool-main{
+  width: 100% !important;
+}
+
+/* --- Neutralise ton style précédent de shell-section dans la grille --- */
+.tool-layout .shell-section{
+  width: 100% !important;
+  padding: 0 !important;               /* supprime ton padding 60px 20px */
+  display: block !important;           /* supprime display:flex */
+  justify-content: unset !important;
+}
+
+/* --- Carte outil : centrée et largeur constante --- */
+.tool-layout .ip-card{
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
+/* --- Pubs gauche / droite --- */
+.tool-layout .tool-ads{
+  width: 300px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Box pub (placeholders) */
+.tool-layout .ad-box{
+  width: 100% !important;
+  height: 600px !important;
+  border-radius: 16px !important;
+  border: 1px dashed rgba(255,255,255,0.25) !important;
+  background: rgba(10,15,31,0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: rgba(255,255,255,0.60) !important;
+  font-family: monospace !important;
+}
+
+/* --- Option sticky (si tu veux que ça reste visible au scroll)
+   Décommente si tu veux :
+*/
+/*
+.tool-layout .tool-ads{
+  position: sticky !important;
+  top: 110px !important;
+  align-self: start !important;
+}
+*/
+
+/* --- Ajustements tailles intermédiaires --- */
+@media (max-width: 1450px){
+  .tool-layout{
+    grid-template-columns: 260px minmax(720px, 1fr) 260px !important;
+    gap: 30px !important;
+  }
+  .tool-layout .tool-ads{ width: 260px !important; }
+}
+
+@media (max-width: 1350px){
+  .tool-layout{
+    grid-template-columns: 240px minmax(720px, 1fr) 240px !important;
+    gap: 26px !important;
+  }
+  .tool-layout .tool-ads{ width: 240px !important; }
+}
+
+/* --- Responsive: on empile (mobile/tablette) --- */
+@media (max-width: 1200px){
+  .tool-layout{
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+    padding: 40px 16px !important;
+  }
+
+  .tool-layout .tool-ads{
+    width: 100% !important;
+  }
+
+  .tool-layout .ad-box{
+    width: min(720px, 100%) !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* --- Ton style OUTIL (si tu veux tout centraliser ici) --- */
+.shell-section {
+  display:flex;
+  justify-content:center;
+  padding:60px 20px;
+}
+
+.ip-card {
+  width:100%;
+  max-width:720px;
+  background:linear-gradient(145deg,#0a0f1f,#111a33);
+  border-radius:18px;
+  padding:32px;
+  color:#d6e2ff;
+  font-family:monospace;
+  box-shadow:0 0 40px rgba(0,200,255,0.15);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.terminal-body {
+  font-size:16px;
+  line-height:2;
+}
+
+.line span {
+  color:#4fdcff;
+}
+
+.copy-btn {
+  margin-top:28px;
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.25s;
+}
+
+.copy-btn:hover {
+  transform:scale(1.02);
+  box-shadow:0 0 15px rgba(0,150,255,0.6);
+}
+
+.tool-title{
+  font-family: monospace;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px){
+  .tool-title{ font-size: 26px; }
+}
