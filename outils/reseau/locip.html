@@ -46,9 +46,15 @@
           <div class="line">FAI : <span id="org">—</span></div>
           <div class="line">Latitude : <span id="lat">—</span></div>
           <div class="line">Longitude : <span id="lon">—</span></div>
-          <div class="line">
-            Carte : <a id="map" href="#" target="_blank" rel="noreferrer">—</a>
-          </div>
+          <div class="line">Carte :</div>
+          <iframe
+            id="mapFrame"
+            width="100%"
+            height="300"
+            style="border:0; margin-top:8px; border-radius:8px;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
 
         <button class="copy-btn" onclick="copyResult()">Copier le résultat</button>
