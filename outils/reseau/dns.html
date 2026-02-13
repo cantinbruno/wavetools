@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Géolocalisation IP</title>
+  <meta name="description" content="WaveTools : géolocalisation d'une IP.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<main class="wt-main">
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Recherche DNS</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Domaine : <input id="domain" placeholder="example.com" />
+          </div>
+
+          <div class="line">
+            Type : 
+            <select id="rtype">
+              <option value="A">A</option>
+              <option value="AAAA">AAAA</option>
+              <option value="CNAME">CNAME</option>
+              <option value="MX">MX</option>
+              <option value="NS">NS</option>
+              <option value="TXT">TXT</option>
+              <option value="SOA">SOA</option>
+              <option value="SRV">SRV</option>
+              <option value="CAA">CAA</option>
+              <option value="PTR">PTR (reverse)</option>
+            </select>
+          </div>
+
+          <div class="line" id="ptrHint" style="display:none;">
+            Pour PTR : mets une IP dans “Domaine” (ex: 8.8.8.8)
+          </div>
+
+          <button class="copy-btn" id="btnSearch">Rechercher</button>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Résultats : <span id="resultsStatus">—</span></div>
+          <div id="results"></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier le résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+
+    function cleanInput(v){
+      v = (v||"").trim();
+      v = v.replace(/^https?:\/\//i,"").split("/")[0];
+      return v;
+    }
+
+    function isIPv4(s){ return /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(s); }
+    function isIPv6(s){ return s.includes(":"); }
+
+    // Reverse for PTR
+    function toArpaPTR(ip){
+      if(isIPv4(ip)){
+        return ip.split(".").reverse().join(".") + ".in-addr.arpa";
+      }
+      if(isIPv6(ip)){
+        // Expand-ish: we only need nibbles; easiest is to use a basic expansion
+        // This simple expander handles common forms; good enough for tools page
+        let parts = ip.toLowerCase().split("::");
+        let left = parts[0] ? parts[0].split(":").filter(Boolean) : [];
+        let right = parts[1] ? parts[1].split(":").filter(Boolean) : [];
+        const missing = 8 - (left.length + right.length);
+        const full = [
+          ...left,
+          ...Array(Math.max(0, missing)).fill("0"),
+          ...right
+        ].map(h => h.padStart(4,"0")).join("");
+        return full.split("").reverse().join(".") + ".ip6.arpa";
+      }
+      return null;
+    }
+
+    function setTxt(id,v){
+      $(id).textContent = (v===undefined || v===null || v==="") ? "—" : v;
+    }
+
+    function clearResults(){
+      $("results").innerHTML = "";
+      setTxt("resultsStatus","—");
+    }
+
+    function addLine(text){
+      const div = document.createElement("div");
+      div.className = "line";
+      div.textContent = text;
+      $("results").appendChild(div);
+    }
+
+    function setLoading(){
+      setTxt("status","Recherche...");
+      clearResults();
+    }
+
+    // DNS over HTTPS via Google (compatible GitHub Pages)
+    async function dohQuery(name, type){
+      const url = `https://dns.google/resolve?name=${encodeURIComponent(name)}&type=${encodeURIComponent(type)}`;
+      const res = await fetch(url, { cache:"no-store" });
+      if(!res.ok) throw new Error("DNS query failed");
+      return res.json();
+    }
+
+    function typeCodeToName(code){
+      const map = {1:"A",2:"NS",5:"CNAME",6:"SOA",12:"PTR",15:"MX",16:"TXT",28:"AAAA",33:"SRV",257:"CAA"};
+      return map[code] || String(code);
+    }
+
+    function parseAnswer(data){
+      const answers = data?.Answer || [];
+      if(!answers.length) return [];
+
+      return answers.map(a => {
+        const t = typeCodeToName(a.type);
+        const ttl = a.TTL;
+        const d = a.data;
+        // format MX/SRV a.data already has priority/target; keep as-is
+        return `${t}  TTL ${ttl}  ${d}`;
+      });
+    }
+
+    let lastCopy = "";
+
+    async function run(){
+      const domain = cleanInput($("domain").value);
+      const type = $("rtype").value;
+
+      if(!domain) return;
+
+      setLoading();
+
+      try{
+        let name = domain;
+        let qtype = type;
+
+        // PTR: convert IP -> arpa
+        if(type === "PTR"){
+          const arpa = toArpaPTR(domain);
+          if(!arpa) throw new Error("IP invalide pour PTR");
+          name = arpa;
+          qtype = "PTR";
+        }
+
+        const data = await dohQuery(name, qtype);
+
+        if(data?.Status !== 0){
+          setTxt("status","Aucun résultat");
+          setTxt("resultsStatus","—");
+          lastCopy = `Query: ${domain}\nType: ${type}\nResult: none`;
+          return;
+        }
+
+        const lines = parseAnswer(data);
+
+        if(!lines.length){
+          setTxt("status","OK");
+          setTxt("resultsStatus","—");
+          lastCopy = `Query: ${domain}\nType: ${type}\nResult: none`;
+          return;
+        }
+
+        setTxt("status","OK");
+        setTxt("resultsStatus", `${lines.length} entrées`);
+
+        $("results").innerHTML = "";
+        lines.forEach(l => addLine(l));
+
+        lastCopy = `Query: ${domain}\nType: ${type}\n\n` + lines.join("\n");
+
+      }catch(e){
+        setTxt("status","Erreur");
+        clearResults();
+        lastCopy = "";
+      }
+    }
+
+    function copyResult(){
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    }
+
+    $("btnSearch").addEventListener("click", run);
+    $("btnCopy").addEventListener("click", copyResult);
+
+    $("domain").addEventListener("keydown", (e)=>{ if(e.key==="Enter") run(); });
+
+    $("rtype").addEventListener("change", ()=>{
+      $("ptrHint").style.display = ($("rtype").value === "PTR") ? "block" : "none";
+      clearResults();
+      setTxt("status","—");
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+</main>
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
