@@ -29,29 +29,34 @@
   </aside>
 -->
   <main class="tool-main">
-<section class="shell-section">
-<div class="ip-card">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">WHOIS</h1>
 
-<h1 class="tool-title">WHOIS</h1>
+      <div class="terminal-body">
+        <div class="line">
+          Domaine / IP :
+          <input id="q" placeholder="ex: example.com ou 8.8.8.8" value="example.com">
+        </div>
 
-<div class="terminal-body">
-  <div class="line">
-    Domaine / IP :
-    <input id="queryInput" placeholder="Ex: example.com ou 8.8.8.8" value="example.com">
-  </div>
+        <button class="copy-btn" id="btnSearch">Rechercher</button>
 
-  <button class="copy-btn" id="btnSearch">Rechercher</button>
+        <div class="line">Statut : <span id="status">—</span></div>
 
-  <div class="line">Statut : <span id="status">—</span></div>
-  <div class="line">Résultat :</div>
+        <div class="line">Résumé :</div>
+        <div class="line">Registrar : <span id="registrar">—</span></div>
+        <div class="line">Créé : <span id="created">—</span></div>
+        <div class="line">Expire : <span id="expires">—</span></div>
+        <div class="line">Mis à jour : <span id="updated">—</span></div>
+        <div class="line">Name servers : <span id="ns">—</span></div>
 
-  <pre id="whoisOutput">—</pre>
-</div>
+        <div class="line">Record complet :</div>
+        <pre id="raw">—</pre>
+      </div>
 
-<button class="copy-btn" id="btnCopy">Copier le résultat</button>
-
-</div>
-</section>
+      <button class="copy-btn" id="btnCopy">Copier le résultat</button>
+    </div>
+  </section>
 </main>
 
 <!--
@@ -62,65 +67,76 @@
 -->
 
 <script>
-const $ = (id) => document.getElementById(id);
-
-function setStatus(v){ $("status").textContent = v ?? "—"; }
-function setOutput(v){ $("whoisOutput").textContent = v ?? "—"; }
-
-function setLoading(){
-  setStatus("Recherche...");
-  setOutput("Détection...");
-}
+const $ = (id)=>document.getElementById(id);
 
 function cleanQuery(q){
-  q = (q || "").trim();
-  // enlève http(s):// et /... si l’utilisateur colle une URL
-  q = q.replace(/^https?:\/\//i, "").split("/")[0];
+  q=(q||"").trim().replace(/^https?:\/\//i,"").split("/")[0];
   return q;
 }
+function isIP(q){ return q.includes(":") || /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q); }
 
-async function runWhois(){
-  const q = cleanQuery($("queryInput").value);
+function setLoading(){
+  $("status").textContent="Recherche...";
+  ["registrar","created","expires","updated","ns"].forEach(id=>$(id).textContent="Détection...");
+  $("raw").textContent="Détection...";
+}
+
+function pickEventDate(data, keyWords){
+  // RDAP events: [{eventAction, eventDate}]
+  if(!data || !Array.isArray(data.events)) return null;
+  for(const kw of keyWords){
+    const ev = data.events.find(e => (e.eventAction||"").toLowerCase() === kw);
+    if(ev && ev.eventDate) return ev.eventDate;
+  }
+  return null;
+}
+
+async function run(){
+  const q = cleanQuery($("q").value);
   if(!q) return;
 
   setLoading();
 
   try{
-    // ✅ IMPORTANT :
-    // Le WHOIS ne peut PAS être fait directement en JS côté navigateur (CORS + pas de WHOIS natif).
-    // Il faut une API. Ici on utilise une API "publique" simple (rdap.org) basée sur RDAP.
-    //
-    // - Si q est une IP: https://rdap.org/ip/<ip>
-    // - Si q est un domaine: https://rdap.org/domain/<domaine>
-    //
-    const isIP = /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q) || q.includes(":");
-    const url = isIP
-      ? `https://rdap.org/ip/${encodeURIComponent(q)}`
-      : `https://rdap.org/domain/${encodeURIComponent(q)}`;
-
-    const res = await fetch(url, { cache: "no-store" });
-    if(!res.ok) throw new Error("Requête refusée / introuvable");
-
+    const url = isIP(q) ? `https://rdap.org/ip/${encodeURIComponent(q)}` : `https://rdap.org/domain/${encodeURIComponent(q)}`;
+    const res = await fetch(url, {cache:"no-store"});
+    if(!res.ok) throw new Error("Introuvable / refusé");
     const data = await res.json();
 
-    setStatus("OK");
+    $("status").textContent="OK";
 
-    // Affichage lisible (JSON formaté)
-    setOutput(JSON.stringify(data, null, 2));
+    // Registrar (souvent dans entities)
+    let registrar = null;
+    if(Array.isArray(data.entities)){
+      const regEntity = data.entities.find(e => (e.roles||[]).includes("registrar"));
+      if(regEntity) registrar = regEntity.vcardArray?.[1]?.find(x=>x[0]==="fn")?.[3] || null;
+    }
+    $("registrar").textContent = registrar || "—";
+
+    $("created").textContent = pickEventDate(data, ["registration","registered"]) || "—";
+    $("expires").textContent = pickEventDate(data, ["expiration","expire"]) || "—";
+    $("updated").textContent = pickEventDate(data, ["last changed","last update","changed"]) || "—";
+
+    // Name servers
+    const nss = Array.isArray(data.nameservers) ? data.nameservers.map(n=>n.ldhName).filter(Boolean) : [];
+    $("ns").textContent = nss.length ? nss.join(" | ") : "—";
+
+    $("raw").textContent = JSON.stringify(data, null, 2);
 
   }catch(e){
-    setStatus("Erreur");
-    setOutput("—");
+    $("status").textContent="Erreur";
+    ["registrar","created","expires","updated","ns"].forEach(id=>$(id).textContent="—");
+    $("raw").textContent="—";
   }
 }
 
 function copyResult(){
-  navigator.clipboard.writeText($("whoisOutput").textContent || "").catch(()=>{});
+  navigator.clipboard.writeText($("raw").textContent || "").catch(()=>{});
 }
 
-$("btnSearch").addEventListener("click", runWhois);
+$("btnSearch").addEventListener("click", run);
 $("btnCopy").addEventListener("click", copyResult);
-$("queryInput").addEventListener("keydown", (e)=>{ if(e.key==="Enter") runWhois(); });
+$("q").addEventListener("keydown", (e)=>{ if(e.key==="Enter") run(); });
 </script>
 
 <!-- ****************************************************************************************************** -->
