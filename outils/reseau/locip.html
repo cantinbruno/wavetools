@@ -44,16 +44,15 @@
           <div class="line">Ville : <span id="city">—</span></div>
           <div class="line">Région : <span id="region">—</span></div>
           <div class="line">FAI : <span id="org">—</span></div>
-          <div class="line">Carte :</div>
-          <iframe
-            id="mapFrame"
-            width="100%"
-            height="300"
-            style="border:0; margin-top:8px; border-radius:8px;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+<div class="line">Carte :</div>
+
+<iframe
+  id="mapFrame"
+  width="100%"
+  height="320"
+  style="border:0;margin-top:8px;border-radius:10px;display:none;"
+  loading="lazy">
+</iframe>
 
         <button class="copy-btn" onclick="copyResult()">Copier le résultat</button>
       </div>
@@ -67,50 +66,70 @@
 -->
 
 <script>
-async function geoIP() {
+    const setText = (id, value) => {
+      document.getElementById(id).textContent = (value === undefined || value === null || value === "") ? "N/A" : value;
+    };
+
+    function setLoading() {
+      setText("country", "Détection…");
+      setText("city", "Détection…");
+      setText("region", "Détection…");
+      setText("org", "Détection…");
+      setText("lat", "Détection…");
+      setText("lon", "Détection…");
+
+      const frame = document.getElementById("mapFrame");
+      frame.style.display = "none";
+      frame.src = "";
+    }
+
+    async function geoIP() {
       const ip = document.getElementById("ipInput").value.trim();
       if (!ip) return alert("Entre une IP.");
 
-      // Reset affichage
-      const set = (id, v) => document.getElementById(id).textContent = v ?? "N/A";
-      set("country", "Détection…");
-      set("city", "Détection…");
-      set("region", "Détection…");
-      set("org", "Détection…");
-      set("lat", "Détection…");
-      set("lon", "Détection…");
-      const map = document.getElementById("map");
-      map.textContent = "—";
-      map.href = "#";
+      setLoading();
 
       try {
+        // API gratuite (sans clé)
         const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`);
         const data = await res.json();
 
-        // ipapi renvoie parfois un champ "error"
+        // Gestion d'erreur ipapi
         if (data && data.error) {
           throw new Error(data.reason || "IP invalide ou requête refusée");
         }
 
-        set("country", data.country_name);
-        set("city", data.city);
-        set("region", data.region);
-        set("org", data.org);
-        set("lat", data.latitude);
-        set("lon", data.longitude);
+        setText("country", data.country_name);
+        setText("city", data.city);
+        setText("region", data.region);
+        setText("org", data.org);
+        setText("lat", data.latitude);
+        setText("lon", data.longitude);
 
+        // Carte Google intégrée (iframe)
         if (data.latitude && data.longitude) {
-          const link = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
-          map.href = link;
-          map.textContent = "Voir sur Google Maps";
+          const mapURL = `https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=10&output=embed`;
+          const frame = document.getElementById("mapFrame");
+          frame.src = mapURL;
+          frame.style.display = "block";
         } else {
-          map.textContent = "Non disponible";
+          // pas de coords -> pas de carte
+          const frame = document.getElementById("mapFrame");
+          frame.style.display = "none";
+          frame.src = "";
         }
+
       } catch (e) {
         alert("Erreur : " + (e.message || "Impossible de géolocaliser cette IP."));
-        set("country", "—"); set("city", "—"); set("region", "—");
-        set("org", "—"); set("lat", "—"); set("lon", "—");
-        map.textContent = "—"; map.href = "#";
+        setText("country", "—");
+        setText("city", "—");
+        setText("region", "—");
+        setText("org", "—");
+        setText("lat", "—");
+        setText("lon", "—");
+        const frame = document.getElementById("mapFrame");
+        frame.style.display = "none";
+        frame.src = "";
       }
     }
 
@@ -127,9 +146,16 @@ Longitude: ${document.getElementById("lon").textContent}`;
 
       navigator.clipboard.writeText(txt).then(
         () => alert("Résultat copié !"),
-        () => alert("Copie impossible (navigateur / permissions).")
+        () => alert("Copie impossible (permissions/navigateur).")
       );
     }
+
+    // Bonus: Entrée = lancer la recherche
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && document.activeElement && document.activeElement.id === "ipInput") {
+        geoIP();
+      }
+    });
 </script>
 
 <!-- ****************************************************************************************************** -->
