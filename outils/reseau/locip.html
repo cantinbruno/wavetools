@@ -53,7 +53,7 @@
           <!-- IMPORTANT: display:block + height forcée (si ton CSS écrase) -->
           <iframe
             id="mapFrame"
-            style="display:block !important;width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
+            style="display:none !important;width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -136,8 +136,8 @@
     }
 
     function copyResult() {
-      const ip = $("ipInput").value.trim() || "—";
-      const txt =
+  const ip = $("ipInput").value.trim() || "—";
+  const txt =
 `IP: ${ip}
 Pays: ${$("country").textContent}
 Ville: ${$("city").textContent}
@@ -146,10 +146,8 @@ FAI: ${$("org").textContent}
 Latitude: ${$("lat").textContent}
 Longitude: ${$("lon").textContent}`;
 
-      navigator.clipboard.writeText(txt)
-        .then(() => alert("Résultat copié !"))
-        .catch(() => alert("Copie impossible (permissions/navigateur)."));
-    }
+  navigator.clipboard.writeText(txt).catch(() => {});
+}
 
     // On bind les events (plus fiable que onclick="")
     $("btnSearch").addEventListener("click", geoIP);
