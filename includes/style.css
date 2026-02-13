@@ -2309,6 +2309,8 @@ main > *:not(.wt-showcase){
 .terminal-body {
   font-size:16px;
   line-height:2;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .line span {
