@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon IP</title>
+  <meta name="description" content="WaveTools : mon IP.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<main class="wt-main">
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+ <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Géolocaliser une IP</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            IP :
+            <input id="ipInput" placeholder="Ex: 8.8.8.8" />
+            <button class="copy-btn" onclick="geoIP()">Rechercher</button>
+          </div>
+
+          <div class="line">Pays : <span id="country">—</span></div>
+          <div class="line">Ville : <span id="city">—</span></div>
+          <div class="line">Région : <span id="region">—</span></div>
+          <div class="line">FAI : <span id="org">—</span></div>
+          <div class="line">Latitude : <span id="lat">—</span></div>
+          <div class="line">Longitude : <span id="lon">—</span></div>
+          <div class="line">
+            Carte : <a id="map" href="#" target="_blank" rel="noreferrer">—</a>
+          </div>
+        </div>
+
+        <button class="copy-btn" onclick="copyResult()">Copier le résultat</button>
+      </div>
+    </section>
+  </main>
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+async function geoIP() {
+      const ip = document.getElementById("ipInput").value.trim();
+      if (!ip) return alert("Entre une IP.");
+
+      // Reset affichage
+      const set = (id, v) => document.getElementById(id).textContent = v ?? "N/A";
+      set("country", "Détection…");
+      set("city", "Détection…");
+      set("region", "Détection…");
+      set("org", "Détection…");
+      set("lat", "Détection…");
+      set("lon", "Détection…");
+      const map = document.getElementById("map");
+      map.textContent = "—";
+      map.href = "#";
+
+      try {
+        const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`);
+        const data = await res.json();
+
+        // ipapi renvoie parfois un champ "error"
+        if (data && data.error) {
+          throw new Error(data.reason || "IP invalide ou requête refusée");
+        }
+
+        set("country", data.country_name);
+        set("city", data.city);
+        set("region", data.region);
+        set("org", data.org);
+        set("lat", data.latitude);
+        set("lon", data.longitude);
+
+        if (data.latitude && data.longitude) {
+          const link = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
+          map.href = link;
+          map.textContent = "Voir sur Google Maps";
+        } else {
+          map.textContent = "Non disponible";
+        }
+      } catch (e) {
+        alert("Erreur : " + (e.message || "Impossible de géolocaliser cette IP."));
+        set("country", "—"); set("city", "—"); set("region", "—");
+        set("org", "—"); set("lat", "—"); set("lon", "—");
+        map.textContent = "—"; map.href = "#";
+      }
+    }
+
+    function copyResult() {
+      const ip = document.getElementById("ipInput").value.trim() || "—";
+      const txt =
+`IP: ${ip}
+Pays: ${document.getElementById("country").textContent}
+Ville: ${document.getElementById("city").textContent}
+Région: ${document.getElementById("region").textContent}
+FAI: ${document.getElementById("org").textContent}
+Latitude: ${document.getElementById("lat").textContent}
+Longitude: ${document.getElementById("lon").textContent}`;
+
+      navigator.clipboard.writeText(txt).then(
+        () => alert("Résultat copié !"),
+        () => alert("Copie impossible (navigateur / permissions).")
+      );
+    }
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+</main>
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
