@@ -29,41 +29,50 @@
   </aside>
 -->
  <main class="tool-main">
-  <section class="shell-section">
-    <div class="ip-card">
-      <h1 class="tool-title">WHOIS</h1>
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">WHOIS</h1>
 
-      <div class="terminal-body">
-        <div class="line">
-          Domaine / IP :
-          <input id="q" placeholder="ex: example.com" value="example.com">
+        <div class="terminal-body">
+          <div class="line">
+            Domaine / IP : <input id="q" placeholder="example.com" value="example.com" />
+          </div>
+
+          <button class="copy-btn" id="btnSearch">Rechercher</button>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Type : <span id="type">—</span></div>
+          <div class="line">Nom (LDH) : <span id="nameLdh">—</span></div>
+          <div class="line">Nom (Unicode) : <span id="nameUni">—</span></div>
+          <div class="line">Handle : <span id="handle">—</span></div>
+
+          <div class="line">Registrar : <span id="registrar">—</span></div>
+          <div class="line">IANA ID : <span id="iana">—</span></div>
+
+          <div class="line">Créé le : <span id="created">—</span></div>
+          <div class="line">Expire le : <span id="expires">—</span></div>
+          <div class="line">Mis à jour : <span id="updated">—</span></div>
+
+          <div class="line">Domain Status : <span id="dstatus">—</span></div>
+          <div class="line">DNSSEC : <span id="dnssec">—</span></div>
+          <div class="line">Name Servers : <span id="ns">—</span></div>
+
+          <div class="line">Registrant : <span id="registrant">—</span></div>
+          <div class="line">Admin : <span id="admin">—</span></div>
+          <div class="line">Tech : <span id="tech">—</span></div>
+
+          <div class="line">Email(s) : <span id="emails">—</span></div>
+          <div class="line">Téléphone(s) : <span id="phones">—</span></div>
+          <div class="line">Adresse : <span id="addr">—</span></div>
+
+          <div class="line">RDAP : <span id="rdap">—</span></div>
         </div>
 
-        <button class="copy-btn" id="btnSearch">Rechercher</button>
-
-        <div class="line">Statut : <span id="status">—</span></div>
-
-        <div class="line" style="margin-top:10px;">Domain Profile</div>
-
-        <div id="profile">
-          <div class="kv"><b>Registrar</b><span id="registrar">—</span></div>
-          <div class="kv"><b>IANA ID</b><span id="iana">—</span></div>
-          <div class="kv"><b>WHOIS / RDAP</b><span id="rdap">—</span></div>
-
-          <div class="kv"><b>Créé le</b><span id="created">—</span></div>
-          <div class="kv"><b>Expire le</b><span id="expires">—</span></div>
-          <div class="kv"><b>Mis à jour</b><span id="updated">—</span></div>
-
-          <div class="kv"><b>Domain Status</b><span id="dstatus">—</span></div>
-          <div class="kv"><b>DNSSEC</b><span id="dnssec">—</span></div>
-          <div class="kv"><b>Name Servers</b><span id="ns">—</span></div>
-        </div>
+        <button class="copy-btn" id="btnCopy">Copier le résultat</button>
       </div>
-
-      <button class="copy-btn" id="btnCopy">Copier le résultat</button>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
 <!--
   <aside class="tool-ads">
@@ -80,53 +89,31 @@ function cleanQuery(q){
   return q;
 }
 function isIP(q){ return q.includes(":") || /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q); }
-
-function setTxt(id,v){
-  $(id).textContent = (v===undefined || v===null || v==="" ) ? "—" : v;
-}
+function setTxt(id,v){ $(id).textContent = (v===undefined || v===null || v==="") ? "—" : v; }
 
 function setLoading(){
   setTxt("status","Recherche...");
-  ["registrar","iana","rdap","created","expires","updated","dstatus","dnssec","ns"].forEach(id=>setTxt(id,"Détection..."));
+  [
+    "type","nameLdh","nameUni","handle","registrar","iana","rdap",
+    "created","expires","updated","dstatus","dnssec","ns",
+    "registrant","admin","tech","emails","phones","addr",
+    "cidr","country","netOrg","asn"
+  ].forEach(id=>setTxt(id,"Détection..."));
+}
+
+function vcardGet(entity, key){
+  const arr = entity?.vcardArray?.[1];
+  if(!Array.isArray(arr)) return [];
+  return arr.filter(x => x[0] === key).map(x => x[3]).filter(Boolean);
 }
 
 function vcardFN(entity){
-  // RDAP vCard: ["vcard", [ ["fn", {}, "text", "Name"], ... ]]
-  const arr = entity?.vcardArray?.[1];
-  if(!Array.isArray(arr)) return null;
-  const fn = arr.find(x => x[0] === "fn");
-  return fn ? fn[3] : null;
+  return vcardGet(entity,"fn")[0] || null;
 }
 
-function findRegistrar(data){
-  const ents = data?.entities;
-  if(!Array.isArray(ents)) return null;
-
-  // cherche entity role "registrar"
-  const reg = ents.find(e => Array.isArray(e.roles) && e.roles.includes("registrar"));
-  if(reg) return vcardFN(reg) || null;
-
-  // fallback: first entity fn
-  return vcardFN(ents[0]) || null;
-}
-
-function findIanaId(data){
-  // parfois dans remarks / notices / ou pas dispo
-  // On tente de le détecter dans des textes
-  const scan = (arr)=>{
-    if(!Array.isArray(arr)) return null;
-    for(const r of arr){
-      const desc = r?.description;
-      if(Array.isArray(desc)){
-        for(const line of desc){
-          const m = String(line).match(/IANA\s*ID\s*[:#]?\s*(\d+)/i);
-          if(m) return m[1];
-        }
-      }
-    }
-    return null;
-  };
-  return scan(data?.remarks) || scan(data?.notices) || null;
+function pickEntityByRole(entities, role){
+  if(!Array.isArray(entities)) return null;
+  return entities.find(e => Array.isArray(e.roles) && e.roles.includes(role)) || null;
 }
 
 function pickEventDate(data, keys){
@@ -143,8 +130,28 @@ function formatList(arr){
   return arr.filter(Boolean).join(" | ");
 }
 
-function copyText(text){
-  navigator.clipboard.writeText(text).catch(()=>{});
+function findIanaId(data){
+  const scan = (arr)=>{
+    if(!Array.isArray(arr)) return null;
+    for(const r of arr){
+      const desc = r?.description;
+      if(Array.isArray(desc)){
+        for(const line of desc){
+          const m = String(line).match(/IANA\s*ID\s*[:#]?\s*(\d+)/i);
+          if(m) return m[1];
+        }
+      }
+    }
+    return null;
+  };
+  return scan(data?.remarks) || scan(data?.notices) || null;
+}
+
+function buildAddress(entity){
+  const adr = vcardGet(entity,"adr")[0];
+  // adr RDAP est parfois un tableau; mais souvent string; on fait simple
+  if(Array.isArray(adr)) return adr.filter(Boolean).join(", ");
+  return adr || null;
 }
 
 let lastCopy = "";
@@ -156,17 +163,26 @@ async function run(){
   setLoading();
 
   try{
-    const url = isIP(q) ? `https://rdap.org/ip/${encodeURIComponent(q)}` : `https://rdap.org/domain/${encodeURIComponent(q)}`;
-    const res = await fetch(url, {cache:"no-store"});
+    const rdapUrl = isIP(q) ? `https://rdap.org/ip/${encodeURIComponent(q)}` : `https://rdap.org/domain/${encodeURIComponent(q)}`;
+    const res = await fetch(rdapUrl, {cache:"no-store"});
     if(!res.ok) throw new Error("Introuvable / refusé");
     const data = await res.json();
 
     setTxt("status","OK");
+    setTxt("rdap", rdapUrl);
 
-    // Registrar / IANA / RDAP link
-    setTxt("registrar", findRegistrar(data));
-    setTxt("iana", findIanaId(data));               // pas toujours dispo en RDAP
-    setTxt("rdap", url);
+    // type
+    setTxt("type", isIP(q) ? "IP" : "Domaine");
+
+    // Domain fields (si domaine)
+    setTxt("nameLdh", data?.ldhName);
+    setTxt("nameUni", data?.unicodeName);
+    setTxt("handle", data?.handle);
+
+    // Registrar
+    const registrarEnt = pickEntityByRole(data?.entities, "registrar");
+    setTxt("registrar", vcardFN(registrarEnt) || "—");
+    setTxt("iana", findIanaId(data));
 
     // Dates
     setTxt("created", pickEventDate(data, ["registration","registered"]));
@@ -175,35 +191,85 @@ async function run(){
 
     // Status / DNSSEC / NS
     setTxt("dstatus", formatList(data?.status));
-    setTxt("dnssec", data?.secureDNS?.delegationSigned === true ? "Signed" :
-                     data?.secureDNS?.delegationSigned === false ? "Not signed" : "—");
-
-    const nss = Array.isArray(data?.nameservers) ? data.nameservers.map(n => n.ldhName).filter(Boolean) : [];
+    setTxt("dnssec",
+      data?.secureDNS?.delegationSigned === true ? "Signed" :
+      data?.secureDNS?.delegationSigned === false ? "Not signed" : "—"
+    );
+    const nss = Array.isArray(data?.nameservers) ? data.nameservers.map(n=>n.ldhName).filter(Boolean) : [];
     setTxt("ns", nss.length ? nss.join(" | ") : "—");
 
-    // Prépare un texte "copiable" (résumé)
+    // Contacts
+    const registrantEnt = pickEntityByRole(data?.entities, "registrant");
+    const adminEnt      = pickEntityByRole(data?.entities, "administrative");
+    const techEnt       = pickEntityByRole(data?.entities, "technical");
+
+    setTxt("registrant", vcardFN(registrantEnt));
+    setTxt("admin", vcardFN(adminEnt));
+    setTxt("tech", vcardFN(techEnt));
+
+    // Emails / Phones / Address (agrège sur les 3 si dispos)
+    const ents = [registrantEnt, adminEnt, techEnt].filter(Boolean);
+    const emails = [...new Set(ents.flatMap(e => vcardGet(e,"email")))];
+    const phones = [...new Set(ents.flatMap(e => vcardGet(e,"tel")))];
+    const addrs  = ents.map(e => buildAddress(e)).filter(Boolean);
+
+    setTxt("emails", emails.length ? emails.join(" | ") : "—");
+    setTxt("phones", phones.length ? phones.join(" | ") : "—");
+    setTxt("addr",   addrs.length ? addrs.join(" | ") : "—");
+
+    // Network part (si IP)
+    // RDAP IP: cidr0_cidrs, country, name, type, parentHandle...
+    if (isIP(q)){
+      let cidr = null;
+      if (Array.isArray(data?.cidr0_cidrs) && data.cidr0_cidrs[0]){
+        cidr = `${data.cidr0_cidrs[0].v4prefix || data.cidr0_cidrs[0].v6prefix}/${data.cidr0_cidrs[0].length}`;
+      }
+      setTxt("cidr", cidr);
+      setTxt("country", data?.country);
+      setTxt("netOrg", data?.name || data?.remarks?.[0]?.title);
+
+      // ASN: rdap.org renvoie souvent asn / entities / remarks selon sources, pas garanti
+      setTxt("asn", data?.asn || "—");
+    } else {
+      // pas IP -> on met "—"
+      ["cidr","country","netOrg","asn"].forEach(id=>setTxt(id,"—"));
+    }
+
+    // Copie (résumé)
     lastCopy =
 `Query: ${q}
+Type: ${$("type").textContent}
 Registrar: ${$("registrar").textContent}
 IANA ID: ${$("iana").textContent}
-RDAP: ${$("rdap").textContent}
 Created: ${$("created").textContent}
 Expires: ${$("expires").textContent}
 Updated: ${$("updated").textContent}
 Status: ${$("dstatus").textContent}
 DNSSEC: ${$("dnssec").textContent}
-Name Servers: ${$("ns").textContent}`;
+Name Servers: ${$("ns").textContent}
+Registrant: ${$("registrant").textContent}
+Admin: ${$("admin").textContent}
+Tech: ${$("tech").textContent}
+Emails: ${$("emails").textContent}
+Phones: ${$("phones").textContent}
+Address: ${$("addr").textContent}
+RDAP: ${$("rdap").textContent}`;
 
   }catch(e){
     setTxt("status","Erreur");
-    ["registrar","iana","rdap","created","expires","updated","dstatus","dnssec","ns"].forEach(id=>setTxt(id,"—"));
     lastCopy = "";
+    [
+      "type","nameLdh","nameUni","handle","registrar","iana","rdap",
+      "created","expires","updated","dstatus","dnssec","ns",
+      "registrant","admin","tech","emails","phones","addr",
+      "cidr","country","netOrg","asn"
+    ].forEach(id=>setTxt(id,"—"));
   }
 }
 
 $("btnSearch").addEventListener("click", run);
 $("q").addEventListener("keydown", (e)=>{ if(e.key==="Enter") run(); });
-$("btnCopy").addEventListener("click", ()=> copyText(lastCopy || "—"));
+$("btnCopy").addEventListener("click", ()=> navigator.clipboard.writeText(lastCopy || "—").catch(()=>{}));
 
 </script>
 
