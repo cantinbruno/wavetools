@@ -82,169 +82,158 @@
 -->
 
 <script>
-const $ = (id)=>document.getElementById(id);
+const $ = (id) => document.getElementById(id);
 
-function cleanQuery(q){
-  q=(q||"").trim().replace(/^https?:\/\//i,"").split("/")[0];
-  return q;
-}
-function isIP(q){ return q.includes(":") || /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q); }
-function setTxt(id,v){ $(id).textContent = (v===undefined || v===null || v==="") ? "—" : v; }
+    function cleanQuery(q) {
+      q = (q || "").trim().replace(/^https?:\/\//i, "").split("/")[0];
+      return q;
+    }
 
-function setLoading(){
-  setTxt("status","Recherche...");
-  [
-    "type","nameLdh","nameUni","handle","registrar","iana","rdap",
-    "created","expires","updated","dstatus","dnssec","ns",
-    "registrant","admin","tech","emails","phones","addr",
-    "cidr","country","netOrg","asn"
-  ].forEach(id=>setTxt(id,"Détection..."));
-}
+    function isIP(q) {
+      return q.includes(":") || /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q);
+    }
 
-function vcardGet(entity, key){
-  const arr = entity?.vcardArray?.[1];
-  if(!Array.isArray(arr)) return [];
-  return arr.filter(x => x[0] === key).map(x => x[3]).filter(Boolean);
-}
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
 
-function vcardFN(entity){
-  return vcardGet(entity,"fn")[0] || null;
-}
+    function setLoading() {
+      setTxt("status", "Recherche...");
+      [
+        "type","nameLdh","nameUni","handle","registrar","iana","created","expires",
+        "updated","dstatus","dnssec","ns","registrant","admin","tech","emails",
+        "phones","addr","rdap"
+      ].forEach(id => setTxt(id, "Détection..."));
+    }
 
-function pickEntityByRole(entities, role){
-  if(!Array.isArray(entities)) return null;
-  return entities.find(e => Array.isArray(e.roles) && e.roles.includes(role)) || null;
-}
+    function vcardGet(entity, key) {
+      const arr = entity?.vcardArray?.[1];
+      if (!Array.isArray(arr)) return [];
+      return arr.filter(x => x[0] === key).map(x => x[3]).filter(Boolean);
+    }
 
-function pickEventDate(data, keys){
-  if(!Array.isArray(data?.events)) return null;
-  for(const k of keys){
-    const ev = data.events.find(e => String(e.eventAction||"").toLowerCase() === k);
-    if(ev?.eventDate) return ev.eventDate;
-  }
-  return null;
-}
+    function vcardFN(entity) {
+      return vcardGet(entity, "fn")[0] || null;
+    }
 
-function formatList(arr){
-  if(!Array.isArray(arr) || !arr.length) return "—";
-  return arr.filter(Boolean).join(" | ");
-}
+    function pickEntityByRole(entities, role) {
+      if (!Array.isArray(entities)) return null;
+      return entities.find(e => Array.isArray(e.roles) && e.roles.includes(role)) || null;
+    }
 
-function findIanaId(data){
-  const scan = (arr)=>{
-    if(!Array.isArray(arr)) return null;
-    for(const r of arr){
-      const desc = r?.description;
-      if(Array.isArray(desc)){
-        for(const line of desc){
-          const m = String(line).match(/IANA\s*ID\s*[:#]?\s*(\d+)/i);
-          if(m) return m[1];
+    function pickEventDate(data, keys) {
+      if (!Array.isArray(data?.events)) return null;
+      for (const k of keys) {
+        const ev = data.events.find(e => String(e.eventAction || "").toLowerCase() === k);
+        if (ev?.eventDate) return ev.eventDate;
+      }
+      return null;
+    }
+
+    function formatList(arr) {
+      if (!Array.isArray(arr) || !arr.length) return "—";
+      return arr.filter(Boolean).join(" | ");
+    }
+
+    function findIanaId(data) {
+      const scan = (arr) => {
+        if (!Array.isArray(arr)) return null;
+        for (const r of arr) {
+          const desc = r?.description;
+          if (Array.isArray(desc)) {
+            for (const line of desc) {
+              const m = String(line).match(/IANA\s*ID\s*[:#]?\s*(\d+)/i);
+              if (m) return m[1];
+            }
+          }
         }
-      }
-    }
-    return null;
-  };
-  return scan(data?.remarks) || scan(data?.notices) || null;
-}
-
-function buildAddress(entity){
-  const adr = vcardGet(entity,"adr")[0];
-  // adr RDAP est parfois un tableau; mais souvent string; on fait simple
-  if(Array.isArray(adr)) return adr.filter(Boolean).join(", ");
-  return adr || null;
-}
-
-let lastCopy = "";
-
-async function run(){
-  const q = cleanQuery($("q").value);
-  if(!q) return;
-
-  setLoading();
-
-  try{
-    const rdapUrl = isIP(q) ? `https://rdap.org/ip/${encodeURIComponent(q)}` : `https://rdap.org/domain/${encodeURIComponent(q)}`;
-    const res = await fetch(rdapUrl, {cache:"no-store"});
-    if(!res.ok) throw new Error("Introuvable / refusé");
-    const data = await res.json();
-
-    setTxt("status","OK");
-    setTxt("rdap", rdapUrl);
-
-    // type
-    setTxt("type", isIP(q) ? "IP" : "Domaine");
-
-    // Domain fields (si domaine)
-    setTxt("nameLdh", data?.ldhName);
-    setTxt("nameUni", data?.unicodeName);
-    setTxt("handle", data?.handle);
-
-    // Registrar
-    const registrarEnt = pickEntityByRole(data?.entities, "registrar");
-    setTxt("registrar", vcardFN(registrarEnt) || "—");
-    setTxt("iana", findIanaId(data));
-
-    // Dates
-    setTxt("created", pickEventDate(data, ["registration","registered"]));
-    setTxt("expires", pickEventDate(data, ["expiration","expire"]));
-    setTxt("updated", pickEventDate(data, ["last changed","last update","changed"]));
-
-    // Status / DNSSEC / NS
-    setTxt("dstatus", formatList(data?.status));
-    setTxt("dnssec",
-      data?.secureDNS?.delegationSigned === true ? "Signed" :
-      data?.secureDNS?.delegationSigned === false ? "Not signed" : "—"
-    );
-    const nss = Array.isArray(data?.nameservers) ? data.nameservers.map(n=>n.ldhName).filter(Boolean) : [];
-    setTxt("ns", nss.length ? nss.join(" | ") : "—");
-
-    // Contacts
-    const registrantEnt = pickEntityByRole(data?.entities, "registrant");
-    const adminEnt      = pickEntityByRole(data?.entities, "administrative");
-    const techEnt       = pickEntityByRole(data?.entities, "technical");
-
-    setTxt("registrant", vcardFN(registrantEnt));
-    setTxt("admin", vcardFN(adminEnt));
-    setTxt("tech", vcardFN(techEnt));
-
-    // Emails / Phones / Address (agrège sur les 3 si dispos)
-    const ents = [registrantEnt, adminEnt, techEnt].filter(Boolean);
-    const emails = [...new Set(ents.flatMap(e => vcardGet(e,"email")))];
-    const phones = [...new Set(ents.flatMap(e => vcardGet(e,"tel")))];
-    const addrs  = ents.map(e => buildAddress(e)).filter(Boolean);
-
-    setTxt("emails", emails.length ? emails.join(" | ") : "—");
-    setTxt("phones", phones.length ? phones.join(" | ") : "—");
-    setTxt("addr",   addrs.length ? addrs.join(" | ") : "—");
-
-    // Network part (si IP)
-    // RDAP IP: cidr0_cidrs, country, name, type, parentHandle...
-    if (isIP(q)){
-      let cidr = null;
-      if (Array.isArray(data?.cidr0_cidrs) && data.cidr0_cidrs[0]){
-        cidr = `${data.cidr0_cidrs[0].v4prefix || data.cidr0_cidrs[0].v6prefix}/${data.cidr0_cidrs[0].length}`;
-      }
-      setTxt("cidr", cidr);
-      setTxt("country", data?.country);
-      setTxt("netOrg", data?.name || data?.remarks?.[0]?.title);
-
-      // ASN: rdap.org renvoie souvent asn / entities / remarks selon sources, pas garanti
-      setTxt("asn", data?.asn || "—");
-    } else {
-      // pas IP -> on met "—"
-      ["cidr","country","netOrg","asn"].forEach(id=>setTxt(id,"—"));
+        return null;
+      };
+      return scan(data?.remarks) || scan(data?.notices) || null;
     }
 
-    // Copie (résumé)
-    lastCopy =
+    function buildAddress(entity) {
+      const adr = vcardGet(entity, "adr")[0];
+      if (Array.isArray(adr)) return adr.filter(Boolean).join(", ");
+      return adr || null;
+    }
+
+    let lastCopy = "";
+
+    async function runWhois() {
+      const q = cleanQuery($("q").value);
+      if (!q) return;
+
+      setLoading();
+
+      try {
+        const rdapUrl = isIP(q)
+          ? `https://rdap.org/ip/${encodeURIComponent(q)}`
+          : `https://rdap.org/domain/${encodeURIComponent(q)}`;
+
+        const res = await fetch(rdapUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error("Introuvable / refusé");
+
+        const data = await res.json();
+
+        setTxt("status", "OK");
+        setTxt("type", isIP(q) ? "IP" : "Domaine");
+
+        setTxt("nameLdh", data?.ldhName);
+        setTxt("nameUni", data?.unicodeName);
+        setTxt("handle", data?.handle);
+
+        const registrarEnt = pickEntityByRole(data?.entities, "registrar");
+        setTxt("registrar", vcardFN(registrarEnt));
+        setTxt("iana", findIanaId(data));
+
+        setTxt("created", pickEventDate(data, ["registration","registered"]));
+        setTxt("expires", pickEventDate(data, ["expiration","expire"]));
+        setTxt("updated", pickEventDate(data, ["last changed","last update","changed"]));
+
+        setTxt("dstatus", formatList(data?.status));
+        setTxt("dnssec",
+          data?.secureDNS?.delegationSigned === true ? "Signed" :
+          data?.secureDNS?.delegationSigned === false ? "Not signed" : "—"
+        );
+
+        const nss = Array.isArray(data?.nameservers)
+          ? data.nameservers.map(n => n.ldhName).filter(Boolean)
+          : [];
+        setTxt("ns", nss.length ? nss.join(" | ") : "—");
+
+        const registrantEnt = pickEntityByRole(data?.entities, "registrant");
+        const adminEnt = pickEntityByRole(data?.entities, "administrative");
+        const techEnt = pickEntityByRole(data?.entities, "technical");
+
+        setTxt("registrant", vcardFN(registrantEnt));
+        setTxt("admin", vcardFN(adminEnt));
+        setTxt("tech", vcardFN(techEnt));
+
+        const ents = [registrantEnt, adminEnt, techEnt].filter(Boolean);
+        const emails = [...new Set(ents.flatMap(e => vcardGet(e, "email")))];
+        const phones = [...new Set(ents.flatMap(e => vcardGet(e, "tel")))];
+        const addrs = ents.map(e => buildAddress(e)).filter(Boolean);
+
+        setTxt("emails", emails.length ? emails.join(" | ") : "—");
+        setTxt("phones", phones.length ? phones.join(" | ") : "—");
+        setTxt("addr", addrs.length ? addrs.join(" | ") : "—");
+
+        setTxt("rdap", rdapUrl);
+
+        lastCopy =
 `Query: ${q}
+Status: ${$("status").textContent}
 Type: ${$("type").textContent}
+LDH: ${$("nameLdh").textContent}
+Unicode: ${$("nameUni").textContent}
+Handle: ${$("handle").textContent}
 Registrar: ${$("registrar").textContent}
 IANA ID: ${$("iana").textContent}
 Created: ${$("created").textContent}
 Expires: ${$("expires").textContent}
 Updated: ${$("updated").textContent}
-Status: ${$("dstatus").textContent}
+Domain Status: ${$("dstatus").textContent}
 DNSSEC: ${$("dnssec").textContent}
 Name Servers: ${$("ns").textContent}
 Registrant: ${$("registrant").textContent}
@@ -255,21 +244,24 @@ Phones: ${$("phones").textContent}
 Address: ${$("addr").textContent}
 RDAP: ${$("rdap").textContent}`;
 
-  }catch(e){
-    setTxt("status","Erreur");
-    lastCopy = "";
-    [
-      "type","nameLdh","nameUni","handle","registrar","iana","rdap",
-      "created","expires","updated","dstatus","dnssec","ns",
-      "registrant","admin","tech","emails","phones","addr",
-      "cidr","country","netOrg","asn"
-    ].forEach(id=>setTxt(id,"—"));
-  }
-}
+      } catch (e) {
+        setTxt("status", "Erreur");
+        [
+          "type","nameLdh","nameUni","handle","registrar","iana","created","expires",
+          "updated","dstatus","dnssec","ns","registrant","admin","tech","emails",
+          "phones","addr","rdap"
+        ].forEach(id => setTxt(id, "—"));
+        lastCopy = "";
+      }
+    }
 
-$("btnSearch").addEventListener("click", run);
-$("q").addEventListener("keydown", (e)=>{ if(e.key==="Enter") run(); });
-$("btnCopy").addEventListener("click", ()=> navigator.clipboard.writeText(lastCopy || "—").catch(()=>{}));
+    function copyResult() {
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    }
+
+    $("btnSearch").addEventListener("click", runWhois);
+    $("btnCopy").addEventListener("click", copyResult);
+    $("q").addEventListener("keydown", (e) => { if (e.key === "Enter") runWhois(); });
 
 </script>
 
