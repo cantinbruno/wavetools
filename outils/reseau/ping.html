@@ -30,32 +30,28 @@
 -->
 
 <main class="tool-main">
-<section class="shell-section">
-<div class="ip-card">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Ping</h1>
 
-<h1 class="tool-title">Ping</h1>
+        <div class="terminal-body">
+          <div class="line">
+            IP / Hôte : <input id="host" placeholder="1.1.1.1" value="1.1.1.1" />
+          </div>
 
-<div class="terminal-body">
+          <button class="copy-btn" id="btnPing">Lancer</button>
 
-<div class="line">
-IP / Hôte : <input id="host" placeholder="1.1.1.1" value="1.1.1.1">
-</div>
+          <div class="line">Statut : <span id="status">—</span></div>
+          <div class="line">Résumé : <span id="summary">—</span></div>
 
-<button class="copy-btn" id="btnPing">Lancer</button>
+          <div class="line">Résultats :</div>
+          <div id="results"><div class="line">—</div></div>
+        </div>
 
-<div class="line">Statut : <span id="status">—</span></div>
-<div class="line">Résumé : <span id="summary">—</span></div>
-
-<div class="line">Résultats :</div>
-<div id="results"><div class="line">—</div></div>
-
-</div>
-
-<button class="copy-btn" id="btnCopy">Copier le résultat</button>
-
-</div>
-</section>
-</main>
+        <button class="copy-btn" id="btnCopy">Copier le résultat</button>
+      </div>
+    </section>
+  </main>
 
 <!--
   <aside class="tool-ads">
@@ -65,92 +61,146 @@ IP / Hôte : <input id="host" placeholder="1.1.1.1" value="1.1.1.1">
 -->
 
 <script>
-const $ = id => document.getElementById(id);
+    const $ = (id) => document.getElementById(id);
 
-function setTxt(id,v){ $(id).textContent = v ?? "—"; }
-function clearOut(){ $("results").innerHTML = ""; }
-function addLine(t){
-  const d = document.createElement("div");
-  d.className = "line";
-  d.textContent = t;
-  $("results").appendChild(d);
-}
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
 
-let lastCopy = "";
+    function clearOut() {
+      $("results").innerHTML = "";
+    }
 
-async function run(){
-  const host = ($("host").value || "").trim();
-  if(!host) return;
+    function addLine(t) {
+      const d = document.createElement("div");
+      d.className = "line";
+      d.textContent = t;
+      $("results").appendChild(d);
+    }
 
-  setTxt("status","Ping...");
-  setTxt("summary","Détection...");
-  clearOut();
-  addLine("Détection...");
+    function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
 
-  try{
-    // 1) lancer ping
-    const start = await fetch(`https://check-host.net/check-ping?host=${encodeURIComponent(host)}&max_nodes=5`);
-    const job = await start.json();
+    // Fait un fetch JSON en essayant plusieurs méthodes (direct + proxies CORS)
+    async function fetchJsonWithFallback(url) {
+      const headers = { "Accept": "application/json" }; // IMPORTANT pour l'API check-host :contentReference[oaicite:1]{index=1}
 
-    const requestId = job.request_id;
+      const attempts = [
+        // 1) direct (peut échouer à cause de CORS)
+        { name: "direct", make: (u) => u, opts: { headers } },
 
-    // attendre résultat
-    await new Promise(r=>setTimeout(r,2000));
+        // 2) corsproxy.io (proxy CORS)
+        { name: "corsproxy", make: (u) => `https://corsproxy.io/?${encodeURIComponent(u)}`, opts: { headers: {} } },
 
-    const res = await fetch(`https://check-host.net/check-result/${requestId}`);
-    const data = await res.json();
+        // 3) allorigins (proxy CORS)
+        { name: "allorigins", make: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`, opts: { headers: {} } },
+      ];
 
-    clearOut();
+      let lastErr = null;
 
-    let all = [];
-    let ok = 0;
+      for (const a of attempts) {
+        try {
+          const res = await fetch(a.make(url), { cache: "no-store", ...a.opts });
+          const txt = await res.text();
 
-    for(const node in data){
-      const r = data[node];
-      if(!r || !r[0]){
-        addLine(`${node} : timeout`);
-        continue;
+          // si pas OK, on garde un message utile
+          if (!res.ok) {
+            throw new Error(`${a.name}: HTTP ${res.status} ${txt.slice(0,120)}`);
+          }
+
+          // parse JSON
+          try {
+            return JSON.parse(txt);
+          } catch {
+            // check-host peut renvoyer du HTML si mauvais header / proxy
+            throw new Error(`${a.name}: réponse non-JSON (début: ${txt.slice(0,80).replace(/\s+/g," ")})`);
+          }
+
+        } catch (e) {
+          lastErr = e;
+        }
       }
 
-      const ms = r[0][1];
-      addLine(`${node} : ${ms} ms`);
-      all.push(ms);
-      ok++;
+      throw lastErr || new Error("Erreur inconnue");
     }
 
-    if(all.length){
-      const min = Math.min(...all);
-      const max = Math.max(...all);
-      const avg = Math.round(all.reduce((a,b)=>a+b,0)/all.length);
+    let lastCopy = "";
 
-      setTxt("status","OK");
-      setTxt("summary",`min ${min} ms | moy ${avg} ms | max ${max} ms`);
-    }else{
-      setTxt("status","Timeout");
-      setTxt("summary","Aucune réponse");
+    async function runPing() {
+      const host = ($("host").value || "").trim();
+      if (!host) return;
+
+      setTxt("status", "Ping...");
+      setTxt("summary", "Détection...");
+      clearOut();
+      addLine("Détection...");
+
+      try {
+        // 1) démarrer un ping
+        const startUrl = `https://check-host.net/check-ping?host=${encodeURIComponent(host)}&max_nodes=5`;
+        const job = await fetchJsonWithFallback(startUrl);
+
+        const requestId = job.request_id;
+        if (!requestId) throw new Error("API: request_id manquant");
+
+        // 2) attendre un peu (check-host peut être “en cours”)
+        await sleep(3000);
+
+        // 3) récupérer résultat
+        const resultUrl = `https://check-host.net/check-result/${encodeURIComponent(requestId)}`;
+        const data = await fetchJsonWithFallback(resultUrl);
+
+        clearOut();
+
+        const msList = [];
+        let lines = [];
+
+        for (const node in data) {
+          const r = data[node];
+
+          // Format check-host : r[0] = [ip, ms, ...] parfois null si timeout :contentReference[oaicite:2]{index=2}
+          if (!r || !r[0] || r[0][1] === null || r[0][1] === undefined) {
+            const msg = `${node} : timeout`;
+            addLine(msg);
+            lines.push(msg);
+            continue;
+          }
+
+          const ms = Number(r[0][1]);
+          const msg = `${node} : ${ms} ms`;
+          addLine(msg);
+          lines.push(msg);
+          if (!Number.isNaN(ms)) msList.push(ms);
+        }
+
+        if (msList.length) {
+          const min = Math.min(...msList);
+          const max = Math.max(...msList);
+          const avg = Math.round(msList.reduce((a,b)=>a+b,0)/msList.length);
+          setTxt("status", "OK");
+          setTxt("summary", `min ${min} ms | moy ${avg} ms | max ${max} ms`);
+        } else {
+          setTxt("status", "Timeout");
+          setTxt("summary", "Aucune réponse");
+        }
+
+        lastCopy = `Ping: ${host}\n\n` + lines.join("\n");
+
+      } catch (e) {
+        setTxt("status", "Erreur");
+        setTxt("summary", "—");
+        clearOut();
+        addLine(String(e.message || e));
+        lastCopy = "";
+      }
     }
 
-    lastCopy =
-`Ping ${host}
+    function copyResult() {
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    }
 
-` + $("results").innerText;
-
-  }catch(e){
-    setTxt("status","Erreur");
-    setTxt("summary","—");
-    clearOut();
-    addLine("Erreur API");
-    lastCopy = "";
-  }
-}
-
-function copy(){
-  navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
-}
-
-$("btnPing").addEventListener("click", run);
-$("host").addEventListener("keydown", e=>{ if(e.key==="Enter") run(); });
-$("btnCopy").addEventListener("click", copy);
+    $("btnPing").addEventListener("click", runPing);
+    $("host").addEventListener("keydown", (e) => { if (e.key === "Enter") runPing(); });
+    $("btnCopy").addEventListener("click", copyResult);
   </script>
 
 <!-- ****************************************************************************************************** -->
