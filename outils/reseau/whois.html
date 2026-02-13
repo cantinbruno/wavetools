@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WHOIS</title>
+  <meta name="description" content="WaveTools : WHOIS.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<main class="wt-main">
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+  <main class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
+
+<h1 class="tool-title">WHOIS</h1>
+
+<div class="terminal-body">
+  <div class="line">
+    Domaine / IP :
+    <input id="queryInput" placeholder="Ex: example.com ou 8.8.8.8" value="example.com">
+  </div>
+
+  <button class="copy-btn" id="btnSearch">Rechercher</button>
+
+  <div class="line">Statut : <span id="status">—</span></div>
+  <div class="line">Résultat :</div>
+
+  <pre id="whoisOutput">—</pre>
+</div>
+
+<button class="copy-btn" id="btnCopy">Copier le résultat</button>
+
+</div>
+</section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+function setStatus(v){ $("status").textContent = v ?? "—"; }
+function setOutput(v){ $("whoisOutput").textContent = v ?? "—"; }
+
+function setLoading(){
+  setStatus("Recherche...");
+  setOutput("Détection...");
+}
+
+function cleanQuery(q){
+  q = (q || "").trim();
+  // enlève http(s):// et /... si l’utilisateur colle une URL
+  q = q.replace(/^https?:\/\//i, "").split("/")[0];
+  return q;
+}
+
+async function runWhois(){
+  const q = cleanQuery($("queryInput").value);
+  if(!q) return;
+
+  setLoading();
+
+  try{
+    // ✅ IMPORTANT :
+    // Le WHOIS ne peut PAS être fait directement en JS côté navigateur (CORS + pas de WHOIS natif).
+    // Il faut une API. Ici on utilise une API "publique" simple (rdap.org) basée sur RDAP.
+    //
+    // - Si q est une IP: https://rdap.org/ip/<ip>
+    // - Si q est un domaine: https://rdap.org/domain/<domaine>
+    //
+    const isIP = /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q) || q.includes(":");
+    const url = isIP
+      ? `https://rdap.org/ip/${encodeURIComponent(q)}`
+      : `https://rdap.org/domain/${encodeURIComponent(q)}`;
+
+    const res = await fetch(url, { cache: "no-store" });
+    if(!res.ok) throw new Error("Requête refusée / introuvable");
+
+    const data = await res.json();
+
+    setStatus("OK");
+
+    // Affichage lisible (JSON formaté)
+    setOutput(JSON.stringify(data, null, 2));
+
+  }catch(e){
+    setStatus("Erreur");
+    setOutput("—");
+  }
+}
+
+function copyResult(){
+  navigator.clipboard.writeText($("whoisOutput").textContent || "").catch(()=>{});
+}
+
+$("btnSearch").addEventListener("click", runWhois);
+$("btnCopy").addEventListener("click", copyResult);
+$("queryInput").addEventListener("keydown", (e)=>{ if(e.key==="Enter") runWhois(); });
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+</main>
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
