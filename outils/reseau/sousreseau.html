@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur de sous-réseau</title>
+  <meta name="description" content="WaveTools : calculateur de sous-réseau.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<main class="wt-main">
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Calculateur de sous-réseau</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            IP : <input id="ip" placeholder="ex: 192.168.1.10" value="192.168.1.10" />
+          </div>
+
+          <div class="line">
+            CIDR : <input id="cidr" placeholder="ex: 24" value="24" />
+          </div>
+
+          <div class="line">
+            OU Masque : <input id="mask" placeholder="ex: 255.255.255.0 (optionnel)" value="" />
+          </div>
+
+          <button class="copy-btn" id="btnCalc">Calculer</button>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Adresse réseau : <span id="network">—</span></div>
+          <div class="line">Broadcast : <span id="broadcast">—</span></div>
+
+          <div class="line">1er hôte : <span id="firstHost">—</span></div>
+          <div class="line">Dernier hôte : <span id="lastHost">—</span></div>
+
+          <div class="line">Nb hôtes utilisables : <span id="usable">—</span></div>
+          <div class="line">Nb adresses total : <span id="total">—</span></div>
+
+          <div class="line">Masque : <span id="maskOut">—</span></div>
+          <div class="line">Wildcard : <span id="wildcard">—</span></div>
+
+          <div class="line">Notation : <span id="notation">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
+
+    function parseIPv4(ip) {
+      const m = (ip || "").trim().match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+      if (!m) return null;
+      const o = m.slice(1).map(n => Number(n));
+      if (o.some(n => Number.isNaN(n) || n < 0 || n > 255)) return null;
+      return o;
+    }
+
+    function ipv4ToInt(o) {
+      return ((o[0] << 24) >>> 0) + (o[1] << 16) + (o[2] << 8) + o[3];
+    }
+
+    function intToIPv4(n) {
+      return [
+        (n >>> 24) & 255,
+        (n >>> 16) & 255,
+        (n >>> 8) & 255,
+        n & 255
+      ].join(".");
+    }
+
+    function cidrToMask(cidr) {
+      const c = Number(cidr);
+      if (!Number.isFinite(c) || c < 0 || c > 32) return null;
+      if (c === 0) return 0 >>> 0;
+      return (0xFFFFFFFF << (32 - c)) >>> 0;
+    }
+
+    function parseMask(maskStr) {
+      const o = parseIPv4(maskStr);
+      if (!o) return null;
+      const n = ipv4ToInt(o) >>> 0;
+
+      // validation masque contigu (111..1100..00)
+      // Propriété: n & (n+1) == 0 pour des masques contigus inversés? On fait plus simple:
+      // On vérifie que la forme est : 1...10...0
+      const inv = (~n) >>> 0;
+      const isContiguous = (inv & (inv + 1)) === 0; // inv doit être 0..0111..11
+      if (!isContiguous) return null;
+
+      return n;
+    }
+
+    function maskToCidr(maskInt) {
+      let c = 0;
+      for (let i = 31; i >= 0; i--) {
+        if ((maskInt >>> i) & 1) c++;
+        else break;
+      }
+      return c;
+    }
+
+    function calc() {
+      const ipStr = ($("ip").value || "").trim();
+      const cidrStr = ($("cidr").value || "").trim();
+      const maskStr = ($("mask").value || "").trim();
+
+      const ipOct = parseIPv4(ipStr);
+      if (!ipOct) {
+        setTxt("status", "IP invalide");
+        return;
+      }
+      const ipInt = ipv4ToInt(ipOct) >>> 0;
+
+      let maskInt = null;
+
+      if (maskStr) {
+        maskInt = parseMask(maskStr);
+        if (maskInt === null) {
+          setTxt("status", "Masque invalide");
+          return;
+        }
+        // si masque fourni, on synchronise cidr
+        $("cidr").value = String(maskToCidr(maskInt));
+      } else {
+        maskInt = cidrToMask(cidrStr);
+        if (maskInt === null) {
+          setTxt("status", "CIDR invalide");
+          return;
+        }
+        $("mask").value = ""; // reste optionnel
+      }
+
+      const wildcardInt = (~maskInt) >>> 0;
+      const networkInt = (ipInt & maskInt) >>> 0;
+      const broadcastInt = (networkInt | wildcardInt) >>> 0;
+
+      const cidr = maskToCidr(maskInt);
+
+      const total = (cidr === 32) ? 1 : (1 << (32 - cidr)) >>> 0;
+      let usable = 0;
+      let firstHostInt = null;
+      let lastHostInt = null;
+
+      if (cidr === 32) {
+        usable = 1;
+        firstHostInt = ipInt;
+        lastHostInt = ipInt;
+      } else if (cidr === 31) {
+        // RFC 3021: /31 => 2 adresses utilisables (point à point)
+        usable = 2;
+        firstHostInt = networkInt;
+        lastHostInt = broadcastInt;
+      } else {
+        usable = Math.max(0, total - 2);
+        firstHostInt = (networkInt + 1) >>> 0;
+        lastHostInt = (broadcastInt - 1) >>> 0;
+      }
+
+      setTxt("status", "OK");
+
+      setTxt("network", intToIPv4(networkInt));
+      setTxt("broadcast", intToIPv4(broadcastInt));
+
+      setTxt("firstHost", intToIPv4(firstHostInt));
+      setTxt("lastHost", intToIPv4(lastHostInt));
+
+      setTxt("total", String(total));
+      setTxt("usable", String(usable));
+
+      setTxt("maskOut", intToIPv4(maskInt));
+      setTxt("wildcard", intToIPv4(wildcardInt));
+
+      setTxt("notation", `${intToIPv4(networkInt)}/${cidr}`);
+    }
+
+    let lastCopy = "";
+
+    function buildCopy() {
+      lastCopy =
+`IP: ${$("ip").value}
+CIDR: ${$("cidr").value}
+Masque: ${$("maskOut").textContent}
+
+Réseau: ${$("network").textContent}
+Broadcast: ${$("broadcast").textContent}
+1er hôte: ${$("firstHost").textContent}
+Dernier hôte: ${$("lastHost").textContent}
+Total: ${$("total").textContent}
+Utilisables: ${$("usable").textContent}
+Wildcard: ${$("wildcard").textContent}
+Notation: ${$("notation").textContent}`;
+    }
+
+    $("btnCalc").addEventListener("click", () => { calc(); buildCopy(); });
+    $("ip").addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ calc(); buildCopy(); }});
+    $("cidr").addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ calc(); buildCopy(); }});
+    $("mask").addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ calc(); buildCopy(); }});
+
+    $("btnCopy").addEventListener("click", ()=> {
+      buildCopy();
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    });
+
+    // auto calcul au chargement
+    calc();
+    buildCopy();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+</main>
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
