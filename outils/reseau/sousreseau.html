@@ -19,7 +19,6 @@
 <canvas id="siteBg"></canvas>
 <script src="/includes/anime.js"></script>
 <div id="header"></div>
-<main class="wt-main">
 
 <!-- ****************************************************************************************************** -->
 <!--
@@ -29,22 +28,22 @@
   </aside>
 -->
 
-<main class="tool-main">
+<main class="tool-main wt-main">
     <section class="shell-section">
       <div class="ip-card">
         <h1 class="tool-title">Calculateur de sous-réseau</h1>
 
         <div class="terminal-body">
           <div class="line">
-            IP : <input id="ip" placeholder="ex: 192.168.1.10" value="192.168.1.10" />
+            IP : <input id="ip" placeholder="ex: 192.168.1.10" />
           </div>
 
           <div class="line">
-            CIDR : <input id="cidr" placeholder="ex: 24" value="24" />
+            CIDR : <input id="cidr" placeholder="ex: 24"/>
           </div>
 
           <div class="line">
-            OU Masque : <input id="mask" placeholder="ex: 255.255.255.0 (optionnel)" value="" />
+            OU Masque : <input id="mask" placeholder="ex: 255.255.255.0"/>
           </div>
 
           <button class="copy-btn" id="btnCalc">Calculer</button>
@@ -246,7 +245,6 @@ Notation: ${$("notation").textContent}`;
 
 <!-- ****************************************************************************************************** -->
 
-</main>
 <div id="footer"></div>
 <script src="/includes/load.js"></script>
 <script src="/includes/auto.js"></script>
