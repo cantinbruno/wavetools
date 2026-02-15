@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Décodeur Base64</title>
+  <meta name="description" content="WaveTools : décodeur Base64.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
+
+<h1 class="tool-title">Encodeur / Décodeur Base64</h1>
+
+<div class="terminal-body">
+
+<div class="line">
+Mode :
+<select id="mode">
+<option value="encode">Texte → Base64</option>
+<option value="decode">Base64 → Texte</option>
+</select>
+</div>
+
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+<div class="line">Entrée :</div>
+<div class="line">
+<textarea id="input" rows="4" style="width:100%"></textarea>
+</div>
+
+<button class="copy-btn" onclick="run()">Convertir</button>
+
+<div class="line">Sortie :</div>
+<div class="line">
+<textarea id="output" rows="4" style="width:100%" readonly></textarea>
+</div>
+
+<div class="line">Statut : <span id="status">—</span></div>
+<div class="line">Longueur : <span id="len">—</span></div>
+
+</div>
+
+<button class="copy-btn" onclick="copy()">Copier</button>
+
+</div>
+</section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $=id=>document.getElementById(id);
+
+function set(v,id){$(id).textContent=v||"—";}
+
+function encodeUTF8(str){
+return btoa(unescape(encodeURIComponent(str)));
+}
+
+function decodeUTF8(str){
+return decodeURIComponent(escape(atob(str)));
+}
+
+function run(){
+let mode=$("mode").value;
+let input=$("input").value;
+
+if(!input){set("Vide","status");return;}
+
+try{
+let out="";
+
+if(mode==="encode"){
+out=encodeUTF8(input);
+}else{
+out=decodeUTF8(input.trim());
+}
+
+$("output").value=out;
+set("OK","status");
+set(out.length+" chars","len");
+
+}catch(e){
+$("output").value="";
+set("Erreur (Base64 invalide ?)","status");
+set("—","len");
+}
+}
+
+function copy(){
+navigator.clipboard.writeText($("output").value||"");
+}
+
+$("input").addEventListener("keydown",e=>{
+if(e.ctrlKey && e.key==="Enter") run();
+});
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
