@@ -34,8 +34,13 @@
         <h1 class="tool-title">Convertisseur IP ↔ Binaire / Décimal</h1>
 
         <div class="terminal-body">
+
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="line">IP → Binaire / Décimal</div>
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
           <div class="line">
-            IPv4 : <input id="ip" placeholder="ex: 192.168.1.10" value="192.168.1.10" />
+            IPv4 : <input id="ip" value="192.168.1.10" />
           </div>
 
           <button class="copy-btn" id="btnFromIP">Convertir depuis IP</button>
@@ -45,37 +50,52 @@
           <div class="line">Entier (uint32) : <span id="uint32">—</span></div>
           <div class="line">Hex : <span id="hex">—</span></div>
 
-          <div class="line">—</div>
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="line">Binaire → IP</div>
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
           <div class="line">
-            Binaire → IPv4 : <input id="binIn" placeholder="ex: 11000000 10101000 00000001 00001010" value="" />
+            Binaire : <input id="binIn" placeholder="11000000 10101000 00000001 00001010" />
           </div>
+
           <button class="copy-btn" id="btnFromBin">Convertir depuis binaire</button>
-          <div class="line">IPv4 (depuis binaire) : <span id="ipFromBin">—</span></div>
 
-          <div class="line">—</div>
+          <div class="line">IPv4 : <span id="ipFromBin">—</span></div>
+
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="line">Entier → IP</div>
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
           <div class="line">
-            Entier (uint32) → IPv4 : <input id="intIn" placeholder="ex: 3232235786" value="" />
+            Entier : <input id="intIn" placeholder="3232235786" />
           </div>
+
           <button class="copy-btn" id="btnFromInt">Convertir depuis entier</button>
-          <div class="line">IPv4 (depuis entier) : <span id="ipFromInt">—</span></div>
 
-          <div class="line">—</div>
+          <div class="line">IPv4 : <span id="ipFromInt">—</span></div>
+
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+          <div class="line">Hex → IP</div>
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
           <div class="line">
-            Hex → IPv4 : <input id="hexIn" placeholder="ex: C0A8010A ou 0xC0A8010A" value="" />
+            Hex : <input id="hexIn" placeholder="C0A8010A" />
           </div>
-          <button class="copy-btn" id="btnFromHex">Convertir depuis hex</button>
-          <div class="line">IPv4 (depuis hex) : <span id="ipFromHex">—</span></div>
 
+          <button class="copy-btn" id="btnFromHex">Convertir depuis hex</button>
+
+          <div class="line">IPv4 : <span id="ipFromHex">—</span></div>
+
+          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
           <div class="line">Statut : <span id="status">—</span></div>
+
         </div>
 
         <button class="copy-btn" id="btnCopy">Copier</button>
       </div>
     </section>
   </main>
+
 
 <!--
   <aside class="tool-ads">
