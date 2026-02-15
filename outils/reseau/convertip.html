@@ -29,72 +29,78 @@
 -->
 
 <main class="tool-main">
-    <section class="shell-section">
-      <div class="ip-card">
-        <h1 class="tool-title">Convertisseur IP ↔ Binaire / Décimal</h1>
+<section class="shell-section">
+<div class="ip-card">
 
-        <div class="terminal-body">
+<h1 class="tool-title">Convertisseur IP</h1>
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">IP → Binaire / Décimal</div>
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="terminal-body">
 
-          <div class="line">
-            IPv4 : <input id="ip" value="192.168.1.10" />
-          </div>
+<div class="line">
+Conversion :
+<select id="mode">
+<option value="ip">IP → Binaire / Décimal</option>
+<option value="bin">Binaire → IP</option>
+<option value="int">Entier → IP</option>
+<option value="hex">Hex → IP</option>
+</select>
+</div>
 
-          <button class="copy-btn" id="btnFromIP">Convertir depuis IP</button>
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
-          <div class="line">Binaire : <span id="bin">—</span></div>
-          <div class="line">Binaire (groupé) : <span id="binGrouped">—</span></div>
-          <div class="line">Entier (uint32) : <span id="uint32">—</span></div>
-          <div class="line">Hex : <span id="hex">—</span></div>
+<!-- IP → BIN -->
+<div id="block-ip">
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">Binaire → IP</div>
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">IPv4 : <input id="ip" value="192.168.1.10"></div>
+<button class="copy-btn" onclick="fromIP()">Convertir</button>
 
-          <div class="line">
-            Binaire : <input id="binIn" placeholder="11000000 10101000 00000001 00001010" />
-          </div>
+<div class="line">Binaire : <span id="bin">—</span></div>
+<div class="line">Binaire (groupé) : <span id="binGrouped">—</span></div>
+<div class="line">Entier : <span id="uint32">—</span></div>
+<div class="line">Hex : <span id="hex">—</span></div>
 
-          <button class="copy-btn" id="btnFromBin">Convertir depuis binaire</button>
+</div>
 
-          <div class="line">IPv4 : <span id="ipFromBin">—</span></div>
+<!-- BIN → IP -->
+<div id="block-bin" style="display:none">
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">Entier → IP</div>
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">Binaire : <input id="binIn"></div>
+<button class="copy-btn" onclick="fromBin()">Convertir</button>
 
-          <div class="line">
-            Entier : <input id="intIn" placeholder="3232235786" />
-          </div>
+<div class="line">IPv4 : <span id="ipFromBin">—</span></div>
 
-          <button class="copy-btn" id="btnFromInt">Convertir depuis entier</button>
+</div>
 
-          <div class="line">IPv4 : <span id="ipFromInt">—</span></div>
+<!-- INT → IP -->
+<div id="block-int" style="display:none">
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">Hex → IP</div>
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">Entier : <input id="intIn"></div>
+<button class="copy-btn" onclick="fromInt()">Convertir</button>
 
-          <div class="line">
-            Hex : <input id="hexIn" placeholder="C0A8010A" />
-          </div>
+<div class="line">IPv4 : <span id="ipFromInt">—</span></div>
 
-          <button class="copy-btn" id="btnFromHex">Convertir depuis hex</button>
+</div>
 
-          <div class="line">IPv4 : <span id="ipFromHex">—</span></div>
+<!-- HEX → IP -->
+<div id="block-hex" style="display:none">
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">Statut : <span id="status">—</span></div>
+<div class="line">Hex : <input id="hexIn"></div>
+<button class="copy-btn" onclick="fromHex()">Convertir</button>
 
-        </div>
+<div class="line">IPv4 : <span id="ipFromHex">—</span></div>
 
-        <button class="copy-btn" id="btnCopy">Copier</button>
-      </div>
-    </section>
-  </main>
+</div>
+
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">Statut : <span id="status">—</span></div>
+
+</div>
+
+<button class="copy-btn" onclick="copy()">Copier</button>
+
+</div>
+</section>
+</main>
 
 
 <!--
