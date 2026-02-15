@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encodeur JWT</title>
+  <meta name="description" content="WaveTools : encodeur JWT.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
+
+<h1 class="tool-title">JWT</h1>
+
+<div class="terminal-body">
+
+<div class="line">
+Action :
+<select id="action">
+<option value="gen" selected>Générer</option>
+<option value="dec">Décoder</option>
+</select>
+</div>
+
+<!-- GEN -->
+<div id="gen">
+
+<div class="line">
+Algorithme :
+<select id="alg">
+<option value="none">none</option>
+<option value="HS256" selected>HS256</option>
+<option value="HS384">HS384</option>
+<option value="HS512">HS512</option>
+</select>
+</div>
+
+<div class="line">Secret :</div>
+<div class="line"><input id="secretGen" style="width:100%"></div>
+
+<div class="line">Payload :</div>
+<div class="line">
+<textarea id="payloadIn" rows="6" style="width:100%">
+{ "user": "admin", "iat": 0 }
+</textarea>
+</div>
+
+<button class="copy-btn" onclick="generateJWT()">Générer</button>
+
+<div class="line">JWT :</div>
+<div class="line">
+<textarea id="jwtOut" rows="4" style="width:100%" readonly></textarea>
+</div>
+
+</div>
+
+<!-- DEC -->
+<div id="dec" style="display:none">
+
+<div class="line">JWT :</div>
+<div class="line">
+<textarea id="jwtIn" rows="4" style="width:100%"></textarea>
+</div>
+
+<button class="copy-btn" onclick="decodeJWT()">Décoder</button>
+
+<div class="line">Header :</div>
+<div class="line">
+<textarea id="headerOut" rows="4" style="width:100%" readonly></textarea>
+</div>
+
+<div class="line">Payload :</div>
+<div class="line">
+<textarea id="payloadOut" rows="6" style="width:100%" readonly></textarea>
+</div>
+
+</div>
+
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">Statut : <span id="status">—</span></div>
+
+</div>
+
+<button class="copy-btn" onclick="copy()">Copier</button>
+
+</div>
+</section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $=id=>document.getElementById(id);
+function set(v,id){$(id).textContent=v||"—";}
+
+function show(){
+let v=$("action").value;
+$("gen").style.display=v==="gen"?"block":"none";
+$("dec").style.display=v==="dec"?"block":"none";
+}
+$("action").onchange=show;
+show();
+
+function b64e(s){
+return btoa(unescape(encodeURIComponent(s)))
+.replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
+
+function b64d(s){
+s=s.replace(/-/g,"+").replace(/_/g,"/");
+return decodeURIComponent(escape(atob(s)));
+}
+
+async function sign(alg,secret,data){
+let map={HS256:"SHA-256",HS384:"SHA-384",HS512:"SHA-512"};
+let key=await crypto.subtle.importKey(
+"raw",
+new TextEncoder().encode(secret),
+{name:"HMAC",hash:map[alg]},
+false,
+["sign"]
+);
+let raw=await crypto.subtle.sign("HMAC",key,new TextEncoder().encode(data));
+return b64e(String.fromCharCode(...new Uint8Array(raw)));
+}
+
+async function generateJWT(){
+try{
+let alg=$("alg").value;
+let secret=$("secretGen").value;
+let payload=JSON.parse($("payloadIn").value);
+
+let header={alg:alg,typ:"JWT"};
+let h=b64e(JSON.stringify(header));
+let p=b64e(JSON.stringify(payload));
+let d=h+"."+p;
+
+let sig="";
+if(alg!=="none"){
+if(!secret){set("Secret requis","status");return;}
+sig=await sign(alg,secret,d);
+}
+
+$("jwtOut").value=d+"."+sig;
+set("OK","status");
+}catch(e){set("JSON invalide","status");}
+}
+
+function decodeJWT(){
+try{
+let t=$("jwtIn").value.split(".");
+let h=JSON.parse(b64d(t[0]));
+let p=JSON.parse(b64d(t[1]));
+$("headerOut").value=JSON.stringify(h,null,2);
+$("payloadOut").value=JSON.stringify(p,null,2);
+set("OK","status");
+}catch(e){set("JWT invalide","status");}
+}
+
+function copy(){
+navigator.clipboard.writeText(document.body.innerText);
+}
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
