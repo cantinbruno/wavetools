@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formateur XML</title>
+  <meta name="description" content="WaveTools : formateur de XML.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+  <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Formateur XML</h1>
+
+        <div class="terminal-body">
+          <div class="line">XML brut :</div>
+          <div class="line">
+            <textarea id="input" rows="10" style="width:100%"
+              placeholder="<root><item id=&quot;1&quot;><name>Test</name></item></root>"></textarea>
+          </div>
+
+          <div class="line">
+            Indentation :
+            <select id="indent">
+              <option value="2" selected>2 espaces</option>
+              <option value="4">4 espaces</option>
+              <option value="tab">Tabulation</option>
+              <option value="0">Minifié</option>
+            </select>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="preserveComments" checked />
+              Conserver les commentaires
+            </label>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="preserveCdata" checked />
+              Conserver les CDATA
+            </label>
+          </div>
+
+          <button class="copy-btn" id="btnFmt">Formater</button>
+          <button class="copy-btn" id="btnMin">Minifier</button>
+          <button class="copy-btn" id="btnClear">Vider</button>
+
+          <div class="line">XML résultat :</div>
+          <div class="line">
+            <textarea id="output" rows="12" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="copyOut">Copier résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+    function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+    function setVal(id, v) { $(id).value = v || ""; }
+
+    function getIndentStr(){
+      const v = $("indent").value;
+      if (v === "tab") return "\t";
+      const n = Number(v);
+      if (!Number.isFinite(n) || n < 0) return "  ";
+      return " ".repeat(n);
+    }
+
+    function collapseWhitespaceTextNodes(root){
+      // Nettoyage léger: supprime les text nodes qui ne contiennent que des espaces/retours
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const toRemove = [];
+      while (walker.nextNode()){
+        const n = walker.currentNode;
+        if (!n.nodeValue || n.nodeValue.trim() === "") toRemove.push(n);
+      }
+      for (const n of toRemove) n.parentNode && n.parentNode.removeChild(n);
+    }
+
+    function serializeNode(node, opts){
+      const { indentStr, level, minify, preserveComments, preserveCdata } = opts;
+
+      const pad = minify ? "" : indentStr.repeat(level);
+      const nl = minify ? "" : "\n";
+
+      switch(node.nodeType){
+        case Node.DOCUMENT_NODE: {
+          let out = "";
+          for (const child of node.childNodes) {
+            out += serializeNode(child, { ...opts, level: 0 });
+          }
+          return out;
+        }
+
+        case Node.ELEMENT_NODE: {
+          const tag = node.nodeName;
+
+          // Attributes
+          let attrs = "";
+          if (node.attributes && node.attributes.length){
+            for (const a of node.attributes){
+              // on garde la valeur telle quelle (serializer)
+              attrs += ` ${a.name}="${escapeAttr(a.value)}"`;
+            }
+          }
+
+          // Children
+          const children = Array.from(node.childNodes).filter(n => {
+            if (n.nodeType === Node.COMMENT_NODE) return preserveComments;
+            if (n.nodeType === Node.CDATA_SECTION_NODE) return preserveCdata;
+            return true;
+          });
+
+          if (children.length === 0){
+            return `${pad}<${tag}${attrs}/>${nl}`;
+          }
+
+          // Si un seul enfant text -> inline
+          if (children.length === 1 && children[0].nodeType === Node.TEXT_NODE){
+            const txt = escapeText(children[0].nodeValue ?? "");
+            return `${pad}<${tag}${attrs}>${txt}</${tag}>${nl}`;
+          }
+
+          let out = `${pad}<${tag}${attrs}>${nl}`;
+          for (const ch of children){
+            out += serializeNode(ch, { ...opts, level: level + 1 });
+          }
+          out += `${pad}</${tag}>${nl}`;
+          return out;
+        }
+
+        case Node.TEXT_NODE: {
+          const v = node.nodeValue ?? "";
+          const txt = escapeText(v);
+          if (txt.trim() === "" && !minify) return ""; // ignore blancs
+          return `${minify ? "" : indentStr.repeat(level)}${txt}${nl}`;
+        }
+
+        case Node.COMMENT_NODE: {
+          if (!preserveComments) return "";
+          return `${pad}<!--${node.nodeValue ?? ""}-->${nl}`;
+        }
+
+        case Node.CDATA_SECTION_NODE: {
+          if (!preserveCdata) {
+            // fallback texte
+            const txt = escapeText(node.nodeValue ?? "");
+            return `${minify ? "" : indentStr.repeat(level)}${txt}${nl}`;
+          }
+          return `${pad}<![CDATA[${node.nodeValue ?? ""}]]>${nl}`;
+        }
+
+        case Node.PROCESSING_INSTRUCTION_NODE: {
+          return `${pad}<?${node.nodeName} ${node.nodeValue ?? ""}?>${nl}`;
+        }
+
+        case Node.DOCUMENT_TYPE_NODE: {
+          // Doctype basique
+          return `${pad}<!DOCTYPE ${node.name}>${nl}`;
+        }
+
+        default:
+          return "";
+      }
+    }
+
+    function escapeText(s){
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function escapeAttr(s){
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function formatXml(mode){
+      setTxt("status", mode === "min" ? "Minification..." : "Formatage...");
+      setTxt("note", "Astuce : XML bien formé requis (un seul élément racine, balises fermées, etc.).");
+      setVal("output", "");
+
+      const input = $("input").value || "";
+      const preserveComments = $("preserveComments").checked;
+      const preserveCdata = $("preserveCdata").checked;
+
+      try{
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(input, "application/xml");
+
+        // Détection erreur parse
+        const perr = doc.getElementsByTagName("parsererror")[0];
+        if (perr){
+          throw new Error("XML invalide (erreur de parsing).");
+        }
+
+        // Nettoyage des blancs (sinon ça explose l'indent)
+        collapseWhitespaceTextNodes(doc);
+
+        const minify = (mode === "min") || $("indent").value === "0";
+        const indentStr = getIndentStr();
+
+        const out = serializeNode(doc, {
+          indentStr,
+          level: 0,
+          minify,
+          preserveComments,
+          preserveCdata
+        });
+
+        // Si mode format et indentation 0, on minifie
+        setVal("output", minify ? out.trim() : out.trimEnd());
+        setTxt("status", "OK");
+      }catch(e){
+        setTxt("status", "Erreur XML");
+        setTxt("note", (e && e.message) ? e.message : "XML invalide.");
+      }
+    }
+
+    $("btnFmt").addEventListener("click", () => formatXml("fmt"));
+    $("btnMin").addEventListener("click", () => formatXml("min"));
+
+    $("btnClear").addEventListener("click", () => {
+      setVal("input", "");
+      setVal("output", "");
+      setTxt("status", "—");
+      setTxt("note", "—");
+    });
+
+    $("copyOut").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("output").value || "—").catch(()=>{});
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
