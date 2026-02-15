@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formateur XML</title>
+  <meta name="description" content="WaveTools : formateur de XML.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+  <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Embellisseur de code</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Langage :
+            <select id="lang">
+              <option value="auto" selected>Auto (simple)</option>
+              <option value="json">JSON</option>
+              <option value="xml">XML</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JavaScript</option>
+              <option value="sql">SQL</option>
+              <option value="py">Python</option>
+            </select>
+          </div>
+
+          <div class="line">
+            Indentation :
+            <select id="indent">
+              <option value="2" selected>2 espaces</option>
+              <option value="4">4 espaces</option>
+              <option value="tab">Tabulation</option>
+              <option value="0">Minifié</option>
+            </select>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="trimLines" checked />
+              Supprimer espaces en fin de ligne
+            </label>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="normalizeNewlines" checked />
+              Normaliser retours ligne (LF)
+            </label>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="ensureFinalNewline" checked />
+              Ajouter un retour ligne final
+            </label>
+          </div>
+
+          <div class="line">Code brut :</div>
+          <div class="line">
+            <textarea id="input" rows="12" style="width:100%" placeholder="Colle ton code ici..."></textarea>
+          </div>
+
+          <button class="copy-btn" id="btnBeautify">Embellir</button>
+          <button class="copy-btn" id="btnMinify">Minifier</button>
+          <button class="copy-btn" id="btnClear">Vider</button>
+
+          <div class="line">Résultat :</div>
+          <div class="line">
+            <textarea id="output" rows="12" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="copyOut">Copier résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+    function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+    function setVal(id, v) { $(id).value = v || ""; }
+
+    function getIndent(){
+      const v = $("indent").value;
+      if (v === "tab") return "\t";
+      const n = Number(v);
+      if (!Number.isFinite(n) || n < 0) return 2;
+      return n;
+    }
+    function getIndentStr(){
+      const v = $("indent").value;
+      if (v === "tab") return "\t";
+      const n = Number(v);
+      return " ".repeat(Math.max(0, n));
+    }
+
+    // --- Utilitaires généraux ---
+    function normalizeNewlines(s){ return s.replace(/\r\n?/g, "\n"); }
+    function trimLineEnds(s){ return s.split("\n").map(l => l.replace(/[ \t]+$/g,"")).join("\n"); }
+    function ensureFinalNewline(s){ return s.endsWith("\n") ? s : (s + "\n"); }
+
+    // --- Détection simple ---
+    function detectLang(code){
+      const s = code.trim();
+      if (!s) return "text";
+      if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))) return "json";
+      if (s.startsWith("<") && s.endsWith(">")) {
+        // HTML/XML grossier
+        if (/<\s*html[\s>]/i.test(s) || /<!doctype\s+html/i.test(s)) return "html";
+        return "xml";
+      }
+      if (/^\s*(SELECT|WITH|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP)\b/i.test(s)) return "sql";
+      if (/^\s*(def |class |import |from |if __name__ ==)/m.test(s)) return "py";
+      if (/^\s*[\w\.\#\-\[\]="'\s>:+~,]+\{[\s\S]*\}\s*$/m.test(s)) return "css";
+      if (/\b(function|const|let|var|=>|import\s+.+from)\b/.test(s)) return "js";
+      return "text";
+    }
+
+    // --- JSON (beautify/minify) ---
+    function sortKeysDeep(v){
+      if (Array.isArray(v)) return v.map(sortKeysDeep);
+      if (v && typeof v === "object"){
+        const out = {};
+        for (const k of Object.keys(v).sort((a,b)=>a.localeCompare(b))){
+          out[k] = sortKeysDeep(v[k]);
+        }
+        return out;
+      }
+      return v;
+    }
+    function stripTrailingCommasJson(t){
+      return t.replace(/,\s*([}\]])/g, "$1");
+    }
+    function beautifyJSON(code, indent, minify){
+      const tolerant = true;
+      const input = tolerant ? stripTrailingCommasJson(code) : code;
+      const obj = JSON.parse(input);
+      const space = minify ? 0 : indent;
+      return JSON.stringify(obj, null, space);
+    }
+
+    // --- XML/HTML (pretty/minify) via DOMParser + serializer simplifié ---
+    function collapseWhitespaceTextNodes(root){
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const toRemove = [];
+      while (walker.nextNode()){
+        const n = walker.currentNode;
+        if (!n.nodeValue || n.nodeValue.trim() === "") toRemove.push(n);
+      }
+      for (const n of toRemove) n.parentNode && n.parentNode.removeChild(n);
+    }
+    function escapeText(s){
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    function escapeAttr(s){
+      return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    function serializeNode(node, opts){
+      const { indentStr, level, minify } = opts;
+      const pad = minify ? "" : indentStr.repeat(level);
+      const nl = minify ? "" : "\n";
+
+      switch(node.nodeType){
+        case Node.DOCUMENT_NODE: {
+          let out = "";
+          for (const child of node.childNodes) out += serializeNode(child, { ...opts, level: 0 });
+          return out;
+        }
+        case Node.ELEMENT_NODE: {
+          const tag = node.nodeName;
+          let attrs = "";
+          if (node.attributes && node.attributes.length){
+            for (const a of node.attributes){
+              attrs += ` ${a.name}="${escapeAttr(a.value)}"`;
+            }
+          }
+          const children = Array.from(node.childNodes);
+          if (children.length === 0) return `${pad}<${tag}${attrs}/>${nl}`;
+
+          if (children.length === 1 && children[0].nodeType === Node.TEXT_NODE){
+            const txt = escapeText(children[0].nodeValue ?? "");
+            return `${pad}<${tag}${attrs}>${txt}</${tag}>${nl}`;
+          }
+          let out = `${pad}<${tag}${attrs}>${nl}`;
+          for (const ch of children) out += serializeNode(ch, { ...opts, level: level+1 });
+          out += `${pad}</${tag}>${nl}`;
+          return out;
+        }
+        case Node.TEXT_NODE: {
+          const txt = escapeText(node.nodeValue ?? "");
+          if (txt.trim() === "" && !minify) return "";
+          return `${minify ? "" : indentStr.repeat(level)}${txt}${nl}`;
+        }
+        case Node.COMMENT_NODE:
+          return `${pad}<!--${node.nodeValue ?? ""}-->${nl}`;
+        case Node.CDATA_SECTION_NODE:
+          return `${pad}<![CDATA[${node.nodeValue ?? ""}]]>${nl}`;
+        case Node.PROCESSING_INSTRUCTION_NODE:
+          return `${pad}<?${node.nodeName} ${node.nodeValue ?? ""}?>${nl}`;
+        default:
+          return "";
+      }
+    }
+    function beautifyXMLorHTML(code, indentStr, minify, kind){
+      const parser = new DOMParser();
+      const mime = (kind === "html") ? "text/html" : "application/xml";
+      const doc = parser.parseFromString(code, mime);
+
+      if (kind !== "html"){
+        const perr = doc.getElementsByTagName("parsererror")[0];
+        if (perr) throw new Error("XML invalide (erreur de parsing).");
+      }
+
+      // En HTML, DOMParser (text/html) crée toujours un document, on sérialise le body
+      if (kind === "html"){
+        // On formatte le contenu sous <html>… si present, sinon body
+        collapseWhitespaceTextNodes(doc);
+        const root = doc.documentElement || doc.body;
+        return serializeNode(root, { indentStr, level: 0, minify }).trimEnd();
+      }
+
+      collapseWhitespaceTextNodes(doc);
+      return serializeNode(doc, { indentStr, level: 0, minify }).trimEnd();
+    }
+
+    // --- CSS (simple) ---
+    function beautifyCSS(code, indentStr, minify){
+      let s = code.trim();
+      // minify
+      if (minify){
+        s = s
+          .replace(/\/\*[\s\S]*?\*\//g, "")
+          .replace(/\s+/g, " ")
+          .replace(/\s*([{}:;,])\s*/g, "$1")
+          .replace(/;}/g, "}")
+          .trim();
+        return s;
+      }
+      // pretty (très simple)
+      s = s.replace(/\r\n?/g,"\n");
+      s = s.replace(/\/\*[\s\S]*?\*\//g, m => m.replace(/\n/g," ") + "\n");
+      // ajoute retours autour des { }
+      s = s.replace(/\s*\{\s*/g, " {\n");
+      s = s.replace(/\s*\}\s*/g, "\n}\n");
+      s = s.replace(/;\s*/g, ";\n");
+      // indent par blocs
+      const lines = s.split("\n").map(l => l.trim()).filter(Boolean);
+      let level = 0;
+      const out = [];
+      for (let line of lines){
+        if (line.startsWith("}")) level = Math.max(0, level - 1);
+        out.push(indentStr.repeat(level) + line);
+        if (line.endsWith("{")) level++;
+      }
+      return out.join("\n");
+    }
+
+    // --- JS/Python/SQL : beautify léger (indent basé sur accolades/keywords) ---
+    function beautifyBraces(code, indentStr, minify){
+      let s = code;
+      if ($("normalizeNewlines").checked) s = normalizeNewlines(s);
+
+      if (minify){
+        // minify "safe-ish" : enlève espaces multiples (ne touche pas aux strings)
+        // -> approche prudente: uniquement trim des lignes + join
+        s = s.split("\n").map(l => l.trim()).filter(l => l.length).join("");
+        return s;
+      }
+
+      // Pretty simple : place { } sur lignes propres et indente au niveau des braces
+      s = s.replace(/\r\n?/g,"\n");
+      s = s.replace(/\{/g, "{\n");
+      s = s.replace(/\}/g, "\n}\n");
+      s = s.replace(/;/g, ";\n");
+
+      const rawLines = s.split("\n").map(l => l.trim()).filter(l => l.length);
+      let level = 0;
+      const out = [];
+
+      for (let line of rawLines){
+        if (line.startsWith("}")) level = Math.max(0, level - 1);
+        out.push(indentStr.repeat(level) + line);
+        if (line.endsWith("{")) level++;
+      }
+      return out.join("\n");
+    }
+
+    function beautifySQL(code, indentStr, minify){
+      let s = code.trim();
+      if (minify){
+        s = s.replace(/\s+/g," ").trim();
+        return s;
+      }
+      // uppercase keywords principaux + retours ligne
+      const KW = ["SELECT","FROM","WHERE","GROUP BY","ORDER BY","HAVING","LIMIT","JOIN","LEFT JOIN","RIGHT JOIN","INNER JOIN","OUTER JOIN","ON","INSERT","UPDATE","DELETE","VALUES","SET","WITH"];
+      for (const k of KW){
+        const re = new RegExp("\\b" + k.replace(" ","\\s+") + "\\b","ig");
+        s = s.replace(re, "\n" + k);
+      }
+      s = s.replace(/\n+/g,"\n").trim();
+      // indent simple: ON/AND/OR
+      const lines = s.split("\n").map(l => l.trim()).filter(Boolean);
+      const out = [];
+      for (let line of lines){
+        if (/^(ON|AND|OR)\b/i.test(line)){
+          out.push(indentStr + line.toUpperCase().replace(/\s+/g," "));
+        } else {
+          out.push(line.toUpperCase().replace(/\s+/g," "));
+        }
+      }
+      return out.join("\n");
+    }
+
+    function postProcess(text){
+      let out = text;
+      if ($("normalizeNewlines").checked) out = normalizeNewlines(out);
+      if ($("trimLines").checked) out = trimLineEnds(out);
+      if ($("ensureFinalNewline").checked) out = ensureFinalNewline(out);
+      return out;
+    }
+
+    function run(mode){
+      setTxt("status", mode === "min" ? "Minification..." : "Embellissement...");
+      setTxt("note", "Info : sans librairies externes, l'embellissement JS/CSS/SQL reste 'light'. JSON/XML/HTML sont les plus fiables.");
+      setVal("output","");
+
+      const input = $("input").value || "";
+      if (!input.trim()){
+        setTxt("status","—");
+        setTxt("note","Colle du code à embellir.");
+        return;
+      }
+
+      try{
+        const indent = getIndent();
+        const indentStr = getIndentStr();
+        const minify = (mode === "min") || $("indent").value === "0";
+
+        let lang = $("lang").value;
+        if (lang === "auto") lang = detectLang(input);
+
+        let result = "";
+        if (lang === "json") result = beautifyJSON(input, indent, minify);
+        else if (lang === "xml") result = beautifyXMLorHTML(input, indentStr, minify, "xml");
+        else if (lang === "html") result = beautifyXMLorHTML(input, indentStr, minify, "html");
+        else if (lang === "css") result = beautifyCSS(input, indentStr, minify);
+        else if (lang === "sql") result = beautifySQL(input, indentStr, minify);
+        else if (lang === "js") result = beautifyBraces(input, indentStr, minify);
+        else if (lang === "py") {
+          // On ne "reformate" pas Python sans lib, on fait juste nettoyage
+          result = input;
+          if (minify) {
+            result = input.split("\n").map(l => l.trim()).filter(Boolean).join("\n");
+          }
+        } else {
+          result = input; // text
+        }
+
+        result = postProcess(result);
+        setVal("output", result);
+        setTxt("status", "OK");
+      }catch(e){
+        setTxt("status", "Erreur");
+        setTxt("note", (e && e.message) ? e.message : "Impossible de traiter le code.");
+      }
+    }
+
+    $("btnBeautify").addEventListener("click", () => run("fmt"));
+    $("btnMinify").addEventListener("click", () => run("min"));
+
+    $("btnClear").addEventListener("click", () => {
+      setVal("input", "");
+      setVal("output", "");
+      setTxt("status", "—");
+      setTxt("note", "—");
+    });
+
+    $("copyOut").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("output").value || "—").catch(()=>{});
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
