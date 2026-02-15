@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertisseur JSON et CSV</title>
+  <meta name="description" content="WaveTools : convertisseur JSON et CSV.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Convertisseur JSON ↔ CSV</h1>
+
+      <div class="terminal-body">
+        <div class="line">
+          Sens :
+          <select id="mode">
+            <option value="json2csv" selected>JSON → CSV (par défaut)</option>
+            <option value="csv2json">CSV → JSON</option>
+          </select>
+        </div>
+
+        <div class="line" id="csvOptsTitle">Options CSV :</div>
+
+        <div class="line" style="display:flex; gap:.75rem; flex-wrap:wrap;">
+          <label style="display:flex; gap:.5rem; align-items:center;">
+            Séparateur :
+            <select id="delimiter">
+              <option value=",">, (virgule)</option>
+              <option value=";">; (point-virgule)</option>
+              <option value="\t">Tab</option>
+              <option value="|">|</option>
+            </select>
+          </label>
+
+          <label style="display:flex; gap:.5rem; align-items:center;">
+            Guillemets :
+            <select id="quote">
+              <option value='"' selected>"</option>
+              <option value="'">'</option>
+              <option value="">Aucun</option>
+            </select>
+          </label>
+
+          <label style="display:flex; gap:.5rem; align-items:center;">
+            <input type="checkbox" id="header" checked />
+            En-tête (1ère ligne)
+          </label>
+
+          <label style="display:flex; gap:.5rem; align-items:center;">
+            <input type="checkbox" id="trim" checked />
+            Trim cellules
+          </label>
+        </div>
+
+        <div class="line" id="json2csvOpts" style="display:block;">
+          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
+            <input type="checkbox" id="flatten" checked />
+            Aplatir objets imbriqués (ex: user.name)
+          </label>
+          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
+            <input type="checkbox" id="includeNulls" checked />
+            Inclure colonnes même si valeur null/undefined
+          </label>
+        </div>
+
+        <div class="line" id="csv2jsonOpts" style="display:none;">
+          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
+            <input type="checkbox" id="autoType" checked />
+            Typage auto (nombres, booléens, null)
+          </label>
+        </div>
+
+        <div class="line" id="inLabel">Entrée (JSON) :</div>
+        <div class="line">
+          <textarea id="input" rows="12" style="width:100%"></textarea>
+        </div>
+
+        <button class="copy-btn" id="btnConvert">Convertir</button>
+        <button class="copy-btn" id="btnSwap">Inverser (échanger entrée/résultat)</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line" id="outLabel">Sortie (CSV) :</div>
+        <div class="line">
+          <textarea id="output" rows="12" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier résultat</button>
+    </div>
+  </section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  // ---------------- CSV helpers ----------------
+  function delimVal(){
+    const d = $("delimiter").value;
+    return d === "\\t" ? "\t" : d;
+  }
+
+  function escapeCsvCell(v, delim, quoteChar){
+    if (v === null || v === undefined) v = "";
+    v = String(v);
+
+    // Si pas de quote: on garde brut (mais on protège les retours)
+    if (!quoteChar){
+      return v.replace(/\r\n?/g, "\n");
+    }
+
+    const needs = v.includes(delim) || v.includes("\n") || v.includes("\r") || v.includes(quoteChar);
+    if (!needs) return v;
+
+    const doubled = v.split(quoteChar).join(quoteChar + quoteChar);
+    return quoteChar + doubled + quoteChar;
+  }
+
+  function parseCsv(text, delim, quoteChar){
+    // Parser CSV simple (support quotes + quotes doublées)
+    const rows = [];
+    let row = [];
+    let cur = "";
+    let i = 0;
+    let inQ = false;
+
+    const pushCell = () => { row.push(cur); cur = ""; };
+    const pushRow = () => { rows.push(row); row = []; };
+
+    while (i < text.length){
+      const ch = text[i];
+
+      if (quoteChar && ch === quoteChar){
+        if (inQ && text[i+1] === quoteChar){
+          cur += quoteChar; i += 2; continue;
+        }
+        inQ = !inQ; i++; continue;
+      }
+
+      if (!inQ && ch === delim){
+        pushCell(); i++; continue;
+      }
+
+      if (!inQ && (ch === "\n" || ch === "\r")){
+        // gérer CRLF
+        if (ch === "\r" && text[i+1] === "\n") i++;
+        pushCell(); pushRow(); i++; continue;
+      }
+
+      cur += ch;
+      i++;
+    }
+
+    pushCell();
+    pushRow();
+
+    // supprime dernière ligne vide fréquente
+    if (rows.length && rows[rows.length-1].length === 1 && rows[rows.length-1][0] === "") {
+      rows.pop();
+    }
+    return rows;
+  }
+
+  // ---------------- JSON helpers ----------------
+  function isPlainObject(x){ return x && typeof x === "object" && !Array.isArray(x); }
+
+  function flattenObject(obj, prefix="", out={}){
+    for (const [k, v] of Object.entries(obj || {})){
+      const key = prefix ? (prefix + "." + k) : k;
+      if (isPlainObject(v)){
+        flattenObject(v, key, out);
+      } else {
+        // arrays -> JSON string
+        out[key] = Array.isArray(v) ? JSON.stringify(v) : v;
+      }
+    }
+    return out;
+  }
+
+  function unionKeys(objs, includeNulls){
+    const set = new Set();
+    for (const o of objs){
+      for (const k of Object.keys(o)){
+        if (!includeNulls && (o[k] === null || o[k] === undefined)) continue;
+        set.add(k);
+      }
+    }
+    return Array.from(set);
+  }
+
+  function autoTypeValue(s){
+    const t = s.trim();
+    if (t === "") return "";
+    if (/^(true|false)$/i.test(t)) return t.toLowerCase() === "true";
+    if (/^null$/i.test(t)) return null;
+    // number
+    if (/^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/.test(t)){
+      const n = Number(t);
+      if (Number.isFinite(n)) return n;
+    }
+    // JSON array/object dans cellule
+    if ((t.startsWith("{") && t.endsWith("}")) || (t.startsWith("[") && t.endsWith("]"))){
+      try { return JSON.parse(t); } catch {}
+    }
+    return s;
+  }
+
+  // ---------------- Converters ----------------
+  function jsonToCsv(){
+    const delim = delimVal();
+    const quoteChar = $("quote").value;
+    const header = $("header").checked;
+    const flatten = $("flatten").checked;
+    const includeNulls = $("includeNulls").checked;
+
+    const raw = $("input").value || "";
+    let data = JSON.parse(raw);
+
+    // accepte objet unique -> tableau
+    if (isPlainObject(data)) data = [data];
+    if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau d'objets (ou un objet).");
+
+    const rowsObj = data.map(item => {
+      if (!isPlainObject(item)) return { value: JSON.stringify(item) };
+      return flatten ? flattenObject(item) : item;
+    });
+
+    // colonnes
+    const cols = unionKeys(rowsObj, includeNulls).sort((a,b)=>a.localeCompare(b));
+
+    const outRows = [];
+    if (header) outRows.push(cols);
+
+    for (const o of rowsObj){
+      const r = cols.map(c => escapeCsvCell(o[c], delim, quoteChar));
+      outRows.push(r);
+    }
+
+    return outRows.map(r => r.join(delim)).join("\n");
+  }
+
+  function csvToJson(){
+    const delim = delimVal();
+    const quoteChar = $("quote").value;
+    const header = $("header").checked;
+    const trim = $("trim").checked;
+    const autoType = $("autoType").checked;
+
+    let text = $("input").value || "";
+    text = text.replace(/\r\n?/g, "\n");
+
+    const rows = parseCsv(text, delim, quoteChar);
+    if (!rows.length) return "[]";
+
+    let cols = [];
+    let start = 0;
+
+    if (header){
+      cols = rows[0].map(c => trim ? c.trim() : c);
+      start = 1;
+      if (cols.every(c => c === "")) throw new Error("En-tête vide.");
+    } else {
+      const maxLen = Math.max(...rows.map(r => r.length));
+      cols = Array.from({length:maxLen}, (_,i)=>"col"+(i+1));
+      start = 0;
+    }
+
+    const out = [];
+    for (let i = start; i < rows.length; i++){
+      const r = rows[i];
+      // ignore ligne totalement vide
+      if (r.every(x => (trim ? x.trim() : x) === "")) continue;
+
+      const obj = {};
+      for (let j = 0; j < cols.length; j++){
+        let v = r[j] ?? "";
+        if (trim) v = v.trim();
+        obj[cols[j]] = autoType ? autoTypeValue(v) : v;
+      }
+      out.push(obj);
+    }
+
+    return JSON.stringify(out, null, 2);
+  }
+
+  // ---------------- UI ----------------
+  function setModeUI(){
+    const mode = $("mode").value;
+    const isJ2C = mode === "json2csv";
+
+    $("json2csvOpts").style.display = isJ2C ? "block" : "none";
+    $("csv2jsonOpts").style.display = isJ2C ? "none" : "block";
+
+    $("inLabel").textContent = isJ2C ? "Entrée (JSON) :" : "Entrée (CSV) :";
+    $("outLabel").textContent = isJ2C ? "Sortie (CSV) :" : "Sortie (JSON) :";
+
+    // placeholder
+    if (isJ2C){
+      $("input").placeholder = `[
+  {"name":"Alice","age":30,"user":{"city":"Paris"}},
+  {"name":"Bob","age":25,"user":{"city":"Lyon"}}
+]`;
+    } else {
+      $("input").placeholder = "name;age;city\nAlice;30;Paris\nBob;25;Lyon";
+    }
+
+    setTxt("status","—");
+    setTxt("note","—");
+    setVal("output","");
+  }
+
+  function convert(){
+    setTxt("status", "Conversion...");
+    setTxt("note", "Astuce : JSON→CSV attend un tableau d'objets. CSV→JSON peut typer automatiquement les valeurs.");
+    setVal("output","");
+
+    try{
+      const mode = $("mode").value;
+      let out = "";
+
+      if (mode === "json2csv"){
+        out = jsonToCsv();
+      } else {
+        out = csvToJson();
+      }
+
+      setVal("output", out);
+      setTxt("status", "OK");
+    }catch(e){
+      setTxt("status", "Erreur");
+      setTxt("note", e && e.message ? e.message : "Impossible de convertir.");
+    }
+  }
+
+  function swap(){
+    const a = $("input").value;
+    const b = $("output").value;
+    setVal("input", b);
+    setVal("output", a);
+    setTxt("status", "OK");
+    setTxt("note", "Entrée/résultat échangés.");
+  }
+
+  $("mode").addEventListener("change", setModeUI);
+  $("btnConvert").addEventListener("click", convert);
+  $("btnSwap").addEventListener("click", swap);
+  $("btnClear").addEventListener("click", () => {
+    setVal("input","");
+    setVal("output","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("output").value || "—").catch(()=>{});
+  });
+
+  // init
+  setModeUI();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
