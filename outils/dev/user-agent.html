@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyseur User-Agent</title>
+  <meta name="description" content="WaveTools : analyseur user-agent.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Analyseur User-Agent</h1>
+
+      <div class="terminal-body">
+        <div class="line">
+          Source :
+          <select id="source">
+            <option value="current" selected>Utiliser mon User-Agent (par défaut)</option>
+            <option value="manual">Coller un User-Agent</option>
+          </select>
+        </div>
+
+        <div class="line" id="uaLabel">User-Agent :</div>
+        <div class="line">
+          <textarea id="ua" rows="5" style="width:100%" placeholder="Colle ici un user-agent..."></textarea>
+        </div>
+
+        <button class="copy-btn" id="btnUseCurrent">Remplir avec le mien</button>
+        <button class="copy-btn" id="btnAnalyze">Analyser</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Résultat :</div>
+        <div class="line">
+          <textarea id="out" rows="12" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier résultat</button>
+    </div>
+  </section>
+</main>
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function getUA(){
+    const src = $("source").value;
+    if (src === "current") return navigator.userAgent || "";
+    return $("ua").value || "";
+  }
+
+  function pick(re, s){
+    const m = s.match(re);
+    return m ? m[1] : "";
+  }
+
+  function parseOS(ua){
+    // Windows
+    let win = pick(/Windows NT ([0-9.]+)/i, ua);
+    if (win){
+      const map = {
+        "10.0": "Windows 10/11",
+        "6.3": "Windows 8.1",
+        "6.2": "Windows 8",
+        "6.1": "Windows 7",
+        "6.0": "Windows Vista",
+        "5.1": "Windows XP"
+      };
+      return { name: map[win] || "Windows", version: win };
+    }
+
+    // macOS
+    let mac = pick(/Mac OS X ([0-9_]+)/i, ua);
+    if (mac){
+      const v = mac.replace(/_/g, ".");
+      return { name: "macOS", version: v };
+    }
+
+    // iOS / iPadOS
+    let ios = pick(/OS ([0-9_]+) like Mac OS X/i, ua);
+    if (ios){
+      const v = ios.replace(/_/g, ".");
+      // iPadOS: souvent "iPad" + "OS x_y"
+      const isIpad = /iPad/i.test(ua);
+      return { name: isIpad ? "iPadOS" : "iOS", version: v };
+    }
+
+    // Android
+    let and = pick(/Android ([0-9.]+)/i, ua);
+    if (and) return { name: "Android", version: and };
+
+    // Linux
+    if (/Linux/i.test(ua)) return { name: "Linux", version: "" };
+
+    return { name: "Inconnu", version: "" };
+  }
+
+  function parseBrowser(ua){
+    // Edge (Chromium)
+    let edg = pick(/Edg\/([0-9.]+)/, ua);
+    if (edg) return { name: "Microsoft Edge", version: edg, engine: "Blink" };
+
+    // Opera
+    let opr = pick(/OPR\/([0-9.]+)/, ua);
+    if (opr) return { name: "Opera", version: opr, engine: "Blink" };
+
+    // Chrome (exclure Chromium-based déjà capturés)
+    let chr = pick(/Chrome\/([0-9.]+)/, ua);
+    if (chr && !/Edg\/|OPR\/|Brave\/|Vivaldi\//.test(ua)) {
+      return { name: "Google Chrome", version: chr, engine: "Blink" };
+    }
+
+    // Brave/Vivaldi (pas toujours présent)
+    let brave = pick(/Brave\/([0-9.]+)/, ua);
+    if (brave) return { name: "Brave", version: brave, engine: "Blink" };
+
+    let viv = pick(/Vivaldi\/([0-9.]+)/, ua);
+    if (viv) return { name: "Vivaldi", version: viv, engine: "Blink" };
+
+    // Firefox
+    let ff = pick(/Firefox\/([0-9.]+)/, ua);
+    if (ff) return { name: "Mozilla Firefox", version: ff, engine: "Gecko" };
+
+    // Safari (sur mac/iOS) : Version/x.y Safari/...
+    if (/Safari\//.test(ua) && /Version\//.test(ua) && !/Chrome\//.test(ua)) {
+      let sv = pick(/Version\/([0-9.]+)/, ua);
+      return { name: "Safari", version: sv || "", engine: "WebKit" };
+    }
+
+    // WebView iOS (souvent pas de Version/)
+    if (/AppleWebKit\//.test(ua) && /Mobile\//.test(ua) && !/Safari\//.test(ua)) {
+      return { name: "iOS WebView", version: "", engine: "WebKit" };
+    }
+
+    return { name: "Inconnu", version: "", engine: "" };
+  }
+
+  function parseDevice(ua){
+    const isMobile = /Mobile|Android|iPhone|Windows Phone/i.test(ua);
+    const isTablet = /iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua));
+    const isBot = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|WhatsApp/i.test(ua);
+
+    let type = "Desktop";
+    if (isBot) type = "Bot/Crawler";
+    else if (isTablet) type = "Tablette";
+    else if (isMobile) type = "Mobile";
+
+    // Modèle Android parfois présent: "; Pixel 7 " etc
+    let model = "";
+    const m = ua.match(/Android [0-9.]+;\s*([^;)]{2,50})\s*(?:Build|\))/i);
+    if (m) model = m[1].trim();
+
+    return { type, model };
+  }
+
+  function features(){
+    const n = navigator;
+    return {
+      "UA actuel": n.userAgent || "",
+      "platform": n.platform || "",
+      "languages": (n.languages || []).join(", "),
+      "cookieEnabled": String(!!n.cookieEnabled),
+      "doNotTrack": (n.doNotTrack ?? "—") + "",
+      "hardwareConcurrency": (n.hardwareConcurrency ?? "—") + "",
+      "deviceMemory(approx)": (n.deviceMemory ?? "—") + "",
+      "maxTouchPoints": (n.maxTouchPoints ?? "—") + ""
+    };
+  }
+
+  function analyze(){
+    setTxt("status","Analyse...");
+    setTxt("note","Analyse heuristique (les UA peuvent mentir/être réduits selon le navigateur).");
+    setVal("out","");
+
+    const ua = getUA().trim();
+    if (!ua) {
+      setTxt("status","Erreur");
+      setTxt("note","User-Agent vide.");
+      return;
+    }
+
+    const os = parseOS(ua);
+    const br = parseBrowser(ua);
+    const dev = parseDevice(ua);
+
+    // Infos "client hints" si dispo
+    const ch = (navigator.userAgentData && navigator.userAgentData.brands)
+      ? navigator.userAgentData.brands.map(b => `${b.brand} ${b.version}`).join(" | ")
+      : "";
+
+    let out = "";
+    out += "User-Agent:\n" + ua + "\n\n";
+
+    out += "Résumé:\n";
+    out += `- Navigateur : ${br.name}${br.version ? " " + br.version : ""}\n`;
+    out += `- Moteur     : ${br.engine || "—"}\n`;
+    out += `- OS         : ${os.name}${os.version ? " " + os.version : ""}\n`;
+    out += `- Appareil   : ${dev.type}${dev.model ? " (" + dev.model + ")" : ""}\n`;
+
+    // Indices
+    out += "\nDétails UA:\n";
+    out += `- Mobile UA : ${/Mobile/i.test(ua) ? "oui" : "non"}\n`;
+    out += `- WebKit    : ${/AppleWebKit\//.test(ua) ? "oui" : "non"}\n`;
+    out += `- Gecko     : ${/Gecko\//.test(ua) ? "oui" : "non"}\n`;
+    out += `- Chrome    : ${/Chrome\//.test(ua) ? "oui" : "non"}\n`;
+    out += `- Safari    : ${/Safari\//.test(ua) ? "oui" : "non"}\n`;
+
+    if (ch){
+      out += "\nUser-Agent Client Hints (brands):\n";
+      out += ch + "\n";
+    } else {
+      out += "\nUser-Agent Client Hints:\n— (non disponible)\n";
+    }
+
+    // Infos environ (utile quand source = current)
+    if ($("source").value === "current"){
+      const f = features();
+      out += "\nInfos navigateur (navigator.*):\n";
+      for (const [k,v] of Object.entries(f)){
+        out += `- ${k}: ${v || "—"}\n`;
+      }
+    }
+
+    setVal("out", out);
+    setTxt("status","OK");
+  }
+
+  function setSourceUI(){
+    const src = $("source").value;
+    const isCurrent = src === "current";
+    $("ua").disabled = isCurrent;
+    if (isCurrent){
+      setVal("ua", navigator.userAgent || "");
+    }
+    setTxt("status","—");
+    setTxt("note","—");
+    setVal("out","");
+  }
+
+  $("source").addEventListener("change", setSourceUI);
+  $("btnUseCurrent").addEventListener("click", () => {
+    setVal("ua", navigator.userAgent || "");
+    $("source").value = "manual";
+    setSourceUI();
+  });
+  $("btnAnalyze").addEventListener("click", analyze);
+  $("btnClear").addEventListener("click", () => {
+    setVal("ua","");
+    setVal("out","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+
+  // init
+  setSourceUI();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
