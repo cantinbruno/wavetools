@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formateur JSON</title>
+  <meta name="description" content="WaveTools : formateur de JSON.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Formateur JSON</h1>
+
+        <div class="terminal-body">
+          <div class="line">JSON brut :</div>
+          <div class="line">
+            <textarea id="input" rows="10" style="width:100%" placeholder='{"hello":"world","arr":[3,2,1]}'></textarea>
+          </div>
+
+          <div class="line">
+            Indentation :
+            <select id="indent">
+              <option value="2" selected>2 espaces</option>
+              <option value="4">4 espaces</option>
+              <option value="tab">Tabulation</option>
+              <option value="0">Minifié</option>
+            </select>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="sortKeys" />
+              Trier les clés (A→Z)
+            </label>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="removeTrailingCommas" checked />
+              Tolérer les virgules finales (trailing commas)
+            </label>
+          </div>
+
+          <button class="copy-btn" id="btnFmt">Formater</button>
+          <button class="copy-btn" id="btnMin">Minifier</button>
+          <button class="copy-btn" id="btnClear">Vider</button>
+
+          <div class="line">JSON formaté :</div>
+          <div class="line">
+            <textarea id="output" rows="12" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="copyOut">Copier résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+    function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+    function setVal(id, v) { $(id).value = v || ""; }
+
+    // --- Utilitaires ---
+    function stripTrailingCommas(jsonText){
+      // Retire les virgules finales avant } ou ]
+      // Attention: approche regex simple (OK pour usage outil "formatter" front)
+      return jsonText
+        .replace(/,\s*([}\]])/g, "$1");
+    }
+
+    function deepSortKeys(value){
+      if (Array.isArray(value)) return value.map(deepSortKeys);
+      if (value && typeof value === "object"){
+        const out = {};
+        for (const k of Object.keys(value).sort((a,b)=>a.localeCompare(b))){
+          out[k] = deepSortKeys(value[k]);
+        }
+        return out;
+      }
+      return value;
+    }
+
+    function getIndent(){
+      const v = $("indent").value;
+      if (v === "tab") return "\t";
+      const n = Number(v);
+      if (!Number.isFinite(n) || n < 0) return 2;
+      return n;
+    }
+
+    function formatJson(mode){
+      setTxt("status", mode === "min" ? "Minification..." : "Formatage...");
+      setTxt("note", "Astuce : colle ton JSON brut à gauche, récupère le résultat en bas.");
+      setVal("output", "");
+
+      let input = $("input").value || "";
+      const sortKeys = $("sortKeys").checked;
+      const tolerant = $("removeTrailingCommas").checked;
+
+      try{
+        if (tolerant) input = stripTrailingCommas(input);
+
+        const parsed = JSON.parse(input);
+
+        const finalObj = sortKeys ? deepSortKeys(parsed) : parsed;
+
+        if (mode === "min"){
+          setVal("output", JSON.stringify(finalObj));
+        } else {
+          const indent = getIndent();
+          const space = $("indent").value === "0" ? 0 : indent;
+          setVal("output", JSON.stringify(finalObj, null, space));
+        }
+
+        setTxt("status", "OK");
+      }catch(e){
+        setTxt("status", "Erreur JSON");
+        setTxt("note", (e && e.message) ? e.message : "JSON invalide.");
+      }
+    }
+
+    $("btnFmt").addEventListener("click", () => formatJson("fmt"));
+    $("btnMin").addEventListener("click", () => formatJson("min"));
+
+    $("btnClear").addEventListener("click", () => {
+      setVal("input", "");
+      setVal("output", "");
+      setTxt("status", "—");
+      setTxt("note", "—");
+    });
+
+    $("copyOut").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("output").value || "—").catch(()=>{});
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
