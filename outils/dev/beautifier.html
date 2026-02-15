@@ -7,8 +7,8 @@
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formateur XML</title>
-  <meta name="description" content="WaveTools : formateur de XML.">
+  <title>Embellisseur de code</title>
+  <meta name="description" content="WaveTools : embellisseur de code source.">
   <meta name="robots" content="index, follow">
   <meta http-equiv="content-language" content="fr">
   <meta name="author" content="WaveTools">
@@ -28,6 +28,9 @@
   </aside>
 -->
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+
   <main class="tool-main">
     <section class="shell-section">
       <div class="ip-card">
@@ -45,6 +48,7 @@
               <option value="js">JavaScript</option>
               <option value="sql">SQL</option>
               <option value="py">Python</option>
+              <option value="c">C</option> <!-- ✅ AJOUT -->
             </select>
           </div>
 
@@ -139,7 +143,6 @@
       if (!s) return "text";
       if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))) return "json";
       if (s.startsWith("<") && s.endsWith(">")) {
-        // HTML/XML grossier
         if (/<\s*html[\s>]/i.test(s) || /<!doctype\s+html/i.test(s)) return "html";
         return "xml";
       }
@@ -147,33 +150,25 @@
       if (/^\s*(def |class |import |from |if __name__ ==)/m.test(s)) return "py";
       if (/^\s*[\w\.\#\-\[\]="'\s>:+~,]+\{[\s\S]*\}\s*$/m.test(s)) return "css";
       if (/\b(function|const|let|var|=>|import\s+.+from)\b/.test(s)) return "js";
+
+      // ✅ Détection très simple du C
+      if (/^\s*#\s*include\b/m.test(s) || /\b(int|void|char|float|double|struct)\s+\w+\s*\(/.test(s)) return "c";
+
       return "text";
     }
 
     // --- JSON (beautify/minify) ---
-    function sortKeysDeep(v){
-      if (Array.isArray(v)) return v.map(sortKeysDeep);
-      if (v && typeof v === "object"){
-        const out = {};
-        for (const k of Object.keys(v).sort((a,b)=>a.localeCompare(b))){
-          out[k] = sortKeysDeep(v[k]);
-        }
-        return out;
-      }
-      return v;
-    }
     function stripTrailingCommasJson(t){
       return t.replace(/,\s*([}\]])/g, "$1");
     }
     function beautifyJSON(code, indent, minify){
-      const tolerant = true;
-      const input = tolerant ? stripTrailingCommasJson(code) : code;
+      const input = stripTrailingCommasJson(code);
       const obj = JSON.parse(input);
       const space = minify ? 0 : indent;
       return JSON.stringify(obj, null, space);
     }
 
-    // --- XML/HTML (pretty/minify) via DOMParser + serializer simplifié ---
+    // --- XML/HTML (pretty/minify) ---
     function collapseWhitespaceTextNodes(root){
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
       const toRemove = [];
@@ -245,9 +240,7 @@
         if (perr) throw new Error("XML invalide (erreur de parsing).");
       }
 
-      // En HTML, DOMParser (text/html) crée toujours un document, on sérialise le body
       if (kind === "html"){
-        // On formatte le contenu sous <html>… si present, sinon body
         collapseWhitespaceTextNodes(doc);
         const root = doc.documentElement || doc.body;
         return serializeNode(root, { indentStr, level: 0, minify }).trimEnd();
@@ -260,7 +253,6 @@
     // --- CSS (simple) ---
     function beautifyCSS(code, indentStr, minify){
       let s = code.trim();
-      // minify
       if (minify){
         s = s
           .replace(/\/\*[\s\S]*?\*\//g, "")
@@ -270,14 +262,12 @@
           .trim();
         return s;
       }
-      // pretty (très simple)
       s = s.replace(/\r\n?/g,"\n");
       s = s.replace(/\/\*[\s\S]*?\*\//g, m => m.replace(/\n/g," ") + "\n");
-      // ajoute retours autour des { }
       s = s.replace(/\s*\{\s*/g, " {\n");
       s = s.replace(/\s*\}\s*/g, "\n}\n");
       s = s.replace(/;\s*/g, ";\n");
-      // indent par blocs
+
       const lines = s.split("\n").map(l => l.trim()).filter(Boolean);
       let level = 0;
       const out = [];
@@ -289,19 +279,16 @@
       return out.join("\n");
     }
 
-    // --- JS/Python/SQL : beautify léger (indent basé sur accolades/keywords) ---
+    // --- JS : braces ---
     function beautifyBraces(code, indentStr, minify){
       let s = code;
       if ($("normalizeNewlines").checked) s = normalizeNewlines(s);
 
       if (minify){
-        // minify "safe-ish" : enlève espaces multiples (ne touche pas aux strings)
-        // -> approche prudente: uniquement trim des lignes + join
         s = s.split("\n").map(l => l.trim()).filter(l => l.length).join("");
         return s;
       }
 
-      // Pretty simple : place { } sur lignes propres et indente au niveau des braces
       s = s.replace(/\r\n?/g,"\n");
       s = s.replace(/\{/g, "{\n");
       s = s.replace(/\}/g, "\n}\n");
@@ -319,20 +306,47 @@
       return out.join("\n");
     }
 
+    // ✅ C : on réutilise le même moteur que JS (accollades)
+    function beautifyC(code, indentStr, minify){
+      // On garde exactement la même logique que beautifyBraces,
+      // mais on fait un micro "nettoyage" des directives #include/#define
+      let s = code;
+      if ($("normalizeNewlines").checked) s = normalizeNewlines(s);
+
+      if (minify){
+        // On évite de coller les lignes #... dans le reste (ça casse la lisibilité)
+        const lines = s.split("\n").map(l => l.trim()).filter(Boolean);
+        const pre = lines.filter(l => l.startsWith("#"));
+        const rest = lines.filter(l => !l.startsWith("#")).join("");
+        return (pre.length ? pre.join("\n") + "\n" : "") + rest;
+      }
+
+      // Preserve lines starting with #
+      const lines = s.replace(/\r\n?/g, "\n").split("\n");
+      const pre = [];
+      const body = [];
+      for (const l of lines){
+        if (l.trim().startsWith("#")) pre.push(l.trim());
+        else body.push(l);
+      }
+
+      let formatted = beautifyBraces(body.join("\n"), indentStr, false);
+      formatted = (pre.length ? pre.join("\n") + "\n\n" : "") + formatted;
+      return formatted;
+    }
+
     function beautifySQL(code, indentStr, minify){
       let s = code.trim();
       if (minify){
         s = s.replace(/\s+/g," ").trim();
         return s;
       }
-      // uppercase keywords principaux + retours ligne
       const KW = ["SELECT","FROM","WHERE","GROUP BY","ORDER BY","HAVING","LIMIT","JOIN","LEFT JOIN","RIGHT JOIN","INNER JOIN","OUTER JOIN","ON","INSERT","UPDATE","DELETE","VALUES","SET","WITH"];
       for (const k of KW){
         const re = new RegExp("\\b" + k.replace(" ","\\s+") + "\\b","ig");
         s = s.replace(re, "\n" + k);
       }
       s = s.replace(/\n+/g,"\n").trim();
-      // indent simple: ON/AND/OR
       const lines = s.split("\n").map(l => l.trim()).filter(Boolean);
       const out = [];
       for (let line of lines){
@@ -355,7 +369,7 @@
 
     function run(mode){
       setTxt("status", mode === "min" ? "Minification..." : "Embellissement...");
-      setTxt("note", "Info : sans librairies externes, l'embellissement JS/CSS/SQL reste 'light'. JSON/XML/HTML sont les plus fiables.");
+      setTxt("note", "Info : sans librairies externes, l'embellissement JS/CSS/SQL/C reste 'light'. JSON/XML/HTML sont les plus fiables.");
       setVal("output","");
 
       const input = $("input").value || "";
@@ -380,14 +394,14 @@
         else if (lang === "css") result = beautifyCSS(input, indentStr, minify);
         else if (lang === "sql") result = beautifySQL(input, indentStr, minify);
         else if (lang === "js") result = beautifyBraces(input, indentStr, minify);
+        else if (lang === "c") result = beautifyC(input, indentStr, minify); // ✅ AJOUT
         else if (lang === "py") {
-          // On ne "reformate" pas Python sans lib, on fait juste nettoyage
           result = input;
           if (minify) {
             result = input.split("\n").map(l => l.trim()).filter(Boolean).join("\n");
           }
         } else {
-          result = input; // text
+          result = input;
         }
 
         result = postProcess(result);

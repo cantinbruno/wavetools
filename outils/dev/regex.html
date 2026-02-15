@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testeur Regex</title>
+  <meta name="description" content="WaveTools : testeur d'expressions régulières.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+  <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Testeur Regex</h1>
+
+        <div class="terminal-body">
+          <div class="line">Expression régulière :</div>
+          <div class="line">
+            <input id="pattern" style="width:100%" placeholder="ex: (\w+)@(\w+\.\w+)" value="" />
+          </div>
+
+          <div class="line">
+            Flags :
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_g" checked /> g</label>
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_i" /> i</label>
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_m" /> m</label>
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_s" /> s</label>
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_u" checked /> u</label>
+            <label style="margin-right:.75rem;"><input type="checkbox" id="f_y" /> y</label>
+          </div>
+
+          <div class="line">
+            <label style="display:flex; gap:.5rem; align-items:center;">
+              <input type="checkbox" id="escapeMode" />
+              Mode “échappement” (saisir \\n, \\t, \\xNN, \\uNNNN…)
+            </label>
+          </div>
+
+          <div class="line">Texte à tester :</div>
+          <div class="line">
+            <textarea id="text" rows="10" style="width:100%"
+              placeholder="Colle ton texte ici..."></textarea>
+          </div>
+
+          <div class="line">Remplacement (optionnel) :</div>
+          <div class="line">
+            <input id="replacement" style="width:100%" placeholder="ex: $1 [domaine=$2]" value="" />
+          </div>
+
+          <button class="copy-btn" id="btnTest">Tester</button>
+          <button class="copy-btn" id="btnReplace">Appliquer remplacement</button>
+          <button class="copy-btn" id="btnClear">Vider</button>
+
+          <div class="line">Résultats :</div>
+          <div class="line">
+            <textarea id="result" rows="10" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="copyRes">Copier résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+    function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+    function setVal(id, v) { $(id).value = v || ""; }
+
+    function getFlags(){
+      let f = "";
+      if ($("f_g").checked) f += "g";
+      if ($("f_i").checked) f += "i";
+      if ($("f_m").checked) f += "m";
+      if ($("f_s").checked) f += "s";
+      if ($("f_u").checked) f += "u";
+      if ($("f_y").checked) f += "y";
+      return f;
+    }
+
+    function unescapeUserInput(s){
+      // Permet d'écrire \n \t \r \\ \xNN \uNNNN \u{...}
+      // Astuce: JSON.parse sur une string échappée, en gérant les " internes.
+      // On remplace d'abord les \u{...} non supportés par JSON.parse.
+      const withUBraces = s.replace(/\\u\{([0-9a-fA-F]+)\}/g, (_,hex) => {
+        const cp = parseInt(hex, 16);
+        if (!Number.isFinite(cp)) return _;
+        return String.fromCodePoint(cp);
+      });
+      // Escape " pour JSON
+      const safe = withUBraces.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+      try{
+        return JSON.parse(`"${safe}"`);
+      }catch{
+        // fallback: au moins \n \t \r
+        return withUBraces
+          .replace(/\\n/g, "\n")
+          .replace(/\\t/g, "\t")
+          .replace(/\\r/g, "\r")
+          .replace(/\\\\/g, "\\");
+      }
+    }
+
+    function escapeVisible(s){
+      return s
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/\r/g, "\\r")
+        .replace(/\t/g, "\\t");
+    }
+
+    function buildRegex(){
+      const patternRaw = $("pattern").value || "";
+      if (!patternRaw.trim()) throw new Error("Regex vide.");
+      const flags = getFlags();
+
+      // En JS, "g" change le comportement de exec/matchAll -> ok ici.
+      return new RegExp(patternRaw, flags);
+    }
+
+    function runTest(){
+      setTxt("status", "Analyse...");
+      setTxt("note", "JS RegExp : certains features (lookbehind, etc.) dépendent du navigateur.");
+      setVal("result", "");
+
+      const escapeMode = $("escapeMode").checked;
+      const textRaw = $("text").value || "";
+      const text = escapeMode ? unescapeUserInput(textRaw) : textRaw;
+
+      try{
+        const re = buildRegex();
+
+        // Reset si /g ou /y
+        re.lastIndex = 0;
+
+        const matches = [];
+        let m;
+
+        // On itère proprement avec exec pour récupérer index + groupes
+        if (re.global || re.sticky){
+          while ((m = re.exec(text)) !== null){
+            matches.push(m);
+            if (m[0] === "") {
+              // évite boucle infinie sur match vide
+              re.lastIndex++;
+            }
+          }
+        } else {
+          m = re.exec(text);
+          if (m) matches.push(m);
+        }
+
+        if (matches.length === 0){
+          setVal("result", "Aucune correspondance.");
+          setTxt("status", "OK");
+          return;
+        }
+
+        // Construire un rapport texte + une vue "highlight" simple
+        let out = "";
+        out += `Matches: ${matches.length}\n`;
+        out += `Flags: /${getFlags()}\n\n`;
+
+        matches.forEach((mm, idx) => {
+          out += `#${idx+1}\n`;
+          out += `- match: "${escapeVisible(mm[0])}"\n`;
+          out += `- index: ${mm.index}\n`;
+          out += `- length: ${mm[0].length}\n`;
+          if (mm.groups && Object.keys(mm.groups).length){
+            out += `- named groups:\n`;
+            for (const [k,v] of Object.entries(mm.groups)){
+              out += `  • ${k}: "${escapeVisible(String(v))}"\n`;
+            }
+          }
+          if (mm.length > 1){
+            out += `- groups:\n`;
+            for (let i=1;i<mm.length;i++){
+              out += `  • $${i}: "${escapeVisible(String(mm[i]))}"\n`;
+            }
+          }
+          out += "\n";
+        });
+
+        // Highlight (crochets) sur les matches (non chevauchants)
+        // On reconstruit la string en partant des index
+        const spans = matches.map(mm => ({ start: mm.index, end: mm.index + mm[0].length }));
+        spans.sort((a,b)=>a.start-b.start);
+
+        let hi = "";
+        let cursor = 0;
+        for (const sp of spans){
+          if (sp.start < cursor) continue; // ignore chevauchements
+          hi += text.slice(cursor, sp.start);
+          hi += "[" + text.slice(sp.start, sp.end) + "]";
+          cursor = sp.end;
+        }
+        hi += text.slice(cursor);
+
+        out += "Texte (matches entre crochets):\n";
+        out += escapeMode ? escapeVisible(hi) : hi;
+
+        setVal("result", out);
+        setTxt("status", "OK");
+      }catch(e){
+        setTxt("status", "Erreur");
+        setTxt("note", e && e.message ? e.message : "Regex invalide ou erreur d'exécution.");
+      }
+    }
+
+    function runReplace(){
+      setTxt("status", "Remplacement...");
+      setTxt("note", "Utilise $1, $2… et $<name> (groupes nommés) comme en JS.");
+      setVal("result", "");
+
+      const escapeMode = $("escapeMode").checked;
+      const textRaw = $("text").value || "";
+      const replRaw = $("replacement").value || "";
+      const text = escapeMode ? unescapeUserInput(textRaw) : textRaw;
+      const repl = escapeMode ? unescapeUserInput(replRaw) : replRaw;
+
+      try{
+        const re = buildRegex();
+        const replaced = text.replace(re, repl);
+
+        let out = "";
+        out += "Résultat du remplacement:\n";
+        out += "-------------------------\n";
+        out += escapeMode ? escapeVisible(replaced) : replaced;
+
+        setVal("result", out);
+        setTxt("status", "OK");
+      }catch(e){
+        setTxt("status", "Erreur");
+        setTxt("note", e && e.message ? e.message : "Impossible d'appliquer le remplacement.");
+      }
+    }
+
+    $("btnTest").addEventListener("click", runTest);
+    $("btnReplace").addEventListener("click", runReplace);
+
+    $("btnClear").addEventListener("click", () => {
+      setVal("pattern", "");
+      setVal("text", "");
+      setVal("replacement", "");
+      setVal("result", "");
+      setTxt("status", "—");
+      setTxt("note", "—");
+    });
+
+    $("copyRes").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("result").value || "—").catch(()=>{});
+    });
+
+    // Bonus: test en live (léger) quand on tape
+    const debounce = (fn, ms=250) => {
+      let t; return (...args) => { clearTimeout(t); t = setTimeout(()=>fn(...args), ms); };
+    };
+    const live = debounce(() => {
+      if (($("pattern").value || "").trim() && ($("text").value || "").length){
+        runTest();
+      }
+    }, 300);
+
+    ["pattern","text","replacement","f_g","f_i","f_m","f_s","f_u","f_y","escapeMode"]
+      .forEach(id => $(id).addEventListener("input", live));
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
