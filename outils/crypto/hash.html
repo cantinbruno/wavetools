@@ -28,38 +28,46 @@
   </aside>
 -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
 <main class="tool-main">
-    <section class="shell-section">
-      <div class="ip-card">
-        <h1 class="tool-title">Générateur de hash</h1>
+<section class="shell-section">
+<div class="ip-card">
 
-        <div class="terminal-body">
-          <div class="line">Texte : <input id="text" placeholder="Tape ton texte ici" value="" /></div>
+<h1 class="tool-title">Générateur de hash</h1>
 
-          <div class="line">
-            Algorithme :
-            <select id="algo">
-              <option value="SHA-256" selected>SHA-256</option>
-              <option value="SHA-1">SHA-1</option>
-              <option value="SHA-384">SHA-384</option>
-              <option value="SHA-512">SHA-512</option>
-            </select>
-          </div>
+<div class="terminal-body">
 
-          <button class="copy-btn" id="btnHash">Générer</button>
+<div class="line">Texte : <input id="text"></div>
 
-          <div class="line">Hash : <span id="out">—</span></div>
-          <div class="line">Longueur : <span id="len">—</span></div>
-          <div class="line">Statut : <span id="status">—</span></div>
+<div class="line">
+Algorithme :
+<select id="algo">
+<option value="SHA-256">SHA-256</option>
+<option value="SHA-1">SHA-1</option>
+<option value="SHA-384">SHA-384</option>
+<option value="SHA-512">SHA-512</option>
+<option value="MD5">MD5</option>
+<option value="SHA3">SHA-3</option>
+<option value="RIPEMD160">RIPEMD-160</option>
+</select>
+</div>
 
-          <div class="line">Note : <span id="note">—</span></div>
-        </div>
+<button class="copy-btn" onclick="gen()">Générer</button>
 
-        <button class="copy-btn" id="btnCopy">Copier</button>
-      </div>
-    </section>
-  </main>
+<div class="line">Hash : <span id="out">—</span></div>
+<div class="line">Longueur : <span id="len">—</span></div>
+<div class="line">Statut : <span id="status">—</span></div>
 
+<div class="line">Note : <span id="note">—</span></div>
+
+</div>
+
+<button class="copy-btn" onclick="copy()">Copier</button>
+
+</div>
+</section>
+</main>
 
 <!--
   <aside class="tool-ads">
@@ -69,63 +77,50 @@
 -->
 
 <script>
-    const $ = (id) => document.getElementById(id);
+const $=id=>document.getElementById(id);
 
-    function setTxt(id, v) {
-      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
-    }
+function set(v,id){$(id).textContent=v||"—";}
 
-    function toHex(buffer) {
-      const bytes = new Uint8Array(buffer);
-      let hex = "";
-      for (const b of bytes) hex += b.toString(16).padStart(2, "0");
-      return hex;
-    }
+let last="";
 
-    let lastCopy = "";
+async function gen(){
+let t=$("text").value;
+let a=$("algo").value;
 
-    async function gen() {
-      const text = $("text").value || "";
-      const algo = $("algo").value;
+if(!t){set("Entre un texte","status");return;}
 
-      if (!text) {
-        setTxt("status", "Entre un texte");
-        setTxt("out", "—");
-        setTxt("len", "—");
-        setTxt("note", "—");
-        lastCopy = "";
-        return;
-      }
+set("Calcul...","status");
 
-      try {
-        setTxt("status", "Calcul...");
-        const enc = new TextEncoder();
-        const data = enc.encode(text);
-        const digest = await crypto.subtle.digest(algo, data);
-        const hex = toHex(digest);
+let h="";
 
-        setTxt("out", hex);
-        setTxt("len", `${hex.length} chars`);
-        setTxt("status", "OK");
-        setTxt("note", "Astuce : SHA-256 est un bon choix général. Évite MD5 (non sécurisé).");
+try{
+if(a==="SHA-256"||a==="SHA-1"||a==="SHA-384"||a==="SHA-512"){
+let d=new TextEncoder().encode(t);
+let r=await crypto.subtle.digest(a,d);
+h=[...new Uint8Array(r)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}else if(a==="MD5"){
+h=CryptoJS.MD5(t).toString();
+}else if(a==="SHA3"){
+h=CryptoJS.SHA3(t).toString();
+}else if(a==="RIPEMD160"){
+h=CryptoJS.RIPEMD160(t).toString();
+}
 
-        lastCopy = hex;
-      } catch (e) {
-        setTxt("status", "Erreur");
-        setTxt("out", "—");
-        setTxt("len", "—");
-        setTxt("note", "Ton navigateur ne supporte peut-être pas cet algo.");
-        lastCopy = "";
-      }
-    }
+set(h,"out");
+set(h.length+" chars","len");
+set("OK","status");
+set("MD5/SHA1 cassés → pas pour sécurité","note");
 
-    $("btnHash").addEventListener("click", gen);
-    $("text").addEventListener("keydown", (e)=>{ if(e.key==="Enter") gen(); });
-    $("algo").addEventListener("change", gen);
+last=h;
 
-    $("btnCopy").addEventListener("click", ()=> {
-      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
-    });
+}catch(e){
+set("Erreur","status");
+}
+}
+
+function copy(){
+navigator.clipboard.writeText(last||"");
+}
   </script>
 
 <!-- ****************************************************************************************************** -->
