@@ -111,183 +111,65 @@ Conversion :
 -->
 
 <script>
-  const $ = (id) => document.getElementById(id);
+const $ = id => document.getElementById(id);
 
-    function setTxt(id, v) {
-      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
-    }
+function show(mode){
+["ip","bin","int","hex"].forEach(m=>{
+$("block-"+m).style.display = (m===mode?"block":"none");
+});
+}
 
-    function parseIPv4(ip) {
-      const m = (ip || "").trim().match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
-      if (!m) return null;
-      const o = m.slice(1).map(n => Number(n));
-      if (o.some(n => Number.isNaN(n) || n < 0 || n > 255)) return null;
-      return o;
-    }
+$("mode").onchange = e => show(e.target.value);
 
-    function ipv4ToUint32(o) {
-      return (((o[0] << 24) >>> 0) + (o[1] << 16) + (o[2] << 8) + o[3]) >>> 0;
-    }
+function set(v,id){$(id).textContent=v||"—";}
 
-    function uint32ToIPv4(n) {
-      n = Number(n);
-      if (!Number.isFinite(n) || n < 0 || n > 0xFFFFFFFF) return null;
-      n = n >>> 0;
-      return [
-        (n >>> 24) & 255,
-        (n >>> 16) & 255,
-        (n >>> 8) & 255,
-        n & 255
-      ].join(".");
-    }
+function parseIP(ip){
+let m=ip.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
+if(!m)return null;
+let o=m.slice(1).map(Number);
+if(o.some(n=>n>255))return null;
+return o;
+}
 
-    function octetToBin8(n) {
-      return (n >>> 0).toString(2).padStart(8, "0");
-    }
+function fromIP(){
+let o=parseIP($("ip").value);
+if(!o){set("IP invalide","status");return;}
+let n=((o[0]<<24)>>>0)+(o[1]<<16)+(o[2]<<8)+o[3];
+set(o.map(x=>x.toString(2).padStart(8,"0")).join(""),"bin");
+set(o.map(x=>x.toString(2).padStart(8,"0")).join(" "),"binGrouped");
+set(n,"uint32");
+set("0x"+n.toString(16).toUpperCase(),"hex");
+set("OK","status");
+}
 
-    function ipv4ToBin(o) {
-      return o.map(octetToBin8).join("");
-    }
+function fromBin(){
+let b=$("binIn").value.replace(/\s+/g,"");
+if(!/^[01]{32}$/.test(b)){set("Binaire invalide","status");return;}
+let n=parseInt(b,2);
+set([(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join("."),"ipFromBin");
+set("OK","status");
+}
 
-    function ipv4ToBinGrouped(o) {
-      return o.map(octetToBin8).join(" ");
-    }
+function fromInt(){
+let n=parseInt($("intIn").value);
+if(isNaN(n)){set("Entier invalide","status");return;}
+set([(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join("."),"ipFromInt");
+set("OK","status");
+}
 
-    function binToIPv4(binStr) {
-      let s = (binStr || "").trim();
-      if (!s) return null;
+function fromHex(){
+let h=$("hexIn").value.replace(/^0x/i,"");
+if(!/^[0-9a-fA-F]{8}$/.test(h)){set("Hex invalide","status");return;}
+let n=parseInt(h,16);
+set([(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join("."),"ipFromHex");
+set("OK","status");
+}
 
-      // autorise espaces / points
-      s = s.replace(/\./g, " ");
-      const parts = s.split(/\s+/).filter(Boolean);
+function copy(){
+navigator.clipboard.writeText(document.body.innerText);
+}
 
-      // si l'utilisateur met 32 bits collés
-      if (parts.length === 1 && /^[01]{32}$/.test(parts[0])) {
-        const b = parts[0];
-        const o = [
-          parseInt(b.slice(0,8),2),
-          parseInt(b.slice(8,16),2),
-          parseInt(b.slice(16,24),2),
-          parseInt(b.slice(24,32),2),
-        ];
-        return o.join(".");
-      }
-
-      // sinon 4 groupes de 8 bits
-      if (parts.length !== 4) return null;
-      if (!parts.every(p => /^[01]{8}$/.test(p))) return null;
-
-      const o = parts.map(p => parseInt(p,2));
-      if (o.some(n => Number.isNaN(n) || n < 0 || n > 255)) return null;
-      return o.join(".");
-    }
-
-    function hexToIPv4(hexStr) {
-      let s = (hexStr || "").trim();
-      if (!s) return null;
-
-      s = s.toLowerCase().replace(/^0x/, "");
-      // autorise formats: c0a8010a / c0 a8 01 0a / c0:a8:01:0a
-      s = s.replace(/[^0-9a-f]/g, "");
-      if (s.length !== 8) return null;
-
-      const n = parseInt(s, 16);
-      if (!Number.isFinite(n)) return null;
-      return uint32ToIPv4(n >>> 0);
-    }
-
-    function uint32ToHex(n) {
-      n = Number(n) >>> 0;
-      return "0x" + n.toString(16).toUpperCase().padStart(8, "0");
-    }
-
-    let lastCopy = "";
-
-    function buildCopy() {
-      lastCopy =
-`IPv4: ${$("ip").value}
-
-Binaire: ${$("bin").textContent}
-Binaire (groupé): ${$("binGrouped").textContent}
-Entier (uint32): ${$("uint32").textContent}
-Hex: ${$("hex").textContent}
-
-Depuis binaire: ${$("ipFromBin").textContent}
-Depuis entier: ${$("ipFromInt").textContent}
-Depuis hex: ${$("ipFromHex").textContent}`;
-    }
-
-    function fromIP() {
-      const o = parseIPv4($("ip").value);
-      if (!o) {
-        setTxt("status", "IP invalide");
-        return;
-      }
-
-      const n = ipv4ToUint32(o);
-      setTxt("bin", ipv4ToBin(o));
-      setTxt("binGrouped", ipv4ToBinGrouped(o));
-      setTxt("uint32", String(n));
-      setTxt("hex", uint32ToHex(n));
-      setTxt("status", "OK");
-
-      buildCopy();
-    }
-
-    function fromBin() {
-      const ip = binToIPv4($("binIn").value);
-      if (!ip) {
-        setTxt("ipFromBin", "—");
-        setTxt("status", "Binaire invalide");
-        return;
-      }
-      setTxt("ipFromBin", ip);
-      setTxt("status", "OK");
-      buildCopy();
-    }
-
-    function fromInt() {
-      const ip = uint32ToIPv4($("intIn").value.trim());
-      if (!ip) {
-        setTxt("ipFromInt", "—");
-        setTxt("status", "Entier invalide");
-        return;
-      }
-      setTxt("ipFromInt", ip);
-      setTxt("status", "OK");
-      buildCopy();
-    }
-
-    function fromHex() {
-      const ip = hexToIPv4($("hexIn").value);
-      if (!ip) {
-        setTxt("ipFromHex", "—");
-        setTxt("status", "Hex invalide");
-        return;
-      }
-      setTxt("ipFromHex", ip);
-      setTxt("status", "OK");
-      buildCopy();
-    }
-
-    $("btnFromIP").addEventListener("click", fromIP);
-    $("btnFromBin").addEventListener("click", fromBin);
-    $("btnFromInt").addEventListener("click", fromInt);
-    $("btnFromHex").addEventListener("click", fromHex);
-
-    $("btnCopy").addEventListener("click", () => {
-      buildCopy();
-      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
-    });
-
-    // Enter shortcuts
-    $("ip").addEventListener("keydown", (e)=>{ if(e.key==="Enter") fromIP(); });
-    $("binIn").addEventListener("keydown", (e)=>{ if(e.key==="Enter") fromBin(); });
-    $("intIn").addEventListener("keydown", (e)=>{ if(e.key==="Enter") fromInt(); });
-    $("hexIn").addEventListener("keydown", (e)=>{ if(e.key==="Enter") fromHex(); });
-
-    // auto convert au chargement
-    fromIP();
+fromIP();
   </script>
 
 <!-- ****************************************************************************************************** -->
