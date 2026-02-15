@@ -54,8 +54,7 @@ Conversion :
 <div class="line">IPv4 : <input id="ip" value="192.168.1.10"></div>
 <button class="copy-btn" onclick="fromIP()">Convertir</button>
 
-<div class="line">Binaire : <span id="bin">—</span></div>
-<div class="line">Binaire (groupé) : <span id="binGrouped">—</span></div>
+<div class="line">Binaire : <span id="binGrouped">—</span></div>
 <div class="line">Entier : <span id="uint32">—</span></div>
 <div class="line">Hex : <span id="hex">—</span></div>
 
@@ -118,7 +117,6 @@ function show(mode){
 $("block-"+m).style.display = (m===mode?"block":"none");
 });
 }
-
 $("mode").onchange = e => show(e.target.value);
 
 function set(v,id){$(id).textContent=v||"—";}
@@ -135,7 +133,6 @@ function fromIP(){
 let o=parseIP($("ip").value);
 if(!o){set("IP invalide","status");return;}
 let n=((o[0]<<24)>>>0)+(o[1]<<16)+(o[2]<<8)+o[3];
-set(o.map(x=>x.toString(2).padStart(8,"0")).join(""),"bin");
 set(o.map(x=>x.toString(2).padStart(8,"0")).join(" "),"binGrouped");
 set(n,"uint32");
 set("0x"+n.toString(16).toUpperCase(),"hex");
