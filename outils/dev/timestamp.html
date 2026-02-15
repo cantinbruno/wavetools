@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertisseur Timestamp</title>
+  <meta name="description" content="WaveTools : convertisseur timestamp.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Convertisseur Timestamp</h1>
+
+      <div class="terminal-body">
+        <div class="line">
+          Mode :
+          <select id="mode">
+            <option value="ts2date" selected>Timestamp → Date (par défaut)</option>
+            <option value="date2ts">Date → Timestamp</option>
+          </select>
+        </div>
+
+        <div class="line">
+          Unité timestamp :
+          <select id="unit">
+            <option value="ms" selected>Millisecondes (ms)</option>
+            <option value="s">Secondes (s)</option>
+          </select>
+        </div>
+
+        <div class="line">
+          Fuseau :
+          <select id="tz">
+            <option value="local" selected>Local (navigateur)</option>
+            <option value="utc">UTC</option>
+          </select>
+        </div>
+
+        <div class="line">
+          Format date (entrée/sortie) :
+          <select id="fmt">
+            <option value="iso" selected>ISO 8601 (YYYY-MM-DDTHH:mm:ss.sssZ)</option>
+            <option value="ymd">YYYY-MM-DD HH:mm:ss</option>
+            <option value="ymdms">YYYY-MM-DD HH:mm:ss.SSS</option>
+          </select>
+        </div>
+
+        <div class="line">
+          <label style="display:flex; gap:.5rem; align-items:center;">
+            <input type="checkbox" id="nowFill" />
+            Utiliser “maintenant” (remplit automatiquement)
+          </label>
+        </div>
+
+        <div class="line" id="inLabel">Entrée (timestamp) :</div>
+        <div class="line">
+          <input id="input" style="width:100%" placeholder="ex: 1700000000000" />
+        </div>
+
+        <button class="copy-btn" id="btnConvert">Convertir</button>
+        <button class="copy-btn" id="btnSwap">Inverser (échanger entrée/résultat)</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line" id="outLabel">Sortie (date) :</div>
+        <div class="line">
+          <textarea id="output" rows="6" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier résultat</button>
+    </div>
+  </section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function pad2(n){ return String(n).padStart(2,"0"); }
+  function pad3(n){ return String(n).padStart(3,"0"); }
+
+  function formatDate(d, fmt, tz){
+    const useUTC = (tz === "utc");
+    const Y = useUTC ? d.getUTCFullYear() : d.getFullYear();
+    const M = useUTC ? d.getUTCMonth()+1 : d.getMonth()+1;
+    const D = useUTC ? d.getUTCDate() : d.getDate();
+    const h = useUTC ? d.getUTCHours() : d.getHours();
+    const m = useUTC ? d.getUTCMinutes() : d.getMinutes();
+    const s = useUTC ? d.getUTCSeconds() : d.getSeconds();
+    const ms = useUTC ? d.getUTCMilliseconds() : d.getMilliseconds();
+
+    if (fmt === "iso"){
+      // ISO: si UTC -> toISOString, sinon iso "local"
+      if (useUTC) return d.toISOString();
+      // ISO local sans Z
+      return `${Y}-${pad2(M)}-${pad2(D)}T${pad2(h)}:${pad2(m)}:${pad2(s)}.${pad3(ms)}`;
+    }
+    if (fmt === "ymd"){
+      return `${Y}-${pad2(M)}-${pad2(D)} ${pad2(h)}:${pad2(m)}:${pad2(s)}`;
+    }
+    // ymdms
+    return `${Y}-${pad2(M)}-${pad2(D)} ${pad2(h)}:${pad2(m)}:${pad2(s)}.${pad3(ms)}`;
+  }
+
+  function parseDateInput(str, fmt, tz){
+    const t = (str || "").trim();
+    if (!t) throw new Error("Date vide.");
+
+    // ISO : on laisse Date parser (supporte Z)
+    if (fmt === "iso"){
+      const d = new Date(t);
+      if (Number.isNaN(d.getTime())) throw new Error("Date ISO invalide.");
+      return d;
+    }
+
+    // YYYY-MM-DD HH:mm:ss(.SSS)
+    const re = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,3}))?$/;
+    const m = t.match(re);
+    if (!m) throw new Error("Format attendu : YYYY-MM-DD HH:mm:ss (option .SSS).");
+
+    const Y = Number(m[1]);
+    const Mo = Number(m[2]);
+    const Da = Number(m[3]);
+    const h = Number(m[4]);
+    const mi = Number(m[5]);
+    const s = Number(m[6]);
+    const ms = m[7] ? Number(m[7].padEnd(3, "0")) : 0;
+
+    if (![Y,Mo,Da,h,mi,s,ms].every(Number.isFinite)) throw new Error("Date invalide.");
+
+    // construire en local ou UTC
+    if (tz === "utc"){
+      return new Date(Date.UTC(Y, Mo-1, Da, h, mi, s, ms));
+    }
+    return new Date(Y, Mo-1, Da, h, mi, s, ms);
+  }
+
+  function tsToDate(){
+    const unit = $("unit").value; // ms|s
+    const tz = $("tz").value;     // local|utc
+    const fmt = $("fmt").value;   // iso|ymd|ymdms
+
+    const raw = ($("input").value || "").trim();
+    if (!raw) throw new Error("Timestamp vide.");
+
+    // accepte 1700..., 1700...ms, etc -> on extrait le nombre
+    const num = Number(raw.replace(/[^\d\-\.]/g,""));
+    if (!Number.isFinite(num)) throw new Error("Timestamp invalide.");
+
+    const ms = (unit === "s") ? Math.round(num * 1000) : Math.round(num);
+    const d = new Date(ms);
+    if (Number.isNaN(d.getTime())) throw new Error("Timestamp hors plage.");
+
+    const out = [];
+    out.push(`Date (${tz.toUpperCase()}): ${formatDate(d, fmt, tz)}`);
+    out.push(`Timestamp (s):  ${Math.floor(ms / 1000)}`);
+    out.push(`Timestamp (ms): ${ms}`);
+    return out.join("\n");
+  }
+
+  function dateToTs(){
+    const unit = $("unit").value; // ms|s (sortie principale)
+    const tz = $("tz").value;     // local|utc
+    const fmt = $("fmt").value;
+
+    const d = parseDateInput($("input").value, fmt, tz);
+    const ms = d.getTime();
+    if (Number.isNaN(ms)) throw new Error("Date invalide.");
+
+    const s = Math.floor(ms / 1000);
+
+    const out = [];
+    out.push(`Timestamp (${unit}): ${unit === "s" ? s : ms}`);
+    out.push(`Timestamp (s):  ${s}`);
+    out.push(`Timestamp (ms): ${ms}`);
+    out.push(`ISO (UTC): ${new Date(ms).toISOString()}`);
+    out.push(`ISO (local): ${formatDate(new Date(ms), "iso", "local")}`);
+    return out.join("\n");
+  }
+
+  function setModeUI(){
+    const mode = $("mode").value;
+    const isTs2 = mode === "ts2date";
+    $("inLabel").textContent = isTs2 ? "Entrée (timestamp) :" : "Entrée (date/heure) :";
+    $("outLabel").textContent = isTs2 ? "Sortie (date) :" : "Sortie (timestamp) :";
+
+    $("input").placeholder = isTs2
+      ? "ex: 1700000000000 (ms) ou 1700000000 (s)"
+      : ($("fmt").value === "iso" ? "ex: 2026-02-15T12:34:56.789Z" : "ex: 2026-02-15 12:34:56.789");
+
+    setTxt("status","—");
+    setTxt("note","—");
+    setVal("output","");
+  }
+
+  function fillNowIfNeeded(){
+    if (!$("nowFill").checked) return;
+    const mode = $("mode").value;
+    const unit = $("unit").value;
+    const tz = $("tz").value;
+    const fmt = $("fmt").value;
+    const now = new Date();
+
+    if (mode === "ts2date"){
+      const ms = now.getTime();
+      setVal("input", unit === "s" ? String(Math.floor(ms/1000)) : String(ms));
+    } else {
+      setVal("input", formatDate(now, fmt, tz));
+    }
+  }
+
+  function convert(){
+    setTxt("status", "Conversion...");
+    setTxt("note", "Astuce : change 'secondes/ms' si ton timestamp semble 1000× trop grand/petit.");
+    setVal("output","");
+
+    try{
+      const mode = $("mode").value;
+      const out = (mode === "ts2date") ? tsToDate() : dateToTs();
+      setVal("output", out);
+      setTxt("status", "OK");
+    }catch(e){
+      setTxt("status", "Erreur");
+      setTxt("note", e && e.message ? e.message : "Impossible de convertir.");
+    }
+  }
+
+  function swap(){
+    const a = $("input").value;
+    const b = $("output").value;
+    setVal("input", b);
+    setVal("output", a);
+    setTxt("status", "OK");
+    setTxt("note", "Entrée/résultat échangés (pense à ajuster le mode si besoin).");
+  }
+
+  $("mode").addEventListener("change", () => { setModeUI(); fillNowIfNeeded(); });
+  $("unit").addEventListener("change", () => { setModeUI(); fillNowIfNeeded(); });
+  $("tz").addEventListener("change", () => { setModeUI(); fillNowIfNeeded(); });
+  $("fmt").addEventListener("change", () => { setModeUI(); fillNowIfNeeded(); });
+  $("nowFill").addEventListener("change", fillNowIfNeeded);
+
+  $("btnConvert").addEventListener("click", convert);
+  $("btnSwap").addEventListener("click", swap);
+  $("btnClear").addEventListener("click", () => {
+    setVal("input","");
+    setVal("output","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("output").value || "—").catch(()=>{});
+  });
+
+  // Init
+  setModeUI();
+  fillNowIfNeeded();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
