@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Générateur de mot de passe</title>
+  <meta name="description" content="WaveTools : générateur de mot de passe.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+ <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Phrases secrètes</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Nombre de mots :
+            <select id="words">
+              <option value="4">4</option>
+              <option value="5" selected>5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+
+          <div class="line">
+            Séparateur :
+            <select id="sep">
+              <option value=" ">espace</option>
+              <option value="-">-</option>
+              <option value="_">_</option>
+              <option value=".">.</option>
+            </select>
+          </div>
+
+          <div class="line">
+            Options :
+          </div>
+          <div class="line">
+            <label><input id="cap" type="checkbox" checked> Majuscule au début</label>
+          </div>
+          <div class="line">
+            <label><input id="num" type="checkbox" checked> Ajouter un chiffre</label>
+          </div>
+          <div class="line">
+            <label><input id="sym" type="checkbox"> Ajouter un symbole</label>
+          </div>
+
+          <button class="copy-btn" id="btnGen">Générer</button>
+
+          <div class="line">Phrase : <span id="pass">—</span></div>
+          <div class="line">Estimation force : <span id="strength">—</span></div>
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+     const $ = (id) => document.getElementById(id);
+
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
+
+    function cryptoRandomInt(max) {
+      const arr = new Uint32Array(1);
+      const limit = Math.floor(0x100000000 / max) * max;
+      let x;
+      do {
+        crypto.getRandomValues(arr);
+        x = arr[0];
+      } while (x >= limit);
+      return x % max;
+    }
+
+    // petite liste FR (offline, sans backend)
+    const WORDS = [
+      "acier","aigle","algue","ambre","angle","arbre","arcade","avion","baleine","banane","barque","batterie",
+      "beurre","boussole","brique","brume","cabane","cactus","camera","canal","capitaine","carotte","cerise","chance",
+      "chanson","charbon","chateau","chaton","chemin","cheval","ciel","citron","clavier","cobalt","colline","comete",
+      "corail","coton","couleur","cristal","cycle","dauphin","degre","delta","diamant","dragon","dune","eclipse",
+      "ecureuil","elan","emeraude","energie","enigma","esprit","etoile","exemple","facette","faucon","feuille","ficelle",
+      "flamme","foudre","fraise","galaxie","garage","givre","glacier","guitare","haricot","herbe","horizon","hydre",
+      "iceberg","idole","image","incendie","indice","iris","jardin","jasmin","jonquille","journee","jungle","kiosque",
+      "lame","lanterne","laser","lavande","legende","liberte","lierre","limonade","lune","lutin","machine","magie",
+      "marbre","marmotte","menthe","miel","mineral","mirage","modele","montagne","moteur","mystere","navire","neige",
+      "nectar","noisette","nuage","oasis","objet","ocean","olive","opale","orage","orbite","panda","panthere",
+      "parfum","plume","pollen","pomme","pont","prairie","prisme","puzzle","quartz","question","radar","racine",
+      "rayon","relais","rivage","robot","rouge","sable","sapin","satellite","savon","secret","signal","silence",
+      "soleil","soupcon","spirale","statue","sucre","tempo","tigre","tomate","tornade","tulipe","valise","velours",
+      "verger","violette","vitesse","voyage","wagon","zebre","zenith"
+    ];
+
+    const DIGITS = "0123456789";
+    const SYMBOLS = "!@#$%*-_?";
+
+    function titleCase(w) {
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }
+
+    function strengthLabel(wordCount, extras) {
+      // estimation simple: log2(|dict|^n) + bonus
+      const baseBits = wordCount * Math.log2(WORDS.length);
+      let bits = baseBits;
+      if (extras.num) bits += Math.log2(10);
+      if (extras.sym) bits += Math.log2(SYMBOLS.length);
+      if (extras.cap) bits += 1; // petit bonus
+      if (bits >= 90) return "Très fort";
+      if (bits >= 70) return "Fort";
+      if (bits >= 50) return "Moyen";
+      return "Faible";
+    }
+
+    let lastCopy = "";
+
+    function generate() {
+      const n = parseInt($("words").value, 10) || 5;
+      const sep = $("sep").value;
+
+      const extras = {
+        cap: $("cap").checked,
+        num: $("num").checked,
+        sym: $("sym").checked
+      };
+
+      if (WORDS.length < 50) {
+        setTxt("status", "Liste de mots trop petite");
+        return;
+      }
+
+      const picks = [];
+      for (let i = 0; i < n; i++) {
+        const w = WORDS[cryptoRandomInt(WORDS.length)];
+        picks.push(extras.cap ? titleCase(w) : w);
+      }
+
+      let phrase = picks.join(sep);
+
+      if (extras.num) phrase += sep + DIGITS[cryptoRandomInt(DIGITS.length)];
+      if (extras.sym) phrase += sep + SYMBOLS[cryptoRandomInt(SYMBOLS.length)];
+
+      setTxt("pass", phrase);
+      setTxt("strength", strengthLabel(n, extras));
+      setTxt("status", "OK");
+      setTxt("note", "Astuce : utilise une phrase unique par service et stocke-la dans un gestionnaire.");
+
+      lastCopy = phrase;
+    }
+
+    $("btnGen").addEventListener("click", generate);
+    $("btnCopy").addEventListener("click", () => {
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    });
+
+    generate();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
