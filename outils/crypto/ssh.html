@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clé SSH</title>
+  <meta name="description" content="WaveTools : générateur de clé SSH.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+  <main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Clé SSH</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Type :
+            <select id="type">
+              <option value="ed25519" selected>Ed25519 (recommandé)</option>
+              <option value="rsa2048">RSA 2048</option>
+              <option value="rsa3072">RSA 3072</option>
+              <option value="rsa4096">RSA 4096</option>
+            </select>
+          </div>
+
+          <div class="line">Commentaire (optionnel) :</div>
+          <div class="line">
+            <input id="comment" placeholder="ex: cantin@pc" style="width:100%" value="" />
+          </div>
+
+          <button class="copy-btn" id="btnGen">Générer</button>
+
+          <div class="line">Clé publique (OpenSSH) :</div>
+          <div class="line">
+            <textarea id="pub" rows="4" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Clé privée (PEM / PKCS8) :</div>
+          <div class="line">
+            <textarea id="priv" rows="8" style="width:100%" readonly></textarea>
+          </div>
+
+          <div class="line">Empreinte (SHA-256) :</div>
+          <div class="line"><span id="fp">—</span></div>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="copyPub">Copier publique</button>
+        <button class="copy-btn" id="copyPriv">Copier privée</button>
+      </div>
+    </section>
+  </main>
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+   const $ = (id) => document.getElementById(id);
+    function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+    function setVal(id, v) { $(id).value = v || ""; }
+
+    function pemWrap(b64, label){
+      const lines = b64.match(/.{1,64}/g) || [];
+      return `-----BEGIN ${label}-----\n` + lines.join("\n") + `\n-----END ${label}-----\n`;
+    }
+
+    function abToB64(ab){
+      const bytes = new Uint8Array(ab);
+      let bin = "";
+      for (const b of bytes) bin += String.fromCharCode(b);
+      return btoa(bin);
+    }
+
+    function abToB64Url(ab){
+      return abToB64(ab).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+    }
+
+    // OpenSSH format for public key:
+    // "ssh-ed25519 " + base64( string("ssh-ed25519") + string(rawPub) ) [ + " comment" ]
+    // "ssh-rsa " + base64( string("ssh-rsa") + mpint(e) + mpint(n) ) [ + " comment" ]
+    function u32be(n){
+      const b = new Uint8Array(4);
+      b[0] = (n >>> 24) & 255;
+      b[1] = (n >>> 16) & 255;
+      b[2] = (n >>> 8) & 255;
+      b[3] = n & 255;
+      return b;
+    }
+
+    function concatBytes(...arrs){
+      const len = arrs.reduce((s,a)=>s+a.length,0);
+      const out = new Uint8Array(len);
+      let off = 0;
+      for(const a of arrs){ out.set(a, off); off += a.length; }
+      return out;
+    }
+
+    function strField(s){
+      const b = new TextEncoder().encode(s);
+      return concatBytes(u32be(b.length), b);
+    }
+
+    function mpint(bytes){
+      // mpint requires two's-complement big-endian.
+      // For positive integers, if highest bit set, prefix 0x00.
+      let b = new Uint8Array(bytes);
+      while (b.length > 0 && b[0] === 0x00) b = b.slice(1);
+      if (b.length === 0) b = new Uint8Array([0]);
+      if (b[0] & 0x80) b = concatBytes(new Uint8Array([0x00]), b);
+      return concatBytes(u32be(b.length), b);
+    }
+
+    function b64FromBytes(bytes){
+      let bin = "";
+      for(const x of bytes) bin += String.fromCharCode(x);
+      return btoa(bin);
+    }
+
+    async function sha256B64Url(bytes){
+      const hash = await crypto.subtle.digest("SHA-256", bytes);
+      return abToB64Url(hash);
+    }
+
+    async function exportPkcs8Pem(privateKey){
+      const pkcs8 = await crypto.subtle.exportKey("pkcs8", privateKey);
+      return pemWrap(abToB64(pkcs8), "PRIVATE KEY");
+    }
+
+    async function exportSpki(publicKey){
+      return await crypto.subtle.exportKey("spki", publicKey);
+    }
+
+    async function exportJwk(publicKey){
+      return await crypto.subtle.exportKey("jwk", publicKey);
+    }
+
+    function b64ToBytes(b64){
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for(let i=0;i<bin.length;i++) out[i] = bin.charCodeAt(i);
+      return out;
+    }
+
+    async function makeOpenSSHPublic(type, publicKey, comment){
+      if(type === "ed25519"){
+        // JWK x is base64url of 32 bytes
+        const jwk = await exportJwk(publicKey);
+        const raw = b64ToBytes((jwk.x || "").replace(/-/g,"+").replace(/_/g,"/") + "===".slice((jwk.x||"").length % 4));
+        const blob = concatBytes(
+          strField("ssh-ed25519"),
+          strFieldBytes(raw)
+        );
+        const b64 = b64FromBytes(blob);
+        return "ssh-ed25519 " + b64 + (comment ? (" " + comment) : "");
+      }
+
+      if(type.startsWith("rsa")){
+        const jwk = await exportJwk(publicKey);
+        // RSA jwk has e, n in base64url
+        const eBytes = b64urlToBytes(jwk.e);
+        const nBytes = b64urlToBytes(jwk.n);
+        const blob = concatBytes(
+          strField("ssh-rsa"),
+          mpint(eBytes),
+          mpint(nBytes)
+        );
+        const b64 = b64FromBytes(blob);
+        return "ssh-rsa " + b64 + (comment ? (" " + comment) : "");
+      }
+
+      throw new Error("Type inconnu");
+    }
+
+    function b64urlToBytes(s){
+      s = (s||"").replace(/-/g,"+").replace(/_/g,"/");
+      const pad = s.length % 4;
+      if(pad) s += "=".repeat(4-pad);
+      return b64ToBytes(s);
+    }
+
+    function strFieldBytes(bytes){
+      return concatBytes(u32be(bytes.length), bytes);
+    }
+
+    async function gen(){
+      setTxt("status","Génération...");
+      setTxt("note","⚠️ Ne partage jamais la clé privée. Ne la commit pas sur Git.");
+      setVal("pub","");
+      setVal("priv","");
+      setTxt("fp","—");
+
+      const t = $("type").value;
+      const comment = ($("comment").value || "").trim();
+
+      try{
+        let algo, usages = ["sign","verify"];
+
+        if(t === "ed25519"){
+          algo = { name: "Ed25519" };
+        }else{
+          const bits = t === "rsa2048" ? 2048 : (t === "rsa3072" ? 3072 : 4096);
+          algo = {
+            name: "RSASSA-PKCS1-v1_5",
+            modulusLength: bits,
+            publicExponent: new Uint8Array([0x01,0x00,0x01]),
+            hash: "SHA-256"
+          };
+        }
+
+        const keyPair = await crypto.subtle.generateKey(algo, true, usages);
+
+        const privPem = await exportPkcs8Pem(keyPair.privateKey);
+
+        // Empreinte = SHA256(spki)
+        const spki = await exportSpki(keyPair.publicKey);
+        const fp = await sha256B64Url(new Uint8Array(spki));
+
+        const pubOpenSSH = await makeOpenSSHPublic(t, keyPair.publicKey, comment);
+
+        setVal("priv", privPem);
+        setVal("pub", pubOpenSSH);
+        setTxt("fp", "SHA256:" + fp);
+        setTxt("status","OK");
+      }catch(e){
+        setTxt("status","Erreur (navigateur incompatible ?)");
+      }
+    }
+
+    $("btnGen").addEventListener("click", gen);
+
+    $("copyPub").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("pub").value || "—").catch(()=>{});
+    });
+
+    $("copyPriv").addEventListener("click", ()=> {
+      navigator.clipboard.writeText($("priv").value || "—").catch(()=>{});
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
