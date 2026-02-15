@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Générateur de hash</title>
+  <meta name="description" content="WaveTools : générateur de hash.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Générateur de hash</h1>
+
+        <div class="terminal-body">
+          <div class="line">Texte : <input id="text" placeholder="Tape ton texte ici" value="" /></div>
+
+          <div class="line">
+            Algorithme :
+            <select id="algo">
+              <option value="SHA-256" selected>SHA-256</option>
+              <option value="SHA-1">SHA-1</option>
+              <option value="SHA-384">SHA-384</option>
+              <option value="SHA-512">SHA-512</option>
+            </select>
+          </div>
+
+          <button class="copy-btn" id="btnHash">Générer</button>
+
+          <div class="line">Hash : <span id="out">—</span></div>
+          <div class="line">Longueur : <span id="len">—</span></div>
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Note : <span id="note">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier</button>
+      </div>
+    </section>
+  </main>
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+    const $ = (id) => document.getElementById(id);
+
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
+
+    function toHex(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let hex = "";
+      for (const b of bytes) hex += b.toString(16).padStart(2, "0");
+      return hex;
+    }
+
+    let lastCopy = "";
+
+    async function gen() {
+      const text = $("text").value || "";
+      const algo = $("algo").value;
+
+      if (!text) {
+        setTxt("status", "Entre un texte");
+        setTxt("out", "—");
+        setTxt("len", "—");
+        setTxt("note", "—");
+        lastCopy = "";
+        return;
+      }
+
+      try {
+        setTxt("status", "Calcul...");
+        const enc = new TextEncoder();
+        const data = enc.encode(text);
+        const digest = await crypto.subtle.digest(algo, data);
+        const hex = toHex(digest);
+
+        setTxt("out", hex);
+        setTxt("len", `${hex.length} chars`);
+        setTxt("status", "OK");
+        setTxt("note", "Astuce : SHA-256 est un bon choix général. Évite MD5 (non sécurisé).");
+
+        lastCopy = hex;
+      } catch (e) {
+        setTxt("status", "Erreur");
+        setTxt("out", "—");
+        setTxt("len", "—");
+        setTxt("note", "Ton navigateur ne supporte peut-être pas cet algo.");
+        lastCopy = "";
+      }
+    }
+
+    $("btnHash").addEventListener("click", gen);
+    $("text").addEventListener("keydown", (e)=>{ if(e.key==="Enter") gen(); });
+    $("algo").addEventListener("change", gen);
+
+    $("btnCopy").addEventListener("click", ()=> {
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
