@@ -32,76 +32,34 @@
 <section class="shell-section">
 <div class="ip-card">
 
-<h1 class="tool-title">JWT</h1>
+<h1 class="tool-title">Encodeur Base64</h1>
 
 <div class="terminal-body">
 
 <div class="line">
-Action :
-<select id="action">
-<option value="gen" selected>Générer</option>
-<option value="dec">Décoder</option>
+Mode :
+<select id="mode">
+<option value="encode">Texte → Base64</option>
+<option value="decode">Base64 → Texte</option>
 </select>
 </div>
 
 <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
-<!-- GEN -->
-<div id="gen">
-
+<div class="line">Entrée :</div>
 <div class="line">
-Algorithme :
-<select id="alg">
-<option value="none">none</option>
-<option value="HS256" selected>HS256</option>
-<option value="HS384">HS384</option>
-<option value="HS512">HS512</option>
-</select>
+<textarea id="input" rows="4" style="width:100%"></textarea>
 </div>
 
-<div class="line">Secret :</div>
-<div class="line"><input id="secretGen" style="width:100%"></div>
+<button class="copy-btn" onclick="run()">Convertir</button>
 
-<div class="line">Payload :</div>
+<div class="line">Sortie :</div>
 <div class="line">
-<textarea id="payloadIn" rows="6" style="width:100%">
-{ "user": "admin", "iat": 0 }
-</textarea>
+<textarea id="output" rows="4" style="width:100%" readonly></textarea>
 </div>
 
-<button class="copy-btn" onclick="generateJWT()">Générer</button>
-
-<div class="line">JWT :</div>
-<div class="line">
-<textarea id="jwtOut" rows="4" style="width:100%" readonly></textarea>
-</div>
-
-</div>
-
-<!-- DEC -->
-<div id="dec" style="display:none">
-
-<div class="line">JWT :</div>
-<div class="line">
-<textarea id="jwtIn" rows="4" style="width:100%"></textarea>
-</div>
-
-<button class="copy-btn" onclick="decodeJWT()">Décoder</button>
-
-<div class="line">Header :</div>
-<div class="line">
-<textarea id="headerOut" rows="4" style="width:100%" readonly></textarea>
-</div>
-
-<div class="line">Payload :</div>
-<div class="line">
-<textarea id="payloadOut" rows="6" style="width:100%" readonly></textarea>
-</div>
-
-</div>
-
-<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 <div class="line">Statut : <span id="status">—</span></div>
+<div class="line">Longueur : <span id="len">—</span></div>
 
 </div>
 
@@ -120,75 +78,50 @@ Algorithme :
 
 <script>
 const $=id=>document.getElementById(id);
+
 function set(v,id){$(id).textContent=v||"—";}
 
-function show(){
-let v=$("action").value;
-$("gen").style.display=v==="gen"?"block":"none";
-$("dec").style.display=v==="dec"?"block":"none";
-}
-$("action").onchange=show;
-show();
-
-function b64e(s){
-return btoa(unescape(encodeURIComponent(s)))
-.replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+function encodeUTF8(str){
+return btoa(unescape(encodeURIComponent(str)));
 }
 
-function b64d(s){
-s=s.replace(/-/g,"+").replace(/_/g,"/");
-return decodeURIComponent(escape(atob(s)));
+function decodeUTF8(str){
+return decodeURIComponent(escape(atob(str)));
 }
 
-async function sign(alg,secret,data){
-let map={HS256:"SHA-256",HS384:"SHA-384",HS512:"SHA-512"};
-let key=await crypto.subtle.importKey(
-"raw",
-new TextEncoder().encode(secret),
-{name:"HMAC",hash:map[alg]},
-false,
-["sign"]
-);
-let raw=await crypto.subtle.sign("HMAC",key,new TextEncoder().encode(data));
-return b64e(String.fromCharCode(...new Uint8Array(raw)));
-}
+function run(){
+let mode=$("mode").value;
+let input=$("input").value;
 
-async function generateJWT(){
+if(!input){set("Vide","status");return;}
+
 try{
-let alg=$("alg").value;
-let secret=$("secretGen").value;
-let payload=JSON.parse($("payloadIn").value);
+let out="";
 
-let header={alg:alg,typ:"JWT"};
-let h=b64e(JSON.stringify(header));
-let p=b64e(JSON.stringify(payload));
-let d=h+"."+p;
-
-let sig="";
-if(alg!=="none"){
-if(!secret){set("Secret requis","status");return;}
-sig=await sign(alg,secret,d);
+if(mode==="encode"){
+out=encodeUTF8(input);
+}else{
+out=decodeUTF8(input.trim());
 }
 
-$("jwtOut").value=d+"."+sig;
+$("output").value=out;
 set("OK","status");
-}catch(e){set("JSON invalide","status");}
-}
+set(out.length+" chars","len");
 
-function decodeJWT(){
-try{
-let t=$("jwtIn").value.split(".");
-let h=JSON.parse(b64d(t[0]));
-let p=JSON.parse(b64d(t[1]));
-$("headerOut").value=JSON.stringify(h,null,2);
-$("payloadOut").value=JSON.stringify(p,null,2);
-set("OK","status");
-}catch(e){set("JWT invalide","status");}
+}catch(e){
+$("output").value="";
+set("Erreur (Base64 invalide ?)","status");
+set("—","len");
+}
 }
 
 function copy(){
-navigator.clipboard.writeText(document.body.innerText);
+navigator.clipboard.writeText($("output").value||"");
 }
+
+$("input").addEventListener("keydown",e=>{
+if(e.ctrlKey && e.key==="Enter") run();
+});
   </script>
 
 <!-- ****************************************************************************************************** -->
