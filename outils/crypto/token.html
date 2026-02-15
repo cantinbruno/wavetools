@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token aléatoire</title>
+  <meta name="description" content="WaveTools : générateur de token aléatoire.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Token aléatoire</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Longueur :
+            <input id="len" type="number" min="8" max="512" value="32" />
+          </div>
+
+          <div class="line">
+            Format :
+            <select id="format">
+              <option value="hex" selected>Hex</option>
+              <option value="base64url">Base64URL</option>
+              <option value="base64">Base64</option>
+              <option value="uuid">UUID v4</option>
+            </select>
+          </div>
+
+          <div class="line">
+            Options :
+          </div>
+
+          <div class="line">
+            <label><input id="prefixOn" type="checkbox"> Préfixe</label>
+            <input id="prefix" placeholder="ex: tok_" value="" />
+          </div>
+
+          <div class="line">
+            <label><input id="groupOn" type="checkbox"> Grouper</label>
+            <input id="group" type="number" min="2" max="16" value="4" />
+          </div>
+
+          <button class="copy-btn" id="btnGen">Générer</button>
+
+          <div class="line">Token : <span id="token">—</span></div>
+          <div class="line">Statut : <span id="status">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
+
+    function clamp(n, a, b) {
+      return Math.max(a, Math.min(b, n));
+    }
+
+    function bytesToHex(bytes) {
+      let s = "";
+      for (const b of bytes) s += b.toString(16).padStart(2, "0");
+      return s;
+    }
+
+    function bytesToBase64(bytes) {
+      let bin = "";
+      for (const b of bytes) bin += String.fromCharCode(b);
+      return btoa(bin);
+    }
+
+    function base64ToBase64Url(b64) {
+      return b64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/,"");
+    }
+
+    function groupString(s, size, sep="-") {
+      if (!size || size < 2) return s;
+      const out = [];
+      for (let i = 0; i < s.length; i += size) out.push(s.slice(i, i + size));
+      return out.join(sep);
+    }
+
+    function uuidv4() {
+      const b = new Uint8Array(16);
+      crypto.getRandomValues(b);
+      // RFC 4122
+      b[6] = (b[6] & 0x0f) | 0x40;
+      b[8] = (b[8] & 0x3f) | 0x80;
+
+      const hex = bytesToHex(b);
+      return [
+        hex.slice(0, 8),
+        hex.slice(8, 12),
+        hex.slice(12, 16),
+        hex.slice(16, 20),
+        hex.slice(20)
+      ].join("-");
+    }
+
+    let last = "";
+
+    function generate() {
+      const format = $("format").value;
+
+      let len = parseInt($("len").value || "32", 10);
+      len = clamp(len, 8, 512);
+      $("len").value = String(len);
+
+      const prefixOn = $("prefixOn").checked;
+      const prefix = ($("prefix").value || "").trim();
+      const groupOn = $("groupOn").checked;
+      let group = parseInt($("group").value || "4", 10);
+      group = clamp(group, 2, 16);
+      $("group").value = String(group);
+
+      let token = "";
+
+      if (format === "uuid") {
+        token = uuidv4();
+      } else {
+        // On génère des octets puis on convertit.
+        // Pour hex : 1 byte = 2 chars, donc bytes = ceil(len/2)
+        // Pour base64/base64url : 1 byte ~ 1.33 chars, on prend un peu plus et on coupe.
+        let bytesLen = 32;
+        if (format === "hex") bytesLen = Math.ceil(len / 2);
+        else bytesLen = Math.ceil(len * 0.75) + 2;
+
+        const bytes = new Uint8Array(bytesLen);
+        crypto.getRandomValues(bytes);
+
+        if (format === "hex") {
+          token = bytesToHex(bytes).slice(0, len);
+        } else if (format === "base64") {
+          token = bytesToBase64(bytes).slice(0, len);
+        } else if (format === "base64url") {
+          token = base64ToBase64Url(bytesToBase64(bytes)).slice(0, len);
+        }
+      }
+
+      if (groupOn && format !== "uuid") token = groupString(token, group, "-");
+      if (prefixOn && prefix) token = prefix + token;
+
+      setTxt("token", token);
+      setTxt("status", "OK");
+      last = token;
+    }
+
+    $("btnGen").addEventListener("click", generate);
+    $("btnCopy").addEventListener("click", () => {
+      navigator.clipboard.writeText(last || "—").catch(()=>{});
+    });
+
+    // auto
+    generate();
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
