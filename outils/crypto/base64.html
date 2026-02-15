@@ -28,90 +28,88 @@
   </aside>
 -->
 
- <main class="tool-main">
-    <section class="shell-section">
-      <div class="ip-card">
-        <h1 class="tool-title">JWT</h1>
+<main class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
 
-        <div class="terminal-body">
-          <div class="line">
-            Action :
-            <select id="action">
-              <option value="">— Choisir —</option>
-              <option value="gen">Générer</option>
-              <option value="dec">Décoder</option>
-            </select>
-          </div>
+<h1 class="tool-title">JWT</h1>
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="terminal-body">
 
-          <!-- GEN -->
-          <div id="gen" style="display:none">
-            <div class="line">
-              Algorithme :
-              <select id="alg">
-                <option value="none">none</option>
-                <option value="HS256" selected>HS256</option>
-                <option value="HS384">HS384</option>
-                <option value="HS512">HS512</option>
-              </select>
-            </div>
+<div class="line">
+Action :
+<select id="action">
+<option value="gen" selected>Générer</option>
+<option value="dec">Décoder</option>
+</select>
+</div>
 
-            <div class="line">Secret (obligatoire pour HS*) :</div>
-            <div class="line"><input id="secretGen" style="width:100%" placeholder="secret"></div>
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
 
-            <div class="line">Header (JSON) :</div>
-            <div class="line">
-              <textarea id="headerIn" rows="4" style="width:100%">{ "typ": "JWT" }</textarea>
-            </div>
+<!-- GEN -->
+<div id="gen">
 
-            <div class="line">Payload (JSON) :</div>
-            <div class="line">
-              <textarea id="payloadIn" rows="6" style="width:100%">{ "sub": "123", "name": "user", "iat": 0 }</textarea>
-            </div>
+<div class="line">
+Algorithme :
+<select id="alg">
+<option value="none">none</option>
+<option value="HS256" selected>HS256</option>
+<option value="HS384">HS384</option>
+<option value="HS512">HS512</option>
+</select>
+</div>
 
-            <button class="copy-btn" id="btnGen">Générer</button>
+<div class="line">Secret :</div>
+<div class="line"><input id="secretGen" style="width:100%"></div>
 
-            <div class="line">JWT :</div>
-            <div class="line">
-              <textarea id="jwtOut" rows="4" style="width:100%" readonly></textarea>
-            </div>
-          </div>
+<div class="line">Payload :</div>
+<div class="line">
+<textarea id="payloadIn" rows="6" style="width:100%">
+{ "user": "admin", "iat": 0 }
+</textarea>
+</div>
 
-          <!-- DEC -->
-          <div id="dec" style="display:none">
-            <div class="line">JWT :</div>
-            <div class="line">
-              <textarea id="jwtIn" rows="4" style="width:100%" placeholder="Colle ton JWT ici"></textarea>
-            </div>
+<button class="copy-btn" onclick="generateJWT()">Générer</button>
 
-            <div class="line">Secret (optionnel pour vérifier HS*) :</div>
-            <div class="line"><input id="secretDec" style="width:100%" placeholder="secret (optionnel)"></div>
+<div class="line">JWT :</div>
+<div class="line">
+<textarea id="jwtOut" rows="4" style="width:100%" readonly></textarea>
+</div>
 
-            <button class="copy-btn" id="btnDec">Décoder</button>
+</div>
 
-            <div class="line">Header :</div>
-            <div class="line">
-              <textarea id="headerOut" rows="4" style="width:100%" readonly></textarea>
-            </div>
+<!-- DEC -->
+<div id="dec" style="display:none">
 
-            <div class="line">Payload :</div>
-            <div class="line">
-              <textarea id="payloadOut" rows="6" style="width:100%" readonly></textarea>
-            </div>
+<div class="line">JWT :</div>
+<div class="line">
+<textarea id="jwtIn" rows="4" style="width:100%"></textarea>
+</div>
 
-            <div class="line">Signature : <span id="sigOut">—</span></div>
-            <div class="line">Vérification : <span id="verifyOut">—</span></div>
-          </div>
+<button class="copy-btn" onclick="decodeJWT()">Décoder</button>
 
-          <div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
-          <div class="line">Statut : <span id="status">—</span></div>
-        </div>
+<div class="line">Header :</div>
+<div class="line">
+<textarea id="headerOut" rows="4" style="width:100%" readonly></textarea>
+</div>
 
-        <button class="copy-btn" id="btnCopy">Copier</button>
-      </div>
-    </section>
-  </main>
+<div class="line">Payload :</div>
+<div class="line">
+<textarea id="payloadOut" rows="6" style="width:100%" readonly></textarea>
+</div>
+
+</div>
+
+<div class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+<div class="line">Statut : <span id="status">—</span></div>
+
+</div>
+
+<button class="copy-btn" onclick="copy()">Copier</button>
+
+</div>
+</section>
+</main>
 
 <!--
   <aside class="tool-ads">
@@ -121,195 +119,76 @@
 -->
 
 <script>
-  const $ = (id) => document.getElementById(id);
+const $=id=>document.getElementById(id);
+function set(v,id){$(id).textContent=v||"—";}
 
-    function setTxt(id, v) {
-      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
-    }
+function show(){
+let v=$("action").value;
+$("gen").style.display=v==="gen"?"block":"none";
+$("dec").style.display=v==="dec"?"block":"none";
+}
+$("action").onchange=show;
+show();
 
-    function setVal(id, v) {
-      $(id).value = v || "";
-    }
+function b64e(s){
+return btoa(unescape(encodeURIComponent(s)))
+.replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
 
-    function showAction(v) {
-      $("gen").style.display = (v === "gen") ? "block" : "none";
-      $("dec").style.display = (v === "dec") ? "block" : "none";
-      setTxt("status", "—");
-    }
+function b64d(s){
+s=s.replace(/-/g,"+").replace(/_/g,"/");
+return decodeURIComponent(escape(atob(s)));
+}
 
-    $("action").addEventListener("change", (e) => showAction(e.target.value));
+async function sign(alg,secret,data){
+let map={HS256:"SHA-256",HS384:"SHA-384",HS512:"SHA-512"};
+let key=await crypto.subtle.importKey(
+"raw",
+new TextEncoder().encode(secret),
+{name:"HMAC",hash:map[alg]},
+false,
+["sign"]
+);
+let raw=await crypto.subtle.sign("HMAC",key,new TextEncoder().encode(data));
+return b64e(String.fromCharCode(...new Uint8Array(raw)));
+}
 
-    function b64urlEncodeBytes(bytes) {
-      let bin = "";
-      for (const b of bytes) bin += String.fromCharCode(b);
-      return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/,"");
-    }
+async function generateJWT(){
+try{
+let alg=$("alg").value;
+let secret=$("secretGen").value;
+let payload=JSON.parse($("payloadIn").value);
 
-    function b64urlEncodeStr(str) {
-      return b64urlEncodeBytes(new TextEncoder().encode(str));
-    }
+let header={alg:alg,typ:"JWT"};
+let h=b64e(JSON.stringify(header));
+let p=b64e(JSON.stringify(payload));
+let d=h+"."+p;
 
-    function b64urlDecodeToBytes(s) {
-      s = (s || "").trim().replace(/-/g, "+").replace(/_/g, "/");
-      const pad = s.length % 4;
-      if (pad) s += "=".repeat(4 - pad);
-      const bin = atob(s);
-      const out = new Uint8Array(bin.length);
-      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
-      return out;
-    }
+let sig="";
+if(alg!=="none"){
+if(!secret){set("Secret requis","status");return;}
+sig=await sign(alg,secret,d);
+}
 
-    function b64urlDecodeToStr(s) {
-      return new TextDecoder().decode(b64urlDecodeToBytes(s));
-    }
+$("jwtOut").value=d+"."+sig;
+set("OK","status");
+}catch(e){set("JSON invalide","status");}
+}
 
-    function safeJsonParse(s) {
-      try { return { ok: true, value: JSON.parse(s) }; } catch(e) { return { ok:false }; }
-    }
+function decodeJWT(){
+try{
+let t=$("jwtIn").value.split(".");
+let h=JSON.parse(b64d(t[0]));
+let p=JSON.parse(b64d(t[1]));
+$("headerOut").value=JSON.stringify(h,null,2);
+$("payloadOut").value=JSON.stringify(p,null,2);
+set("OK","status");
+}catch(e){set("JWT invalide","status");}
+}
 
-    function pretty(obj) { return JSON.stringify(obj, null, 2); }
-
-    function hmacParams(alg) {
-      if (alg === "HS256") return { hash: "SHA-256" };
-      if (alg === "HS384") return { hash: "SHA-384" };
-      if (alg === "HS512") return { hash: "SHA-512" };
-      return null;
-    }
-
-    async function hmacSign(alg, secret, data) {
-      const params = hmacParams(alg);
-      const key = await crypto.subtle.importKey(
-        "raw",
-        new TextEncoder().encode(secret),
-        { name: "HMAC", ...params },
-        false,
-        ["sign"]
-      );
-      const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(data));
-      return new Uint8Array(sig);
-    }
-
-    async function generateJWT() {
-      const alg = $("alg").value;
-      const secret = ($("secretGen").value || "").trim();
-
-      const headerRaw = ($("headerIn").value || "").trim();
-      const payloadRaw = ($("payloadIn").value || "").trim();
-
-      const h = safeJsonParse(headerRaw);
-      const p = safeJsonParse(payloadRaw);
-
-      if (!h.ok) { setTxt("status", "Header JSON invalide"); return; }
-      if (!p.ok) { setTxt("status", "Payload JSON invalide"); return; }
-
-      const headerObj = h.value || {};
-      headerObj.typ = headerObj.typ || "JWT";
-      headerObj.alg = alg;
-
-      if (alg !== "none" && !secret) {
-        setTxt("status", "Secret obligatoire pour HS*");
-        return;
-      }
-
-      try {
-        const headerB64 = b64urlEncodeStr(JSON.stringify(headerObj));
-        const payloadB64 = b64urlEncodeStr(JSON.stringify(p.value));
-        const dataToSign = headerB64 + "." + payloadB64;
-
-        let sigB64 = "";
-        if (alg !== "none") {
-          const sigBytes = await hmacSign(alg, secret, dataToSign);
-          sigB64 = b64urlEncodeBytes(sigBytes);
-        }
-
-        setVal("jwtOut", dataToSign + "." + sigB64);
-        setTxt("status", "OK");
-      } catch (e) {
-        setTxt("status", "Erreur génération");
-      }
-    }
-
-    async function decodeJWT() {
-      const token = ($("jwtIn").value || "").trim();
-      const secret = ($("secretDec").value || "").trim();
-
-      setVal("headerOut", "");
-      setVal("payloadOut", "");
-      setTxt("sigOut", "—");
-      setTxt("verifyOut", "—");
-
-      if (!token) { setTxt("status", "Colle un JWT"); return; }
-
-      const parts = token.split(".");
-      if (parts.length !== 3) { setTxt("status", "JWT invalide (3 parties)"); return; }
-
-      try {
-        const headerStr = b64urlDecodeToStr(parts[0]);
-        const payloadStr = b64urlDecodeToStr(parts[1]);
-
-        const h = safeJsonParse(headerStr);
-        const p = safeJsonParse(payloadStr);
-
-        setVal("headerOut", h.ok ? pretty(h.value) : headerStr);
-        setVal("payloadOut", p.ok ? pretty(p.value) : payloadStr);
-
-        setTxt("sigOut", parts[2] || "(vide)");
-
-        let alg = "unknown";
-        if (h.ok && h.value && typeof h.value.alg === "string") alg = h.value.alg;
-
-        if (!secret) {
-          setTxt("verifyOut", "Secret non fourni");
-          setTxt("status", "OK");
-          return;
-        }
-
-        if (alg === "none") {
-          setTxt("verifyOut", "alg=none (pas de signature)");
-          setTxt("status", "OK");
-          return;
-        }
-
-        if (!/^HS(256|384|512)$/.test(alg)) {
-          setTxt("verifyOut", `Vérif HS* seulement (ici: ${alg})`);
-          setTxt("status", "OK");
-          return;
-        }
-
-        const dataToSign = parts[0] + "." + parts[1];
-        const sigBytes = await hmacSign(alg, secret, dataToSign);
-        const expected = b64urlEncodeBytes(sigBytes);
-
-        setTxt("verifyOut", expected === parts[2] ? "Signature OK ✅" : "Signature invalide ❌");
-        setTxt("status", "OK");
-      } catch (e) {
-        setTxt("status", "Erreur (JWT/Base64URL)");
-      }
-    }
-
-    $("btnGen").addEventListener("click", generateJWT);
-    $("btnDec").addEventListener("click", decodeJWT);
-
-    // Copier selon action
-    $("btnCopy").addEventListener("click", () => {
-      let txt = "";
-      if ($("action").value === "gen") txt = $("jwtOut").value || "";
-      else if ($("action").value === "dec") {
-        txt =
-`HEADER:
-${$("headerOut").value}
-
-PAYLOAD:
-${$("payloadOut").value}
-
-SIGNATURE:
-${$("sigOut").textContent}
-
-VERIFY:
-${$("verifyOut").textContent}`;
-      } else txt = "—";
-      navigator.clipboard.writeText(txt || "—").catch(()=>{});
-    });
+function copy(){
+navigator.clipboard.writeText(document.body.innerText);
+}
   </script>
 
 <!-- ****************************************************************************************************** -->
