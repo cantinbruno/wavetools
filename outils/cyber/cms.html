@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Détecteur CMS</title>
+  <meta name="description" content="WaveTools : détecteur CMS.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Détecteur CMS (sans backend)</h1>
+
+      <div class="terminal-body">
+        <div class="line">URL du site :</div>
+        <div class="line">
+          <input id="url" style="width:100%" placeholder="https://example.com" />
+        </div>
+
+        <div class="line">HTML (optionnel) :</div>
+        <div class="line">
+          <textarea id="html" rows="10" style="width:100%"
+            placeholder="Optionnel : colle ici le HTML (Ctrl+U / View Source) si le site bloque CORS."></textarea>
+        </div>
+
+        <button class="copy-btn" id="btnDetect">Détecter</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Résultat :</div>
+        <div class="line">
+          <textarea id="out" rows="12" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier résultat</button>
+    </div>
+  </section>
+</main>
+
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function normalizeUrl(u){
+    u = (u||"").trim();
+    if (!u) throw new Error("URL vide.");
+    if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+    // retire fragments
+    u = u.replace(/#.*$/, "");
+    return u;
+  }
+
+  function getMetaGenerator(html){
+    const m = html.match(/<meta[^>]+name=["']generator["'][^>]+content=["']([^"']+)["'][^>]*>/i);
+    return m ? m[1].trim() : "";
+  }
+
+  function findAll(re, s){
+    const out = [];
+    let m;
+    while ((m = re.exec(s)) !== null) out.push(m);
+    return out;
+  }
+
+  function detectCMS(html){
+    const h = (html || "");
+    const low = h.toLowerCase();
+    const gen = getMetaGenerator(h);
+
+    const hits = [];
+    const add = (cms, why, weight) => hits.push({ cms, why, weight });
+
+    // --- WordPress ---
+    if (low.includes("wp-content/")) add("WordPress", "Présence de /wp-content/", 5);
+    if (low.includes("wp-includes/")) add("WordPress", "Présence de /wp-includes/", 5);
+    if (/name=["']generator["'][^>]*wordpress/i.test(low) || /wordpress\s*[0-9.]+/i.test(gen)) add("WordPress", "Meta generator WordPress", 6);
+
+    // --- Drupal ---
+    if (low.includes("data-drupal-selector")) add("Drupal", "Attribut data-drupal-selector", 6);
+    if (low.includes("/sites/default/") || low.includes("/sites/all/")) add("Drupal", "Chemin /sites/*/", 5);
+    if (low.includes("/core/misc/drupal.js")) add("Drupal", "Script /core/misc/drupal.js", 7);
+    if (/name=["']generator["'][^>]*drupal/i.test(low) || /drupal/i.test(gen)) add("Drupal", "Meta generator Drupal", 6);
+
+    // --- Joomla ---
+    if (low.includes("joomla")) add("Joomla", "Motif 'joomla' dans le HTML", 2);
+    if (low.includes("/media/system/js/") || low.includes("/media/jui/")) add("Joomla", "Chemins /media/system/ ou /media/jui/", 6);
+    if (/name=["']generator["'][^>]*joomla/i.test(low) || /joomla/i.test(gen)) add("Joomla", "Meta generator Joomla", 7);
+
+    // --- Magento ---
+    if (low.includes("mage/") || low.includes("mage.") || low.includes("magento")) add("Magento", "Motifs mage*/Magento", 3);
+    if (low.includes("requirejs-config.js") && low.includes("mage/")) add("Magento", "RequireJS + mage/", 7);
+
+    // --- PrestaShop ---
+    if (low.includes("prestashop") || low.includes("ps_")) add("PrestaShop", "Motif prestashop/ps_", 3);
+    if (low.includes("/modules/") && low.includes("/themes/")) add("PrestaShop", "Chemins /modules/ et /themes/", 6);
+
+    // --- Shopify ---
+    if (low.includes("cdn.shopify.com")) add("Shopify", "cdn.shopify.com", 8);
+    if (low.includes("shopify")) add("Shopify", "Motif 'shopify' dans le HTML", 2);
+
+    // --- Wix / Squarespace / Webflow ---
+    if (low.includes("wixstatic.com") || low.includes("wix.com")) add("Wix", "wixstatic/wix.com", 8);
+    if (low.includes("static.squarespace.com") || low.includes("squarespace")) add("Squarespace", "static.squarespace.com", 8);
+    if (low.includes("webflow") || low.includes("webflow.io")) add("Webflow", "Motif webflow", 7);
+
+    // --- Ghost ---
+    if (low.includes("ghost") && (low.includes("/ghost/") || low.includes("ghost-sdk"))) add("Ghost", "Chemin /ghost/ ou ghost-sdk", 7);
+    if (/name=["']generator["'][^>]*ghost/i.test(low) || /ghost/i.test(gen)) add("Ghost", "Meta generator Ghost", 7);
+
+    // --- Discourse ---
+    if (low.includes("discourse")) add("Discourse", "Motif discourse", 3);
+    if (low.includes("data-discourse-present")) add("Discourse", "Attribut data-discourse-present", 8);
+
+    // --- Next.js / Nuxt / Gatsby (frameworks) ---
+    if (low.includes("__next_data__") || low.includes("/_next/")) add("Next.js", "Présence __NEXT_DATA__ ou /_next/", 7);
+    if (low.includes("__nuxt") || low.includes("/_nuxt/")) add("Nuxt", "Présence __NUXT__ ou /_nuxt/", 7);
+    if (low.includes("gatsby") && (low.includes("gatsbyjs") || low.includes("id=\"gatsby-focus-wrapper\""))) add("Gatsby", "Motifs Gatsby", 7);
+
+    // --- Meta generator générique ---
+    if (gen) add("Meta generator", `generator="${gen}"`, 1);
+
+    // Agrégation scores
+    const scores = new Map();
+    const reasons = new Map();
+
+    for (const h of hits){
+      scores.set(h.cms, (scores.get(h.cms) || 0) + h.weight);
+      const arr = reasons.get(h.cms) || [];
+      arr.push(`- ${h.why}`);
+      reasons.set(h.cms, arr);
+    }
+
+    // Tri
+    const ranked = Array.from(scores.entries())
+      .sort((a,b) => b[1]-a[1])
+      .map(([cms, score]) => ({ cms, score, reasons: reasons.get(cms) || [] }));
+
+    // Confiance
+    const top = ranked[0];
+    let confidence = "Faible";
+    if (top){
+      if (top.score >= 12) confidence = "Élevée";
+      else if (top.score >= 7) confidence = "Moyenne";
+    }
+
+    return { ranked, confidence, generator: gen };
+  }
+
+  async function fetchHtmlIfPossible(url){
+    // ⚠️ Sans backend, ça dépend du CORS du site cible.
+    // Si CORS bloque, on lève une erreur claire.
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 8000);
+    try{
+      const r = await fetch(url, {
+        method: "GET",
+        mode: "cors",        // si le site n'autorise pas -> erreur
+        credentials: "omit",
+        cache: "no-store",
+        signal: ctrl.signal
+      });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const ct = (r.headers.get("content-type") || "").toLowerCase();
+      if (!ct.includes("text/html") && !ct.includes("application/xhtml")) {
+        // on essaie quand même
+      }
+      return await r.text();
+    } finally {
+      clearTimeout(t);
+    }
+  }
+
+  async function run(){
+    setTxt("status","Analyse...");
+    setTxt("note","Sans backend : si le site bloque CORS, colle le HTML (Ctrl+U) dans le champ HTML.");
+    setVal("out","");
+
+    let url;
+    try{
+      url = normalizeUrl($("url").value);
+    }catch(e){
+      setTxt("status","Erreur");
+      setTxt("note", e.message || "URL invalide.");
+      return;
+    }
+
+    let html = ($("html").value || "").trim();
+
+    // Si pas de HTML fourni, on tente fetch
+    if (!html){
+      try{
+        html = await fetchHtmlIfPossible(url);
+      }catch(e){
+        setTxt("status","Action requise");
+        setTxt("note","Le site bloque la lecture (CORS) depuis le navigateur. Colle le HTML (Ctrl+U) dans le champ HTML puis relance.");
+        return;
+      }
+    }
+
+    const res = detectCMS(html);
+
+    if (!res.ranked.length){
+      setTxt("status","OK");
+      setTxt("note","Aucune signature CMS trouvée dans ce HTML.");
+      setVal("out", "Aucun CMS détecté.\n\nAstuce : certaines pages masquent les signatures. Essaie la page d'accueil, /blog, /wp-login.php (sans forcer), ou colle le HTML complet (Ctrl+U).");
+      return;
+    }
+
+    const top = res.ranked[0];
+
+    let out = "";
+    out += "Détection : " + top.cms + "\n";
+    out += "Confiance : " + res.confidence + "\n";
+    out += "\nSignatures (top):\n" + top.reasons.join("\n") + "\n";
+
+    out += "\nClassement:\n";
+    for (const r of res.ranked.slice(0, 8)){
+      out += `- ${r.cms} (score ${r.score})\n`;
+    }
+
+    if (res.generator){
+      out += "\nMeta generator:\n" + res.generator + "\n";
+    }
+
+    setVal("out", out.trim());
+    setTxt("status","OK");
+  }
+
+  $("btnDetect").addEventListener("click", run);
+  $("btnClear").addEventListener("click", () => {
+    setVal("url","");
+    setVal("html","");
+    setVal("out","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
