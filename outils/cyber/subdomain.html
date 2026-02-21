@@ -29,68 +29,51 @@
 -->
 
 <main class="tool-main">
-  <section class="shell-section">
-    <div class="ip-card">
-      <h1 class="tool-title">Scanner sous-domaines (CT + DoH)</h1>
+<section class="shell-section">
+<div class="ip-card">
 
-      <div class="terminal-body">
-        <div class="line">Domaine cible :</div>
-        <div class="line">
-          <input id="domain" style="width:100%" placeholder="ex: example.com" />
-        </div>
+<h1 class="tool-title">Scanner sous-domaines</h1>
 
-        <div class="line">
-          Source (passif) :
-          <select id="ctMode">
-            <option value="wild" selected>CT: %.domaine (inclut sous-sous-domaines)</option>
-            <option value="exact">CT: domaine exact (moins large)</option>
-          </select>
-        </div>
+<div class="terminal-body">
 
-        <div class="line">
-          Vérification DNS :
-          <select id="verify">
-            <option value="doh" selected>DNS-over-HTTPS (Cloudflare) A/AAAA/CNAME</option>
-            <option value="none">Aucune (liste brute CT)</option>
-          </select>
-        </div>
+<div class="line">Domaine :</div>
 
-        <div class="line">
-          Options :
-          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
-            <input type="checkbox" id="includeWildcard" checked />
-            Inclure entrées wildcard (*.domaine) (nettoyées)
-          </label>
-          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
-            <input type="checkbox" id="dedupe" checked />
-            Dédupliquer / trier
-          </label>
-          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
-            <input type="checkbox" id="wildcardCheck" checked />
-            Détecter wildcard DNS (recommandé)
-          </label>
-          <label style="display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
-            <input type="checkbox" id="limitCt" checked />
-            Limiter CT (perf) ~ 8k entrées
-          </label>
-        </div>
+<div class="line">
+<input id="domain" style="width:100%" placeholder="example.com">
+</div>
 
-        <button class="copy-btn" id="btnScan">Scanner</button>
-        <button class="copy-btn" id="btnStop">Stop</button>
-        <button class="copy-btn" id="btnClear">Vider</button>
+<button class="copy-btn" id="scan">
+Scanner
+</button>
 
-        <div class="line">Résultats :</div>
-        <div class="line">
-          <textarea id="out" rows="12" style="width:100%" readonly></textarea>
-        </div>
+<button class="copy-btn" id="clear">
+Vider
+</button>
 
-        <div class="line">Statut : <span id="status">—</span></div>
-        <div class="line">Note : <span id="note">—</span></div>
-      </div>
+<div class="line">Résultats :</div>
 
-      <button class="copy-btn" id="copyOut">Copier résultats</button>
-    </div>
-  </section>
+<div class="line">
+<textarea id="out" rows="14" style="width:100%" readonly></textarea>
+</div>
+
+<div class="line">
+Statut :
+<span id="status">—</span>
+</div>
+
+<div class="line">
+Note :
+<span id="note">—</span>
+</div>
+
+</div>
+
+<button class="copy-btn" id="copy">
+Copier résultats
+</button>
+
+</div>
+</section>
 </main>
 
 
@@ -103,256 +86,197 @@
 
 <script>
 
-const $ = (id) => document.getElementById(id);
-  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
-  function setVal(id, v) { $(id).value = v || ""; }
+const $ = id => document.getElementById(id);
 
-  let stopFlag = false;
+function setTxt(id,v){
+$(id).textContent = v || "—";
+}
 
-  function normalizeDomain(d){
-    d = (d || "").trim().toLowerCase();
-    d = d.replace(/^https?:\/\//, "");
-    d = d.replace(/\/.*$/, "");
-    d = d.replace(/\.+$/,"");
-    if (!d || !d.includes(".")) throw new Error("Domaine invalide.");
-    return d;
-  }
+function setVal(id,v){
+$(id).value = v || "";
+}
 
-  function uniq(arr){ return Array.from(new Set(arr)); }
+function normalizeDomain(d){
 
-  function randLabel(){
-    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-    let s = "";
-    for (let i=0;i<14;i++) s += chars[Math.floor(Math.random()*chars.length)];
-    return "wt-" + s;
-  }
+d = (d||"")
+.trim()
+.toLowerCase()
+.replace(/^https?:\/\//,"")
+.replace(/\/.*$/,"")
+.replace(/\.+$/,"");
 
-  function cleanCtName(name, domain, includeWildcard){
-    let n = (name || "").trim().toLowerCase();
-    if (!n) return "";
-    // En CT, name_value peut contenir plusieurs noms séparés par \n (géré plus bas)
-    n = n.replace(/\s+/g, "");
-    if (!includeWildcard && n.startsWith("*.")) return "";
-    if (n.startsWith("*.")) n = n.slice(2);
-    if (n === domain) return n;
-    if (n.endsWith("." + domain)) return n;
-    return "";
-  }
+if(!d.includes(".")) throw "Domaine invalide";
 
-  async function fetchCt(domain, ctMode, includeWildcard, limitCt){
-    const q = (ctMode === "exact") ? domain : ("%." + domain);
-    const url = "https://crt.sh/?q=" + encodeURIComponent(q) + "&output=json";
+return d;
 
-    const r = await fetch(url, { cache: "no-store" });
-    if (!r.ok) throw new Error("crt.sh indisponible (" + r.status + ").");
+}
 
-    // crt.sh renvoie parfois un gros JSON : on lit en texte, puis parse
-    const txt = await r.text();
-    let data;
-    try{
-      data = JSON.parse(txt);
-    }catch(e){
-      // Cas rare : réponse non JSON (ou temporairement cassée)
-      throw new Error("Réponse crt.sh non JSON (réessaie).");
-    }
+function uniq(arr){
 
-    const out = [];
-    for (const it of data){
-      const nv = it && it.name_value ? String(it.name_value) : "";
-      for (const line of nv.split("\n")){
-        const c = cleanCtName(line, domain, includeWildcard);
-        if (c) out.push(c);
-      }
-      if (limitCt && out.length > 8000) break;
-    }
-    return out;
-  }
+return [...new Set(arr)];
 
-  async function dohQuery(name, type){
-    const url = "https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(name) + "&type=" + type;
-    const r = await fetch(url, {
-      headers: { "accept": "application/dns-json" },
-      cache: "no-store"
-    });
-    if (!r.ok) throw new Error("DoH indisponible (" + r.status + ").");
-    return await r.json();
-  }
+}
 
-  async function dohResolve(name){
-    // Retourne { A:[], AAAA:[], CNAME:[], exists:boolean, status: "NOERROR"/"NXDOMAIN"/... }
-    const A = [], AAAA = [], CNAME = [];
-    let status = "UNKNOWN";
+function clean(name,domain){
 
-    // A
-    try{
-      const jA = await dohQuery(name, "A");
-      if (jA && jA.Status !== undefined) status = jA.Status === 0 ? "NOERROR" : (jA.Status === 3 ? "NXDOMAIN" : String(jA.Status));
-      if (Array.isArray(jA.Answer)){
-        for (const a of jA.Answer){
-          if (a.type === 1 && a.data) A.push(a.data);
-          if (a.type === 5 && a.data) CNAME.push(a.data);
-        }
-      }
-    }catch{}
+let n = name
+.trim()
+.toLowerCase();
 
-    // AAAA
-    try{
-      const jAAAA = await dohQuery(name, "AAAA");
-      if (Array.isArray(jAAAA.Answer)){
-        for (const a of jAAAA.Answer){
-          if (a.type === 28 && a.data) AAAA.push(a.data);
-          if (a.type === 5 && a.data) CNAME.push(a.data);
-        }
-      }
-    }catch{}
+if(!n) return "";
 
-    return {
-      A: uniq(A),
-      AAAA: uniq(AAAA),
-      CNAME: uniq(CNAME),
-      exists: (A.length + AAAA.length + CNAME.length) > 0,
-      status
-    };
-  }
+n = n.replace(/\s+/g,"");
 
-  async function wildcardDnsDetected(domain){
-    const test = randLabel() + "." + domain;
-    const r = await dohResolve(test);
-    return r.exists;
-  }
 
-  function formatLine(host, info){
-    if (!info) return host;
-    const parts = [];
-    if (info.status) parts.push("STATUS=" + info.status);
-    if (info.A?.length) parts.push("A=" + info.A.join(","));
-    if (info.AAAA?.length) parts.push("AAAA=" + info.AAAA.join(","));
-    if (info.CNAME?.length) parts.push("CNAME=" + info.CNAME.join(","));
-    return host + "  ✓  " + (parts.join("  ") || "OK");
-  }
+// wildcard toujours nettoyé
+if(n.startsWith("*.")){
 
-  async function scan(){
-    stopFlag = false;
-    setTxt("status","Scan...");
-    setTxt("note","⚠️ Scanne uniquement des domaines que tu possèdes ou avec autorisation explicite.");
-    setVal("out","");
+n = n.substring(2);
 
-    let domain;
-    try{
-      domain = normalizeDomain($("domain").value);
-    }catch(e){
-      setTxt("status","Erreur");
-      setTxt("note", e.message || "Domaine invalide.");
-      return;
-    }
+}
 
-    const ctMode = $("ctMode").value;
-    const verify = $("verify").value; // doh|none
-    const includeWildcard = $("includeWildcard").checked;
-    const dedupe = $("dedupe").checked;
-    const doWildcardCheck = $("wildcardCheck").checked;
-    const limitCt = $("limitCt").checked;
+if(n===domain) return n;
 
-    // 1) Collecte CT
-    setTxt("status","Récupération CT logs (crt.sh)...");
-    let raw;
-    try{
-      raw = await fetchCt(domain, ctMode, includeWildcard, limitCt);
-    }catch(e){
-      setTxt("status","Erreur");
-      setTxt("note", e.message || "Impossible de récupérer crt.sh (CORS/charge).");
-      return;
-    }
+if(n.endsWith("."+domain))
+return n;
 
-    let candidates = raw;
-    if (dedupe) candidates = uniq(candidates).sort((a,b)=>a.localeCompare(b));
+return "";
 
-    if (!candidates.length){
-      setTxt("status","OK");
-      setTxt("note","Aucun sous-domaine trouvé via CT.");
-      setVal("out","(vide)");
-      return;
-    }
+}
 
-    // Affichage immédiat (liste brute)
-    setVal("out", candidates.join("\n"));
 
-    // 2) Si pas de vérification DNS
-    if (verify === "none"){
-      setTxt("status","OK");
-      setTxt("note", `Liste brute CT (${candidates.length}). Active DoH pour valider DNS.`);
-      return;
-    }
+async function scan(){
 
-    // 3) Wildcard DNS check
-    if (doWildcardCheck){
-      setTxt("status","Vérification wildcard DNS (DoH)...");
-      try{
-        const wc = await wildcardDnsDetected(domain);
-        if (wc){
-          setTxt("note","⚠️ Wildcard DNS détecté : beaucoup de sous-domaines peuvent résolver. Interprétation prudente.");
-        } else {
-          setTxt("note","Wildcard DNS non détecté.");
-        }
-      }catch(e){
-        setTxt("note","Wildcard DNS : indéterminé (DoH indisponible).");
-      }
-    }
+setTxt("status","Scan...");
+setTxt("note","Récupération CT logs crt.sh");
 
-    // 4) Vérification DoH (batch)
-    const found = [];
-    const batchSize = 12;
+setVal("out","");
 
-    for (let i=0;i<candidates.length;i+=batchSize){
-      if (stopFlag) break;
-      const chunk = candidates.slice(i, i+batchSize);
+let domain;
 
-      setTxt("status", `Validation DNS (DoH) ${Math.min(i+batchSize, candidates.length)}/${candidates.length}...`);
+try{
 
-      const results = await Promise.all(chunk.map(async (host) => {
-        try{
-          const r = await dohResolve(host);
-          return { host, r };
-        }catch{
-          return { host, r: null };
-        }
-      }));
+domain = normalizeDomain(
+$("domain").value
+);
 
-      for (const it of results){
-        if (it.r && it.r.exists){
-          found.push({ host: it.host, info: it.r });
-        }
-      }
+}catch(e){
 
-      const lines = found
-        .slice()
-        .sort((a,b)=>a.host.localeCompare(b.host))
-        .map(x => formatLine(x.host, x.info));
+setTxt("status","Erreur");
+setTxt("note","Domaine invalide");
 
-      setVal("out", lines.length ? lines.join("\n") : "Aucune résolution trouvée pour l’instant…");
-    }
+return;
 
-    if (stopFlag){
-      setTxt("status","Stop");
-      setTxt("note","Scan arrêté.");
-      return;
-    }
+}
 
-    setTxt("status","OK");
-    setTxt("note", `Terminé. Sous-domaines résolvables: ${found.length}/${candidates.length} (DoH Cloudflare).`);
-  }
+try{
 
-  $("btnScan").addEventListener("click", scan);
-  $("btnStop").addEventListener("click", () => { stopFlag = true; setTxt("status","Stop demandé…"); });
-  $("btnClear").addEventListener("click", () => {
-    setVal("domain","");
-    setVal("out","");
-    setTxt("status","—");
-    setTxt("note","—");
-  });
-  $("copyOut").addEventListener("click", ()=> {
-    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
-  });
+// Domaine EXACT demandé
+const url =
+"https://crt.sh/?q="
++encodeURIComponent(domain)
++"&output=json";
+
+const r = await fetch(url,{cache:"no-store"});
+
+if(!r.ok)
+throw "crt.sh indisponible";
+
+const txt = await r.text();
+
+let data;
+
+try{
+
+data = JSON.parse(txt);
+
+}catch{
+
+throw "crt.sh a renvoyé une réponse invalide (réessaie).";
+
+}
+
+const subs = [];
+
+for(const it of data){
+
+const nv =
+(it && it.name_value)
+? String(it.name_value)
+:"";
+
+for(const line of nv.split("\n")){
+
+const c = clean(line,domain);
+
+if(c)
+subs.push(c);
+
+}
+
+}
+
+const result =
+uniq(subs)
+.sort((a,b)=>a.localeCompare(b));
+
+if(!result.length){
+
+setTxt("status","OK");
+setTxt("note","Aucun sous-domaine trouvé.");
+
+setVal("out","(vide)");
+
+return;
+
+}
+
+setVal(
+"out",
+result.join("\n")
+);
+
+setTxt("status","OK");
+
+setTxt(
+"note",
+result.length+" sous-domaines trouvés via CT logs."
+);
+
+}catch(e){
+
+setTxt("status","Erreur");
+
+setTxt(
+"note",
+typeof e==="string"
+?e
+:"Impossible d'interroger crt.sh (CORS ou charge)."
+);
+
+}
+
+}
+
+$("scan").onclick=scan;
+
+$("clear").onclick=()=>{
+
+setVal("domain","");
+setVal("out","");
+
+setTxt("status","—");
+setTxt("note","—");
+
+};
+
+$("copy").onclick=()=>{
+
+navigator.clipboard.writeText(
+$("out").value||""
+);
+
+};
 
   </script>
 
