@@ -31,12 +31,12 @@
 <main class="tool-main">
   <section class="shell-section">
     <div class="ip-card">
-      <h1 class="tool-title">Vérifier si une IP est blacklistée (DNSBL)</h1>
+      <h1 class="tool-title">IP Blacklist Check (DNSBL)</h1>
 
       <div class="terminal-body">
         <div class="line">IPv4 :</div>
         <div class="line">
-          <input id="ip" style="width:100%" placeholder="ex: 8.8.8.8" />
+          <input id="ip" style="width:100%" placeholder="ex: 1.2.3.4" />
         </div>
 
         <button class="copy-btn" id="btnCheck">Vérifier</button>
@@ -44,7 +44,12 @@
 
         <div class="line">Rapport :</div>
         <div class="line">
-          <textarea id="out" rows="18" style="width:100%" readonly></textarea>
+          <textarea id="out" rows="20" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Commandes dig (validation fiable) :</div>
+        <div class="line">
+          <textarea id="digOut" rows="6" style="width:100%" readonly></textarea>
         </div>
 
         <div class="line">Statut : <span id="status">—</span></div>
@@ -52,9 +57,11 @@
       </div>
 
       <button class="copy-btn" id="copyOut">Copier rapport</button>
+      <button class="copy-btn" id="copyDig">Copier commandes dig</button>
     </div>
   </section>
 </main>
+
 
 <!--
   <aside class="tool-ads">
@@ -64,7 +71,6 @@
 -->
 
 <script>
-
   const $ = (id) => document.getElementById(id);
   function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
   function setVal(id, v) { $(id).value = v || ""; }
@@ -74,10 +80,7 @@
     const p = s.split(".").map(Number);
     return p.every(x => x >= 0 && x <= 255);
   }
-
-  function reverseIPv4(ip){
-    return ip.split(".").reverse().join(".");
-  }
+  function reverseIPv4(ip){ return ip.split(".").reverse().join("."); }
 
   function statusName(code){
     if (code === 0) return "NOERROR";
@@ -106,119 +109,222 @@
   }
 
   function unquoteTxt(s){
-    // Cloudflare DoH renvoie souvent TXT sous forme "..."
     s = String(s || "").trim();
+    // Cloudflare peut renvoyer des segments "a" "b" : on les laisse, mais on retire quotes externes simples
     return s.replace(/^"(.*)"$/, "$1");
   }
 
-  // Liste raisonnable (certaines peuvent être “capricieuses” via resolvers publics)
+  // DNSBLs (tu peux en ajouter)
   const DNSBLS = [
-    { id: "spamhaus_zen",  zone: "zen.spamhaus.org",       label: "Spamhaus ZEN" },
-    { id: "spamcop",       zone: "bl.spamcop.net",         label: "SpamCop" },
-    { id: "barracuda",     zone: "b.barracudacentral.org", label: "Barracuda" },
-    { id: "sorbs_dnsbl",   zone: "dnsbl.sorbs.net",        label: "SORBS DNSBL" },
-    { id: "spamrats",      zone: "all.spamrats.com",       label: "SpamRATS (ALL)" },
-    { id: "uceprotect1",   zone: "dnsbl-1.uceprotect.net", label: "UCEPROTECT L1" },
-    { id: "psbl",          zone: "psbl.surriel.com",       label: "PSBL" },
-    { id: "ivm_sip",       zone: "sip.invaluement.com",    label: "Invaluement SIP" }
+    { id: "spamhaus_zen", zone: "zen.spamhaus.org", label: "Spamhaus ZEN" },
+    { id: "spamcop", zone: "bl.spamcop.net", label: "SpamCop" },
+    { id: "barracuda", zone: "b.barracudacentral.org", label: "Barracuda" },
+    { id: "sorbs", zone: "dnsbl.sorbs.net", label: "SORBS" },
+    { id: "spamrats", zone: "all.spamrats.com", label: "SpamRATS (ALL)" },
+    { id: "uceprotect1", zone: "dnsbl-1.uceprotect.net", label: "UCEPROTECT L1" },
+    { id: "psbl", zone: "psbl.surriel.com", label: "PSBL" },
+    { id: "invaluement_sip", zone: "sip.invaluement.com", label: "Invaluement SIP" }
   ];
+
+  function detectPolicyBlock(blId, aAns, txtAns, aStatus){
+    const txtAll = (txtAns || []).join(" | ").toLowerCase();
+    const aAll = (aAns || []).join(", ");
+
+    // Common "blocked" signals
+    if (aStatus === "SERVFAIL" || aStatus === "REFUSED"){
+      return { blocked: true, reason: aStatus + " (souvent blocage via resolver public)" };
+    }
+
+    // Spamhaus: "open resolver" message / returnc link
+    if (blId === "spamhaus_zen"){
+      if (txtAll.includes("open resolver") || txtAll.includes("check.spamhaus.org/returnc") || txtAll.includes("returnc")){
+        return { blocked: true, reason: "Spamhaus bloque ce type de requête (open resolver/public DoH) → faux positif" };
+      }
+      // Certaines réponses 127.255.255.254 sont utilisées pour indiquer blocage/policy dans certains contextes
+      if (aAll.includes("127.255.255.254") && txtAll.includes("error")){
+        return { blocked: true, reason: "Spamhaus répond 'policy/error' via ce résolveur → faux positif" };
+      }
+    }
+
+    // Invaluement: explicit unauthorized / everything listed
+    if (blId === "invaluement_sip"){
+      if (txtAll.includes("unauthorized") || txtAll.includes("everything is listed") || txtAll.includes("get off of it")){
+        return { blocked: true, reason: "Invaluement refuse l'accès sans autorisation → tout listé (faux positif)" };
+      }
+    }
+
+    // Generic: any TXT mentions "unauthorized", "blocked", "abuse", "access denied"
+    if (txtAll.includes("unauthorized") || txtAll.includes("access denied") || txtAll.includes("blocked") || txtAll.includes("malfunctioned")){
+      return { blocked: true, reason: "Le provider indique un blocage/accès refusé → résultat non fiable via DoH" };
+    }
+
+    return { blocked: false, reason: "" };
+  }
 
   async function checkOne(ip, bl){
     const rev = reverseIPv4(ip);
     const q = `${rev}.${bl.zone}`;
 
-    // A = listed if 127.x.x.x exists
-    let aJ, txtJ;
-    try { aJ = await dohQuery(q, "A"); } catch (e) { return { bl, q, error: String(e && e.message ? e.message : e) }; }
+    let aJ;
+    try { aJ = await dohQuery(q, "A"); }
+    catch (e){ return { bl, q, error: (e && e.message) ? e.message : String(e) }; }
+
     const aStatus = statusName(aJ.Status);
     const aAns = extractAnswers(aJ, 1);
 
-    // TXT optional
-    try { txtJ = await dohQuery(q, "TXT"); } catch { txtJ = null; }
-    const txtStatus = txtJ ? statusName(txtJ.Status) : "—";
-    const txtAns = txtJ ? extractAnswers(txtJ, 16).map(unquoteTxt) : [];
+    let txtAns = [];
+    try{
+      const txtJ = await dohQuery(q, "TXT");
+      txtAns = extractAnswers(txtJ, 16).map(unquoteTxt);
+    }catch{
+      txtAns = [];
+    }
 
-    const listed = (aJ.Status === 0 && aAns.length > 0);
-    const blockedOrUnsupported = (aJ.Status === 2 || aJ.Status === 5); // SERVFAIL/REFUSED
+    // Decision logic:
+    // - NXDOMAIN => not listed
+    // - NOERROR + A present => maybe listed, but detect provider policy blocks
+    // - SERVFAIL/REFUSED => blocked by provider/resolver
+    // - NOERROR without A => indeterminate (some lists do this)
+    const pol = detectPolicyBlock(bl.id, aAns, txtAns, aStatus);
 
-    return {
-      bl, q,
-      listed,
-      aStatus, aAns,
-      txtStatus, txtAns,
-      blockedOrUnsupported
-    };
+    let verdict;
+    if (pol.blocked){
+      verdict = "BLOCKED";
+    } else if (aStatus === "NXDOMAIN"){
+      verdict = "NOT_LISTED";
+    } else if (aStatus === "NOERROR" && aAns.length){
+      verdict = "LISTED";
+    } else {
+      verdict = "INDETERMINATE";
+    }
+
+    return { bl, q, aStatus, aAns, txtAns, verdict, policyReason: pol.reason };
   }
 
-  function formatReport(ip, results){
+  function buildDigCommands(ip){
+    const rev = reverseIPv4(ip);
     const lines = [];
-    lines.push("IP Blacklist Check (DNSBL)");
-    lines.push("==========================");
+    lines.push(`# Vérif depuis un resolver local (recommandé)`);
+    lines.push(`# Linux/macOS:`);
+    lines.push(`IP="${ip}"`);
+    lines.push(`REV="${rev}"`);
+    lines.push("");
+    for (const bl of DNSBLS){
+      const q = `${rev}.${bl.zone}`;
+      lines.push(`# ${bl.label}`);
+      lines.push(`dig +short ${q} A`);
+      lines.push(`dig +short ${q} TXT`);
+      lines.push("");
+    }
+    return lines.join("\n").trimEnd();
+  }
+
+  function formatClear(ip, results){
+    const lines = [];
+    lines.push("IP Blacklist Check (DNSBL) — Sortie claire");
+    lines.push("=========================================");
     lines.push("");
     lines.push("IP: " + ip);
     lines.push("");
 
-    const listed = results.filter(r => r.listed);
-    const clean = results.filter(r => !r.listed && r.aStatus === "NXDOMAIN");
-    const unsure = results.filter(r => !r.listed && r.aStatus !== "NXDOMAIN");
+    const listed = results.filter(r => r.verdict === "LISTED");
+    const notListed = results.filter(r => r.verdict === "NOT_LISTED");
+    const blocked = results.filter(r => r.verdict === "BLOCKED");
+    const indet = results.filter(r => r.verdict === "INDETERMINATE");
+    const errors = results.filter(r => r.error);
 
-    lines.push("Résumé");
-    lines.push("------");
-    lines.push("LISTED: " + listed.length + "/" + results.length);
-    lines.push("NOT LISTED (NXDOMAIN): " + clean.length + "/" + results.length);
-    lines.push("INDETERMINÉ (SERVFAIL/REFUSED/NOERROR sans A…): " + unsure.length + "/" + results.length);
+    // Score "fiable" : ignore BLOCKED/ERROR
+    const reliableTotal = results.length - blocked.length - errors.length;
+    const reliableListed = listed.length; // (déjà exclu policy blocks)
+    const reliableNotListed = notListed.length;
+
+    lines.push("Résumé (fiable)");
+    lines.push("---------------");
+    lines.push(`LISTED: ${reliableListed}/${Math.max(0, reliableTotal)} (hors BLOCKED/ERROR)`);
+    lines.push(`NOT LISTED: ${reliableNotListed}/${Math.max(0, reliableTotal)} (hors BLOCKED/ERROR)`);
+    if (blocked.length) lines.push(`BLOCKED BY PROVIDER: ${blocked.length}/${results.length}`);
+    if (indet.length) lines.push(`INDETERMINATE: ${indet.length}/${results.length}`);
+    if (errors.length) lines.push(`ERROR: ${errors.length}/${results.length}`);
 
     if (listed.length){
       lines.push("");
-      lines.push("Listes où l'IP est LISTED");
-      lines.push("-------------------------");
+      lines.push("LISTED ✅ (signal exploitable)");
+      lines.push("-----------------------------");
       for (const r of listed){
         lines.push(`- ${r.bl.label} (${r.bl.zone})`);
-        lines.push(`  Query: ${r.q}`);
-        lines.push(`  A: ${r.aAns.join(", ") || "—"} (Status ${r.aStatus})`);
-        if (r.txtAns.length) lines.push(`  TXT: ${r.txtAns.slice(0,3).join(" | ")}`);
+        lines.push(`  A: ${r.aAns.join(", ")}`);
+        if (r.txtAns && r.txtAns.length) lines.push(`  TXT: ${r.txtAns.slice(0,2).join(" | ")}`);
+      }
+    }
+
+    if (blocked.length){
+      lines.push("");
+      lines.push("BLOCKED BY PROVIDER ⚠️ (résultat non fiable via DoH)");
+      lines.push("----------------------------------------------------");
+      for (const r of blocked){
+        lines.push(`- ${r.bl.label} (${r.bl.zone})`);
+        lines.push(`  Raison: ${r.policyReason || (r.aStatus + " (blocage probable)")}`);
+        if (r.txtAns && r.txtAns.length) lines.push(`  TXT: ${r.txtAns.slice(0,2).join(" | ")}`);
+      }
+      lines.push("");
+      lines.push("👉 Solution: utilise les commandes dig ci-dessous depuis un serveur/PC avec resolver local.");
+    }
+
+    if (notListed.length){
+      lines.push("");
+      lines.push("NOT LISTED ✅");
+      lines.push("-------------");
+      for (const r of notListed){
+        lines.push(`- ${r.bl.label}`);
+      }
+    }
+
+    if (indet.length){
+      lines.push("");
+      lines.push("INDETERMINATE ⚠️");
+      lines.push("----------------");
+      for (const r of indet){
+        lines.push(`- ${r.bl.label} (${r.bl.zone})`);
+        lines.push(`  A status: ${r.aStatus}` + (r.aAns?.length ? ` | A: ${r.aAns.join(", ")}` : ""));
+        if (r.txtAns && r.txtAns.length) lines.push(`  TXT: ${r.txtAns.slice(0,2).join(" | ")}`);
+      }
+    }
+
+    if (errors.length){
+      lines.push("");
+      lines.push("ERROR ❌");
+      lines.push("--------");
+      for (const r of errors){
+        lines.push(`- ${r.bl.label}: ${r.error}`);
       }
     }
 
     lines.push("");
-    lines.push("Détails par liste");
-    lines.push("-----------------");
-    for (const r of results){
-      const tag = r.listed ? "LISTED ✅" : (r.aStatus === "NXDOMAIN" ? "OK (not listed)" : "INDETERMINÉ ⚠️");
-      lines.push(`- ${r.bl.label} (${r.bl.zone}) -> ${tag}`);
-      lines.push(`  A Status: ${r.aStatus}` + (r.aAns?.length ? ` | A: ${r.aAns.join(", ")}` : ""));
-      if (r.txtAns && r.txtAns.length) lines.push(`  TXT: ${r.txtAns.slice(0,2).join(" | ")}`);
-      if (r.blockedOrUnsupported){
-        lines.push("  Note: cette DNSBL peut refuser les resolvers publics (Cloudflare/Google).");
-      }
-    }
-
-    lines.push("");
-    lines.push("Notes");
-    lines.push("-----");
-    lines.push("- 'LISTED' = présence d'une réponse A (souvent 127.x.x.x).");
-    lines.push("- 'NXDOMAIN' = généralement 'pas listé'.");
-    lines.push("- 'SERVFAIL/REFUSED' = souvent blocage DNSBL via résolveur public (pas forcément listé).");
-    lines.push("- Pour confirmer à 100% : tester depuis un serveur avec un resolver local (unbound/bind) ou via les outils du provider DNSBL.");
+    lines.push("Rappel");
+    lines.push("------");
+    lines.push("- Certaines DNSBL (ex: Spamhaus/Invaluement) bloquent les resolvers publics → faux positifs/servfail.");
+    lines.push("- Pour confirmer : fais les requêtes DNSBL depuis un resolver local (unbound/bind) ou l'outil officiel du provider.");
 
     return lines.join("\n");
   }
 
   async function run(){
-    setTxt("status", "Vérification...");
-    setTxt("note", "Interrogation DNSBL via DoH Cloudflare. Certaines listes peuvent renvoyer SERVFAIL/REFUSED.");
-    setVal("out", "");
+    setTxt("status","Vérification...");
+    setTxt("note","DoH Cloudflare. Certaines DNSBL peuvent bloquer → classé BLOCKED (non fiable).");
+    setVal("out","");
+    setVal("dig","");
 
     const ip = ($("ip").value || "").trim();
     if (!isIPv4(ip)){
-      setTxt("status", "Erreur");
-      setTxt("note", "Entre une IPv4 valide (ex: 1.2.3.4).");
+      setTxt("status","Erreur");
+      setTxt("note","Entre une IPv4 valide (ex: 1.2.3.4).");
       return;
     }
 
-    // Batches pour éviter de spammer DoH
-    const batchSize = 4;
+    setVal("dig", buildDigCommands(ip));
+
     const results = [];
+    const batchSize = 4;
     for (let i=0;i<DNSBLS.length;i+=batchSize){
       setTxt("status", `Vérification... ${Math.min(i+batchSize, DNSBLS.length)}/${DNSBLS.length}`);
       const chunk = DNSBLS.slice(i, i+batchSize);
@@ -226,9 +332,9 @@
       results.push(...part);
     }
 
-    setVal("out", formatReport(ip, results));
-    setTxt("status", "OK");
-    setTxt("note", "Terminé.");
+    setVal("out", formatClear(ip, results));
+    setTxt("status","OK");
+    setTxt("note","Terminé.");
   }
 
   $("btnCheck").addEventListener("click", run);
@@ -236,6 +342,7 @@
   $("btnClear").addEventListener("click", () => {
     setVal("ip", "");
     setVal("out", "");
+    setVal("dig", "");
     setTxt("status", "—");
     setTxt("note", "—");
   });
@@ -244,12 +351,9 @@
     navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
   });
 
-  </script>
-
-<!-- ****************************************************************************************************** -->
-
-<div id="footer"></div>
-<script src="/includes/load.js"></script>
-<script src="/includes/auto.js"></script>
+  $("copyDig").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("dig").value || "—").catch(()=>{});
+  });
+</script>
 </body>
 </html>
