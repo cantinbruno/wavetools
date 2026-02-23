@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyse email reçu (phishing)</title>
+  <meta name="description" content="WaveTools : Analyse email reçu (phishing)">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Analyse email reçu (détection phishing)</h1>
+
+      <div class="terminal-body">
+        <div class="line">Colle les headers complets de l’email :</div>
+        <div class="line">
+          <textarea id="headers" rows="14" style="width:100%" placeholder="Ex: Authentication-Results: ...&#10;Received: ...&#10;From: ...&#10;Return-Path: ..."></textarea>
+        </div>
+
+        <div class="line">
+          DNS (DoH) :
+          <select id="provider">
+            <option value="google" selected>Google (dns.google)</option>
+            <option value="cloudflare">Cloudflare (cloudflare-dns.com)</option>
+          </select>
+        </div>
+
+        <button class="copy-btn" id="btnAnalyze">Analyser</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Rapport (sortie claire) :</div>
+        <div class="line">
+          <textarea id="out" rows="18" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier rapport</button>
+    </div>
+  </section>
+</main>
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  // ---------------- DoH helpers ----------------
+  async function fetchWithTimeout(url, opts, ms){
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), ms);
+    try{ return await fetch(url, { ...opts, signal: ctrl.signal }); }
+    finally{ clearTimeout(t); }
+  }
+
+  function dohUrl(provider, name, type){
+    if (provider === "cloudflare"){
+      return "https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(name) + "&type=" + encodeURIComponent(type);
+    }
+    return "https://dns.google/resolve?name=" + encodeURIComponent(name) + "&type=" + encodeURIComponent(type);
+  }
+
+  async function dohQuery(provider, name, type, timeoutMs=3500){
+    const url = dohUrl(provider, name, type);
+    const r = await fetchWithTimeout(url, { headers: { "accept": "application/dns-json" }, cache: "no-store" }, timeoutMs);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return await r.json();
+  }
+
+  function statusName(code){
+    if (code === 0) return "NOERROR";
+    if (code === 1) return "FORMERR";
+    if (code === 2) return "SERVFAIL";
+    if (code === 3) return "NXDOMAIN";
+    if (code === 4) return "NOTIMP";
+    if (code === 5) return "REFUSED";
+    return String(code);
+  }
+
+  function extractAnswers(j, rrtype){
+    const out = [];
+    if (!j || !Array.isArray(j.Answer)) return out;
+    for (const a of j.Answer){
+      if (a && a.type === rrtype && a.data) out.push(String(a.data).trim());
+    }
+    return Array.from(new Set(out));
+  }
+
+  function unquoteTxt(s){
+    s = String(s || "").trim();
+    return s.replace(/^"(.*)"$/, "$1");
+  }
+
+  // ---------------- Header parsing ----------------
+  function unfoldHeaders(raw){
+    // RFC: lignes qui commencent par espace/onglet = continuation
+    const lines = String(raw || "").replace(/\r\n/g,"\n").replace(/\r/g,"\n").split("\n");
+    const out = [];
+    for (const line of lines){
+      if (!line) { out.push(line); continue; }
+      if (/^[ \t]/.test(line) && out.length){
+        out[out.length-1] += " " + line.trim();
+      } else {
+        out.push(line);
+      }
+    }
+    return out.join("\n");
+  }
+
+  function parseHeaderMap(raw){
+    const txt = unfoldHeaders(raw);
+    const map = new Map(); // key lower -> array of values
+    const lines = txt.split("\n");
+    for (const line of lines){
+      const m = line.match(/^([^:]+):\s*(.*)$/);
+      if (!m) continue;
+      const k = m[1].trim();
+      const v = m[2].trim();
+      const key = k.toLowerCase();
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(v);
+    }
+    return map;
+  }
+
+  function getFirst(map, key){
+    const a = map.get(key.toLowerCase());
+    return (a && a.length) ? a[0] : "";
+  }
+  function getAll(map, key){
+    return map.get(key.toLowerCase()) || [];
+  }
+
+  function extractEmailDomain(value){
+    const v = String(value || "");
+    const m = v.match(/@([a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/);
+    return m ? m[1].toLowerCase() : "";
+  }
+
+  function normalizeDomain(d){
+    d = (d||"").trim().toLowerCase();
+    d = d.replace(/^<|>$/g,"");
+    d = d.replace(/^https?:\/\//, "");
+    d = d.replace(/\/.*$/, "");
+    d = d.replace(/\.+$/,"");
+    if (!d || !d.includes(".")) return "";
+    return d;
+  }
+
+  function looksLikePunycode(h){ return h.includes("xn--"); }
+
+  function section(lines, title){
+    lines.push("");
+    lines.push(title);
+    lines.push("-".repeat(Math.min(60, title.length)));
+  }
+
+  // -------- Authentication-Results parser (simple) --------
+  function parseAuthResults(ar){
+    // Très pragmatique : détecte spf=pass/fail..., dkim=..., dmarc=...
+    const s = String(ar || "").toLowerCase();
+    const pick = (k) => {
+      const m = s.match(new RegExp("\\b" + k + "\\s*=\\s*([a-z0-9_\\-]+)", "i"));
+      return m ? m[1].toLowerCase() : "";
+    };
+    return {
+      spf: pick("spf"),
+      dkim: pick("dkim"),
+      dmarc: pick("dmarc"),
+      arc: pick("arc")
+    };
+  }
+
+  // -------- Phishing scoring (heuristic) --------
+  function scoreEmail({fromDom, returnDom, replyDom, auth, receivedCount, hasPuny, msgIdDom}){
+    let score = 0;
+    const reasons = [];
+
+    // Auth results
+    if (auth.spf && auth.spf !== "pass"){
+      score += 18; reasons.push("SPF ≠ pass (Authentication-Results).");
+    }
+    if (auth.dkim && auth.dkim !== "pass"){
+      score += 18; reasons.push("DKIM ≠ pass (Authentication-Results).");
+    }
+    if (auth.dmarc && auth.dmarc !== "pass"){
+      score += 25; reasons.push("DMARC ≠ pass (Authentication-Results).");
+    }
+    if (!auth.spf && !auth.dkim && !auth.dmarc){
+      score += 12; reasons.push("Pas de résultats SPF/DKIM/DMARC dans les headers (info manquante).");
+    }
+
+    // Domain mismatches
+    if (fromDom && returnDom && fromDom !== returnDom){
+      score += 12; reasons.push(`From domain ≠ Return-Path domain (${fromDom} vs ${returnDom}).`);
+    }
+    if (fromDom && replyDom && fromDom !== replyDom){
+      score += 14; reasons.push(`From domain ≠ Reply-To domain (${fromDom} vs ${replyDom}).`);
+    }
+    if (fromDom && msgIdDom && fromDom !== msgIdDom){
+      score += 8; reasons.push(`From domain ≠ Message-ID domain (${fromDom} vs ${msgIdDom}).`);
+    }
+
+    // Punycode
+    if (hasPuny){
+      score += 18; reasons.push("Domaine en punycode (xn--) : risque d’homographe.");
+    }
+
+    // Received chain (super light)
+    if (receivedCount >= 10){
+      score += 5; reasons.push("Beaucoup de relais Received (pas forcément mauvais, mais signal faible).");
+    }
+    if (receivedCount === 0){
+      score += 10; reasons.push("Aucun Received détecté (headers incomplets ?).");
+    }
+
+    if (score > 100) score = 100;
+
+    let label = "PROBABLEMENT LÉGITIME ✅ (pas garanti)";
+    if (score >= 70) label = "PROBABLE PHISHING 🚨";
+    else if (score >= 40) label = "SUSPECT ⚠️";
+
+    return { score, label, reasons };
+  }
+
+  async function dnsContext(provider, domain){
+    if (!domain) return null;
+    const out = { domain };
+
+    // TXT (SPF)
+    try{
+      const j = await dohQuery(provider, domain, "TXT", 3200);
+      const txt = extractAnswers(j, 16).map(unquoteTxt);
+      out.txtStatus = statusName(j.Status);
+      out.spf = txt.find(x => /^v=spf1\b/i.test(x)) || "";
+    }catch(e){
+      out.txtStatus = "ERROR";
+      out.spf = "";
+    }
+
+    // DMARC
+    try{
+      const j = await dohQuery(provider, "_dmarc." + domain, "TXT", 3200);
+      const txt = extractAnswers(j, 16).map(unquoteTxt);
+      out.dmarcStatus = statusName(j.Status);
+      out.dmarc = txt.find(x => /^v=dmarc1\b/i.test(x)) || "";
+    }catch{
+      out.dmarcStatus = "ERROR";
+      out.dmarc = "";
+    }
+
+    // MX
+    try{
+      const j = await dohQuery(provider, domain, "MX", 3200);
+      out.mxStatus = statusName(j.Status);
+      out.mx = extractAnswers(j, 15);
+    }catch{
+      out.mxStatus = "ERROR";
+      out.mx = [];
+    }
+
+    return out;
+  }
+
+  async function run(){
+    setTxt("status","Analyse...");
+    setTxt("note","Analyse basée sur headers + DNS. Pour être fiable : colle les headers COMPLETS.");
+    setVal("out","");
+
+    const raw = ($("headers").value || "").trim();
+    if (!raw){
+      setTxt("status","Erreur");
+      setTxt("note","Colle les headers de l’email.");
+      return;
+    }
+
+    const provider = $("provider").value;
+
+    const map = parseHeaderMap(raw);
+
+    const from = getFirst(map, "from");
+    const replyTo = getFirst(map, "reply-to");
+    const returnPath = getFirst(map, "return-path");
+    const msgId = getFirst(map, "message-id");
+    const authResAll = getAll(map, "authentication-results");
+    const authRes = authResAll.length ? authResAll[0] : "";
+    const received = getAll(map, "received");
+
+    const fromDom = normalizeDomain(extractEmailDomain(from));
+    const replyDom = normalizeDomain(extractEmailDomain(replyTo));
+    const returnDom = normalizeDomain(extractEmailDomain(returnPath));
+    const msgIdDom = normalizeDomain(extractEmailDomain(msgId));
+
+    const auth = parseAuthResults(authRes);
+    const hasPuny = looksLikePunycode(fromDom || "") || looksLikePunycode(returnDom || "") || looksLikePunycode(replyDom || "");
+
+    const risk = scoreEmail({
+      fromDom, returnDom, replyDom, auth,
+      receivedCount: received.length,
+      hasPuny,
+      msgIdDom
+    });
+
+    // DNS context (for From domain)
+    let dns = null;
+    try{
+      dns = await dnsContext(provider, fromDom);
+    }catch{
+      dns = null;
+    }
+
+    const lines = [];
+    lines.push("Analyse email reçu — Rapport");
+    lines.push("===========================");
+    lines.push("");
+    lines.push("From: " + (from || "—"));
+    lines.push("Return-Path: " + (returnPath || "—"));
+    lines.push("Reply-To: " + (replyTo || "—"));
+    lines.push("Message-ID: " + (msgId || "—"));
+    lines.push("Received count: " + received.length);
+    lines.push("");
+
+    section(lines, "Verdict (heuristique)");
+    lines.push("Score: " + risk.score + "/100");
+    lines.push("Verdict: " + risk.label);
+    lines.push("");
+    lines.push("Raisons:");
+    if (risk.reasons.length) risk.reasons.forEach(r => lines.push("- " + r));
+    else lines.push("- Aucun signal évident détecté.");
+
+    section(lines, "Authentification (depuis Authentication-Results)");
+    if (authRes){
+      lines.push("Authentication-Results: détecté ✅");
+      lines.push("SPF: " + (auth.spf || "—"));
+      lines.push("DKIM: " + (auth.dkim || "—"));
+      lines.push("DMARC: " + (auth.dmarc || "—"));
+      if (auth.arc) lines.push("ARC: " + auth.arc);
+    } else {
+      lines.push("Authentication-Results: non détecté ⚠️");
+      lines.push("👉 Sur certains webmails, il faut afficher \"source originale\" / \"Afficher l'original\".");
+    }
+
+    section(lines, "Cohérence domaines");
+    lines.push("From domain: " + (fromDom || "—"));
+    lines.push("Return-Path domain: " + (returnDom || "—"));
+    lines.push("Reply-To domain: " + (replyDom || "—"));
+    lines.push("Message-ID domain: " + (msgIdDom || "—"));
+    if (hasPuny) lines.push("Punycode (xn--): OUI ⚠️");
+
+    section(lines, "Contexte DNS du domaine From (DoH: " + provider + ")");
+    if (dns){
+      lines.push("TXT status: " + (dns.txtStatus || "—"));
+      lines.push("SPF: " + (dns.spf || "(absent)"));
+      lines.push("DMARC status: " + (dns.dmarcStatus || "—"));
+      lines.push("DMARC: " + (dns.dmarc || "(absent)"));
+      lines.push("MX status: " + (dns.mxStatus || "—"));
+      if (dns.mx && dns.mx.length) dns.mx.slice(0,8).forEach(x => lines.push("- " + x));
+      else lines.push("(aucun MX)");
+    } else {
+      lines.push("DNS: indisponible (DoH bloqué ?).");
+    }
+
+    section(lines, "Conseils rapides");
+    lines.push("- Si DMARC=fail + Reply-To différent + liens suspects → très probable phishing.");
+    lines.push("- Vérifie le vrai domaine (pas le nom affiché).");
+    lines.push("- Ne clique pas : ouvre les liens en copie/collé dans ton analyseur d'URL (outil phishing URL).");
+    lines.push("- Si doute : passe par un canal officiel (app/site en direct, numéro officiel).");
+
+    setVal("out", lines.join("\n"));
+    setTxt("status","OK");
+    setTxt("note","Terminé.");
+  }
+
+  $("btnAnalyze").addEventListener("click", run);
+
+  $("btnClear").addEventListener("click", () => {
+    setVal("headers", "");
+    setVal("out", "");
+    setTxt("status", "—");
+    setTxt("note", "—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+  
+</script>
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
