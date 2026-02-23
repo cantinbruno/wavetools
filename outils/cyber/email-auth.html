@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPF / DKIM / DMARC</title>
+  <meta name="description" content="WaveTools : SPF / DKIM / DMARC">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">SPF / DKIM / DMARC</h1>
+
+      <div class="terminal-body">
+        <div class="line">Domaine :</div>
+        <div class="line">
+          <input id="domain" style="width:100%" placeholder="ex: example.com" />
+        </div>
+
+        <div class="line">Sélecteurs DKIM (optionnel) :</div>
+        <div class="line">
+          <input id="selectors" style="width:100%" placeholder="ex: default, selector1, google" />
+        </div>
+
+        <div class="line">
+          <button class="copy-btn" id="btnDig">Copier commandes dig (optionnel)</button>
+        </div>
+
+        <button class="copy-btn" id="btnAnalyze">Analyser</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Rapport :</div>
+        <div class="line">
+          <textarea id="out" rows="18" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier rapport</button>
+    </div>
+  </section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function normalizeDomain(d){
+    d = (d||"").trim().toLowerCase();
+    d = d.replace(/^https?:\/\//, "");
+    d = d.replace(/\/.*$/, "");
+    d = d.replace(/\.+$/,"");
+    if (!d || !d.includes(".")) throw new Error("Domaine invalide.");
+    return d;
+  }
+
+  function uniq(arr){ return Array.from(new Set(arr)); }
+
+  async function dohQuery(name, type){
+    const url = "https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(name) + "&type=" + encodeURIComponent(type);
+    const r = await fetch(url, { headers: { "accept": "application/dns-json" }, cache: "no-store" });
+    if (!r.ok) throw new Error("DoH indisponible (" + r.status + ").");
+    return await r.json();
+  }
+
+  async function dohTXT(name){
+    const j = await dohQuery(name, "TXT");
+    // Status 0 = NOERROR ; 3 = NXDOMAIN
+    const txt = [];
+    if (Array.isArray(j.Answer)){
+      for (const a of j.Answer){
+        // TXT = type 16
+        if (a.type === 16 && a.data){
+          // a.data est souvent quoted: "v=spf1 ..."; parfois segments
+          const s = String(a.data).trim();
+          // retire guillemets extérieurs si présents
+          const unq = s.replace(/^"(.*)"$/,"$1");
+          txt.push(unq);
+        }
+      }
+    }
+    return { status: j.Status, txt: uniq(txt) };
+  }
+
+  async function dohMX(name){
+    const j = await dohQuery(name, "MX");
+    const mx = [];
+    if (Array.isArray(j.Answer)){
+      for (const a of j.Answer){
+        if (a.type === 15 && a.data){
+          // format: "10 mail.example.com."
+          mx.push(String(a.data).trim());
+        }
+      }
+    }
+    return { status: j.Status, mx: uniq(mx) };
+  }
+
+  function parseTagList(record){
+    // "v=DMARC1; p=reject; rua=mailto:..."
+    const out = {};
+    record.split(";").map(x => x.trim()).filter(Boolean).forEach(part => {
+      const idx = part.indexOf("=");
+      if (idx > 0){
+        const k = part.slice(0, idx).trim().toLowerCase();
+        const v = part.slice(idx+1).trim();
+        out[k] = v;
+      } else {
+        out[part.toLowerCase()] = true;
+      }
+    });
+    return out;
+  }
+
+  function extractSPF(txtRecords){
+    const spf = txtRecords.filter(x => /^v=spf1\b/i.test(x.trim()));
+    return spf;
+  }
+
+  function spfLookupEstimate(spfRecord){
+    // Estimation simple des lookups SPF (limite 10)
+    // Comptés: include, a, mx, ptr, exists, redirect
+    // Note: la réalité est plus complexe (includes imbriqués, etc.)
+    const r = spfRecord.replace(/\s+/g," ").trim();
+    const parts = r.split(" ").slice(1); // sans v=spf1
+    let n = 0;
+    for (const p of parts){
+      const t = p.replace(/^[+\-~?]/,"").toLowerCase();
+      if (t === "a" || t.startsWith("a:")) n++;
+      else if (t === "mx" || t.startsWith("mx:")) n++;
+      else if (t.startsWith("include:")) n++;
+      else if (t === "ptr" || t.startsWith("ptr:")) n++;
+      else if (t.startsWith("exists:")) n++;
+      else if (t.startsWith("redirect=")) n++;
+    }
+    return n;
+  }
+
+  function analyzeSPF(spfRecords){
+    const lines = [];
+    if (!spfRecords.length){
+      lines.push("SPF: non trouvé (aucun TXT v=spf1).");
+      return { lines, warnings: ["SPF absent"] };
+    }
+
+    if (spfRecords.length > 1){
+      lines.push("SPF: ⚠️ plusieurs enregistrements SPF trouvés (il ne doit y en avoir qu’un).");
+    } else {
+      lines.push("SPF: trouvé.");
+    }
+
+    const warnings = [];
+    spfRecords.forEach((rec, i) => {
+      lines.push("");
+      lines.push(`SPF #${i+1}: ${rec}`);
+
+      const all = rec.toLowerCase();
+      const hasAll = /\s[+\-~?]all(\s|$)/.test(all) || /\sall(\s|$)/.test(all);
+      if (!hasAll){
+        warnings.push("SPF sans mécanisme all (fin de politique manquante)");
+        lines.push("- Alerte: pas de 'all' détecté (policy incomplète).");
+      } else {
+        const m = all.match(/\s([+\-~?])?all(\s|$)/);
+        const q = (m && m[1]) ? m[1] : "+";
+        const policy = (q === "-") ? "FAIL (-all, strict)" :
+                       (q === "~") ? "SOFTFAIL (~all)" :
+                       (q === "?") ? "NEUTRAL (?all)" :
+                       "PASS (+all) ⚠️";
+        lines.push("- Policy fin: " + policy);
+        if (q === "+"){
+          warnings.push("SPF en +all (tout autorisé) — dangereux");
+        }
+      }
+
+      const est = spfLookupEstimate(rec);
+      lines.push("- Estimation lookups DNS SPF: ~" + est + " (limite recommandée: 10)");
+      if (est > 10){
+        warnings.push("SPF dépasse probablement 10 lookups DNS (risque de permerror)");
+        lines.push("- Alerte: peut dépasser la limite SPF (10).");
+      }
+
+      if (all.includes("ptr")){
+        warnings.push("SPF utilise ptr (déconseillé)");
+        lines.push("- Alerte: mécanisme 'ptr' détecté (déconseillé).");
+      }
+    });
+
+    return { lines, warnings: uniq(warnings) };
+  }
+
+  function analyzeDMARC(dmarcRecords){
+    const lines = [];
+    const warnings = [];
+
+    if (!dmarcRecords.length){
+      lines.push("DMARC: non trouvé (TXT _dmarc absent).");
+      return { lines, warnings: ["DMARC absent"] };
+    }
+
+    // DMARC devrait être unique
+    if (dmarcRecords.length > 1){
+      lines.push("DMARC: ⚠️ plusieurs enregistrements DMARC trouvés (il devrait être unique).");
+    } else {
+      lines.push("DMARC: trouvé.");
+    }
+
+    dmarcRecords.forEach((rec, i) => {
+      lines.push("");
+      lines.push(`DMARC #${i+1}: ${rec}`);
+
+      const tags = parseTagList(rec);
+      if (!tags.v || !/^DMARC1$/i.test(tags.v)){
+        warnings.push("DMARC v=DMARC1 manquant ou invalide");
+        lines.push("- Alerte: tag v=DMARC1 manquant/invalide.");
+      }
+
+      const p = (tags.p || "").toLowerCase();
+      if (!p){
+        warnings.push("DMARC p= manquant");
+        lines.push("- Alerte: p= manquant (none/quarantine/reject).");
+      } else {
+        lines.push("- Policy (p): " + p);
+        if (p === "none") warnings.push("DMARC en p=none (monitoring seulement)");
+      }
+
+      const rua = tags.rua || "";
+      if (!rua){
+        warnings.push("DMARC sans rua (pas de rapports agrégés)");
+        lines.push("- Alerte: rua= absent (pas de rapports).");
+      } else {
+        lines.push("- rua: " + rua);
+        if (!/mailto:/i.test(rua)) warnings.push("DMARC rua sans mailto:");
+      }
+
+      const ruf = tags.ruf || "";
+      if (ruf) lines.push("- ruf: " + ruf);
+
+      const adkim = (tags.adkim || "r").toLowerCase();
+      const aspf  = (tags.aspf  || "r").toLowerCase();
+      lines.push("- Alignement: adkim=" + adkim + " / aspf=" + aspf + " (r=relaxed, s=strict)");
+
+      const pct = tags.pct ? String(tags.pct) : "100";
+      lines.push("- pct: " + pct + "%");
+
+      const sp = tags.sp ? String(tags.sp) : "";
+      if (sp) lines.push("- subdomain policy (sp): " + sp);
+
+      if (tags.fo) lines.push("- fo: " + tags.fo);
+    });
+
+    return { lines, warnings: uniq(warnings) };
+  }
+
+  function analyzeDKIM(resultsBySelector){
+    const lines = [];
+    const warnings = [];
+
+    const sels = Object.keys(resultsBySelector || {});
+    if (!sels.length){
+      lines.push("DKIM: non testé (aucun sélecteur fourni).");
+      lines.push("Astuce: mets 'default' ou 'selector1' (ex Google Workspace: 'google').");
+      return { lines, warnings };
+    }
+
+    lines.push("DKIM: vérification des sélecteurs fournis.");
+    for (const sel of sels){
+      const r = resultsBySelector[sel];
+      const name = sel + "._domainkey";
+      if (!r || !Array.isArray(r.txt) || !r.txt.length){
+        lines.push(`- ${name}: non trouvé (TXT absent).`);
+        warnings.push(`DKIM absent pour selector "${sel}"`);
+        continue;
+      }
+
+      // Un record DKIM ressemble à: v=DKIM1; k=rsa; p=...
+      const dkimRecs = r.txt.filter(x => /v\s*=\s*dkim1/i.test(x));
+      if (!dkimRecs.length){
+        lines.push(`- ${name}: TXT présent mais pas de v=DKIM1 détecté.`);
+        warnings.push(`DKIM invalide pour selector "${sel}" (pas v=DKIM1)`);
+        continue;
+      }
+
+      // Si plusieurs, on liste
+      dkimRecs.forEach((rec, idx) => {
+        const tags = parseTagList(rec);
+        const k = (tags.k || "rsa").toLowerCase();
+        const p = (tags.p || "").replace(/\s+/g,"");
+        const pLen = p ? p.length : 0;
+
+        lines.push(`- ${name} (record #${idx+1}): v=DKIM1, k=${k}, p.len=${pLen}`);
+
+        if (!p || pLen < 50){
+          warnings.push(`DKIM selector "${sel}" clé vide/courte (p=)`);
+        } else {
+          // heuristique RSA bits approx via base64 length (très grossier)
+          // base64Len * 3/4 = bytes; * 8 = bits
+          const approxBits = Math.round((pLen * 3 / 4) * 8);
+          lines.push(`  ~ taille clé (très approximatif): ${approxBits} bits`);
+          if (k === "rsa" && approxBits > 0 && approxBits < 1024){
+            warnings.push(`DKIM selector "${sel}" clé potentiellement trop faible`);
+          }
+        }
+      });
+    }
+
+    return { lines, warnings: uniq(warnings) };
+  }
+
+  async function run(){
+    setTxt("status","Analyse...");
+    setTxt("note","Lecture DNS via DoH Cloudflare (sans backend).");
+    setVal("out","");
+
+    let domain;
+    try{
+      domain = normalizeDomain($("domain").value);
+    }catch(e){
+      setTxt("status","Erreur");
+      setTxt("note", e.message || "Domaine invalide.");
+      return;
+    }
+
+    const selectors = uniq(
+      ($("selectors").value || "")
+        .split(/[, ]+/)
+        .map(x => x.trim())
+        .filter(Boolean)
+        .map(x => x.replace(/\.+$/,""))
+    );
+
+    try{
+      // TXT apex (SPF est généralement ici)
+      const apexTXT = await dohTXT(domain);
+      // DMARC
+      const dmarcTXT = await dohTXT("_dmarc." + domain);
+      // MX (bonus utile)
+      const mx = await dohMX(domain).catch(()=>({mx:[],status:null}));
+
+      // DKIM selectors
+      const dkimBySel = {};
+      for (const sel of selectors){
+        const fqdn = sel + "._domainkey." + domain;
+        dkimBySel[sel] = await dohTXT(fqdn).catch(()=>({txt:[],status:null}));
+      }
+
+      const spfRecords = extractSPF(apexTXT.txt);
+      const dmarcRecords = dmarcTXT.txt.filter(x => /^v=DMARC1\b/i.test(x.trim()));
+
+      const spfA = analyzeSPF(spfRecords);
+      const dmarcA = analyzeDMARC(dmarcRecords);
+      const dkimA = analyzeDKIM(dkimBySel);
+
+      const allWarnings = uniq([...(spfA.warnings||[]), ...(dmarcA.warnings||[]), ...(dkimA.warnings||[])]);
+      const sev =
+        allWarnings.some(w => /dangereux|absent|plusieurs|dépass|vide/i.test(w)) ? "À corriger" : "OK";
+
+      const lines = [];
+      lines.push("SPF / DKIM / DMARC");
+      lines.push("===================");
+      lines.push("");
+      lines.push("Domaine: " + domain);
+
+      if (mx.mx && mx.mx.length){
+        lines.push("MX: " + mx.mx.join(" | "));
+      } else {
+        lines.push("MX: (non lu / aucun)");
+      }
+
+      lines.push("");
+      lines.push("Résumé");
+      lines.push("------");
+      lines.push("Statut global: " + sev);
+      if (allWarnings.length){
+        lines.push("Alertes: " + allWarnings.length);
+        allWarnings.slice(0, 12).forEach(w => lines.push("- " + w));
+        if (allWarnings.length > 12) lines.push("- … (" + (allWarnings.length - 12) + " autres)");
+      } else {
+        lines.push("Alertes: 0");
+      }
+
+      lines.push("");
+      lines.push("SPF");
+      lines.push("---");
+      spfA.lines.forEach(l => lines.push(l));
+
+      lines.push("");
+      lines.push("DMARC");
+      lines.push("-----");
+      dmarcA.lines.forEach(l => lines.push(l));
+
+      lines.push("");
+      lines.push("DKIM");
+      lines.push("----");
+      dkimA.lines.forEach(l => lines.push(l));
+
+      lines.push("");
+      lines.push("DNS (brut)");
+      lines.push("---------");
+      lines.push("TXT " + domain + ":");
+      if (apexTXT.txt.length) apexTXT.txt.forEach(x => lines.push("- " + x));
+      else lines.push("- (aucun TXT)");
+
+      lines.push("");
+      lines.push("TXT _dmarc." + domain + ":");
+      if (dmarcTXT.txt.length) dmarcTXT.txt.forEach(x => lines.push("- " + x));
+      else lines.push("- (aucun TXT)");
+
+      if (selectors.length){
+        for (const sel of selectors){
+          const fqdn = sel + "._domainkey." + domain;
+          lines.push("");
+          lines.push("TXT " + fqdn + ":");
+          const t = (dkimBySel[sel] && dkimBySel[sel].txt) ? dkimBySel[sel].txt : [];
+          if (t.length) t.forEach(x => lines.push("- " + x));
+          else lines.push("- (aucun TXT)");
+        }
+      }
+
+      setVal("out", lines.join("\n"));
+      setTxt("status","OK");
+      setTxt("note","Terminé. (Astuce: ajoute des sélecteurs DKIM si tu ne connais pas le bon.)");
+    }catch(e){
+      setTxt("status","Erreur");
+      setTxt("note", (e && e.message) ? e.message : "Impossible de lire le DNS via DoH.");
+    }
+  }
+
+  $("btnAnalyze").addEventListener("click", run);
+
+  $("btnDig").addEventListener("click", () => {
+    try{
+      const d = normalizeDomain($("domain").value);
+      const sels = uniq(($("selectors").value || "").split(/[, ]+/).map(s=>s.trim()).filter(Boolean));
+      let cmd = "";
+      cmd += `dig +short TXT ${d}\n`;
+      cmd += `dig +short TXT _dmarc.${d}\n`;
+      if (sels.length){
+        for (const s of sels){
+          cmd += `dig +short TXT ${s}._domainkey.${d}\n`;
+        }
+      } else {
+        cmd += `# DKIM: ajoute un sélecteur (ex: default, selector1, google)\n`;
+      }
+      navigator.clipboard.writeText(cmd).catch(()=>{});
+      setTxt("note", "Commandes dig copiées.");
+    }catch{
+      setTxt("note", "Entre un domaine valide pour générer les commandes dig.");
+    }
+  });
+
+  $("btnClear").addEventListener("click", () => {
+    setVal("domain","");
+    setVal("selectors","");
+    setVal("out","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
