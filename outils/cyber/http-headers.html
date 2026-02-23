@@ -7,8 +7,8 @@
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Server fingerprint/title>
-  <meta name="description" content="WaveTools : server fingerprint">
+  <title>Analyse http </title>
+  <meta name="description" content="WaveTools : analyse http">
   <meta name="robots" content="index, follow">
   <meta http-equiv="content-language" content="fr">
   <meta name="author" content="WaveTools">
@@ -31,43 +31,38 @@
 <main class="tool-main">
   <section class="shell-section">
     <div class="ip-card">
-      <h1 class="tool-title">Server Fingerprint (sans backend)</h1>
+      <h1 class="tool-title">Analyse HTTP (sans backend)</h1>
 
       <div class="terminal-body">
-        <div class="line">URL cible :</div>
+        <div class="line">URL (optionnel, pour aide) :</div>
         <div class="line">
           <input id="url" style="width:100%" placeholder="https://example.com" />
         </div>
 
         <div class="line">
-          Note : <span id="noteHint">Sans backend, la lecture des headers est souvent bloquée par CORS. Si ça bloque, colle les headers + un extrait HTML ci-dessous.</span>
+          <button class="copy-btn" id="btnCurlI">Copier curl -I</button>
+          <button class="copy-btn" id="btnCurlLv">Copier curl -ILv</button>
         </div>
 
-        <div class="line">Headers HTTP (optionnel) :</div>
+        <div class="line">Coller une réponse HTTP (headers) :</div>
         <div class="line">
-          <textarea id="headersInput" rows="8" style="width:100%"
-            placeholder="Colle ici des headers (ex: depuis curl -I https://site)\n\nHTTP/2 200\nserver: nginx\nx-powered-by: PHP/8.2\n..."></textarea>
+          <textarea id="raw" rows="10" style="width:100%"
+            placeholder="Colle ici des headers (depuis curl -I / -ILv ou DevTools)\n\nHTTP/2 200\nserver: nginx\ncontent-type: text/html\nstrict-transport-security: ...\n..."></textarea>
         </div>
 
-        <div class="line">HTML source (optionnel) :</div>
-        <div class="line">
-          <textarea id="htmlInput" rows="8" style="width:100%"
-            placeholder="Optionnel : colle le HTML (Ctrl+U) si tu veux une détection plus précise (CMS/frameworks/CDN)."></textarea>
-        </div>
-
-        <button class="copy-btn" id="btnProbe">Analyser</button>
+        <button class="copy-btn" id="btnAnalyze">Analyser</button>
         <button class="copy-btn" id="btnClear">Vider</button>
 
-        <div class="line">Résultat :</div>
+        <div class="line">Rapport :</div>
         <div class="line">
-          <textarea id="out" rows="14" style="width:100%" readonly></textarea>
+          <textarea id="out" rows="16" style="width:100%" readonly></textarea>
         </div>
 
         <div class="line">Statut : <span id="status">—</span></div>
         <div class="line">Note : <span id="note">—</span></div>
       </div>
 
-      <button class="copy-btn" id="copyOut">Copier résultat</button>
+      <button class="copy-btn" id="copyOut">Copier rapport</button>
     </div>
   </section>
 </main>
@@ -80,7 +75,8 @@
 -->
 
 <script>
- const $ = (id) => document.getElementById(id);
+
+  const $ = (id) => document.getElementById(id);
   function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
   function setVal(id, v) { $(id).value = v || ""; }
 
@@ -88,273 +84,261 @@
     u = (u||"").trim();
     if (!u) throw new Error("URL vide.");
     if (!/^https?:\/\//i.test(u)) u = "https://" + u;
-    u = u.replace(/#.*$/, "");
-    return u;
+    return u.replace(/#.*$/, "");
   }
 
-  function parseHeadersBlock(text){
-    // Supporte : "Header: value" et blocs curl -I incluant "HTTP/1.1 200"
+  function splitResponses(text){
+    // Supporte curl -IL / -ILv qui imprime plusieurs blocs HTTP/...
+    const lines = (text || "").replace(/\r\n?/g,"\n").split("\n");
+    const blocks = [];
+    let cur = [];
+    for (const line of lines){
+      if (/^HTTP\/\d(\.\d)?\s+\d{3}/i.test(line.trim()) || /^HTTP\/2\s+\d{3}/i.test(line.trim())){
+        if (cur.length) blocks.push(cur.join("\n"));
+        cur = [line];
+      } else {
+        if (cur.length) cur.push(line);
+      }
+    }
+    if (cur.length) blocks.push(cur.join("\n"));
+    // si pas de status line détectée -> tout en un bloc
+    if (!blocks.length && text.trim()) blocks.push(text);
+    return blocks;
+  }
+
+  function parseHeadersBlock(block){
     const map = new Map();
-    const lines = (text || "").split(/\r?\n/);
-    for (const lineRaw of lines){
-      const line = lineRaw.trim();
+    const lines = (block || "").replace(/\r\n?/g,"\n").split("\n");
+    for (const raw of lines){
+      const line = raw.trim();
       if (!line) continue;
-      if (/^http\/\d|^http\/2|^HTTP\/\d/i.test(line)) {
+      if (/^HTTP\/\d(\.\d)?\s+\d{3}/i.test(line) || /^HTTP\/2\s+\d{3}/i.test(line)){
         map.set(":status-line", line);
         continue;
       }
       const idx = line.indexOf(":");
       if (idx <= 0) continue;
       const k = line.slice(0, idx).trim().toLowerCase();
-      const v = line.slice(idx + 1).trim();
+      const v = line.slice(idx+1).trim();
       if (!k) continue;
-      // multi-valued headers
       if (map.has(k)) map.set(k, map.get(k) + " | " + v);
       else map.set(k, v);
     }
     return map;
   }
 
-  function header(map, name){
-    return map.get(name.toLowerCase()) || "";
+  function h(map, name){ return map.get(name.toLowerCase()) || ""; }
+  function has(map, name){ return map.has(name.toLowerCase()); }
+
+  function parseStatus(statusLine){
+    const m = (statusLine||"").match(/(\d{3})/);
+    return m ? Number(m[1]) : null;
   }
 
-  function pushLine(arr, k, v){
-    if (v === undefined || v === null || String(v).trim() === "") return;
-    arr.push(`${k}: ${v}`);
-  }
+  function scoreSecurity(headers){
+    // Score simple (0..100)
+    let score = 0;
+    const add = (cond, pts) => { if (cond) score += pts; };
 
-  function detectFromHeaders(h){
-    const out = {
-      server: header(h, "server"),
-      poweredBy: header(h, "x-powered-by"),
-      via: header(h, "via"),
-      cache: header(h, "x-cache") || header(h, "cf-cache-status") || header(h, "x-varnish"),
-      cdn: [],
-      reverseProxy: [],
-      waf: [],
-      tech: [],
-      security: [],
-      cookies: header(h, "set-cookie"),
-      statusLine: header(h, ":status-line"),
-    };
+    add(has(headers, "strict-transport-security"), 20);
+    add(has(headers, "content-security-policy"), 20);
+    add(has(headers, "x-content-type-options"), 10);
+    add(has(headers, "referrer-policy"), 10);
+    add(has(headers, "permissions-policy"), 10);
+    add(has(headers, "cross-origin-opener-policy"), 10);
+    add(has(headers, "cross-origin-resource-policy"), 5);
+    add(has(headers, "cross-origin-embedder-policy"), 5);
 
-    const server = out.server.toLowerCase();
-    const powered = out.poweredBy.toLowerCase();
-    const via = out.via.toLowerCase();
-    const all = Array.from(h.entries()).map(([k,v]) => `${k}: ${v}`).join("\n").toLowerCase();
-
-    // CDN / Proxy hints
-    if (all.includes("cf-ray") || all.includes("cloudflare") || all.includes("cf-cache-status")) out.cdn.push("Cloudflare");
-    if (all.includes("akamai") || all.includes("akamai-") || all.includes("x-akamai")) out.cdn.push("Akamai");
-    if (all.includes("fastly") || all.includes("x-served-by") && all.includes("fastly")) out.cdn.push("Fastly");
-    if (all.includes("cloudfront") || all.includes("x-amz-cf-id") || all.includes("via: 1.1") && all.includes("cloudfront")) out.cdn.push("AWS CloudFront");
-
-    // Reverse proxy / load balancer
-    if (server.includes("nginx")) out.reverseProxy.push("nginx");
-    if (server.includes("apache")) out.reverseProxy.push("Apache");
-    if (server.includes("caddy")) out.reverseProxy.push("Caddy");
-    if (server.includes("cloudflare")) out.reverseProxy.push("Cloudflare edge");
-    if (all.includes("x-envoy") || all.includes("envoy")) out.reverseProxy.push("Envoy");
-    if (all.includes("traefik")) out.reverseProxy.push("Traefik");
-    if (all.includes("haproxy")) out.reverseProxy.push("HAProxy");
-    if (all.includes("istio")) out.reverseProxy.push("Istio");
-
-    // WAF hints (très heuristique)
-    if (all.includes("cf-ray") && all.includes("cloudflare")) out.waf.push("Cloudflare (WAF possible)");
-    if (all.includes("x-sucuri-id") || all.includes("sucuri")) out.waf.push("Sucuri");
-    if (all.includes("x-ww") || all.includes("wordfence")) out.waf.push("Wordfence (WP)");
-    if (all.includes("x-cdn") && all.includes("imperva")) out.waf.push("Imperva (possible)");
-
-    // Tech hints
-    if (powered.includes("php")) out.tech.push("PHP");
-    if (powered.includes("asp.net")) out.tech.push("ASP.NET");
-    if (powered.includes("express")) out.tech.push("Node/Express");
-    if (server.includes("openresty")) out.tech.push("OpenResty (nginx + Lua)");
-    if (server.includes("gunicorn")) out.tech.push("Python/Gunicorn");
-    if (server.includes("uvicorn")) out.tech.push("Python/Uvicorn");
-    if (server.includes("cowboy")) out.tech.push("Erlang/Cowboy");
-
-    // Security headers present/missing (simple)
-    const sec = [];
-    const has = (n) => h.has(n.toLowerCase());
-
-    if (has("strict-transport-security")) sec.push("HSTS: oui");
-    else sec.push("HSTS: non");
-    if (has("content-security-policy")) sec.push("CSP: oui");
-    else sec.push("CSP: non");
-    if (has("x-frame-options") || has("content-security-policy")) sec.push("Anti-clickjacking: probable");
-    else sec.push("Anti-clickjacking: non détecté");
-    if (has("x-content-type-options")) sec.push("X-Content-Type-Options: oui");
-    else sec.push("X-Content-Type-Options: non");
-    if (has("referrer-policy")) sec.push("Referrer-Policy: oui");
-    else sec.push("Referrer-Policy: non");
-    if (has("permissions-policy")) sec.push("Permissions-Policy: oui");
-    else sec.push("Permissions-Policy: non");
-    out.security = sec;
-
-    // Clean lists
-    out.cdn = Array.from(new Set(out.cdn));
-    out.reverseProxy = Array.from(new Set(out.reverseProxy));
-    out.waf = Array.from(new Set(out.waf));
-    out.tech = Array.from(new Set(out.tech));
-
-    return out;
-  }
-
-  function detectFromHtml(html){
-    const low = (html || "").toLowerCase();
-    const hits = [];
-    const add = (k, v) => hits.push(`${k}: ${v}`);
-
-    // CMS hints
-    if (low.includes("wp-content/") || low.includes("wp-includes/")) add("CMS", "WordPress (indices wp-content/wp-includes)");
-    if (low.includes("content=\"joomla") || low.includes("/media/system/") || low.includes("/media/jui/")) add("CMS", "Joomla (indices media/system)");
-    if (low.includes("data-drupal-selector") || low.includes("/sites/default/") || low.includes("/core/misc/drupal.js")) add("CMS", "Drupal (indices drupal)");
-    if (low.includes("cdn.shopify.com")) add("CMS", "Shopify (cdn.shopify.com)");
-    if (low.includes("prestashop") || (low.includes("/modules/") && low.includes("/themes/"))) add("CMS", "PrestaShop (modules/themes)");
-    if (low.includes("magento") || (low.includes("requirejs-config.js") && low.includes("mage/"))) add("CMS", "Magento (mage/ + requirejs)");
-
-    // Framework hints
-    if (low.includes("/_next/") || low.includes("__next_data__")) add("Framework", "Next.js");
-    if (low.includes("/_nuxt/") || low.includes("__nuxt")) add("Framework", "Nuxt");
-    if (low.includes("id=\"gatsby-focus-wrapper\"") || low.includes("gatsby")) add("Framework", "Gatsby (indices)");
-
-    // CDN hints
-    if (low.includes("cloudflare")) add("CDN", "Cloudflare (motif dans HTML)");
-    if (low.includes("akamai") || low.includes("edgesuite")) add("CDN", "Akamai (motif)");
-    if (low.includes("fastly")) add("CDN", "Fastly (motif)");
-
-    // generator meta
-    const gen = (html.match(/<meta[^>]+name=["']generator["'][^>]+content=["']([^"']+)["'][^>]*>/i) || [])[1];
-    if (gen) add("Meta generator", gen.trim());
-
-    return hits;
-  }
-
-  async function tryFetchHeaders(url){
-    // Sans backend, CORS peut bloquer :
-    // - si CORS OK : on peut lire certains headers
-    // - sinon : exception -> on demandera collage manual
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 8000);
-    try{
-      const r = await fetch(url, { method: "GET", mode: "cors", cache: "no-store", credentials: "omit", signal: ctrl.signal });
-      const h = new Map();
-      // Status line (approx)
-      h.set(":status-line", `HTTP ${r.status} ${r.statusText || ""}`.trim());
-      // Certains headers peuvent être masqués par le navigateur (CORS expose-headers)
-      r.headers.forEach((v,k)=>h.set(k.toLowerCase(), v));
-      // HTML pour indices (optionnel)
-      let text = "";
-      try { text = await r.text(); } catch {}
-      return { headersMap: h, html: text, corsOk: true };
-    } finally {
-      clearTimeout(t);
+    // cookies: on vérifie Secure/HttpOnly/SameSite
+    const sc = h(headers, "set-cookie");
+    if (sc){
+      const low = sc.toLowerCase();
+      add(low.includes("secure"), 3);
+      add(low.includes("httponly"), 3);
+      add(low.includes("samesite"), 4);
     }
+
+    if (score > 100) score = 100;
+    return score;
   }
 
-  async function run(){
+  function analyzeOne(headers){
+    const statusLine = h(headers, ":status-line");
+    const code = parseStatus(statusLine);
+
+    const server = h(headers, "server");
+    const powered = h(headers, "x-powered-by");
+    const via = h(headers, "via");
+
+    const location = h(headers, "location");
+    const contentType = h(headers, "content-type");
+    const contentLen = h(headers, "content-length");
+    const cacheControl = h(headers, "cache-control");
+    const etag = h(headers, "etag");
+    const lastMod = h(headers, "last-modified");
+
+    const cdn = [];
+    const all = Array.from(headers.entries()).map(([k,v]) => `${k}: ${v}`).join("\n").toLowerCase();
+    if (all.includes("cf-ray") || all.includes("cloudflare") || all.includes("cf-cache-status")) cdn.push("Cloudflare");
+    if (all.includes("x-amz-cf-id") || all.includes("cloudfront")) cdn.push("AWS CloudFront");
+    if (all.includes("akamai") || all.includes("x-akamai")) cdn.push("Akamai");
+    if (all.includes("fastly") || (all.includes("x-served-by") && all.includes("fastly"))) cdn.push("Fastly");
+
+    const secFindings = [];
+    const need = (n) => has(headers, n) ? "OK" : "MANQUANT";
+
+    secFindings.push(`HSTS: ${need("strict-transport-security")}`);
+    secFindings.push(`CSP: ${need("content-security-policy")}`);
+    secFindings.push(`X-Content-Type-Options: ${need("x-content-type-options")}`);
+    secFindings.push(`Referrer-Policy: ${need("referrer-policy")}`);
+    secFindings.push(`Permissions-Policy: ${need("permissions-policy")}`);
+    secFindings.push(`COOP: ${need("cross-origin-opener-policy")}`);
+    secFindings.push(`CORP: ${need("cross-origin-resource-policy")}`);
+    secFindings.push(`COEP: ${need("cross-origin-embedder-policy")}`);
+
+    // Cookies flags (simple)
+    const sc = h(headers, "set-cookie");
+    if (sc){
+      const low = sc.toLowerCase();
+      const flags = [];
+      flags.push(low.includes("secure") ? "Secure" : "no Secure");
+      flags.push(low.includes("httponly") ? "HttpOnly" : "no HttpOnly");
+      flags.push(low.includes("samesite") ? "SameSite" : "no SameSite");
+      secFindings.push("Cookies: " + flags.join(", "));
+    } else {
+      secFindings.push("Cookies: (aucun Set-Cookie)");
+    }
+
+    // Cache hints
+    const cacheHints = [];
+    if (cacheControl) cacheHints.push("Cache-Control=" + cacheControl);
+    if (etag) cacheHints.push("ETag présent");
+    if (lastMod) cacheHints.push("Last-Modified présent");
+    if (h(headers, "age")) cacheHints.push("Age=" + h(headers, "age"));
+    if (h(headers, "cf-cache-status")) cacheHints.push("CF-Cache-Status=" + h(headers, "cf-cache-status"));
+    if (h(headers, "x-cache")) cacheHints.push("X-Cache=" + h(headers, "x-cache"));
+
+    const score = scoreSecurity(headers);
+
+    return {
+      statusLine,
+      code,
+      location,
+      server,
+      powered,
+      via,
+      cdn: Array.from(new Set(cdn)),
+      contentType,
+      contentLen,
+      cacheHints,
+      secFindings,
+      score
+    };
+  }
+
+  function formatReport(blocks){
+    const lines = [];
+    lines.push("Analyse HTTP");
+    lines.push("===========");
+    lines.push("");
+
+    if ($("url").value.trim()){
+      try { lines.push("URL: " + normalizeUrl($("url").value)); lines.push(""); } catch {}
+    }
+
+    lines.push(`Blocs HTTP détectés: ${blocks.length}`);
+    lines.push("");
+
+    blocks.forEach((b, idx) => {
+      const headers = parseHeadersBlock(b);
+      const a = analyzeOne(headers);
+
+      lines.push(`Bloc #${idx+1}`);
+      lines.push("--------");
+      lines.push(`Status: ${a.statusLine || "—"}`);
+      if (a.location) lines.push(`Location: ${a.location}`);
+      if (a.server) lines.push(`Server: ${a.server}`);
+      if (a.powered) lines.push(`X-Powered-By: ${a.powered}`);
+      if (a.via) lines.push(`Via: ${a.via}`);
+      if (a.cdn.length) lines.push(`CDN probable: ${a.cdn.join(", ")}`);
+      if (a.contentType) lines.push(`Content-Type: ${a.contentType}`);
+      if (a.contentLen) lines.push(`Content-Length: ${a.contentLen}`);
+
+      lines.push("");
+      lines.push(`Score sécurité (simple): ${a.score}/100`);
+      lines.push("Sécurité (headers)");
+      for (const f of a.secFindings) lines.push("- " + f);
+
+      lines.push("");
+      lines.push("Cache / perf");
+      if (a.cacheHints.length) a.cacheHints.forEach(x => lines.push("- " + x));
+      else lines.push("- (aucun indice)");
+
+      lines.push("");
+    });
+
+    // Hint final
+    lines.push("Aide");
+    lines.push("----");
+    lines.push("Commande utile :");
+    lines.push("- curl -I https://site");
+    lines.push("- curl -ILv https://site  (suivre redirections + verbose)");
+    return lines.join("\n");
+  }
+
+  function run(){
     setTxt("status","Analyse...");
-    setTxt("note","Sans backend : si CORS bloque, colle les headers (curl -I) et/ou le HTML (Ctrl+U).");
+    setTxt("note","Colle une réponse HTTP (curl -I / -ILv / DevTools).");
     setVal("out","");
 
-    let url;
-    try{
-      url = normalizeUrl($("url").value);
-    }catch(e){
+    const raw = ($("raw").value || "").trim();
+    if (!raw){
       setTxt("status","Erreur");
-      setTxt("note", e.message || "URL invalide.");
+      setTxt("note","Colle des headers HTTP à analyser.");
       return;
     }
 
-    // 1) Source headers/html : soit fetch (si possible), soit champs collés
-    let headersMap = parseHeadersBlock($("headersInput").value);
-    let html = ($("htmlInput").value || "").trim();
-    let usedFetch = false;
+    const blocks = splitResponses(raw).filter(x => x.trim().length);
+    const report = formatReport(blocks);
 
-    if (headersMap.size === 0 && !html){
-      try{
-        const fetched = await tryFetchHeaders(url);
-        headersMap = fetched.headersMap;
-        html = fetched.html || "";
-        usedFetch = true;
-      }catch(e){
-        setTxt("status","Action requise");
-        setTxt("note","CORS bloque la lecture. Colle les headers (curl -I) et/ou le HTML (Ctrl+U), puis relance.");
-        return;
-      }
-    }
-
-    const hRes = detectFromHeaders(headersMap);
-    const htmlHits = html ? detectFromHtml(html) : [];
-
-    const lines = [];
-    lines.push("Server Fingerprint");
-    lines.push("==================");
-    lines.push("");
-
-    pushLine(lines, "URL", url);
-    pushLine(lines, "Source", usedFetch ? "fetch (CORS OK)" : "collage manuel");
-
-    if (hRes.statusLine) pushLine(lines, "HTTP", hRes.statusLine);
-    if (hRes.server) pushLine(lines, "Server", hRes.server);
-    if (hRes.poweredBy) pushLine(lines, "X-Powered-By", hRes.poweredBy);
-    if (hRes.via) pushLine(lines, "Via", hRes.via);
-    if (hRes.cache) pushLine(lines, "Cache/CDN header", hRes.cache);
-
-    if (hRes.cdn.length) pushLine(lines, "CDN probable", hRes.cdn.join(", "));
-    if (hRes.reverseProxy.length) pushLine(lines, "Reverse-proxy/LB", hRes.reverseProxy.join(", "));
-    if (hRes.waf.length) pushLine(lines, "WAF possible", hRes.waf.join(", "));
-    if (hRes.tech.length) pushLine(lines, "Technos probables", hRes.tech.join(", "));
-
-    lines.push("");
-    lines.push("Sécurité (headers)");
-    lines.push("------------------");
-    for (const s of hRes.security) lines.push("- " + s);
-
-    if (hRes.cookies){
-      lines.push("");
-      lines.push("Cookies (Set-Cookie) — aperçu");
-      lines.push("------------------------------");
-      // limite taille
-      lines.push(hRes.cookies.slice(0, 800) + (hRes.cookies.length > 800 ? "…" : ""));
-    }
-
-    if (htmlHits.length){
-      lines.push("");
-      lines.push("Indices HTML");
-      lines.push("------------");
-      for (const it of htmlHits.slice(0, 30)) lines.push("- " + it);
-    } else {
-      lines.push("");
-      lines.push("Indices HTML");
-      lines.push("------------");
-      lines.push("(Aucun HTML fourni/lu)");
-    }
-
-    lines.push("");
-    lines.push("Aide (sans backend)");
-    lines.push("-------------------");
-    lines.push("Si CORS bloque :");
-    lines.push("1) Récupère les headers : `curl -I https://site` puis colle ici.");
-    lines.push("2) Récupère le HTML : ouvre le site -> Ctrl+U -> copie/colle.");
-
-    setVal("out", lines.join("\n"));
+    setVal("out", report);
     setTxt("status","OK");
   }
 
-  $("btnProbe").addEventListener("click", run);
+  $("btnAnalyze").addEventListener("click", run);
+
   $("btnClear").addEventListener("click", () => {
     setVal("url","");
-    setVal("headersInput","");
-    setVal("htmlInput","");
+    setVal("raw","");
     setVal("out","");
     setTxt("status","—");
     setTxt("note","—");
   });
+
   $("copyOut").addEventListener("click", ()=> {
     navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+
+  $("btnCurlI").addEventListener("click", () => {
+    try{
+      const u = normalizeUrl($("url").value);
+      const cmd = `curl -I "${u}"`;
+      navigator.clipboard.writeText(cmd).catch(()=>{});
+      setTxt("note", "Commande copiée : " + cmd);
+    }catch{
+      setTxt("note", "Entre une URL valide pour générer curl -I.");
+    }
+  });
+
+  $("btnCurlLv").addEventListener("click", () => {
+    try{
+      const u = normalizeUrl($("url").value);
+      const cmd = `curl -ILv "${u}"`;
+      navigator.clipboard.writeText(cmd).catch(()=>{});
+      setTxt("note", "Commande copiée : " + cmd);
+    }catch{
+      setTxt("note", "Entre une URL valide pour générer curl -ILv.");
+    }
   });
 
   </script>
