@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vérification DNSSEC</title>
+  <meta name="description" content="WaveTools : Vérification DNSSEC">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <link rel="canonical" href="https://www.wavetools.fr">
+  <link rel="stylesheet" href="/includes/style.css">
+</head>
+<body>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Vérification DNSSEC</h1>
+
+      <div class="terminal-body">
+        <div class="line">Domaine :</div>
+        <div class="line">
+          <input id="domain" style="width:100%" placeholder="ex: example.com" />
+        </div>
+
+        <button class="copy-btn" id="btnCheck">Vérifier</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Rapport :</div>
+        <div class="line">
+          <textarea id="out" rows="18" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier rapport</button>
+    </div>
+  </section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+   const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function normalizeDomain(d){
+    d = (d||"").trim().toLowerCase();
+    d = d.replace(/^https?:\/\//, "");
+    d = d.replace(/\/.*$/, "");
+    d = d.replace(/\.+$/,"");
+    if (!d || !d.includes(".")) throw new Error("Domaine invalide.");
+    return d;
+  }
+
+  function uniq(arr){ return Array.from(new Set(arr)); }
+
+  async function dohQuery(name, type, cd=false){
+    // cd=Checking Disabled. Ici on laisse cd=false (validation côté résolveur si supportée),
+    // mais l'API JSON ne garantit pas toujours le comportement. On s'en sert surtout pour lire les RR.
+    const url = "https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(name) +
+      "&type=" + encodeURIComponent(type) + (cd ? "&cd=1" : "");
+    const r = await fetch(url, { headers: { "accept": "application/dns-json" }, cache: "no-store" });
+    if (!r.ok) throw new Error("DoH indisponible (" + r.status + ").");
+    return await r.json();
+  }
+
+  function extractAnswerData(j, rrtype){
+    const out = [];
+    if (!j || !Array.isArray(j.Answer)) return out;
+    for (const a of j.Answer){
+      if (a && a.type === rrtype && a.data) out.push(String(a.data).trim());
+    }
+    return uniq(out);
+  }
+
+  function statusName(code){
+    // RFC 1035: 0 NOERROR, 3 NXDOMAIN
+    if (code === 0) return "NOERROR";
+    if (code === 1) return "FORMERR";
+    if (code === 2) return "SERVFAIL";
+    if (code === 3) return "NXDOMAIN";
+    if (code === 4) return "NOTIMP";
+    if (code === 5) return "REFUSED";
+    return String(code);
+  }
+
+  function parseDS(dsLine){
+    // Format DS: "<keytag> <alg> <digestType> <digest>"
+    const parts = dsLine.split(/\s+/);
+    if (parts.length < 4) return null;
+    return {
+      keytag: parts[0],
+      alg: parts[1],
+      digestType: parts[2],
+      digest: parts.slice(3).join("")
+    };
+  }
+
+  function parseDNSKEY(line){
+    // Format DNSKEY: "<flags> <proto> <alg> <publickey>"
+    const parts = line.split(/\s+/);
+    if (parts.length < 4) return null;
+    const flags = Number(parts[0]);
+    return {
+      flags,
+      proto: parts[1],
+      alg: parts[2],
+      key: parts.slice(3).join(""),
+      isKSK: (flags & 257) === 257, // 257 = KSK
+      isZSK: (flags & 256) === 256 && (flags & 1) === 0
+    };
+  }
+
+  function section(lines, title){
+    lines.push("");
+    lines.push(title);
+    lines.push("-".repeat(Math.min(40, title.length)));
+  }
+
+  async function run(){
+    setTxt("status","Vérification...");
+    setTxt("note","Lecture DS/DNSKEY/RRSIG via DoH Cloudflare (diagnostic probable, pas une validation crypto complète).");
+    setVal("out","");
+
+    let domain;
+    try{
+      domain = normalizeDomain($("domain").value);
+    }catch(e){
+      setTxt("status","Erreur");
+      setTxt("note", e.message || "Domaine invalide.");
+      return;
+    }
+
+    try{
+      // 1) DS au niveau parent (pour le domaine lui-même : DS est dans la zone parent)
+      // En pratique, interroger DS sur le nom renvoie les DS (si publish).
+      const dsJ = await dohQuery(domain, "DS");
+      const ds = extractAnswerData(dsJ, 43); // DS=43
+      const dsStatus = statusName(dsJ.Status);
+
+      // 2) DNSKEY dans la zone enfant
+      const keyJ = await dohQuery(domain, "DNSKEY");
+      const dnskeys = extractAnswerData(keyJ, 48); // DNSKEY=48
+      const keyStatus = statusName(keyJ.Status);
+
+      // 3) RRSIG sur DNSKEY (si DNSSEC signé)
+      const sigJ = await dohQuery(domain, "RRSIG");
+      const rrsig = extractAnswerData(sigJ, 46); // RRSIG=46
+      const sigStatus = statusName(sigJ.Status);
+
+      // 4) Un record "simple" (A) + RRSIG associé (indice)
+      const aJ = await dohQuery(domain, "A");
+      const a = extractAnswerData(aJ, 1);
+      const aStatus = statusName(aJ.Status);
+
+      // On tente aussi RRSIG pour A via query RRSIG (ça renvoie potentiellement plusieurs)
+      // (Déjà récupéré avec sigJ, mais on le mentionne)
+
+      const lines = [];
+      lines.push("Vérification DNSSEC");
+      lines.push("===================");
+      lines.push("");
+      lines.push("Domaine: " + domain);
+
+      section(lines, "Résumé");
+      // Diagnostic simple :
+      // - DS présent + DNSKEY présent + RRSIG présent => très probablement DNSSEC actif
+      // - DS absent mais DNSKEY/RRSIG présent => zone signée mais pas chain of trust (pas activé au registrar)
+      // - DS présent mais DNSKEY absent => configuration cassée (risque SERVFAIL sur validateurs)
+      // - rien => pas de DNSSEC
+      let verdict = "Indéterminé";
+      let advice = [];
+
+      const hasDS = ds.length > 0;
+      const hasDNSKEY = dnskeys.length > 0;
+      const hasRRSIG = rrsig.length > 0;
+
+      if (hasDS && hasDNSKEY && hasRRSIG){
+        verdict = "DNSSEC actif (probable) ✅";
+        advice.push("Chaîne de confiance probable : DS + DNSKEY + RRSIG présents.");
+      } else if (!hasDS && hasDNSKEY && hasRRSIG){
+        verdict = "Zone signée mais non chaînée (DS absent) ⚠️";
+        advice.push("Tu as probablement signé la zone, mais le DS n'est pas publié au registrar/registre.");
+      } else if (hasDS && !hasDNSKEY){
+        verdict = "DNSSEC cassé (DS présent mais DNSKEY absent) ❌";
+        advice.push("Risque de SERVFAIL chez les résolveurs validateurs : vérifier DNSKEY/zone signée.");
+      } else if (!hasDS && !hasDNSKEY && !hasRRSIG){
+        verdict = "DNSSEC non détecté ❌";
+        advice.push("Aucun DS/DNSKEY/RRSIG observé.");
+      } else {
+        verdict = "DNSSEC partiel / à investiguer ⚠️";
+        advice.push("Présence partielle d'éléments DNSSEC. Vérifier DS/DNSKEY et signatures.");
+      }
+
+      lines.push("Verdict: " + verdict);
+      lines.push("DoH Status: DS=" + dsStatus + " / DNSKEY=" + keyStatus + " / RRSIG=" + sigStatus + " / A=" + aStatus);
+      advice.forEach(a => lines.push("- " + a));
+
+      section(lines, "DS (zone parent)");
+      if (ds.length){
+        ds.forEach((d, i) => {
+          const p = parseDS(d);
+          if (p){
+            lines.push(`#${i+1}: keytag=${p.keytag} alg=${p.alg} digestType=${p.digestType}`);
+            lines.push("    digest=" + p.digest);
+          } else {
+            lines.push("- " + d);
+          }
+        });
+      } else {
+        lines.push("(aucun DS trouvé)");
+      }
+
+      section(lines, "DNSKEY (zone enfant)");
+      if (dnskeys.length){
+        dnskeys.forEach((k, i) => {
+          const p = parseDNSKEY(k);
+          if (p){
+            const role = p.isKSK ? "KSK" : (p.isZSK ? "ZSK" : "KEY");
+            lines.push(`#${i+1}: flags=${p.flags} (${role}) alg=${p.alg} proto=${p.proto} key.len=${p.key.length}`);
+          } else {
+            lines.push("- " + k);
+          }
+        });
+      } else {
+        lines.push("(aucun DNSKEY trouvé)");
+      }
+
+      section(lines, "RRSIG (signatures)");
+      if (rrsig.length){
+        // On ne parse pas tout (format long), on affiche un aperçu
+        rrsig.slice(0, 12).forEach((s, i) => lines.push(`#${i+1}: ` + s));
+        if (rrsig.length > 12) lines.push("… (" + (rrsig.length - 12) + " autres)");
+      } else {
+        lines.push("(aucun RRSIG trouvé)");
+      }
+
+      section(lines, "A (vérif rapide)");
+      if (a.length){
+        a.forEach(x => lines.push("- " + x));
+      } else {
+        lines.push("(pas de A ou non lisible)");
+      }
+
+      section(lines, "Commandes utiles (validation complète)");
+      lines.push("dig +dnssec " + domain + " DNSKEY");
+      lines.push("dig +dnssec " + domain + " DS");
+      lines.push("delv " + domain + " A");
+      lines.push("delv +vtrace " + domain + " A");
+
+      setVal("out", lines.join("\n"));
+      setTxt("status","OK");
+      setTxt("note","Terminé.");
+    }catch(e){
+      setTxt("status","Erreur");
+      setTxt("note", (e && e.message) ? e.message : "Impossible de lire DNS via DoH.");
+    }
+  }
+
+  $("btnCheck").addEventListener("click", run);
+
+  $("btnClear").addEventListener("click", () => {
+    setVal("domain","");
+    setVal("out","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js"></script>
+</body>
+</html>
