@@ -1,16 +1,3 @@
-/**
- * extract-binder-specs.mjs (CLEAN + FILTER FAMILLES + SECTIONS ROBUSTES)
- *
- * Objectif:
- * - Ne garder QUE les familles (M12-A, M8, etc.)
- * - Garder toutes leurs "variantes" => toutes les pages produit du sitemap qui matchent la famille
- * - JSON + image ont exactement le même nom: <REF_SLUG>.json / <REF_SLUG>.<ext>
- * - sections jamais vides si les données sont dans le HTML (fallback tables)
- *
- * Déps:
- *   npm i cheerio xml2js
- */
-
 import fs from "node:fs";
 import path from "node:path";
 import * as cheerio from "cheerio";
@@ -22,30 +9,13 @@ const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 const IMG_DIR = path.resolve("produits/connecteur/img");
 
-// Réglages
 const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
 const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
 
-// ✅ Liste des familles autorisées (ta 2e image)
-// Tu peux enlever/ajouter des entrées ici.
-const FAMILY_WHITELIST = [
-  "M12-A",
-  "RD24 Power",
-  "M8",
-  "M12-D",
-  "M12-L",
-  "M8-D",
-  "M12-K",
-  "M16 IP67",
-  '7/8"'
-];
-
-const FAMILY_WHITELIST_LOWER = FAMILY_WHITELIST.map((f) =>
-  f.toLowerCase().replace(/"/g, "")
-);
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
+const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
 async function fetchText(url) {
   const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
@@ -59,9 +29,6 @@ async function downloadToFile(url, destPath) {
   const buf = Buffer.from(await res.arrayBuffer());
   fs.writeFileSync(destPath, buf);
 }
-
-const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
-const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
 function slugRef(ref) {
   // "99 0530 24 04" -> "99-0530-24-04"
@@ -79,13 +46,44 @@ function ensureDirsAndCleanup() {
   }
 
   console.log("Nettoyage: suppression anciens JSON + images…");
-
   for (const f of fs.readdirSync(OUT_DIR)) {
     if (f.toLowerCase().endsWith(".json")) fs.unlinkSync(path.join(OUT_DIR, f));
   }
   for (const f of fs.readdirSync(IMG_DIR)) {
     if (/\.(jpg|jpeg|png|webp)$/i.test(f)) fs.unlinkSync(path.join(IMG_DIR, f));
   }
+}
+
+/**
+ * ✅ UNIQUEMENT les familles que tu as données (filtrage AVANT crawl)
+ * On stocke: prefix -> family label
+ */
+const FAMILY_PREFIXES = [
+  { family: "M12-A", prefix: "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/" },
+  { family: "RD24 Power", prefix: "https://www.binder-connector.com/fr/produits/power/rd24-power/" },
+  { family: "M8", prefix: "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/" },
+  { family: "M12-D", prefix: "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/" },
+  { family: "M12-L", prefix: "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/" },
+  { family: "M8-D", prefix: "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/" },
+  { family: "M12-K", prefix: "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/" },
+  { family: "M16 IP67", prefix: "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/" },
+  { family: '7/8"', prefix: "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/" }
+];
+
+// normalisation (au cas où)
+for (const p of FAMILY_PREFIXES) {
+  if (!p.prefix.endsWith("/")) p.prefix += "/";
+}
+
+function getFamilyFromUrl(url) {
+  for (const p of FAMILY_PREFIXES) {
+    if (url.startsWith(p.prefix)) return p.family;
+  }
+  return null;
+}
+
+function filterUrlsByPrefixes(urls) {
+  return urls.filter((u) => getFamilyFromUrl(u));
 }
 
 async function getAllProductUrlsFromSitemap() {
@@ -111,7 +109,6 @@ async function getAllProductUrlsFromSitemap() {
   return Array.from(new Set(urls));
 }
 
-/** Catégorie1 = segment après /produits/ */
 function extractCategory1FromUrl(productUrl) {
   try {
     const u = new URL(productUrl);
@@ -123,61 +120,28 @@ function extractCategory1FromUrl(productUrl) {
   }
 }
 
-/** ✅ Détecte famille via breadcrumb + texte page */
-function detectFamily({ url, title, $ }) {
-  // Breadcrumb visible sur ta capture : "Produits > ... > M12-A > ..."
-  const breadcrumb = clean($(".breadcrumb, .breadcrumbs, nav[aria-label='breadcrumb']").first().text());
-  const bodyText = clean($("body").text());
-
-  const hay = `${url} ${title || ""} ${breadcrumb} ${bodyText}`
-    .toLowerCase()
-    .replace(/"/g, "");
-
-  for (let i = 0; i < FAMILY_WHITELIST_LOWER.length; i++) {
-    const token = FAMILY_WHITELIST_LOWER[i];
-    if (hay.includes(token)) return FAMILY_WHITELIST[i];
-  }
-  return null;
+/** Ref depuis URL */
+function extractRefFromUrl(productUrl) {
+  const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
+  return m ? m[1].replace(/-/g, " ") : null;
 }
 
-/** Ref depuis sections (champ "Référence") */
-function refFromSections(sections) {
-  for (const kv of Object.values(sections || {})) {
-    if (kv && kv["Référence"]) return kv["Référence"];
-  }
-  return null;
-}
-
-/** Ref depuis le texte (plusieurs formats possibles) */
+/** Ref depuis texte (plusieurs formats) */
 function extractRefFromText($) {
   const txt = clean($("body").text());
 
-  // 1) ex: 08 2679 000 001
+  // ex: 08 2679 000 001
   let m = txt.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   if (m) return m[0];
 
-  // 2) ex: 99 0530 24 04 (comme ta capture M12-A)
+  // ex: 99 0530 24 04 (M12-A)
   m = txt.match(/\b\d{2}\s\d{4}\s\d{2}\s\d{2}\b/);
   if (m) return m[0];
 
   return null;
 }
 
-/** Ref depuis URL (fallback fiable) */
-function extractRefFromUrl(productUrl) {
-  // Supporte:
-  // - 09-9792-30-05 (2-4-2-2)
-  // - 99-0530-24-04 (2-4-2-2)
-  // - 08-2679-000-001 (2-4-3-3)
-  const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
-  if (!m) return null;
-  return m[1].replace(/-/g, " ");
-}
-
-/**
- * Extraction sections accordéon binder si présent:
- * .accordion__header + table(.table--technicaldata)
- */
+/** Extraction accordéon binder si présent */
 function extractSectionsBinderAccordion($) {
   const sections = {};
 
@@ -212,25 +176,21 @@ function extractSectionsBinderAccordion($) {
   return sections;
 }
 
-/**
- * ✅ Fallback robuste: récupère des tables "techniques" même si pas d'accordéon
- * et les met dans "Données techniques".
- */
+/** Fallback robuste: tables techniques */
 function extractTechnicalTablesFallback($) {
   let merged = {};
 
   $("table").each((_, t) => {
     const kv = {};
-    $(t)
-      .find("tr")
-      .each((_, tr) => {
-        const cells = $(tr)
-          .find("th, td")
-          .toArray()
-          .map((el) => clean($(el).text()))
-          .filter(Boolean);
-        if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
-      });
+    $(t).find("tr").each((_, tr) => {
+      const cells = $(tr)
+        .find("th, td")
+        .toArray()
+        .map((el) => clean($(el).text()))
+        .filter(Boolean);
+
+      if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
+    });
 
     const keys = Object.keys(kv).join(" ").toLowerCase();
     const looksLikeSpecs =
@@ -243,9 +203,7 @@ function extractTechnicalTablesFallback($) {
       keys.includes("etim") ||
       keys.includes("ecl@ss");
 
-    if (looksLikeSpecs && Object.keys(kv).length) {
-      merged = { ...merged, ...kv };
-    }
+    if (looksLikeSpecs && Object.keys(kv).length) merged = { ...merged, ...kv };
   });
 
   return Object.keys(merged).length ? { "Données techniques": merged } : {};
@@ -253,16 +211,19 @@ function extractTechnicalTablesFallback($) {
 
 function mergeSections(a, b) {
   const out = { ...(a || {}) };
-  for (const [sec, kv] of Object.entries(b || {})) {
-    out[sec] = { ...(out[sec] || {}), ...(kv || {}) };
-  }
-  for (const [k, v] of Object.entries(out)) {
-    if (!v || Object.keys(v).length === 0) delete out[k];
-  }
+  for (const [sec, kv] of Object.entries(b || {})) out[sec] = { ...(out[sec] || {}), ...(kv || {}) };
+  for (const [k, v] of Object.entries(out)) if (!v || Object.keys(v).length === 0) delete out[k];
   return out;
 }
 
-/** Image principale = 1er lien "Télécharger l’image JPG" */
+function refFromSections(sections) {
+  for (const kv of Object.values(sections || {})) {
+    if (kv && kv["Référence"]) return kv["Référence"];
+  }
+  return null;
+}
+
+/** Image principale: lien "Télécharger l’image" */
 function extractMainImageUrl($, pageUrl) {
   let found = null;
 
@@ -280,7 +241,7 @@ function extractMainImageUrl($, pageUrl) {
     }
   });
 
-  // fallback: 1ère balise img si aucun lien download
+  // fallback: première img
   if (!found) {
     const src = $("img").first().attr("src");
     if (src) found = src.startsWith("http") ? src : new URL(src, pageUrl).toString();
@@ -306,51 +267,37 @@ async function main() {
 
   console.log("Lecture sitemap products…");
   let urls = await getAllProductUrlsFromSitemap();
+  console.log(`Produits sitemap (total): ${urls.length}`);
+
+  // ✅ FILTRE AVANT CRAWL
+  urls = filterUrlsByPrefixes(urls);
+  console.log(`Produits après filtre familles: ${urls.length}`);
+
   if (MAX_PRODUCTS > 0) urls = urls.slice(0, MAX_PRODUCTS);
-  console.log(`Produits à traiter (brut sitemap): ${urls.length}`);
 
   const indexItems = [];
-  let kept = 0;
-  let skipped = 0;
+  let skippedNoRef = 0;
 
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
-    console.log(`[${i + 1}/${urls.length}] ${url}`);
+    const family = getFamilyFromUrl(url); // garanti non-null ici
+    console.log(`[${i + 1}/${urls.length}] [${family}] ${url}`);
 
-    let html;
-    try {
-      html = await fetchText(url);
-    } catch (e) {
-      console.warn(`  ⚠️ Page inaccessible: ${e.message}`);
-      skipped++;
-      continue;
-    }
-
+    const html = await fetchText(url);
     const $ = cheerio.load(html);
 
     const title = clean($("h1").first().text()) || null;
     const category1 = extractCategory1FromUrl(url);
 
-    // ✅ Filtre familles (M12-A etc.)
-    const family = detectFamily({ url, title, $ });
-    if (!family) {
-      console.log("  ⏭️ skip (hors whitelist familles)");
-      skipped++;
-      await sleep(DELAY_MS);
-      continue;
-    }
-
-    // ✅ Sections robustes: accordéon + fallback tables
     const secA = extractSectionsBinderAccordion($);
     const secB = extractTechnicalTablesFallback($);
     const sections = mergeSections(secA, secB);
 
-    // ✅ REF: sections -> texte -> URL
+    // ✅ ref: sections -> texte -> url
     let ref = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url);
-
     if (!ref) {
-      console.warn("  ❌ Ref introuvable => skip pour rester propre/cohérent.");
-      skipped++;
+      console.warn("  ❌ Ref introuvable => skip (pour rester propre/cohérent)");
+      skippedNoRef++;
       await sleep(DELAY_MS);
       continue;
     }
@@ -360,18 +307,12 @@ async function main() {
     // ✅ image
     let mainImageLocal = null;
     const mainImageUrl = extractMainImageUrl($, url);
-
     if (mainImageUrl) {
       const ext = getImageExtensionFromUrl(mainImageUrl);
       const imgFilename = `${refSlug}${ext}`;
       const imgDest = path.join(IMG_DIR, imgFilename);
-
-      try {
-        await downloadToFile(mainImageUrl, imgDest);
-        mainImageLocal = `produits/connecteur/img/${imgFilename}`;
-      } catch (e) {
-        console.warn(`  ⚠️ image non téléchargée: ${e.message}`);
-      }
+      await downloadToFile(mainImageUrl, imgDest);
+      mainImageLocal = `produits/connecteur/img/${imgFilename}`;
     }
 
     // ✅ JSON = même nom que ref
@@ -382,8 +323,8 @@ async function main() {
       ref,
       title,
       url,
+      family,
       category1,
-      family,              // ✅ ex "M12-A"
       mainImage: mainImageLocal,
       sections
     };
@@ -394,17 +335,14 @@ async function main() {
       ref,
       title,
       url,
-      category1,
       family,
+      category1,
       mainImage: mainImageLocal,
       file: `produits/connecteur/fiche/${jsonFilename}`
     });
 
-    kept++;
     await sleep(DELAY_MS);
   }
-
-  indexItems.sort((a, b) => String(a.ref ?? "").localeCompare(String(b.ref ?? ""), "fr"));
 
   fs.writeFileSync(
     path.join(OUT_DIR, "index.json"),
@@ -412,9 +350,8 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         count: indexItems.length,
-        kept,
-        skipped,
-        families: FAMILY_WHITELIST,
+        skippedNoRef,
+        families: FAMILY_PREFIXES.map((x) => x.family),
         items: indexItems
       },
       null,
@@ -423,7 +360,7 @@ async function main() {
     "utf-8"
   );
 
-  console.log(`✅ Terminé. Gardés: ${kept} | Skippés: ${skipped}`);
+  console.log(`✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef}`);
 }
 
 main().catch((e) => {
