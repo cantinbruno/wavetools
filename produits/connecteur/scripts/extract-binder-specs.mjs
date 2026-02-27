@@ -262,6 +262,137 @@ function getImageExtensionFromUrl(url) {
   return ".jpg";
 }
 
+/* -------------------------------------------------------------------------- */
+/* ✅ NOUVEAU: parsing options depuis l'URL + regroupement + image canonique   */
+/* -------------------------------------------------------------------------- */
+
+function getSlug(productUrl) {
+  try {
+    const u = new URL(productUrl);
+    const parts = u.pathname.split("/").filter(Boolean);
+    return parts[parts.length - 1] || "";
+  } catch {
+    return "";
+  }
+}
+
+function parseVariantOptionsFromUrl(productUrl) {
+  const slug = getSlug(productUrl);
+
+  const genre = slug.includes("connecteur-male")
+    ? "male"
+    : slug.includes("connecteur-femelle")
+      ? "femelle"
+      : "unknown";
+
+  const forme = slug.includes("-coude-") ? "coude" : "droit";
+
+  const mContacts = slug.match(/contacts-(\d+)/);
+  const contacts = mContacts ? Number(mContacts[1]) : null;
+
+  const standard = slug.includes("-din-") ? "din" : slug.includes("-stereo-") ? "stereo" : "none";
+
+  // longueur: on capture un truc type 40-60-mm, 41-78-mm, 40-80-mm, 80-100-mm...
+  const mLen = slug.match(/(\d{2}-\d{2,3})-mm/);
+  const longueur = mLen ? mLen[1] : "unknown";
+
+  const blindage = slug.includes("blindable") ? "blindable" : slug.includes("non-blinde") ? "non-blinde" : "unknown";
+
+  const terminaison = slug.includes("pince-a-visser")
+    ? "pince-a-visser"
+    : slug.includes("souder")
+      ? "souder"
+      : slug.includes("sertir")
+        ? "sertir"
+        : "unknown";
+
+  const ip = slug.includes("ip68") ? "ip68" : slug.includes("ip67") ? "ip67" : "unknown";
+
+  const versionCourte = slug.includes("version-courte");
+  const aisg = slug.includes("aisg-conforme");
+  const contactsSepares = slug.includes("doivent-etre-commandes-separement");
+
+  return {
+    genre,
+    forme,
+    contacts,
+    standard,
+    longueur,
+    blindage,
+    terminaison,
+    ip,
+    flags: { versionCourte, aisg, contactsSepares }
+  };
+}
+
+function pickCanonicalVariant(candidates) {
+  // candidates: array of { url, ref, options }
+  const lenPref = ["60-80", "40-60", "80-100", "41-78", "unknown"];
+
+  function score(v) {
+    const o = v.options;
+    let s = 0;
+
+    // Si sertir + contacts séparés => très souvent "bruit" pour une fiche canonique
+    if (o.flags?.contactsSepares) return -10_000;
+
+    if (o.blindage === "blindable") s += 20;
+    if (o.forme === "droit") s += 10;
+
+    const li = lenPref.indexOf(o.longueur);
+    s += li === -1 ? 0 : (10 - li);
+
+    if (o.ip === "ip68") s += 10;
+    if (o.ip === "ip67") s += 2;
+
+    if (o.flags?.versionCourte) s -= 8;
+    if (o.flags?.aisg) s -= 3;
+
+    // petite préférence si tout est "unknown"
+    if (o.genre === "unknown") s -= 2;
+    if (o.standard === "none") s += 1;
+
+    return s;
+  }
+
+  let best = null;
+  let bestScore = -Infinity;
+  for (const c of candidates) {
+    const sc = score(c);
+    if (sc > bestScore) {
+      best = c;
+      bestScore = sc;
+    }
+  }
+  return best;
+}
+
+function setToSortedArray(set, numeric = false) {
+  const arr = Array.from(set);
+  if (numeric) return arr.sort((a, b) => Number(a) - Number(b));
+  return arr.sort();
+}
+
+function pushVariantNested(variants, options, payload) {
+  const c = String(options.contacts ?? "unknown");
+  const st = options.standard ?? "unknown";
+  const g = options.genre ?? "unknown";
+  const bl = options.blindage ?? "unknown";
+  const f = options.forme ?? "unknown";
+  const l = options.longueur ?? "unknown";
+
+  variants[c] ??= {};
+  variants[c][st] ??= {};
+  variants[c][st][g] ??= {};
+  variants[c][st][g][bl] ??= {};
+  variants[c][st][g][bl][f] ??= {};
+  variants[c][st][g][bl][f][l] ??= [];
+
+  variants[c][st][g][bl][f][l].push(payload);
+}
+
+/* -------------------------------------------------------------------------- */
+
 async function main() {
   ensureDirsAndCleanup();
 
@@ -277,6 +408,11 @@ async function main() {
 
   const indexItems = [];
   let skippedNoRef = 0;
+
+  // ✅ NOUVEAU: regroupement
+  // Par défaut: 1 "groupe" = family + terminaison (ça garde une cohérence produit)
+  // Si tu veux regrouper différemment, change juste la construction de groupKey plus bas.
+  const grouped = new Map();
 
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
@@ -304,18 +440,11 @@ async function main() {
 
     const refSlug = slugRef(ref);
 
-    // ✅ image
-    let mainImageLocal = null;
+    // ✅ Image (on conserve la fonction, mais on télécharge seulement pour le canonique à la fin)
+    // On garde tout de même l'URL image brute si tu veux l'exploiter plus tard.
     const mainImageUrl = extractMainImageUrl($, url);
-    if (mainImageUrl) {
-      const ext = getImageExtensionFromUrl(mainImageUrl);
-      const imgFilename = `${refSlug}${ext}`;
-      const imgDest = path.join(IMG_DIR, imgFilename);
-      await downloadToFile(mainImageUrl, imgDest);
-      mainImageLocal = `produits/connecteur/img/${imgFilename}`;
-    }
 
-    // ✅ JSON = même nom que ref
+    // ✅ JSON = même nom que ref (COMPORTEMENT D'AVANT CONSERVÉ)
     const jsonFilename = `${refSlug}.json`;
     const jsonPath = path.join(OUT_DIR, jsonFilename);
 
@@ -325,7 +454,8 @@ async function main() {
       url,
       family,
       category1,
-      mainImage: mainImageLocal,
+      mainImage: null, // sera renseigné pour l'item canonique du regroupement (si tu veux)
+      mainImageUrl: mainImageUrl || null,
       sections
     };
 
@@ -337,13 +467,61 @@ async function main() {
       url,
       family,
       category1,
-      mainImage: mainImageLocal,
+      mainImage: null,
       file: `produits/connecteur/fiche/${jsonFilename}`
+    });
+
+    // ✅ NOUVEAU: ajout au regroupement
+    const options = parseVariantOptionsFromUrl(url);
+
+    const groupKey = `${family}__${options.terminaison}`; // ← clé de regroupement "grosse fiche"
+    if (!grouped.has(groupKey)) {
+      grouped.set(groupKey, {
+        key: groupKey,
+        family,
+        terminaison: options.terminaison,
+        options: {
+          contacts: new Set(),
+          standards: new Set(),
+          genres: new Set(),
+          blindages: new Set(),
+          formes: new Set(),
+          longueurs: new Set()
+        },
+        variants: {},
+        _candidatesForImage: [] // interne
+      });
+    }
+
+    const G = grouped.get(groupKey);
+
+    if (options.contacts != null) G.options.contacts.add(options.contacts);
+    G.options.standards.add(options.standard);
+    G.options.genres.add(options.genre);
+    G.options.blindages.add(options.blindage);
+    G.options.formes.add(options.forme);
+    G.options.longueurs.add(options.longueur);
+
+    pushVariantNested(G.variants, options, {
+      ref,
+      url,
+      file: `produits/connecteur/fiche/${jsonFilename}`,
+      // tu peux garder title ici si tu veux (mais ça alourdit)
+      // title,
+      // on garde l'url image brute au niveau variant si besoin
+      mainImageUrl: mainImageUrl || null
+    });
+
+    G._candidatesForImage.push({
+      ref,
+      url,
+      options
     });
 
     await sleep(DELAY_MS);
   }
 
+  // ✅ Index (COMPORTEMENT D'AVANT CONSERVÉ)
   fs.writeFileSync(
     path.join(OUT_DIR, "index.json"),
     JSON.stringify(
@@ -360,7 +538,84 @@ async function main() {
     "utf-8"
   );
 
-  console.log(`✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef}`);
+  // ✅ NOUVEAU: grouped.json + 1 image par regroupement (image du canonique)
+  const groupedOut = [];
+
+  for (const [key, G] of grouped.entries()) {
+    const canonical = pickCanonicalVariant(G._candidatesForImage);
+
+    let mainImageLocal = null;
+    let canonicalImageUrl = null;
+
+    if (canonical) {
+      // On refetch la page canonique pour extraire l'image "proprement"
+      // (plus fiable que d'avoir mémorisé une image qui pourrait changer)
+      try {
+        const html = await fetchText(canonical.url);
+        const $ = cheerio.load(html);
+        const imgUrl = extractMainImageUrl($, canonical.url);
+
+        if (imgUrl) {
+          canonicalImageUrl = imgUrl;
+          const ext = getImageExtensionFromUrl(imgUrl);
+          const imgFilename = `${slugRef(canonical.ref)}${ext}`;
+          const imgDest = path.join(IMG_DIR, imgFilename);
+          await downloadToFile(imgUrl, imgDest);
+          mainImageLocal = `produits/connecteur/img/${imgFilename}`;
+        }
+      } catch (e) {
+        console.warn(`  ⚠️ Image canonique impossible pour ${key}: ${e?.message || e}`);
+      }
+    }
+
+    groupedOut.push({
+      key,
+      family: G.family,
+      terminaison: G.terminaison,
+      options: {
+        contacts: setToSortedArray(G.options.contacts, true),
+        standards: setToSortedArray(G.options.standards),
+        genres: setToSortedArray(G.options.genres),
+        blindages: setToSortedArray(G.options.blindages),
+        formes: setToSortedArray(G.options.formes),
+        longueurs: setToSortedArray(G.options.longueurs)
+      },
+      canonical: canonical
+        ? {
+            ref: canonical.ref,
+            url: canonical.url,
+            mainImage: mainImageLocal,
+            mainImageUrl: canonicalImageUrl
+          }
+        : {
+            ref: null,
+            url: null,
+            mainImage: null,
+            mainImageUrl: null
+          },
+      variants: G.variants
+    });
+  }
+
+  fs.writeFileSync(
+    path.join(OUT_DIR, "grouped.json"),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        groupCount: groupedOut.length,
+        // (optionnel) pour debug
+        // note: "groupKey = family + terminaison"
+        groups: groupedOut
+      },
+      null,
+      2
+    ),
+    "utf-8"
+  );
+
+  console.log(
+    `✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef} | groups: ${groupedOut.length}`
+  );
 }
 
 main().catch((e) => {
