@@ -1,0 +1,9 @@
+{
+  "name": "binder-extractor",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "xml2js": "^0.6.2"
+  }
+}
