@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-02-27T06:24:17.457Z",
+  "group": {
+    "key": "M8__m8-c-ble-de-raccordement-connecteur-m-le-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-4-x-0-34-mm",
+    "slug": "m8-m8-c-ble-de-raccordement-connecteur-m-le-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-4-x-0-34-mm",
+    "family": "M8",
+    "typeProduit": "m8-c-ble-de-raccordement-connecteur-m-le-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-4-x-0-34-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "1m",
+      "2m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "77 3408 3405 50004-0100 Référence alternative: 79 5037 10 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50004-0100-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-4-x-034-mm2-1-m",
+    "title": "M8 Câble de raccordement connecteur mâle - connecteur femelle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², 1 m",
+    "mainImage": "produits/connecteur/img/m8-m8-c-ble-de-raccordement-connecteur-m-le-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-4-x-0-34-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/765_0_11_DG_SK.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 3408 3405 50004-0100 Référence alternative: 79 5037 10 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50004-0100-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-4-x-034-mm2-1-m",
+      "title": "M8 Câble de raccordement connecteur mâle - connecteur femelle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², 1 m",
+      "longueur": "1m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "77 3408 3405 50004-0200 Référence alternative: 79 5037 20 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50004-0200-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-4-x-034-mm2-2-m",
+      "title": "M8 Câble de raccordement connecteur mâle - connecteur femelle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

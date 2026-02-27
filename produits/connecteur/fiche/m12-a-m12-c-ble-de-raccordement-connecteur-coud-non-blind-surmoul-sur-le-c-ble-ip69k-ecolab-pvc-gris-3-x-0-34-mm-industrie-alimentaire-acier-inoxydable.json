@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-02-27T06:26:43.478Z",
+  "group": {
+    "key": "M12-A__m12-c-ble-de-raccordement-connecteur-coud-non-blind-surmoul-sur-le-c-ble-ip69k-ecolab-pvc-gris-3-x-0-34-mm-industrie-alimentaire-acier-inoxydable",
+    "slug": "m12-a-m12-c-ble-de-raccordement-connecteur-coud-non-blind-surmoul-sur-le-c-ble-ip69k-ecolab-pvc-gris-3-x-0-34-mm-industrie-alimentaire-acier-inoxydable",
+    "family": "M12-A",
+    "typeProduit": "m12-c-ble-de-raccordement-connecteur-coud-non-blind-surmoul-sur-le-c-ble-ip69k-ecolab-pvc-gris-3-x-0-34-mm-industrie-alimentaire-acier-inoxydable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "unknown"
+    ],
+    "contacts": [
+      3
+    ],
+    "contactsDisponibles": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77 3734 3729 20403-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3734-3729-20403-0200-m12-a-cable-de-raccordement-pour-la-nourriture-et-les-boissons-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-ecolab-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+    "title": "M12 Câble de raccordement connecteur femelle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, Ecolab, PVC, gris, 3 x 0,34 mm², Industrie alimentaire, Acier inoxydable, 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-c-ble-de-raccordement-connecteur-coud-non-blind-surmoul-sur-le-c-ble-ip69k-ecolab-pvc-gris-3-x-0-34-mm-industrie-alimentaire-acier-inoxydable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_VL_KS_WD_FB_PP.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 3734 3729 20403-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3734-3729-20403-0200-m12-a-cable-de-raccordement-pour-la-nourriture-et-les-boissons-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-ecolab-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M12 Câble de raccordement connecteur femelle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, Ecolab, PVC, gris, 3 x 0,34 mm², Industrie alimentaire, Acier inoxydable, 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "unknown"
+    },
+    {
+      "ref": "77 3734 3729 20403-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3734-3729-20403-0500-m12-a-cable-de-raccordement-pour-la-nourriture-et-les-boissons-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-ecolab-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M12 Câble de raccordement connecteur femelle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, Ecolab, PVC, gris, 3 x 0,34 mm², Industrie alimentaire, Acier inoxydable, 5 m",
+      "longueur": "5m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "unknown"
+    }
+  ]
+}

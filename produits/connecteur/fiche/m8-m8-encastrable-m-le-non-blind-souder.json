@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-02-27T06:24:45.844Z",
+  "group": {
+    "key": "M8__m8-encastrable-m-le-non-blind-souder",
+    "slug": "m8-m8-encastrable-m-le-non-blind-souder",
+    "family": "M8",
+    "typeProduit": "m8-encastrable-m-le-non-blind-souder",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip65"
+    ],
+    "contacts": [
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09 3411 00 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/09-3411-00-03-m8-encastrable-male-contacts-3-non-blinde-souder-ip65",
+    "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP65",
+    "mainImage": "produits/connecteur/img/m8-m8-encastrable-m-le-non-blind-souder.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_E.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 3411 00 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/09-3411-00-03-m8-encastrable-male-contacts-3-non-blinde-souder-ip65",
+      "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP65",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip65"
+    },
+    {
+      "ref": "09 3411 40 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/09-3411-40-03-m8-encastrable-male-contacts-3-non-blinde-souder-ip65",
+      "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP65",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip65"
+    },
+    {
+      "ref": "09 3389 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/09-3389-00-04-m8-encastrable-male-contacts-4-non-blinde-souder-ip65",
+      "title": "M8 Encastrable mâle, Contacts: 4, non blindé, souder, IP65",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip65"
+    }
+  ]
+}

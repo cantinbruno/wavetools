@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-02-27T06:24:35.596Z",
+  "group": {
+    "key": "M8__m8-connecteur-non-blind-surmoul-sur-le-c-ble-ip69k-pvc-gris-3-x-0-34-mm-acier-inoxydable",
+    "slug": "m8-m8-connecteur-non-blind-surmoul-sur-le-c-ble-ip69k-pvc-gris-3-x-0-34-mm-acier-inoxydable",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-non-blind-surmoul-sur-le-c-ble-ip69k-pvc-gris-3-x-0-34-mm-acier-inoxydable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3
+    ],
+    "contactsDisponibles": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77 3706 0000 20003-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+    "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PVC, gris, 3 x 0,34 mm², Acier inoxydable, 2 m",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-non-blind-surmoul-sur-le-c-ble-ip69k-pvc-gris-3-x-0-34-mm-acier-inoxydable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_2_KD_VA_PVC.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 3706 0000 20003-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PVC, gris, 3 x 0,34 mm², Acier inoxydable, 2 m",
+      "longueur": "2m",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "77 3706 0000 20003-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PVC, gris, 3 x 0,34 mm², Acier inoxydable, 5 m",
+      "longueur": "5m",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

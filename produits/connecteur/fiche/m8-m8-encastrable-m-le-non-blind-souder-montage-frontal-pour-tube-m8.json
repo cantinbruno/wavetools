@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:24:46.670Z",
+  "group": {
+    "key": "M8__m8-encastrable-m-le-non-blind-souder-montage-frontal-pour-tube-m8",
+    "slug": "m8-m8-encastrable-m-le-non-blind-souder-montage-frontal-pour-tube-m8",
+    "family": "M8",
+    "typeProduit": "m8-encastrable-m-le-non-blind-souder-montage-frontal-pour-tube-m8",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "86 7019 0002 00003 Référence alternative: 09 3411 70 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-7019-0002-00003-m8-encastrable-male-contacts-3-non-blinde-souder-ip67-pour-tube-m8",
+    "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP67, UL 2238, Montage frontal, pour tube M8",
+    "mainImage": "produits/connecteur/img/m8-m8-encastrable-m-le-non-blind-souder-montage-frontal-pour-tube-m8.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_EST.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86 7019 0002 00003 Référence alternative: 09 3411 70 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-7019-0002-00003-m8-encastrable-male-contacts-3-non-blinde-souder-ip67-pour-tube-m8",
+      "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP67, UL 2238, Montage frontal, pour tube M8",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 7019 0002 00004 Référence alternative: 09 3389 70 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-7019-0002-00004-m8-encastrable-male-contacts-4-non-blinde-souder-ip67-pour-tube-m8",
+      "title": "M8 Encastrable mâle, Contacts: 4, non blindé, souder, IP67, UL 2238, Montage frontal, pour tube M8",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

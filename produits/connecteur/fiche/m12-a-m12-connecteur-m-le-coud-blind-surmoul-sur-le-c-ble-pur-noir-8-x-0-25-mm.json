@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-02-27T06:25:38.853Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-coud-blind-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm",
+    "slug": "m12-a-m12-connecteur-m-le-coud-blind-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-coud-blind-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      8
+    ],
+    "contactsDisponibles": [
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "77 3527 0000 50708-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3527-0000-50708-0200-m12-a-connecteur-male-coude-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+    "title": "M12 Connecteur mâle coudé, Contacts: 8, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 8 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-coud-blind-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_WS_g_diT_PUR.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 3527 0000 50708-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3527-0000-50708-0200-m12-a-connecteur-male-coude-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 8, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 8 x 0,25 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "77 3527 0000 50708-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3527-0000-50708-0500-m12-a-connecteur-male-coude-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 8, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 8 x 0,25 mm², 5 m",
+      "longueur": "5m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

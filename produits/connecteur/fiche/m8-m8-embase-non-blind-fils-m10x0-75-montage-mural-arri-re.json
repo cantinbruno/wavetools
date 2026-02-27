@@ -1,0 +1,143 @@
+{
+  "generatedAt": "2026-02-27T06:24:54.806Z",
+  "group": {
+    "key": "M8__m8-embase-non-blind-fils-m10x0-75-montage-mural-arri-re",
+    "slug": "m8-m8-embase-non-blind-fils-m10x0-75-montage-mural-arri-re",
+    "family": "M8",
+    "typeProduit": "m8-embase-non-blind-fils-m10x0-75-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "contactsDisponibles": [
+      3,
+      4,
+      5,
+      6,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "76 6218 1111 00005-0200 Référence alternative: 09 3424 00 05",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00005-0200-m8-embase-femelle-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+    "title": "M8 Embase femelle, Contacts: 5, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-non-blind-fils-m10x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4_FD_konf.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76 6218 1111 00005-0200 Référence alternative: 09 3424 00 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00005-0200-m8-embase-femelle-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+      "title": "M8 Embase femelle, Contacts: 5, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6618 1111 00003-0200 Référence alternative: 09 3418 86 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6618 1111 00004-0200 Référence alternative: 09 3420 86 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6618 1111 00005-0200 Référence alternative: 09 3424 86 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00005-0200-m8-embase-femelle-contacts-5-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 5, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6618 1111 00006-0200 Référence alternative: 09 3422 86 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 6, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6618 1111 00008-0200 Référence alternative: 09 3426 86 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 8, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

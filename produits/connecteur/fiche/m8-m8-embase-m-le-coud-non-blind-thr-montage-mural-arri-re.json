@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:24:51.115Z",
+  "group": {
+    "key": "M8__m8-embase-m-le-coud-non-blind-thr-montage-mural-arri-re",
+    "slug": "m8-m8-embase-m-le-coud-non-blind-thr-montage-mural-arri-re",
+    "family": "M8",
+    "typeProduit": "m8-embase-m-le-coud-non-blind-thr-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99 3403 282 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3403-282-03-m8-embase-male-coude-contacts-3-non-blinde-thr-ip67-ul-visse-a-lavant",
+    "title": "M8 Embase mâle, coudé, Contacts: 3, non blindé, THR, IP67, UL 2238, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-m-le-coud-non-blind-thr-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_FSW.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 3403 282 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3403-282-03-m8-embase-male-coude-contacts-3-non-blinde-thr-ip67-ul-visse-a-lavant",
+      "title": "M8 Embase mâle, coudé, Contacts: 3, non blindé, THR, IP67, UL 2238, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 3391 282 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3391-282-04-m8-embase-male-coude-contacts-4-non-blinde-thr-ip67-ul-visse-a-lavant",
+      "title": "M8 Embase mâle, coudé, Contacts: 4, non blindé, THR, IP67, UL 2238, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

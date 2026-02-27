@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-02-27T06:24:51.759Z",
+  "group": {
+    "key": "M8__m8-embase-non-blind-fils-ip69k-m8x0-5-montage-frontal",
+    "slug": "m8-m8-embase-non-blind-fils-ip69k-m8x0-5-montage-frontal",
+    "family": "M8",
+    "typeProduit": "m8-embase-non-blind-fils-ip69k-m8x0-5-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      6,
+      8
+    ],
+    "contactsDisponibles": [
+      3,
+      4,
+      6,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "76 6018 0111 00003-0200 Référence alternative: 09 3412 00 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ip69k-ul-m8x05",
+    "title": "M8 Embase femelle, Contacts: 3, non blindé, fils, IP67/IP69K, UL 2238, M8x0,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-non-blind-fils-ip69k-m8x0-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4_6pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76 6018 0111 00003-0200 Référence alternative: 09 3412 00 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, fils, IP67/IP69K, UL 2238, M8x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6018 0111 00004-0200 Référence alternative: 09 3390 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, fils, IP67/IP69K, UL 2238, M8x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6018 0111 00006-0200 Référence alternative: 09 3462 00 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "title": "M8 Embase femelle, Contacts: 6, non blindé, fils, IP67/IP69K, UL 2238, M8x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "76 6018 0111 00008-0200 Référence alternative: 09 3486 00 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "title": "M8 Embase femelle, Contacts: 8, non blindé, fils, IP67/IP69K, UL 2238, M8x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

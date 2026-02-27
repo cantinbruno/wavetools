@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:27:25.125Z",
+  "group": {
+    "key": "M12-D__m12-embase-blindable-smt",
+    "slug": "m12-d-m12-embase-blindable-smt",
+    "family": "M12-D",
+    "typeProduit": "m12-embase-blindable-smt",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09 0732 601 04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/09-0732-601-04-m12-d-embase-femelle-contacts-4-blindable-smt-ip67-pour-smt",
+    "title": "M12 Embase femelle, Contacts: 4, blindable, SMT, IP67",
+    "mainImage": "produits/connecteur/img/m12-d-m12-embase-blindable-smt.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/876-D_4_EBD_SMT_schirm_Einsatz_o_O.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0732 601 04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/09-0732-601-04-m12-d-embase-femelle-contacts-4-blindable-smt-ip67-pour-smt",
+      "title": "M12 Embase femelle, Contacts: 4, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

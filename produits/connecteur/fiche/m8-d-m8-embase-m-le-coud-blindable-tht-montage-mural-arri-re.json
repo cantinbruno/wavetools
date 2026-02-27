@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:27:00.329Z",
+  "group": {
+    "key": "M8-D__m8-embase-m-le-coud-blindable-tht-montage-mural-arri-re",
+    "slug": "m8-d-m8-embase-m-le-coud-blindable-tht-montage-mural-arri-re",
+    "family": "M8-D",
+    "typeProduit": "m8-embase-m-le-coud-blindable-tht-montage-mural-arri-re",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-114"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "86 6321 1121 00404",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6321-1121-00404-m8-d-embase-male-coude-contacts-4-blindable-tht-ip67-1",
+    "title": "M8 Embase mâle, coudé, Contacts: 4, blindable, THT, IP67, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-d-m8-embase-m-le-coud-blindable-tht-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_3_FS-D_wi.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86 6321 1121 00404",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6321-1121-00404-m8-d-embase-male-coude-contacts-4-blindable-tht-ip67-1",
+      "title": "M8 Embase mâle, coudé, Contacts: 4, blindable, THT, IP67, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-114",
+      "ip": "ip67"
+    }
+  ]
+}

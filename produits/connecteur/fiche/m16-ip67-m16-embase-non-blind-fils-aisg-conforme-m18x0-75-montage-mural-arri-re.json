@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-02-27T06:23:42.725Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-non-blind-fils-aisg-conforme-m18x0-75-montage-mural-arri-re",
+    "slug": "m16-ip67-m16-embase-non-blind-fils-aisg-conforme-m18x0-75-montage-mural-arri-re",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-non-blind-fils-aisg-conforme-m18x0-75-montage-mural-arri-re",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "09 0174 782 08",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0174-782-08-m16-ip67-embase-femelle-contacts-8-din-non-blinde-fils-ip68-ul-aisg-conforme",
+    "title": "M16 Embase femelle, Contacts: 8 (08-a), non blindé, fils, IP68, UL 2238, AISG conforme, M18x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-non-blind-fils-aisg-conforme-m18x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_4_80_Li.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0174 782 08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0174-782-08-m16-ip67-embase-femelle-contacts-8-din-non-blinde-fils-ip68-ul-aisg-conforme",
+      "title": "M16 Embase femelle, Contacts: 8 (08-a), non blindé, fils, IP68, UL 2238, AISG conforme, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip68"
+    }
+  ]
+}

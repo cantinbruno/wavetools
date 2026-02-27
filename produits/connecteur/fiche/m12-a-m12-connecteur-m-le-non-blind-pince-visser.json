@@ -1,0 +1,308 @@
+{
+  "generatedAt": "2026-02-27T06:25:04.044Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-non-blind-pince-visser",
+    "slug": "m12-a-m12-connecteur-m-le-non-blind-pince-visser",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-non-blind-pince-visser",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2.5-3.5mm",
+      "4.0-6.0mm",
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      3,
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99 0429 82 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-82-04-m12-a-connecteur-male-contacts-4-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur mâle, Contacts: 4, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-non-blind-pince-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_1_KMGVA.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 0429 82 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-82-04-m12-a-connecteur-male-contacts-4-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 282 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-282-04-m12-a-connecteur-male-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 82 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-82-05-m12-a-connecteur-male-contacts-5-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 282 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-282-05-m12-a-connecteur-male-contacts-5-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0487 282 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0487-282-08-m12-a-connecteur-male-contacts-8-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 8, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 43 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-43-04-m12-a-connecteur-male-contacts-4-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 57 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-57-04-m12-a-connecteur-male-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 43 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-43-05-m12-a-connecteur-male-contacts-5-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 57 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-57-05-m12-a-connecteur-male-contacts-5-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 07 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-07-04-m12-a-connecteur-male-contacts-3-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 3, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 158 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-158-04-m12-a-connecteur-male-contacts-3-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 3, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 314 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-314-04-m12-a-connecteur-male-contacts-4-25-35-mm-non-blinde-pince-a-visser-ip67",
+      "title": "M12 Connecteur mâle, Contacts: 4, 2,5-3,5 mm, non blindé, pince à visser, IP67",
+      "longueur": "2.5-3.5mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 14 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-14-04-m12-a-connecteur-male-contacts-4-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0429 12 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-12-04-m12-a-connecteur-male-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 14 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-14-05-m12-a-connecteur-male-contacts-5-40-60-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 4,0-6,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "4.0-6.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0437 12 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-12-05-m12-a-connecteur-male-contacts-5-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 5, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0487 12 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0487-12-08-m12-a-connecteur-male-contacts-8-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle, Contacts: 8, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

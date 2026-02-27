@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-27T06:26:25.101Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-non-blind-souder-m12x0-5-montage-frontal",
+    "slug": "m12-a-m12-embase-m-le-non-blind-souder-m12x0-5-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-non-blind-souder-m12x0-5-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "09 0431 81 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-81-04-m12-a-embase-male-contacts-4-non-blinde-souder-ip67-m12x05",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP67, M12x0,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-non-blind-souder-m12x0-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3_E12.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0431 81 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-81-04-m12-a-embase-male-contacts-4-non-blinde-souder-ip67-m12x05",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP67, M12x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0433 81 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0433-81-05-m12-a-embase-male-contacts-5-non-blinde-souder-ip67-m12x05",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, souder, IP67, M12x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0381 81 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0381-81-08-m12-a-embase-male-contacts-8-non-blinde-souder-ip67-m12x05",
+      "title": "M12 Embase mâle, Contacts: 8, non blindé, souder, IP67, M12x0,5, Montage frontal",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

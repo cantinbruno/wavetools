@@ -1,0 +1,437 @@
+{
+  "generatedAt": "2026-02-27T06:23:40.098Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-non-blind-souder-m18x0-75-montage-mural-arri-re",
+    "slug": "m16-ip67-m16-embase-non-blind-souder-m18x0-75-montage-mural-arri-re",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-non-blind-souder-m18x0-75-montage-mural-arri-re",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      12,
+      24
+    ],
+    "contactsDisponibles": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      14,
+      16,
+      19,
+      24
+    ]
+  },
+  "canonical": {
+    "ref": "09 0104 80 02",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-80-02-m16-ip67-embase-femelle-contacts-2-non-blinde-souder-ip67-ul-visse-a-lavant",
+    "title": "M16 Embase femelle, Contacts: 2 (02-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-non-blind-souder-m18x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_4_80.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0104 80 02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-80-02-m16-ip67-embase-femelle-contacts-2-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 2 (02-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0104 89 02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-89-02-m16-ip67-embase-femelle-contacts-2-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 2 (02-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0108 80 03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-80-03-m16-ip67-embase-femelle-contacts-3-din-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 3 (03-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0108 89 03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-89-03-m16-ip67-embase-femelle-contacts-3-din-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 3 (03-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0112 80 04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-80-04-m16-ip67-embase-femelle-contacts-4-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 4 (04-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0112 89 04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-89-04-m16-ip67-embase-femelle-contacts-4-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 4 (04-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0116 80 05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-80-05-m16-ip67-embase-femelle-contacts-5-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0116 89 05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-89-05-m16-ip67-embase-femelle-contacts-5-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0120 80 05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0120-80-05-m16-ip67-embase-femelle-contacts-5-stereo-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-b), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0120 89 05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0120-89-05-m16-ip67-embase-femelle-contacts-5-stereo-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-b), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0124 80 06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-80-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 6 (06-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0124 89 06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-89-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 6 (06-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0128 80 07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-80-07-m16-ip67-embase-femelle-contacts-7-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 7 (07-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0128 89 07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-89-07-m16-ip67-embase-femelle-contacts-7-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 7 (07-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0132 80 12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0132-80-12-m16-ip67-embase-femelle-contacts-12-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 12 (12-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 12,
+      "contactsDisponibles": [
+        12,
+        14,
+        19
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0454 80 14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0454-80-14-m16-ip67-embase-femelle-contacts-14-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 14 (14-b), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 12,
+      "contactsDisponibles": [
+        12,
+        14,
+        19
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0508 80 16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0508-80-16-m16-ip67-embase-femelle-contacts-16-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 16, non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 12,
+      "contactsDisponibles": [
+        12,
+        14,
+        16,
+        19
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0464 80 19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0464-80-19-m16-ip67-embase-femelle-contacts-19-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 19 (19-a), non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 12,
+      "contactsDisponibles": [
+        12,
+        14,
+        19
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0498 80 24",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0498-80-24-m16-ip67-embase-femelle-contacts-24-non-blinde-souder-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 24, non blindé, souder, IP67, UL 2238, M18x0,75, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 24,
+      "contactsDisponibles": [
+        24
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    }
+  ]
+}

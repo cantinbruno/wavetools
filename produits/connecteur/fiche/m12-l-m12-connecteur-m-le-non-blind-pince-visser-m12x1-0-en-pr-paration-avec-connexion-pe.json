@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:27:42.043Z",
+  "group": {
+    "key": "M12-L__m12-connecteur-m-le-non-blind-pince-visser-m12x1-0-en-pr-paration-avec-connexion-pe",
+    "slug": "m12-l-m12-connecteur-m-le-non-blind-pince-visser-m12x1-0-en-pr-paration-avec-connexion-pe",
+    "family": "M12-L",
+    "typeProduit": "m12-connecteur-m-le-non-blind-pince-visser-m12x1-0-en-pr-paration-avec-connexion-pe",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "8.0-13.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99 0639 37 05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0639-37-05-m12-l-connecteur-male-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-ul-2237-en-preparation-avec-connexion-pe",
+    "title": "M12 Connecteur mâle, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, M12x1,0, UL 2237 en préparation, avec connexion PE",
+    "mainImage": "produits/connecteur/img/m12-l-m12-connecteur-m-le-non-blind-pince-visser-m12x1-0-en-pr-paration-avec-connexion-pe.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_1_KS_L.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 0639 37 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0639-37-05-m12-l-connecteur-male-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-ul-2237-en-preparation-avec-connexion-pe",
+      "title": "M12 Connecteur mâle, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, M12x1,0, UL 2237 en préparation, avec connexion PE",
+      "longueur": "8.0-13.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "ip": "ip67"
+    }
+  ]
+}

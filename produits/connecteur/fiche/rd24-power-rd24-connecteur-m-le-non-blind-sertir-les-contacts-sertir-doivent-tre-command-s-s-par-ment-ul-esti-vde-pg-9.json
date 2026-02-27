@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:23:58.734Z",
+  "group": {
+    "key": "RD24 Power__rd24-connecteur-m-le-non-blind-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-pg-9",
+    "slug": "rd24-power-rd24-connecteur-m-le-non-blind-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-pg-9",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-connecteur-m-le-non-blind-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-pg-9",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ],
+    "contactsDisponibles": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "99 4201 00 07 Référence alternative: 99 0201 00 07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+    "title": "RD24 Connecteur mâle, Contacts: 6+PE, 6,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL, ESTI+, VDE, PG 9",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-connecteur-m-le-non-blind-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-pg-9.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_1_00.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 4201 00 07 Référence alternative: 99 0201 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+      "title": "RD24 Connecteur mâle, Contacts: 6+PE, 6,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL, ESTI+, VDE, PG 9",
+      "longueur": "6.0-8.0mm",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    }
+  ]
+}

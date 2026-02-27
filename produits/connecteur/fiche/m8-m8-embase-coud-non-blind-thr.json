@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:24:56.952Z",
+  "group": {
+    "key": "M8__m8-embase-coud-non-blind-thr",
+    "slug": "m8-m8-embase-coud-non-blind-thr",
+    "family": "M8",
+    "typeProduit": "m8-embase-coud-non-blind-thr",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99 3412 282 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-282-03-m8-embase-femelle-coudee-contacts-3-non-blinde-thr-ip67-ul",
+    "title": "M8 Embase femelle, coudé, Contacts: 3, non blindé, THR, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-coud-non-blind-thr.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4TLW.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 3412 282 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-282-03-m8-embase-femelle-coudee-contacts-3-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, coudé, Contacts: 3, non blindé, THR, IP67, UL 2238",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 3390 282 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-282-04-m8-embase-femelle-coudee-contacts-4-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, coudé, Contacts: 4, non blindé, THR, IP67, UL 2238",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

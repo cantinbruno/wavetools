@@ -1,0 +1,169 @@
+{
+  "generatedAt": "2026-02-27T06:25:19.138Z",
+  "group": {
+    "key": "M12-A__m12-duo-connecteur-2-c-ble-ou-2-c-ble-non-blind-pince-visser",
+    "slug": "m12-a-m12-duo-connecteur-2-c-ble-ou-2-c-ble-non-blind-pince-visser",
+    "family": "M12-A",
+    "typeProduit": "m12-duo-connecteur-2-c-ble-ou-2-c-ble-non-blind-pince-visser",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2.1-3.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99 0430 142 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-142-04-m12-a-duo-connecteur-femelle-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+    "title": "M12 Duo-connecteur femelle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-duo-connecteur-2-c-ble-ou-2-c-ble-non-blind-pince-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_KD_Duo_6Kant_Ku.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 0430 142 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-142-04-m12-a-duo-connecteur-femelle-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0436 142 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0436-142-05-m12-a-duo-connecteur-femelle-contacts-5-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0430 287 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-287-04-m12-a-duo-connecteur-femelle-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0436 287 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0436-287-05-m12-a-duo-connecteur-femelle-contacts-5-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0486 287 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0486-287-08-m12-a-duo-connecteur-femelle-contacts-8-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 8, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0430 186 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-186-04-m12-a-duo-connecteur-femelle-contacts-4-2-x-2-21-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0436 186 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0436-186-05-m12-a-duo-connecteur-femelle-contacts-5-2-x-2-21-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 0486 186 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0486-186-08-m12-a-duo-connecteur-femelle-contacts-8-2-x-2-21-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur femelle, Contacts: 8, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+      "longueur": "2.1-3.0mm",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

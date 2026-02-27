@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:27:18.807Z",
+  "group": {
+    "key": "M12-D__m12-embase-m-le-blind-assembl-s-avec-c-ble-ul-m16x1-5-profinet-pur-vert-2-x-2-x-awg-22-montage-frontal-0",
+    "slug": "m12-d-m12-embase-m-le-blind-assembl-s-avec-c-ble-ul-m16x1-5-profinet-pur-vert-2-x-2-x-awg-22-montage-frontal-0",
+    "family": "M12-D",
+    "typeProduit": "m12-embase-m-le-blind-assembl-s-avec-c-ble-ul-m16x1-5-profinet-pur-vert-2-x-2-x-awg-22-montage-frontal-0",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ],
+    "contactsDisponibles": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "70 3733 705 04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/70-3733-705-04-m12-d-embase-male-contacts-4-blinde-assembles-avec-cable-ip67-m16x15-profinet-pur-vert-2-x-2-x-awg-22-05-m",
+    "title": "M12 Embase mâle, Contacts: 4, blindé, assemblés avec câble, IP67, UL, M16x1,5, Profinet, PUR, vert, 2 x 2 x AWG 22, Montage frontal, 0,5 m",
+    "mainImage": "produits/connecteur/img/m12-d-m12-embase-m-le-blind-assembl-s-avec-c-ble-ul-m16x1-5-profinet-pur-vert-2-x-2-x-awg-22-montage-frontal-0.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/876_Profi_FS_2.jpg"
+  },
+  "variants": [
+    {
+      "ref": "70 3733 705 04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/70-3733-705-04-m12-d-embase-male-contacts-4-blinde-assembles-avec-cable-ip67-m16x15-profinet-pur-vert-2-x-2-x-awg-22-05-m",
+      "title": "M12 Embase mâle, Contacts: 4, blindé, assemblés avec câble, IP67, UL, M16x1,5, Profinet, PUR, vert, 2 x 2 x AWG 22, Montage frontal, 0,5 m",
+      "longueur": "5m",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

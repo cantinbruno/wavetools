@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-27T06:26:14.315Z",
+  "group": {
+    "key": "M12-A__m12-encastrable-m-le-blindable-smt",
+    "slug": "m12-a-m12-encastrable-m-le-blindable-smt",
+    "family": "M12-A",
+    "typeProduit": "m12-encastrable-m-le-blindable-smt",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "09 0431 601 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-601-04-m12-a-encastrable-male-contacts-4-blindable-smt-ip67-pour-smt",
+    "title": "M12 Encastrable mâle, Contacts: 4, blindable, SMT, IP67",
+    "mainImage": "produits/connecteur/img/m12-a-m12-encastrable-m-le-blindable-smt.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_EBS_8pol_SMT_schirm_Einsatz_o_O.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0431 601 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-601-04-m12-a-encastrable-male-contacts-4-blindable-smt-ip67-pour-smt",
+      "title": "M12 Encastrable mâle, Contacts: 4, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0433 601 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0433-601-05-m12-a-encastrable-male-contacts-5-blindable-smt-ip67-pour-smt",
+      "title": "M12 Encastrable mâle, Contacts: 5, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0381 601 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0381-601-08-m12-a-encastrable-male-contacts-8-blindable-smt-ip67-pour-smt",
+      "title": "M12 Encastrable mâle, Contacts: 8, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

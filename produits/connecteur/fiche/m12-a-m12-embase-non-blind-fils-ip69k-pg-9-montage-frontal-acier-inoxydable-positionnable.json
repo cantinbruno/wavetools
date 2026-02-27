@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-27T06:26:18.739Z",
+  "group": {
+    "key": "M12-A__m12-embase-non-blind-fils-ip69k-pg-9-montage-frontal-acier-inoxydable-positionnable",
+    "slug": "m12-a-m12-embase-non-blind-fils-ip69k-pg-9-montage-frontal-acier-inoxydable-positionnable",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-non-blind-fils-ip69k-pg-9-montage-frontal-acier-inoxydable-positionnable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "76 2732 0111 00004-0200 Référence alternative: 09 3432 678 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2732-0111-00004-0200-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip68-ip69k-ul-pg-9-acier-inoxydable",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP68/IP69K, UL 2238, PG 9, Montage frontal, Acier inoxydable, positionnable",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-non-blind-fils-ip69k-pg-9-montage-frontal-acier-inoxydable-positionnable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_FD_pos_VA_Li_4pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76 2732 0111 00004-0200 Référence alternative: 09 3432 678 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2732-0111-00004-0200-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip68-ip69k-ul-pg-9-acier-inoxydable",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP68/IP69K, UL 2238, PG 9, Montage frontal, Acier inoxydable, positionnable",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip68"
+    },
+    {
+      "ref": "76 2732 0111 00005-0200 Référence alternative: 09 3442 678 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2732-0111-00005-0200-m12-a-embase-femelle-contacts-5-non-blinde-fils-ip68-ip69k-ul-pg-9-acier-inoxydable",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, fils, IP68/IP69K, UL 2238, PG 9, Montage frontal, Acier inoxydable, positionnable",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip68"
+    },
+    {
+      "ref": "76 2732 0111 00008-0200 Référence alternative: 09 3482 678 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2732-0111-00008-0200-m12-a-embase-femelle-contacts-8-non-blinde-fils-ip68-ip69k-ul-pg-9-acier-inoxydable",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, fils, IP68/IP69K, UL 2238, PG 9, Montage frontal, Acier inoxydable, positionnable",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip68"
+    }
+  ]
+}

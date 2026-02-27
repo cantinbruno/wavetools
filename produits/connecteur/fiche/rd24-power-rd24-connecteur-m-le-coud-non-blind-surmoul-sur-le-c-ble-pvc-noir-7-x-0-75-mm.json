@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:24:07.114Z",
+  "group": {
+    "key": "RD24 Power__rd24-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "slug": "rd24-power-rd24-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ],
+    "contactsDisponibles": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "79 0237 20 07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0237-20-07-rd24-connecteur-male-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+    "title": "RD24 Connecteur mâle coudé, Contacts: 6+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 7 x 0,75 mm², 2 m",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/692_1_WS_u.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79 0237 20 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0237-20-07-rd24-connecteur-male-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "title": "RD24 Connecteur mâle coudé, Contacts: 6+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 7 x 0,75 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    }
+  ]
+}

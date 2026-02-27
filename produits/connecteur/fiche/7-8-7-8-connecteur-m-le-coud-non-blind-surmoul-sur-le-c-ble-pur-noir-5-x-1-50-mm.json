@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-02-27T06:27:56.986Z",
+  "group": {
+    "key": "7/8\"__7-8-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-1-50-mm",
+    "slug": "7-8-7-8-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-1-50-mm",
+    "family": "7/8\"",
+    "typeProduit": "7-8-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-1-50-mm",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "10m",
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      5
+    ],
+    "contactsDisponibles": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77 1427 0000 50005-0200",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-0200-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+    "title": "7/8\" Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 1,50 mm², 2 m",
+    "mainImage": "produits/connecteur/img/7-8-7-8-connecteur-m-le-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-1-50-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/870_1_WS_s.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 1427 0000 50005-0200",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-0200-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 1,50 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    },
+    {
+      "ref": "77 1427 0000 50005-0500",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-0500-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-5-m",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 1,50 mm², 5 m",
+      "longueur": "5m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    },
+    {
+      "ref": "77 1427 0000 50005-1000",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-1000-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-10-m",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 1,50 mm², 10 m",
+      "longueur": "10m",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    }
+  ]
+}

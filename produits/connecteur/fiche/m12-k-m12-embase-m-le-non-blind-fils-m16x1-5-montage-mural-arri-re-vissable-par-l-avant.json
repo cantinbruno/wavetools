@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-27T06:27:35.020Z",
+  "group": {
+    "key": "M12-K__m12-embase-m-le-non-blind-fils-m16x1-5-montage-mural-arri-re-vissable-par-l-avant",
+    "slug": "m12-k-m12-embase-m-le-non-blind-fils-m16x1-5-montage-mural-arri-re-vissable-par-l-avant",
+    "family": "M12-K",
+    "typeProduit": "m12-embase-m-le-non-blind-fils-m16x1-5-montage-mural-arri-re-vissable-par-l-avant",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      5
+    ],
+    "contactsDisponibles": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "76 0645 1134 00035-0200 Référence alternative: 09 0701 800 05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/76-0645-1134-00035-0200-m12-embase-male-contacts-4-pe-non-blinde-fils-ip68-m16x15-vissable-par-lavant",
+    "title": "M12 Embase mâle, Contacts: 5, non blindé, fils, IP68, UL 2238, M16x1,5, Montage mural arrière, vissable par l'avant",
+    "mainImage": "produits/connecteur/img/m12-k-m12-embase-m-le-non-blind-fils-m16x1-5-montage-mural-arri-re-vissable-par-l-avant.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/824_3_FS_K_vv.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76 0645 1134 00035-0200 Référence alternative: 09 0701 800 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/76-0645-1134-00035-0200-m12-embase-male-contacts-4-pe-non-blinde-fils-ip68-m16x15-vissable-par-lavant",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, fils, IP68, UL 2238, M16x1,5, Montage mural arrière, vissable par l'avant",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "ip": "ip68"
+    },
+    {
+      "ref": "76 0645 1136 00035-0200 Référence alternative: 09 0701 300 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/76-0645-1136-00035-0200-m12-embase-male-contacts-4-pe-non-blinde-fils-ip68-m16x15-vissable-par-lavant",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, fils, IP68, UL 2238, M16x1,5, Montage mural arrière, vissable par l'avant",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "ip": "ip68"
+    }
+  ]
+}

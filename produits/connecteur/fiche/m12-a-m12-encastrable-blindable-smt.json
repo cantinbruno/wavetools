@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:26:28.329Z",
+  "group": {
+    "key": "M12-A__m12-encastrable-blindable-smt",
+    "slug": "m12-a-m12-encastrable-blindable-smt",
+    "family": "M12-A",
+    "typeProduit": "m12-encastrable-blindable-smt",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5
+    ],
+    "contactsDisponibles": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "09 0432 601 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0432-601-04-m12-a-encastrable-femelle-contacts-4-blindable-smt-ip67-pour-smt",
+    "title": "M12 Encastrable femelle, Contacts: 4, blindable, SMT, IP67",
+    "mainImage": "produits/connecteur/img/m12-a-m12-encastrable-blindable-smt.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_EBD_4pol_SMT_schirm_Einsatz_o_O.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09 0432 601 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0432-601-04-m12-a-encastrable-femelle-contacts-4-blindable-smt-ip67-pour-smt",
+      "title": "M12 Encastrable femelle, Contacts: 4, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    },
+    {
+      "ref": "09 0434 601 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0434-601-05-m12-a-encastrable-femelle-contacts-5-blindable-smt-ip67-pour-smt",
+      "title": "M12 Encastrable femelle, Contacts: 5, blindable, SMT, IP67",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip67"
+    }
+  ]
+}

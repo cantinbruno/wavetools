@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-02-27T06:27:53.753Z",
+  "group": {
+    "key": "7/8\"__7-8-connecteur-m-le-coud-non-blind-pince-visser-vde",
+    "slug": "7-8-7-8-connecteur-m-le-coud-non-blind-pince-visser-vde",
+    "family": "7/8\"",
+    "typeProduit": "7-8-connecteur-m-le-coud-non-blind-pince-visser-vde",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "10.0-12.0mm",
+      "6.0-8.0mm",
+      "8.0-10.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      2,
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99 2441 52 03",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-52-03-7-8-connecteur-male-coude-contacts-2-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+    "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+    "mainImage": "produits/connecteur/img/7-8-7-8-connecteur-m-le-coud-non-blind-pince-visser-vde.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_1_DG_Wi_KKA.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 2441 52 03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-52-03-7-8-connecteur-male-coude-contacts-2-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "6.0-8.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2443 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2443-52-04-7-8-connecteur-male-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "6.0-8.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2445 52 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-52-05-7-8-connecteur-male-coude-contacts-4-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "6.0-8.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2441 62 03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-62-03-7-8-connecteur-male-coude-contacts-2-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 8,0-10,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "8.0-10.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2441 72 03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-72-03-7-8-connecteur-male-coude-contacts-2-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 10,0-12,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "10.0-12.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 2,
+      "contactsDisponibles": [
+        2
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2443 62 04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2443-62-04-7-8-connecteur-male-coude-contacts-3-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 3+PE, 8,0-10,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "8.0-10.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2443 72 04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2443-72-04-7-8-connecteur-male-coude-contacts-3-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 3+PE, 10,0-12,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "10.0-12.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2445 62 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-62-05-7-8-connecteur-male-coude-contacts-4-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 8,0-10,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "8.0-10.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2445 72 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-72-05-7-8-connecteur-male-coude-contacts-4-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 10,0-12,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "10.0-12.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2445 63 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-63-05-7-8-connecteur-male-coude-contacts-4-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 8,0-10,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "8.0-10.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 2445 73 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-73-05-7-8-connecteur-male-coude-contacts-4-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 10,0-12,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+      "longueur": "10.0-12.0mm",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "unknown",
+      "ip": "ip67"
+    }
+  ]
+}

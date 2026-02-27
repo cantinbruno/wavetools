@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:24:17.122Z",
+  "group": {
+    "key": "M8__m8-connecteur-coud-blindable-souder",
+    "slug": "m8-m8-connecteur-coud-blindable-souder",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-coud-blindable-souder",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "3.5-5.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ],
+    "contactsDisponibles": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99 3364 00 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3364-00-03-m8-connecteur-femelle-coude-contacts-3-35-50-mm-blindable-souder-ip67-ul",
+    "title": "M8 Connecteur femelle coudé, Contacts: 3, 3,5-5,0 mm, blindable, souder, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-coud-blindable-souder.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/768_2_WD_loet.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 3364 00 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3364-00-03-m8-connecteur-femelle-coude-contacts-3-35-50-mm-blindable-souder-ip67-ul",
+      "title": "M8 Connecteur femelle coudé, Contacts: 3, 3,5-5,0 mm, blindable, souder, IP67, UL 2238",
+      "longueur": "3.5-5.0mm",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "99 3366 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3366-00-04-m8-connecteur-femelle-coude-contacts-4-35-50-mm-blindable-souder-ip67-ul",
+      "title": "M8 Connecteur femelle coudé, Contacts: 4, 3,5-5,0 mm, blindable, souder, IP67, UL 2238",
+      "longueur": "3.5-5.0mm",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

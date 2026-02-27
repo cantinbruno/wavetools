@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-02-27T06:24:53.513Z",
+  "group": {
+    "key": "M8__m8-embase-non-blind-tht-m12x1-0-montage-mural-arri-re",
+    "slug": "m8-m8-embase-non-blind-tht-m12x1-0-montage-mural-arri-re",
+    "family": "M8",
+    "typeProduit": "m8-embase-non-blind-tht-m12x1-0-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      6,
+      8
+    ],
+    "contactsDisponibles": [
+      3,
+      4,
+      6,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "86 6518 1122 00003 Référence alternative: 09 3412 187 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1122-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+    "title": "M8 Embase femelle, Contacts: 3, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-non-blind-tht-m12x1-0-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4_FF.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86 6518 1122 00003 Référence alternative: 09 3412 187 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1122-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1122 00004 Référence alternative: 09 3390 187 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1122-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1123 00003 Référence alternative: 09 3412 80 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1123-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1123 00004 Référence alternative: 09 3390 80 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1123-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-ul-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1100 00003 Référence alternative: 09 3412 186 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, THT, IP67, UL 2238, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 3,
+      "contactsDisponibles": [
+        3
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1100 00004 Référence alternative: 09 3390 186 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, THT, IP67, UL 2238, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 4,
+      "contactsDisponibles": [
+        4
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1100 00006 Référence alternative: 09 3462 80 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00006-m8-embase-femelle-contacts-6-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 6, non blindé, THT, IP67, UL 2238, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    },
+    {
+      "ref": "86 6518 1100 00008 Référence alternative: 09 3486 80 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00008-m8-embase-femelle-contacts-8-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "title": "M8 Embase femelle, Contacts: 8, non blindé, THT, IP67, UL 2238, M12x1,0, Montage mural arrière",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-104",
+      "ip": "ip67"
+    }
+  ]
+}

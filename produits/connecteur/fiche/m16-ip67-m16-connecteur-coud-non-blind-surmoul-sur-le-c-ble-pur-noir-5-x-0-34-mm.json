@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-02-27T06:23:58.696Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-34-mm",
+    "slug": "m16-ip67-m16-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-34-mm",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-34-mm",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      5
+    ],
+    "contactsDisponibles": [
+      5,
+      7
+    ]
+  },
+  "canonical": {
+    "ref": "77 6434 0000 50005-0200",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/77-6434-0000-50005-0200-m16-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-034-mm2-2-m",
+    "title": "M16 Connecteur femelle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, PUR, noir, 5 x 0,34 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-coud-non-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-34-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/425_2_WD_u_5pol_PUR_duenn.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 6434 0000 50005-0200",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/77-6434-0000-50005-0200-m16-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-034-mm2-2-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, PUR, noir, 5 x 0,34 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5,
+        7
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    },
+    {
+      "ref": "77 6434 0000 50005-0500",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/77-6434-0000-50005-0500-m16-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-034-mm2-5-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP68, PUR, noir, 5 x 0,34 mm², 5 m",
+      "longueur": "5m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5,
+        7
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    }
+  ]
+}

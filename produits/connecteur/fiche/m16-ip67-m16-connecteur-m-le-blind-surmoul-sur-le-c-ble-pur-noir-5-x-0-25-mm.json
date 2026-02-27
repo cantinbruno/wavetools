@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-02-27T06:23:27.632Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-m-le-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "slug": "m16-ip67-m16-connecteur-m-le-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-m-le-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ],
+    "contactsDisponibles": [
+      5,
+      6,
+      8,
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "79 6113 20 05",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6113-20-05-m16-ip67-connecteur-male-contacts-5-blinde-surmoule-sur-le-cable-ip67-pur-noir-5-x-025-mm2-2-m",
+    "title": "M16 Connecteur mâle, Contacts: 5 (05-a), blindé, surmoulé sur le câble, IP67, PUR, noir, 5 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-m-le-blind-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/425_1_KS.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79 6113 20 05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6113-20-05-m16-ip67-connecteur-male-contacts-5-blinde-surmoule-sur-le-cable-ip67-pur-noir-5-x-025-mm2-2-m",
+      "title": "M16 Connecteur mâle, Contacts: 5 (05-a), blindé, surmoulé sur le câble, IP67, PUR, noir, 5 x 0,25 mm², 2 m",
+      "longueur": "2m",
+      "forme": "unknown",
+      "genre": "male",
+      "blindage": "blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5,
+        6,
+        8,
+        12
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    }
+  ]
+}

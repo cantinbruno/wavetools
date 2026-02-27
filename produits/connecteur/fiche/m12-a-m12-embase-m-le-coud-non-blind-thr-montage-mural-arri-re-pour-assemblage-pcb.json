@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-27T06:26:12.687Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-coud-non-blind-thr-montage-mural-arri-re-pour-assemblage-pcb",
+    "slug": "m12-a-m12-embase-m-le-coud-non-blind-thr-montage-mural-arri-re-pour-assemblage-pcb",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-coud-non-blind-thr-montage-mural-arri-re-pour-assemblage-pcb",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      5,
+      8
+    ],
+    "contactsDisponibles": [
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99 3441 202 05",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3441-202-05-m12-a-embase-male-coude-contacts-5-non-blinde-thr-ip68-ul-pour-assemblage-pcb",
+    "title": "M12 Embase mâle, coudé, Contacts: 5, non blindé, THR, IP68, UL 2238, Montage mural arrière, pour assemblage PCB",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-coud-non-blind-thr-montage-mural-arri-re-pour-assemblage-pcb.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_PCB_zweit_wi.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 3441 202 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3441-202-05-m12-a-embase-male-coude-contacts-5-non-blinde-thr-ip68-ul-pour-assemblage-pcb",
+      "title": "M12 Embase mâle, coudé, Contacts: 5, non blindé, THR, IP68, UL 2238, Montage mural arrière, pour assemblage PCB",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip68"
+    },
+    {
+      "ref": "99 3481 202 08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3481-202-08-m12-a-embase-male-coude-contacts-8-non-blinde-thr-ip68-ul-pour-assemblage-pcb",
+      "title": "M12 Embase mâle, coudé, Contacts: 8, non blindé, THR, IP68, UL 2238, Montage mural arrière, pour assemblage PCB",
+      "longueur": "unknown",
+      "forme": "coude",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "contacts": 8,
+      "contactsDisponibles": [
+        8
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "ip68"
+    }
+  ]
+}

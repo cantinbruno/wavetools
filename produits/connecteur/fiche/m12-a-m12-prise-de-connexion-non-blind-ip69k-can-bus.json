@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-27T06:25:52.294Z",
+  "group": {
+    "key": "M12-A__m12-prise-de-connexion-non-blind-ip69k-can-bus",
+    "slug": "m12-a-m12-prise-de-connexion-non-blind-ip69k-can-bus",
+    "family": "M12-A",
+    "typeProduit": "m12-prise-de-connexion-non-blind-ip69k-can-bus",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "unknown"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "unknown"
+    ],
+    "contacts": [
+      5
+    ],
+    "contactsDisponibles": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77 9840 0000 00005",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-9840-0000-00005-m12-a-prise-de-connexion-contacts-5-non-blinde-ip67-ul-can-bus",
+    "title": "M12 Prise de connexion, Contacts: 5, non blindé, IP69K, CAN-Bus",
+    "mainImage": "produits/connecteur/img/m12-a-m12-prise-de-connexion-non-blind-ip69k-can-bus.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_2_Abschl.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77 9840 0000 00005",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-9840-0000-00005-m12-a-prise-de-connexion-contacts-5-non-blinde-ip67-ul-can-bus",
+      "title": "M12 Prise de connexion, Contacts: 5, non blindé, IP69K, CAN-Bus",
+      "longueur": "unknown",
+      "forme": "unknown",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5
+      ],
+      "standard": "DIN EN 61076-2-101",
+      "ip": "unknown"
+    }
+  ]
+}

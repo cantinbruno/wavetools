@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-02-27T06:23:29.615Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-coud-blind-surmoul-sur-le-c-ble-pur-noir-6-x-0-25-mm",
+    "slug": "m16-ip67-m16-connecteur-coud-blind-surmoul-sur-le-c-ble-pur-noir-6-x-0-25-mm",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-coud-blind-surmoul-sur-le-c-ble-pur-noir-6-x-0-25-mm",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "femelle"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      5,
+      6
+    ],
+    "contactsDisponibles": [
+      5,
+      6,
+      7,
+      8,
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "79 6318 200 06",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6318-200-06-m16-ip67-connecteur-femelle-coude-contacts-6-din-blinde-surmoule-sur-le-cable-ip67-pur-noir-6-x-025-mm2-2-m",
+    "title": "M16 Connecteur femelle coudé, Contacts: 6 (06-a), blindé, surmoulé sur le câble, IP67, PUR, noir, 6 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-coud-blind-surmoul-sur-le-c-ble-pur-noir-6-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/425_2_WD.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79 6318 200 06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6318-200-06-m16-ip67-connecteur-femelle-coude-contacts-6-din-blinde-surmoule-sur-le-cable-ip67-pur-noir-6-x-025-mm2-2-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 6 (06-a), blindé, surmoulé sur le câble, IP67, PUR, noir, 6 x 0,25 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 5,
+      "contactsDisponibles": [
+        5,
+        6,
+        8,
+        12
+      ],
+      "standard": "DIN EN 61076-2-106",
+      "ip": "ip67"
+    },
+    {
+      "ref": "77 6534 0000 50006-0200",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/77-6534-0000-50006-0200-m16-connecteur-femelle-coude-contacts-6-blinde-surmoule-sur-le-cable-ip68-pur-noir-6-x-025-mm2-2-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 6, blindé, surmoulé sur le câble, IP68, PUR, noir, 6 x 0,25 mm², 2 m",
+      "longueur": "2m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6,
+        7
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    },
+    {
+      "ref": "77 6534 0000 50006-0500",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/77-6534-0000-50006-0500-m16-connecteur-femelle-coude-contacts-6-blinde-surmoule-sur-le-cable-ip68-pur-noir-6-x-025-mm2-5-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 6, blindé, surmoulé sur le câble, IP68, PUR, noir, 6 x 0,25 mm², 5 m",
+      "longueur": "5m",
+      "forme": "coude",
+      "genre": "femelle",
+      "blindage": "blinde",
+      "contacts": 6,
+      "contactsDisponibles": [
+        6,
+        7
+      ],
+      "standard": "unknown",
+      "ip": "ip68"
+    }
+  ]
+}
