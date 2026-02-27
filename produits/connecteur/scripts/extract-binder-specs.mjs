@@ -13,60 +13,35 @@ const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
 const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
 
-const FETCH_RETRIES = Number(process.env.FETCH_RETRIES || 4);
-const RETRY_BACKOFF_MULT = Number(process.env.RETRY_BACKOFF_MULT || 2);
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
 const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
-function isRetryableStatus(code) {
-  return [429, 500, 502, 503, 504].includes(code);
+async function fetchText(url) {
+  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} on ${url}`);
+  return res.text();
 }
 
-async function fetchText(url, attempt = 1) {
+async function downloadToFile(url, destPath) {
   const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-  if (res.ok) return res.text();
-
-  if (isRetryableStatus(res.status) && attempt < FETCH_RETRIES) {
-    const backoff = DELAY_MS * attempt * RETRY_BACKOFF_MULT;
-    console.warn(`  ⚠️ HTTP ${res.status} sur ${url} -> retry ${attempt}/${FETCH_RETRIES - 1} dans ${backoff}ms`);
-    await sleep(backoff);
-    return fetchText(url, attempt + 1);
-  }
-
-  throw new Error(`HTTP ${res.status} on ${url}`);
-}
-
-async function downloadToFile(url, destPath, attempt = 1) {
-  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-
-  if (res.ok) {
-    const buf = Buffer.from(await res.arrayBuffer());
-    fs.writeFileSync(destPath, buf);
-    return;
-  }
-
-  if (isRetryableStatus(res.status) && attempt < FETCH_RETRIES) {
-    const backoff = DELAY_MS * attempt * RETRY_BACKOFF_MULT;
-    console.warn(`  ⚠️ Image HTTP ${res.status} -> retry ${attempt}/${FETCH_RETRIES - 1} dans ${backoff}ms`);
-    await sleep(backoff);
-    return downloadToFile(url, destPath, attempt + 1);
-  }
-
-  throw new Error(`Image HTTP ${res.status} on ${url}`);
+  if (!res.ok) throw new Error(`Image HTTP ${res.status} on ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  fs.writeFileSync(destPath, buf);
 }
 
 function slugRef(ref) {
+  // "99 0530 24 04" -> "99-0530-24-04"
+  // "08 2679 000 001" -> "08-2679-000-001"
   return clean(ref).replace(/\s+/g, "-");
 }
 
-function safeFileSlug(s) {
+function safeSlug(s) {
   return clean(s)
     .toLowerCase()
-    .replace(/["']/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9\-_.]+/g, "-")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 }
@@ -90,7 +65,8 @@ function ensureDirsAndCleanup() {
 }
 
 /**
- * ✅ familles autorisées (filtrage AVANT crawl)
+ * ✅ UNIQUEMENT les familles que tu as données (filtrage AVANT crawl)
+ * On stocke: prefix -> family label
  */
 const FAMILY_PREFIXES = [
   { family: "M12-A", prefix: "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/" },
@@ -104,6 +80,7 @@ const FAMILY_PREFIXES = [
   { family: '7/8"', prefix: "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/" }
 ];
 
+// normalisation (au cas où)
 for (const p of FAMILY_PREFIXES) {
   if (!p.prefix.endsWith("/")) p.prefix += "/";
 }
@@ -153,17 +130,9 @@ function extractCategory1FromUrl(productUrl) {
   }
 }
 
-/**
- * ✅ Ref depuis URL (amélioré)
- * Supporte:
- * - 99-5101-15-02
- * - 08-2679-000-001
- * - 77-0649-0000-50505-0200
- */
+/** Ref depuis URL */
 function extractRefFromUrl(productUrl) {
-  const m = productUrl.match(
-    /\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3}|\d{2}-\d{4}-\d{4}-\d{5}-\d{4})\b/
-  );
+  const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
   return m ? m[1].replace(/-/g, " ") : null;
 }
 
@@ -171,13 +140,12 @@ function extractRefFromUrl(productUrl) {
 function extractRefFromText($) {
   const txt = clean($("body").text());
 
+  // ex: 08 2679 000 001
   let m = txt.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   if (m) return m[0];
 
+  // ex: 99 0530 24 04 (M12-A)
   m = txt.match(/\b\d{2}\s\d{4}\s\d{2}\s\d{2}\b/);
-  if (m) return m[0];
-
-  m = txt.match(/\b\d{2}\s\d{4}\s\d{4}\s\d{5}\s\d{4}\b/);
   if (m) return m[0];
 
   return null;
@@ -283,6 +251,7 @@ function extractMainImageUrl($, pageUrl) {
     }
   });
 
+  // fallback: première img
   if (!found) {
     const src = $("img").first().attr("src");
     if (src) found = src.startsWith("http") ? src : new URL(src, pageUrl).toString();
@@ -303,11 +272,23 @@ function getImageExtensionFromUrl(url) {
   return ".jpg";
 }
 
-/* ------------------- parsing URL (avant crawl) ------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           ✅ REGROUPEMENT (NEW)                             */
+/* -------------------------------------------------------------------------- */
 
-function getSlug(productUrl) {
+/**
+ * Objectif demandé:
+ * - 1 JSON par GROUPE = family + typeProduit (typeProduit parsé depuis l'URL)
+ * - Dans le JSON: availableOptions (forme, genre, longueur, blindage, contacts, standard)
+ * - Variants: on regroupe les références par combinaison (forme|genre|longueur|blindage|contacts|standard)
+ * - Pas de "mixte": si une URL contient male ET femelle → on duplique en 2 variants (genre=male puis genre=femelle)
+ * - On regroupe AVANT chargement tout ce que l'URL donne; on charge la page seulement pour compléter ce qui manque,
+ *   et pour récupérer UNE image par groupe.
+ */
+
+function getSlugFromUrl(url) {
   try {
-    const u = new URL(productUrl);
+    const u = new URL(url);
     const parts = u.pathname.split("/").filter(Boolean);
     return parts[parts.length - 1] || "";
   } catch {
@@ -315,211 +296,262 @@ function getSlug(productUrl) {
   }
 }
 
-function detectTypeProduit(slug) {
-  if (slug.includes("repartiteur") || slug.includes("distributeur") || slug.includes("double-t") || slug.includes("t-distributeur"))
-    return "repartiteur";
-  if (slug.includes("adaptateur")) return "adaptateur";
-  if (slug.includes("traversee-de-panneau")) return "traversee-panneau";
-  if (slug.includes("encastrable")) return "encastrable";
-  if (slug.includes("embase")) return "embase";
-  if (slug.includes("surmoule-sur-le-cable") || slug.includes("surmoule")) return "surmoule-cable";
-  if (slug.includes("connecteur")) return "connecteur";
-  return "autre";
+function stripLeadingRefFromSlug(slug) {
+  // slug commence souvent par: 99-5101-15-02-...
+  // ou 08-2679-000-001-...
+  return slug
+    .replace(/^(\d{2}-\d{4}-\d{2}-\d{2})-/, "")
+    .replace(/^(\d{2}-\d{4}-\d{3}-\d{3})-/, "");
 }
 
-function parseFromUrl(productUrl) {
-  const slug = getSlug(productUrl);
-  const typeProduit = detectTypeProduit(slug);
-
-  const genre =
-    slug.includes("-male-") ? "male" :
-    slug.includes("-femelle-") ? "femelle" :
-    (slug.includes("male") && !slug.includes("femelle")) ? "male" :
-    (slug.includes("femelle") && !slug.includes("male")) ? "femelle" :
-    "unknown";
-
-  const forme = (slug.includes("-coude-") || slug.includes("dangle")) ? "coude" : "droit";
-
-  const mContacts = slug.match(/contacts-(\d+)/);
-  const contacts = mContacts ? Number(mContacts[1]) : null;
-
-  const standard =
-    slug.includes("-din-") ? "din" :
-    slug.includes("-stereo-") ? "stereo" :
-    "none";
-
-  const blindage =
-    slug.includes("non-blinde") ? "non-blinde" :
-    slug.includes("blindable") ? "blindable" :
-    (slug.includes("-blinde-") && !slug.includes("non-blinde")) ? "blinde" :
-    "unknown";
-
-  const mLenMm = slug.match(/(\d{2}-\d{2,3})-mm/);
-  const longueur_mm = mLenMm ? `${mLenMm[1]}mm` : null;
-
-  const mLenM = slug.match(/-(\d{1,3})-m\b/);
-  const longueur_m = mLenM ? `${mLenM[1]}m` : null;
-
-  const longueur = longueur_mm || longueur_m || "unknown";
-
-  return { typeProduit, forme, longueur, genre, blindage, contacts, standard };
+function stripLeadingFamilyToken(rest) {
+  // ex: m16-ip67-connecteur-... => enlever m16-ip67
+  // ex: m12-l-embase-... => enlever m12-l
+  // ex: 7-8-adaptateur-... => enlever 7-8
+  // ex: rd24-power-... => enlever rd24-power
+  const knownStarts = ["m16-ip67", "m12-a", "m12-d", "m12-k", "m12-l", "m8-d", "m8", "7-8", "rd24-power"];
+  for (const st of knownStarts) {
+    if (rest.startsWith(st + "-")) return rest.slice(st.length + 1);
+    if (rest === st) return "";
+  }
+  // fallback: si ça commence par m12-xxx / m16-xxx / m8-xxx etc, enlève le premier bloc
+  const m = rest.match(/^(m\d{1,2}(?:-[a-z0-9]+){0,2})-(.+)$/i);
+  if (m) return m[2];
+  return rest;
 }
 
-function missingCount(v) {
-  let c = 0;
-  if (!v.forme || v.forme === "unknown") c++;
-  if (!v.longueur || v.longueur === "unknown") c++;
-  if (!v.genre || v.genre === "unknown") c++;
-  if (!v.blindage || v.blindage === "unknown") c++;
-  if (v.contacts == null) c++;
-  if (!v.standard || v.standard === "unknown") c++;
-  return c;
+// Stop words = tout ce qui est "variable" / optionnel, donc pas dans typeProduit
+const TYPE_STOPWORDS = new Set([
+  // forme
+  "droit", "coude", "dangle", "angle",
+  // genre
+  "male", "mâle", "femelle",
+  // contacts / blindage
+  "contacts", "contact", "fe",
+  "blindable", "blinde", "blindé", "blindee", "non", "non-blinde", "non-blindé",
+  // indices / normes
+  "ip", "ul", "aisg", "din", "stereo", "stéréo",
+  // câble & matière (très variable)
+  "surmoule", "surmoule-sur-le-cable", "cable", "câble", "pur", "pvc", "noir", "black",
+  // filetage / dimensions (très variable)
+  "mm", "mm2", "m12x10", "m12x1", "m16x15", "m12x1,0", "m12x1,0", "m12x1,0",
+  // mots “catalogue”
+  "en", "preparation", "preparation-",
+  "visse", "visse-a-lavant", "montage", "frontal",
+]);
+
+function isStopToken(tok) {
+  if (!tok) return true;
+  const t = tok.toLowerCase();
+
+  if (TYPE_STOPWORDS.has(t)) return true;
+
+  // ip67, ip68, ip65...
+  if (/^ip\d{2}$/i.test(t)) return true;
+
+  // longueurs: 2-m / 5-m / 0200 / 0500 etc (sur certains slugs)
+  if (/^\d{1,3}m$/i.test(t)) return true;
+  if (/^\d{1,3}-m$/i.test(t)) return true;
+  if (/^\d{2,4}$/.test(t)) return true;
+
+  // plages en mm: 40-60-mm / 60-80-mm / 80-100-mm
+  if (/^\d{2,3}-\d{2,3}$/.test(t)) return true;
+  if (/^\d{2,3}-\d{2,3}-mm$/.test(t)) return true;
+
+  // sections câble: 2,50 / 150 / 250 / 5-x-250-mm2 etc
+  if (/^\d+([.,]\d+)?$/.test(t)) return true;
+  if (/^\d+-x-\d+([.,]\d+)?-mm2$/.test(t)) return true;
+
+  return false;
+}
+
+function parseTypeProduitFromUrl(url) {
+  const rawSlug = getSlugFromUrl(url);
+  let rest = stripLeadingRefFromSlug(rawSlug);
+  rest = stripLeadingFamilyToken(rest);
+
+  // split
+  const tokens = rest.split("-").filter(Boolean);
+
+  // on garde les tokens jusqu'au premier token "variable"
+  const kept = [];
+  for (const tok of tokens) {
+    if (isStopToken(tok)) break;
+    kept.push(tok);
+  }
+
+  // fallback: si on n'a rien, on essaie au moins de prendre le 1er token non vide
+  if (!kept.length) {
+    const first = tokens.find((t) => t && !isStopToken(t));
+    return first ? first.toLowerCase() : "unknown";
+  }
+
+  return kept.join("-").toLowerCase();
+}
+
+function parseFormeFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  if (s.includes("-coude-") || s.includes("-dangle-") || s.includes("dangle")) return "coude";
+  if (s.includes("-droit-")) return "droit";
+  // certains slugs n'ont pas "droit" → on laisse unknown
+  return "unknown";
+}
+
+function parseGenresFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  const hasMale = s.includes("-male-") || s.includes("mâle");
+  const hasFemelle = s.includes("-femelle-");
+  const out = [];
+  if (hasMale) out.push("male");
+  if (hasFemelle) out.push("femelle");
+  return out.length ? out : ["unknown"];
+}
+
+function parseContactsFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  const m = s.match(/contacts-(\d{1,2})\b/);
+  if (m) return Number(m[1]);
+  return "unknown";
+}
+
+function parseBlindageFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  if (s.includes("non-blinde") || s.includes("non-blind")) return "non-blinde";
+  if (s.includes("blindable")) return "blindable";
+  // "blinde" peut exister (blindé)
+  if (s.includes("blinde") || s.includes("blind")) return "blinde";
+  return "unknown";
+}
+
+function parseStandardFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  if (s.includes("-din-")) return "din";
+  if (s.includes("stereo") || s.includes("stéréo")) return "stereo";
+  // aisg = plutôt un flag, pas un standard (mais tu peux l'utiliser si tu veux)
+  return "none";
+}
+
+function parseLongueurFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+
+  // 2-m / 5-m / 10-m
+  let m = s.match(/(?:^|-) (\d{1,3})-m(?:-|$)/x); // regex x pas support JS -> fallback dessous
+  // fallback JS:
+  m = s.match(/(?:^|-)(\d{1,3})-m(?:-|$)/);
+  if (m) return `${m[1]}m`;
+
+  // plages mm: 40-60-mm
+  m = s.match(/(?:^|-)(\d{2,3}-\d{2,3})-mm(?:-|$)/);
+  if (m) return `${m[1]}mm`;
+
+  return "unknown";
+}
+
+function parseIpFromUrl(url) {
+  const s = getSlugFromUrl(url).toLowerCase();
+  const m = s.match(/\bip(\d{2})\b/);
+  return m ? `ip${m[1]}` : "unknown";
+}
+
+/**
+ * Parse depuis texte (titre + body) pour compléter quand l'URL est insuffisante.
+ * On reste “simple” : tu veux surtout éviter "unknown".
+ */
+function parseFromTextForFields(text) {
+  const t = clean(text).toLowerCase();
+
+  // forme
+  let forme = "unknown";
+  if (/\bcoud[ée]\b/.test(t) || /\bd[' ]angle\b/.test(t) || /\bangle\b/.test(t)) forme = "coude";
+  else if (/\bdroit\b/.test(t)) forme = "droit";
+
+  // genre (sans mixte)
+  const genres = [];
+  if (/\bm[âa]le\b/.test(t)) genres.push("male");
+  if (/\bfemelle\b/.test(t)) genres.push("femelle");
+  if (!genres.length) genres.push("unknown");
+
+  // contacts
+  let contacts = "unknown";
+  let m = t.match(/contacts?\s*[:=]\s*(\d{1,2})/);
+  if (m) contacts = Number(m[1]);
+
+  // blindage
+  let blindage = "unknown";
+  if (t.includes("non blind")) blindage = "non-blinde";
+  else if (t.includes("blindable")) blindage = "blindable";
+  else if (t.includes("blindé") || t.includes("blinde")) blindage = "blinde";
+
+  // standard
+  let standard = "none";
+  if (t.includes(" din ")) standard = "din";
+  if (t.includes("stéréo") || t.includes("stereo")) standard = "stereo";
+
+  // longueur: "2 m" / "5 m" / "40-60 mm"
+  let longueur = "unknown";
+  m = t.match(/\b(\d{1,3})\s*m\b/);
+  if (m) longueur = `${m[1]}m`;
+  m = t.match(/\b(\d{2,3})\s*[-–]\s*(\d{2,3})\s*mm\b/);
+  if (m) longueur = `${m[1]}-${m[2]}mm`;
+
+  // ip
+  let ip = "unknown";
+  m = t.match(/\bip\s*([0-9]{2})\b/);
+  if (m) ip = `ip${m[1]}`;
+
+  return { forme, genres, contacts, blindage, standard, longueur, ip };
+}
+
+function shouldFetchForUrl(pre) {
+  // On fetch seulement si on a besoin de compléter des champs pour faire un JSON propre,
+  // OU si ref est introuvable.
+  if (!pre.ref) return true;
+
+  // Si une des options clés manque, on tente de compléter par page.
+  const need =
+    pre.forme === "unknown" ||
+    pre.genres.includes("unknown") ||
+    pre.longueur === "unknown" ||
+    pre.blindage === "unknown" ||
+    pre.contacts === "unknown" ||
+    pre.standard === "none"; // "none" est valide; si tu veux le compléter, change la règle
+
+  // NOTE: standard="none" est souvent correct. Ici on ne force pas le fetch pour standard,
+  // sinon tu vas refetch trop de pages. Tu peux activer en remplaçant par "|| pre.standard === 'none'".
+  return (
+    pre.forme === "unknown" ||
+    pre.genres.includes("unknown") ||
+    pre.longueur === "unknown" ||
+    pre.blindage === "unknown" ||
+    pre.contacts === "unknown"
+  );
 }
 
 function variantKey(v) {
   return [
     v.forme ?? "unknown",
-    v.longueur ?? "unknown",
     v.genre ?? "unknown",
+    v.longueur ?? "unknown",
     v.blindage ?? "unknown",
     v.contacts ?? "unknown",
-    v.standard ?? "unknown"
+    v.standard ?? "none"
   ].join("|");
 }
 
-function setToSortedArray(set, numeric = false) {
-  const arr = Array.from(set);
-  if (numeric) return arr.sort((a, b) => Number(a) - Number(b));
-  return arr.sort();
+function addToSetMap(setMap, key, value) {
+  if (!setMap[key]) setMap[key] = new Set();
+  setMap[key].add(value);
 }
 
-/* ------------------- enrichissement (après crawl) ------------------- */
-
-function flattenSections(sections) {
-  const flat = {};
-  for (const kv of Object.values(sections || {})) {
-    if (!kv) continue;
-    for (const [k, v] of Object.entries(kv)) {
-      const key = clean(k).toLowerCase();
-      if (!flat[key]) flat[key] = clean(v);
-    }
-  }
-  return flat;
+function finalizeOptionSet(s) {
+  const arr = Array.from(s);
+  // si on a autre chose que unknown, on vire unknown
+  const hasKnown = arr.some((x) => x !== "unknown" && x !== null && x !== "" && x !== "none");
+  if (arr.includes("unknown") && hasKnown) return arr.filter((x) => x !== "unknown");
+  return arr;
 }
 
-function fillMissingFromPage(v, title, sections) {
-  const flat = flattenSections(sections);
-  const t = (title || "").toLowerCase();
-
-  // genre
-  if (v.genre === "unknown") {
-    if (t.includes("femelle")) v.genre = "femelle";
-    else if (t.includes("mâle") || t.includes("male")) v.genre = "male";
-  }
-
-  // blindage
-  if (v.blindage === "unknown") {
-    const b = (flat["blindage"] || flat["blindé"] || flat["blinde"] || "").toLowerCase();
-    if (b.includes("non")) v.blindage = "non-blinde";
-    else if (b.includes("blind")) v.blindage = "blinde";
-  }
-
-  // contacts
-  if (v.contacts == null) {
-    const c = flat["contacts"] || flat["contact"] || flat["nombre de contacts"] || "";
-    const m = String(c).match(/(\d+)/);
-    if (m) v.contacts = Number(m[1]);
-  }
-
-  // longueur (souvent câble)
-  if (v.longueur === "unknown") {
-    const l =
-      flat["longueur de câble"] ||
-      flat["longueur du câble"] ||
-      flat["longueur de cable"] ||
-      "";
-    const mm = String(l).match(/(\d+)\s*mm/i);
-    const m = String(l).match(/(\d+(?:[.,]\d+)?)\s*m\b/i);
-    if (mm) v.longueur = `${mm[1]}mm`;
-    else if (m) v.longueur = `${m[1].replace(",", ".")}m`;
-  }
-
-  // forme
-  // (souvent déjà OK, mais on corrige si titre parle d'angle)
-  if (v.forme === "droit" && (t.includes("angle") || t.includes("coud"))) {
-    v.forme = "coude";
-  }
-
-  // standard
-  // rarement absent, mais au cas où
-  if (!v.standard || v.standard === "unknown") {
-    const s = (flat["standard"] || flat["norme"] || "").toLowerCase();
-    if (s.includes("din")) v.standard = "din";
-    else if (s.includes("stereo")) v.standard = "stereo";
-    else v.standard = "none";
-  }
-
-  return v;
-}
-
-/* ------------------- grouping ------------------- */
-
-function ensureGroup(groups, family, typeProduit, category1) {
-  const key = `${family}__${typeProduit}`;
-  if (!groups.has(key)) {
-    groups.set(key, {
-      key,
-      slug: safeFileSlug(key),
-      family,
-      typeProduit,
-      category1,
-      // options
-      sets: {
-        formes: new Set(),
-        longueurs: new Set(),
-        genres: new Set(),
-        blindages: new Set(),
-        contacts: new Set(),
-        standards: new Set()
-      },
-      variantsMap: new Map(),
-      // pour choisir une page canonique pour image
-      canonicalCandidates: []
-    });
-  }
-  return groups.get(key);
-}
-
-function addVariantToGroup(G, item) {
-  // item: { ref, url, v }
-  const k = variantKey(item.v);
-
-  if (!G.variantsMap.has(k)) G.variantsMap.set(k, []);
-  G.variantsMap.get(k).push({ ref: item.ref, url: item.url });
-
-  // sets
-  G.sets.formes.add(item.v.forme ?? "unknown");
-  G.sets.longueurs.add(item.v.longueur ?? "unknown");
-  G.sets.genres.add(item.v.genre ?? "unknown");
-  G.sets.blindages.add(item.v.blindage ?? "unknown");
-  if (item.v.contacts != null) G.sets.contacts.add(item.v.contacts);
-  G.sets.standards.add(item.v.standard ?? "unknown");
-
-  // score pour canonical (moins de unknown = mieux)
-  G.canonicalCandidates.push({
-    url: item.url,
-    ref: item.ref,
-    score: 100 - missingCount(item.v)
-  });
-}
-
-function pickCanonicalUrl(G) {
-  if (!G.canonicalCandidates.length) return null;
-  G.canonicalCandidates.sort((a, b) => b.score - a.score);
-  return G.canonicalCandidates[0].url;
-}
-
-/* ------------------- main ------------------- */
+/* -------------------------------------------------------------------------- */
 
 async function main() {
   ensureDirsAndCleanup();
@@ -528,178 +560,386 @@ async function main() {
   let urls = await getAllProductUrlsFromSitemap();
   console.log(`Produits sitemap (total): ${urls.length}`);
 
+  // ✅ FILTRE AVANT CRAWL (familles)
   urls = filterUrlsByPrefixes(urls);
   console.log(`Produits après filtre familles: ${urls.length}`);
 
   if (MAX_PRODUCTS > 0) urls = urls.slice(0, MAX_PRODUCTS);
 
-  const groups = new Map();
+  // --- 1) Pré-groupement (AVANT chargement pages) ---
+  const groups = new Map(); // groupKey -> groupData
+  const fetchQueue = []; // urls à compléter
+  let skippedNoFamily = 0;
 
-  // PASS 1 : regrouper tout ce qu'on peut depuis l'URL
-  const pending = []; // urls qui manquent des infos
-  for (const url of urls) {
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
     const family = getFamilyFromUrl(url);
-    if (!family) continue;
+    if (!family) {
+      skippedNoFamily++;
+      continue;
+    }
 
     const category1 = extractCategory1FromUrl(url);
-    const ref = extractRefFromUrl(url) || null;
+    const typeProduit = parseTypeProduitFromUrl(url);
+    const groupKey = `${family}__${typeProduit}`;
+    const groupSlug = safeSlug(groupKey);
 
-    const v = parseFromUrl(url);
-    const G = ensureGroup(groups, family, v.typeProduit, category1);
+    if (!groups.has(groupKey)) {
+      groups.set(groupKey, {
+        group: {
+          key: groupKey,
+          slug: groupSlug,
+          family,
+          typeProduit,
+          category1
+        },
+        // on stockera 1 image pour le groupe
+        canonical: {
+          ref: null,
+          url: null,
+          title: null,
+          mainImage: null,
+          mainImageUrl: null
+        },
+        // options dispo
+        _optionSets: {
+          formes: new Set(),
+          genres: new Set(),
+          longueurs: new Set(),
+          blindages: new Set(),
+          contacts: new Set(),
+          standards: new Set(),
+          ips: new Set()
+        },
+        // variants regroupés
+        _variantBuckets: new Map(), // key -> { ... , items: [] }
+        // pour savoir si on a déjà un candidat image
+        _hasCanonicalCandidate: false
+      });
+    }
 
-    const item = { ref, url, v };
+    const pre = {
+      ref: extractRefFromUrl(url), // souvent OK
+      url,
+      title: null, // rempli si on fetch
+      family,
+      category1,
+      typeProduit,
+      forme: parseFormeFromUrl(url),
+      genres: parseGenresFromUrl(url), // ["male"], ["femelle"], ["unknown"], ou ["male","femelle"]
+      blindage: parseBlindageFromUrl(url),
+      contacts: parseContactsFromUrl(url),
+      standard: parseStandardFromUrl(url),
+      longueur: parseLongueurFromUrl(url),
+      ip: parseIpFromUrl(url),
+      flags: {
+        versionCourte: url.toLowerCase().includes("version-courte"),
+        aisg: url.toLowerCase().includes("aisg"),
+        contactsSepares: url.toLowerCase().includes("doivent-etre-commandes-separement")
+      }
+    };
 
-    // si tout est “suffisant”, on ajoute direct
-    // "standard=none" est OK, ce n'est pas un manque
-    const needsPage =
-      v.genre === "unknown" ||
-      v.blindage === "unknown" ||
-      v.longueur === "unknown" ||
-      v.forme === "unknown" ||
-      v.contacts == null;
+    const g = groups.get(groupKey);
 
-    if (!needsPage) {
-      addVariantToGroup(G, item);
-    } else {
-      pending.push(item);
+    // options (pré)
+    addToSetMap(g._optionSets, "formes", pre.forme);
+    for (const gen of pre.genres) addToSetMap(g._optionSets, "genres", gen);
+    addToSetMap(g._optionSets, "longueurs", pre.longueur);
+    addToSetMap(g._optionSets, "blindages", pre.blindage);
+    addToSetMap(g._optionSets, "contacts", pre.contacts);
+    addToSetMap(g._optionSets, "standards", pre.standard);
+    addToSetMap(g._optionSets, "ips", pre.ip);
+
+    // variants (pré) — pas de "mixte": si 2 genres, on duplique
+    const genresToEmit = pre.genres.length ? pre.genres.filter((x) => x !== "unknown") : [];
+    const genresFinal = genresToEmit.length ? genresToEmit : ["unknown"];
+
+    for (const genre of genresFinal) {
+      const v = {
+        ref: pre.ref,
+        url: pre.url,
+        contacts: pre.contacts,
+        standard: pre.standard,
+        genre,
+        blindage: pre.blindage,
+        forme: pre.forme,
+        longueur: pre.longueur,
+        ip: pre.ip,
+        flags: pre.flags
+      };
+
+      const k = variantKey(v);
+      if (!g._variantBuckets.has(k)) {
+        g._variantBuckets.set(k, {
+          key: k,
+          forme: v.forme,
+          genre: v.genre,
+          longueur: v.longueur,
+          blindage: v.blindage,
+          contacts: v.contacts,
+          standard: v.standard,
+          ip: v.ip,
+          items: []
+        });
+      }
+      g._variantBuckets.get(k).items.push({ ref: v.ref, url: v.url });
+    }
+
+    // canon: on choisit un candidat (même si on devra fetch plus tard pour image)
+    if (!g._hasCanonicalCandidate) {
+      g._hasCanonicalCandidate = true;
+      g.canonical.ref = pre.ref;
+      g.canonical.url = pre.url;
+    }
+
+    // si on manque d'infos: on met en file pour fetch (complétion)
+    if (shouldFetchForUrl(pre)) fetchQueue.push({ url, groupKey });
+
+    if ((i + 1) % 300 === 0) {
+      console.log(`Pré-tri… ${i + 1}/${urls.length} URLs analysées`);
     }
   }
 
-  console.log(`✅ Groupes créés (URL): ${groups.size}`);
-  console.log(`⏳ URLs à compléter (crawl seulement si manque): ${pending.length}`);
+  console.log(`✅ Pré-groupement terminé. Groupes: ${groups.size} | à compléter (fetch): ${fetchQueue.length}`);
 
-  // PASS 2 : crawler uniquement les URLs incomplètes et compléter
-  for (let i = 0; i < pending.length; i++) {
-    const item = pending[i];
-    const { url } = item;
+  // --- 2) Fetch minimal: compléter les champs manquants, + récupérer 1 image par groupe ---
+  // Stratégie:
+  // - On fetch les URLs de fetchQueue (complétion)
+  // - On s'assure qu'on a au moins 1 page fetch par groupe pour télécharger l'image du groupe
+  const groupsNeedingImage = new Set(Array.from(groups.keys()));
 
-    const family = getFamilyFromUrl(url);
-    const category1 = extractCategory1FromUrl(url);
+  let fetchedPages = 0;
+  let skippedNoRef = 0;
 
-    // typeProduit est déjà dans item.v.typeProduit (depuis URL)
-    const G = ensureGroup(groups, family, item.v.typeProduit, category1);
+  // helper pour injecter des infos de page dans les buckets/options
+  function applyPageDataToGroup(groupKey, url, pageData) {
+    const g = groups.get(groupKey);
+    if (!g) return;
 
-    console.log(`[DETAIL ${i + 1}/${pending.length}] ${url}`);
+    // canonical image (si pas encore)
+    if (!g.canonical.mainImage && pageData.mainImageUrl) {
+      // on télécharge UNE image par groupe, nommée par slug groupe
+      const ext = getImageExtensionFromUrl(pageData.mainImageUrl);
+      const imgFilename = `${g.group.slug}${ext}`;
+      const imgDest = path.join(IMG_DIR, imgFilename);
 
-    try {
-      const html = await fetchText(url);
-      const $ = cheerio.load(html);
+      return downloadToFile(pageData.mainImageUrl, imgDest)
+        .then(() => {
+          g.canonical.mainImage = `produits/connecteur/img/${imgFilename}`;
+          g.canonical.mainImageUrl = pageData.mainImageUrl;
+          if (!g.canonical.title) g.canonical.title = pageData.title || null;
+          if (!g.canonical.ref) g.canonical.ref = pageData.ref || null;
+          if (!g.canonical.url) g.canonical.url = url;
+          groupsNeedingImage.delete(groupKey);
+        })
+        .catch((e) => {
+          console.warn(`  ⚠️ Image download failed for group ${groupKey}: ${e.message}`);
+        });
+    }
+  }
 
-      const title = clean($("h1").first().text()) || null;
+  // On va faire un set pour ne pas refetch deux fois la même URL
+  const alreadyFetched = new Set();
 
-      const secA = extractSectionsBinderAccordion($);
-      const secB = extractTechnicalTablesFallback($);
-      const sections = mergeSections(secA, secB);
+  // 2a) D'abord, fetch de complétion
+  for (let i = 0; i < fetchQueue.length; i++) {
+    const { url, groupKey } = fetchQueue[i];
+    if (alreadyFetched.has(url)) continue;
+    alreadyFetched.add(url);
 
-      // ref: sections -> texte -> url
-      item.ref = item.ref || refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url) || null;
+    console.log(`[FETCH ${i + 1}/${fetchQueue.length}] ${url}`);
 
-      // remplir ce qui manque
-      fillMissingFromPage(item.v, title, sections);
+    const html = await fetchText(url);
+    const $ = cheerio.load(html);
 
-      // ajouter au groupe final
-      addVariantToGroup(G, item);
-    } catch (e) {
-      // si une page échoue, on n'explose pas : on ajoute quand même avec infos URL
-      console.warn(`  ❌ detail fail: ${e.message} -> ajout avec URL only`);
-      addVariantToGroup(G, item);
+    const title = clean($("h1").first().text()) || null;
+
+    const secA = extractSectionsBinderAccordion($);
+    const secB = extractTechnicalTablesFallback($);
+    const sections = mergeSections(secA, secB);
+
+    let ref = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url);
+    if (!ref) {
+      // On ne jette pas toute l'URL : mais pour ton besoin de variantes, une ref est utile.
+      skippedNoRef++;
+      // on peut quand même récupérer l'image si possible
     }
 
+    const mainImageUrl = extractMainImageUrl($, url);
+
+    // complétion via texte
+    const bodyText = clean($("body").text());
+    const parsedText = parseFromTextForFields(`${title || ""} ${bodyText}`);
+
+    // reconstruire une “variant” depuis page (plus fiable)
+    const pageVariantBase = {
+      ref: ref || extractRefFromUrl(url),
+      url,
+      contacts: parsedText.contacts,
+      standard: parsedText.standard,
+      genres: parsedText.genres,
+      blindage: parsedText.blindage,
+      forme: parsedText.forme,
+      longueur: parsedText.longueur,
+      ip: parsedText.ip,
+      flags: {
+        versionCourte: url.toLowerCase().includes("version-courte"),
+        aisg: url.toLowerCase().includes("aisg"),
+        contactsSepares: url.toLowerCase().includes("doivent-etre-commandes-separement")
+      }
+    };
+
+    const g = groups.get(groupKey);
+    if (g) {
+      // options sets (complétés)
+      addToSetMap(g._optionSets, "formes", pageVariantBase.forme);
+      for (const gen of pageVariantBase.genres) addToSetMap(g._optionSets, "genres", gen);
+      addToSetMap(g._optionSets, "longueurs", pageVariantBase.longueur);
+      addToSetMap(g._optionSets, "blindages", pageVariantBase.blindage);
+      addToSetMap(g._optionSets, "contacts", pageVariantBase.contacts);
+      addToSetMap(g._optionSets, "standards", pageVariantBase.standard);
+      addToSetMap(g._optionSets, "ips", pageVariantBase.ip);
+
+      // IMPORTANT: on “ajoute” aussi les variants complétés
+      // (ça peut faire doublon avec le pré-ajout; pour éviter d'exploser, on déduplique par ref+url)
+      const genresToEmit = pageVariantBase.genres.length
+        ? pageVariantBase.genres.filter((x) => x !== "unknown")
+        : [];
+      const genresFinal = genresToEmit.length ? genresToEmit : ["unknown"];
+
+      for (const genre of genresFinal) {
+        const v = {
+          ref: pageVariantBase.ref,
+          url: pageVariantBase.url,
+          contacts: pageVariantBase.contacts,
+          standard: pageVariantBase.standard,
+          genre,
+          blindage: pageVariantBase.blindage,
+          forme: pageVariantBase.forme,
+          longueur: pageVariantBase.longueur,
+          ip: pageVariantBase.ip,
+          flags: pageVariantBase.flags
+        };
+
+        const k = variantKey(v);
+        if (!g._variantBuckets.has(k)) {
+          g._variantBuckets.set(k, {
+            key: k,
+            forme: v.forme,
+            genre: v.genre,
+            longueur: v.longueur,
+            blindage: v.blindage,
+            contacts: v.contacts,
+            standard: v.standard,
+            ip: v.ip,
+            items: []
+          });
+        }
+
+        // dédup items
+        const bucket = g._variantBuckets.get(k);
+        const id = `${v.ref || ""}__${v.url}`;
+        if (!bucket._seen) bucket._seen = new Set();
+        if (!bucket._seen.has(id)) {
+          bucket._seen.add(id);
+          bucket.items.push({ ref: v.ref, url: v.url });
+        }
+      }
+
+      // image group si possible
+      await applyPageDataToGroup(groupKey, url, {
+        ref,
+        title,
+        mainImageUrl
+      });
+    }
+
+    fetchedPages++;
     await sleep(DELAY_MS);
   }
 
-  // PASS 3 : pour chaque groupe -> 1 image + 1 json
+  // 2b) Ensuite, garantir 1 image par groupe (si pas déjà)
+  // On fetch la canonical URL de chaque groupe qui n'a pas encore d'image.
+  const keysNeedingImage = Array.from(groupsNeedingImage);
+  console.log(`Groupes sans image après complétion: ${keysNeedingImage.length}`);
+
+  for (let i = 0; i < keysNeedingImage.length; i++) {
+    const groupKey = keysNeedingImage[i];
+    const g = groups.get(groupKey);
+    if (!g) continue;
+    if (g.canonical.mainImage) continue;
+
+    const url = g.canonical.url;
+    if (!url) continue;
+
+    // si on a déjà fetch cette url, on ne la refetch pas (mais on n'a peut-être pas eu l'image)
+    if (alreadyFetched.has(url)) continue;
+
+    console.log(`[IMG ${i + 1}/${keysNeedingImage.length}] ${groupKey} -> ${url}`);
+
+    const html = await fetchText(url);
+    const $ = cheerio.load(html);
+
+    const title = clean($("h1").first().text()) || null;
+
+    const secA = extractSectionsBinderAccordion($);
+    const secB = extractTechnicalTablesFallback($);
+    const sections = mergeSections(secA, secB);
+
+    let ref = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url) || null;
+
+    const mainImageUrl = extractMainImageUrl($, url);
+
+    await applyPageDataToGroup(groupKey, url, {
+      ref,
+      title,
+      mainImageUrl
+    });
+
+    fetchedPages++;
+    await sleep(DELAY_MS);
+  }
+
+  // --- 3) Écriture: 1 JSON par GROUPE + 1 index.json ---
   const indexGroups = [];
-  let skippedImages = 0;
 
-  for (const [key, G] of groups.entries()) {
-    const canonicalUrl = pickCanonicalUrl(G);
-
-    let mainImageLocal = null;
-    let mainImageUrl = null;
-    let canonicalTitle = null;
-    let canonicalRef = null;
-
-    // On ne télécharge qu'une image par groupe -> donc on charge 1 seule page / groupe
-    if (canonicalUrl) {
-      try {
-        const html = await fetchText(canonicalUrl);
-        const $ = cheerio.load(html);
-
-        canonicalTitle = clean($("h1").first().text()) || null;
-
-        const secA = extractSectionsBinderAccordion($);
-        const secB = extractTechnicalTablesFallback($);
-        const sections = mergeSections(secA, secB);
-
-        canonicalRef = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(canonicalUrl) || null;
-
-        const imgUrl = extractMainImageUrl($, canonicalUrl);
-        if (imgUrl) {
-          mainImageUrl = imgUrl;
-          const ext = getImageExtensionFromUrl(imgUrl);
-          const imgFilename = `${G.slug}${ext}`;
-          const imgDest = path.join(IMG_DIR, imgFilename);
-
-          await downloadToFile(imgUrl, imgDest);
-          mainImageLocal = `produits/connecteur/img/${imgFilename}`;
-        } else {
-          skippedImages++;
-        }
-
-        await sleep(DELAY_MS);
-      } catch (e) {
-        console.warn(`  ❌ Canon image fail (${G.key}): ${e.message}`);
-      }
-    }
-
-    // construire JSON groupé
-    const variantsObj = {};
-    for (const [vk, arr] of G.variantsMap.entries()) {
-      variantsObj[vk] = arr;
-    }
-
-    const data = {
-      generatedAt: new Date().toISOString(),
-      group: {
-        key: G.key,
-        slug: G.slug,
-        family: G.family,
-        typeProduit: G.typeProduit,
-        category1: G.category1
-      },
-      availableOptions: {
-        formes: setToSortedArray(G.sets.formes),
-        longueurs: setToSortedArray(G.sets.longueurs),
-        genres: setToSortedArray(G.sets.genres),
-        blindages: setToSortedArray(G.sets.blindages),
-        contacts: setToSortedArray(G.sets.contacts, true),
-        standards: setToSortedArray(G.sets.standards)
-      },
-      canonical: {
-        ref: canonicalRef,
-        url: canonicalUrl,
-        title: canonicalTitle,
-        mainImage: mainImageLocal,
-        mainImageUrl
-      },
-      // ✅ les variantes regroupées uniquement sur:
-      // forme | longueur | genre | blindage | contacts | standard
-      // valeur = liste {ref,url}
-      variants: variantsObj
+  for (const [groupKey, g] of groups.entries()) {
+    // finalize availableOptions
+    const availableOptions = {
+      formes: finalizeOptionSet(g._optionSets.formes),
+      genres: finalizeOptionSet(g._optionSets.genres).filter((x) => x !== "mixte"), // sécurité
+      longueurs: finalizeOptionSet(g._optionSets.longueurs),
+      blindages: finalizeOptionSet(g._optionSets.blindages),
+      contacts: finalizeOptionSet(g._optionSets.contacts),
+      standards: finalizeOptionSet(g._optionSets.standards),
+      ips: finalizeOptionSet(g._optionSets.ips)
     };
 
-    const jsonFilename = `${G.slug}.json`;
+    // variants array (buckets)
+    const variants = Array.from(g._variantBuckets.values()).map((b) => {
+      // on retire _seen si présent
+      const { _seen, ...rest } = b;
+      return rest;
+    });
+
+    // JSON final du groupe
+    const data = {
+      generatedAt: new Date().toISOString(),
+      group: g.group,
+      availableOptions,
+      canonical: g.canonical,
+      variants
+    };
+
+    const jsonFilename = `${g.group.slug}.json`;
     const jsonPath = path.join(OUT_DIR, jsonFilename);
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), "utf-8");
 
     indexGroups.push({
-      key: G.key,
-      family: G.family,
-      typeProduit: G.typeProduit,
+      group: g.group,
       file: `produits/connecteur/fiche/${jsonFilename}`,
-      image: mainImageLocal,
-      canonicalUrl
+      mainImage: g.canonical.mainImage || null,
+      countVariants: variants.length
     });
   }
 
@@ -708,8 +948,10 @@ async function main() {
     JSON.stringify(
       {
         generatedAt: new Date().toISOString(),
-        groupCount: indexGroups.length,
-        skippedImages,
+        groupsCount: indexGroups.length,
+        fetchedPages,
+        skippedNoFamily,
+        skippedNoRef,
         families: FAMILY_PREFIXES.map((x) => x.family),
         groups: indexGroups
       },
@@ -719,7 +961,9 @@ async function main() {
     "utf-8"
   );
 
-  console.log(`✅ Terminé. Groupes: ${indexGroups.length} | Images manquantes: ${skippedImages}`);
+  console.log(
+    `✅ Terminé. Groupes exportés: ${indexGroups.length} | Pages fetch: ${fetchedPages} | noRef skipped: ${skippedNoRef}`
+  );
 }
 
 main().catch((e) => {
