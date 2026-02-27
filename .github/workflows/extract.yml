@@ -1,8 +1,9 @@
 name: Extract binder specs (manual)
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
 
+# Empêche 2 runs de push en même temps
 concurrency:
   group: binder-extract-main
   cancel-in-progress: true
@@ -12,16 +13,18 @@ permissions:
 
 jobs:
   extract:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # important pour rebase/push sans galère
+          # IMPORTANT pour git pull --rebase
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -32,9 +35,10 @@ jobs:
       - name: Run extractor
         run: node produits/connecteur/scripts/extract-binder-specs.mjs
         env:
-          # ✅ Mets 20 pour tester, puis commente/supprime pour tout faire
-          MAX_PRODUCTS: "20"
-          # DELAY_MS: "120"
+          DELAY_MS: "120"
+
+          # ⭐ Pour tester seulement 20 produits :
+          # MAX_PRODUCTS: "20"
 
       - name: Commit & push generated catalog
         run: |
@@ -43,10 +47,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # Ajout des fichiers générés
-          git add produits/connecteur/fiche/*.json produits/connecteur/fiche/index.json produits/connecteur/img/* || true
+          # ajoute JSON + images
+          git add produits/connecteur/fiche/*.json \
+                  produits/connecteur/fiche/index.json \
+                  produits/connecteur/img/* || true
 
-          # Si rien n'a changé, on sort
+          # rien changé ?
           if git diff --cached --quiet; then
             echo "Nothing to commit."
             exit 0
@@ -54,9 +60,7 @@ jobs:
 
           git commit -m "auto: update binder catalog"
 
-          # Récupérer l'état distant et rebase pour éviter 'fetch first'
-          git fetch origin main
-          git rebase origin/main || (git rebase --abort && exit 1)
+          # 🔥 solution stable anti conflit
+          git pull --rebase --autostash origin main
 
-          # Push robuste (safe force)
-          git push origin HEAD:main --force-with-lease
+          git push origin main
