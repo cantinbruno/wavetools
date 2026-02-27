@@ -1,6 +1,16 @@
+/**
+ * extract-binder-specs.mjs (clean & coherent)
+ * - JSON + image ont exactement le même nom: <REF_SLUG>.(json|jpg)
+ * - REF récupérée dans cet ordre:
+ *   1) "Référence" dans les sections
+ *   2) format avec espaces dans le texte (08 2679 000 001)
+ *   3) format dans l'URL (09-9792-30-05 ou 08-2679-000-001)
+ *
+ * Déps: npm i cheerio xml2js
+ */
+
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
 import * as cheerio from "cheerio";
 import { parseStringPromise } from "xml2js";
 
@@ -12,6 +22,7 @@ const IMG_DIR = path.resolve("produits/connecteur/img");
 
 const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0);
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
+const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -21,43 +32,38 @@ async function fetchText(url) {
   return res.text();
 }
 
-async function downloadImage(url, destPath) {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return;
-    const buffer = Buffer.from(await res.arrayBuffer());
-    fs.writeFileSync(destPath, buffer);
-  } catch (e) {
-    console.warn("Image download failed:", url);
-  }
+async function downloadToFile(url, destPath) {
+  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
+  if (!res.ok) throw new Error(`Image HTTP ${res.status} on ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  fs.writeFileSync(destPath, buf);
 }
 
-function clean(s) {
-  return String(s ?? "").replace(/\s+/g, " ").trim();
-}
+const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
+const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
 function slugRef(ref) {
+  // "09 9792 30 05" -> "09-9792-30-05"
+  // "08 2679 000 001" -> "08-2679-000-001"
   return clean(ref).replace(/\s+/g, "-");
 }
 
-function sha1(s) {
-  return crypto.createHash("sha1").update(String(s)).digest("hex");
-}
-
-function cleanup() {
+function ensureDirsAndCleanup() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   fs.mkdirSync(IMG_DIR, { recursive: true });
 
-  console.log("Nettoyage JSON + images");
-
-  for (const f of fs.readdirSync(OUT_DIR)) {
-    if (f.endsWith(".json")) fs.unlinkSync(path.join(OUT_DIR, f));
+  if (KEEP_OLD) {
+    console.log("KEEP_OLD=1 -> pas de nettoyage.");
+    return;
   }
 
+  console.log("Nettoyage: suppression anciens JSON + images…");
+
+  for (const f of fs.readdirSync(OUT_DIR)) {
+    if (f.toLowerCase().endsWith(".json")) fs.unlinkSync(path.join(OUT_DIR, f));
+  }
   for (const f of fs.readdirSync(IMG_DIR)) {
-    if (/\.(jpg|jpeg|png|webp)$/i.test(f)) {
-      fs.unlinkSync(path.join(IMG_DIR, f));
-    }
+    if (/\.(jpg|jpeg|png|webp)$/i.test(f)) fs.unlinkSync(path.join(IMG_DIR, f));
   }
 }
 
@@ -65,16 +71,19 @@ async function getAllProductUrlsFromSitemap() {
   const indexXml = await fetchText(SITEMAP_INDEX);
   const indexObj = await parseStringPromise(indexXml);
 
-  const sitemapUrls = indexObj.sitemapindex.sitemap
-    .map((s) => s.loc[0])
-    .filter((u) => u.includes("sitemap=products"));
+  const sitemapUrls = asArray(indexObj?.sitemapindex?.sitemap)
+    .map((s) => s.loc?.[0])
+    .filter(Boolean);
+
+  const productSitemaps = sitemapUrls.filter((u) => u.includes("sitemap=products"));
+  if (!productSitemaps.length) throw new Error("Aucun sitemap=products trouvé.");
 
   const urls = [];
-
-  for (const sm of sitemapUrls) {
+  for (const sm of productSitemaps) {
     const xml = await fetchText(sm);
     const obj = await parseStringPromise(xml);
-    urls.push(...obj.urlset.url.map((u) => u.loc[0]));
+    const locs = asArray(obj?.urlset?.url).map((u) => u.loc?.[0]).filter(Boolean);
+    urls.push(...locs);
     await sleep(DELAY_MS);
   }
 
@@ -82,21 +91,49 @@ async function getAllProductUrlsFromSitemap() {
 }
 
 function extractCategory1FromUrl(productUrl) {
-  const u = new URL(productUrl);
-  const parts = u.pathname.split("/").filter(Boolean);
-  const i = parts.indexOf("produits");
-  return i !== -1 ? parts[i + 1] ?? null : null;
+  try {
+    const u = new URL(productUrl);
+    const parts = u.pathname.split("/").filter(Boolean);
+    const i = parts.indexOf("produits");
+    return i !== -1 ? parts[i + 1] ?? null : null;
+  } catch {
+    return null;
+  }
 }
 
-function extractSections($) {
+/** 1) Ref dans le HTML texte (format espaces) */
+function extractRefFromTextRegex($) {
+  const bodyText = clean($("body").text());
+  const m = bodyText.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/); // ex 08 2679 000 001
+  return m ? m[0] : null;
+}
+
+/** 2) Ref depuis URL (fiable) */
+function extractRefFromUrl(productUrl) {
+  // Supporte:
+  // - 09-9792-30-05 (2-4-2-2)
+  // - 08-2679-000-001 (2-4-3-3)
+  const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
+  if (!m) return null;
+  return m[1].replace(/-/g, " ");
+}
+
+/** Extraction sections binder (accordéon) */
+function extractSectionsBinderAccordion($) {
   const sections = {};
 
   $(".accordion__header").each((_, header) => {
     const title = clean($(header).text()).replace(/\b(Plus|less)\b/gi, "").trim();
     if (!title) return;
 
-    const container = $(header).closest(".accordion__item");
-    const table = container.find("table").first();
+    const container = $(header).closest(".accordion__item").length
+      ? $(header).closest(".accordion__item")
+      : $(header).parent();
+
+    const table = container.find("table.table--technicaldata").first().length
+      ? container.find("table.table--technicaldata").first()
+      : container.find("table").first();
+
     if (!table.length) return;
 
     const kv = {};
@@ -118,34 +155,54 @@ function extractSections($) {
   return sections;
 }
 
-function extractMainImage($, pageUrl) {
+/** fallback ref depuis sections ("Référence") */
+function refFromSections(sections) {
+  for (const kv of Object.values(sections || {})) {
+    if (kv && kv["Référence"]) return kv["Référence"];
+  }
+  return null;
+}
+
+/** Image principale = 1er lien "Télécharger l’image JPG" */
+function extractMainImageUrl($, pageUrl) {
   let found = null;
 
   $("a[href]").each((_, a) => {
+    if (found) return;
+
     const href = $(a).attr("href");
-    const text = clean($(a).text());
     if (!href) return;
 
-    const abs = href.startsWith("http")
-      ? href
-      : new URL(href, pageUrl).toString();
+    const text = clean($(a).text());
+    const abs = href.startsWith("http") ? href : new URL(href, pageUrl).toString();
 
-    if (/télécharger l’image/i.test(text) && /\.jpe?g$/i.test(abs)) {
+    if (/télécharger l’image/i.test(text) && /\.jpe?g(\?.*)?$/i.test(abs)) {
       found = abs;
-      return false;
     }
   });
 
   return found;
 }
 
-async function main() {
-  cleanup();
+function getImageExtensionFromUrl(url) {
+  try {
+    const u = new URL(url);
+    const p = u.pathname.toLowerCase();
+    if (p.endsWith(".jpeg")) return ".jpeg";
+    if (p.endsWith(".jpg")) return ".jpg";
+    if (p.endsWith(".png")) return ".png";
+    if (p.endsWith(".webp")) return ".webp";
+  } catch {}
+  return ".jpg";
+}
 
+async function main() {
+  ensureDirsAndCleanup();
+
+  console.log("Lecture sitemap products…");
   let productUrls = await getAllProductUrlsFromSitemap();
   if (MAX_PRODUCTS > 0) productUrls = productUrls.slice(0, MAX_PRODUCTS);
-
-  console.log(`Produits: ${productUrls.length}`);
+  console.log(`Produits à traiter: ${productUrls.length}`);
 
   const indexItems = [];
 
@@ -153,75 +210,90 @@ async function main() {
     const url = productUrls[i];
     console.log(`[${i + 1}/${productUrls.length}] ${url}`);
 
-    const html = await fetchText(url);
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch (e) {
+      console.warn(`  ⚠️ Page inaccessible: ${e.message}`);
+      continue;
+    }
+
     const $ = cheerio.load(html);
 
     const title = clean($("h1").first().text()) || null;
     const category1 = extractCategory1FromUrl(url);
 
-    const sections = extractSections($);
+    const sections = extractSectionsBinderAccordion($);
 
-    let ref = null;
-    for (const kv of Object.values(sections)) {
-      if (kv["Référence"]) {
-        ref = kv["Référence"];
-        break;
+    // ✅ REF: priorité sections -> texte -> URL
+    let ref =
+      refFromSections(sections) ||
+      extractRefFromTextRegex($) ||
+      extractRefFromUrl(url);
+
+    if (!ref) {
+      // Là ça devient vraiment rare. On préfère SKIP plutôt que créer un hash (tu veux du propre/cohérent).
+      console.warn("  ❌ Référence introuvable => produit ignoré pour rester cohérent.");
+      continue;
+    }
+
+    const refSlug = slugRef(ref);
+
+    // ✅ image
+    let mainImageLocal = null;
+    const mainImageUrl = extractMainImageUrl($, url);
+
+    if (mainImageUrl) {
+      const ext = getImageExtensionFromUrl(mainImageUrl);
+      const imgFilename = `${refSlug}${ext}`;
+      const imgDest = path.join(IMG_DIR, imgFilename);
+
+      try {
+        await downloadToFile(mainImageUrl, imgDest);
+        mainImageLocal = `produits/connecteur/img/${imgFilename}`;
+      } catch (e) {
+        console.warn(`  ⚠️ Image non téléchargée: ${e.message}`);
       }
     }
 
-    const mainImageUrl = extractMainImage($, url);
-
-    let localImagePath = null;
-
-    if (mainImageUrl) {
-      const fileName = ref
-        ? `${slugRef(ref)}.jpg`
-        : `${sha1(url)}.jpg`;
-
-      const dest = path.join(IMG_DIR, fileName);
-      await downloadImage(mainImageUrl, dest);
-      localImagePath = `produits/connecteur/img/${fileName}`;
-    }
+    // ✅ JSON = même nom que ref
+    const jsonFilename = `${refSlug}.json`;
+    const jsonPath = path.join(OUT_DIR, jsonFilename);
 
     const data = {
       ref,
       title,
       url,
       category1,
-      mainImage: localImagePath,
+      mainImage: mainImageLocal, // chemin local (ou null)
       sections,
     };
 
-    const fileBase = ref ? slugRef(ref) : sha1(url);
-    const outFile = path.join(OUT_DIR, `${fileBase}.json`);
-    fs.writeFileSync(outFile, JSON.stringify(data, null, 2), "utf-8");
+    fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), "utf-8");
 
     indexItems.push({
       ref,
       title,
       url,
       category1,
-      mainImage: localImagePath,
-      file: `produits/connecteur/fiche/${fileBase}.json`,
+      mainImage: mainImageLocal,
+      file: `produits/connecteur/fiche/${jsonFilename}`,
     });
 
     await sleep(DELAY_MS);
   }
 
-  fs.writeFileSync(
-    path.join(OUT_DIR, "index.json"),
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        count: indexItems.length,
-        items: indexItems,
-      },
-      null,
-      2
-    )
-  );
+  indexItems.sort((a, b) => String(a.ref ?? "").localeCompare(String(b.ref ?? ""), "fr"));
 
-  console.log("✅ Terminé.");
+  const indexJson = {
+    generatedAt: new Date().toISOString(),
+    count: indexItems.length,
+    items: indexItems,
+  };
+
+  fs.writeFileSync(path.join(OUT_DIR, "index.json"), JSON.stringify(indexJson, null, 2), "utf-8");
+
+  console.log(`✅ Terminé. Produits exportés: ${indexItems.length}`);
 }
 
 main().catch((e) => {
