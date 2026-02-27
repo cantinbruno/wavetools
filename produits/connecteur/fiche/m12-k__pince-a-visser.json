@@ -1,0 +1,169 @@
+{
+  "generatedAt": "2026-02-27T05:13:44.562Z",
+  "group": {
+    "key": "M12-K__pince-a-visser",
+    "slug": "m12-k__pince-a-visser",
+    "family": "M12-K",
+    "terminaison": "pince-a-visser",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "contacts": [
+      4
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "80-130"
+    ]
+  },
+  "canonical": {
+    "ref": "99 0699 29 05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-29-05-m12-k-connecteur-male-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur mâle, Contacts: 4+PE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-k__pince-a-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/814_1_KS_K-Kod.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 0699 29 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-29-05-m12-k-connecteur-male-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 0700 29 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-29-05-m12-k-connecteur-femelle-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 0699 58 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-58-05-m12-k-connecteur-male-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 0700 58 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-58-05-m12-k-connecteur-femelle-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 0699 37 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-37-05-m12-k-connecteur-male-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 0700 37 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-37-05-m12-k-connecteur-femelle-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-370-05-m12-k-connecteur-femelle-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-370-05-m12-k-connecteur-male-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-130",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

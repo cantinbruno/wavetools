@@ -1,0 +1,336 @@
+{
+  "generatedAt": "2026-02-27T05:13:42.059Z",
+  "group": {
+    "key": "RD24 Power__souder",
+    "slug": "rd24-power__souder",
+    "family": "RD24 Power",
+    "terminaison": "souder",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "contacts": [
+      6
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "00-120",
+      "20-140",
+      "60-80",
+      "60-90",
+      "70-170",
+      "80-100",
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "09 4227 00 07 Référence alternative: 09 0215 00 07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4227-00-07-rd24-embase-male-contacts-6-pe-non-blinde-souder-ip67-ul-esti-vde",
+    "title": "RD24 Embase mâle, Contacts: 6+PE, non blindé, souder, IP67, UL, ESTI+, VDE, Montage frontal",
+    "mainImage": "produits/connecteur/img/rd24-power__souder.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_3_6L.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 4225 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-00-07-rd24-connecteur-male-contacts-6-pe-60-90-mm-non-blinde-souder-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-90",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-110-07-rd24-connecteur-male-contacts-6-pe-80-100-mm-non-blinde-souder-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4225 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-14-07-rd24-connecteur-male-contacts-6-pe-100-120-mm-non-blinde-souder-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-160-07-rd24-connecteur-male-contacts-6-pe-120-140-mm-non-blinde-souder-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-300-07-rd24-connecteur-male-contacts-6-pe-70-170-mm-non-blinde-souder-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4225 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-70-07-rd24-connecteur-male-coude-contacts-6-pe-60-80-mm-non-blinde-souder-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-210-07-rd24-connecteur-male-coude-contacts-6-pe-80-100-mm-non-blinde-souder-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4225-215-07-rd24-connecteur-male-coude-contacts-6-pe-100-120-mm-non-blinde-souder-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4226 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-00-07-rd24-connecteur-femelle-contacts-6-pe-60-90-mm-non-blinde-souder-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-90",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-110-07-rd24-connecteur-femelle-contacts-6-pe-80-100-mm-non-blinde-souder-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4226 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-14-07-rd24-connecteur-femelle-contacts-6-pe-100-120-mm-non-blinde-souder-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-160-07-rd24-connecteur-femelle-contacts-6-pe-120-140-mm-non-blinde-souder-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-300-07-rd24-connecteur-femelle-contacts-6-pe-70-170-mm-non-blinde-souder-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4226 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-70-07-rd24-connecteur-femelle-coude-contacts-6-pe-60-80-mm-non-blinde-souder-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-210-07-rd24-connecteur-femelle-coude-contacts-6-pe-80-100-mm-non-blinde-souder-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4226-215-07-rd24-connecteur-femelle-coude-contacts-6-pe-100-120-mm-non-blinde-souder-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4227 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4227-00-07-rd24-embase-male-contacts-6-pe-non-blinde-souder-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4228 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4228-00-07-rd24-embase-femelle-contacts-6-pe-non-blinde-souder-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

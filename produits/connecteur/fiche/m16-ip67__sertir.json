@@ -1,0 +1,1492 @@
+{
+  "generatedAt": "2026-02-27T05:13:40.473Z",
+  "group": {
+    "key": "M16 IP67__sertir",
+    "slug": "m16-ip67__sertir",
+    "family": "M16 IP67",
+    "terminaison": "sertir",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "contacts": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "standards": [
+      "din",
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "40-60",
+      "40-80",
+      "41-78",
+      "60-80",
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "99 5109 760 04",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5109-760-04-m16-ip67-connecteur-male-contacts-4-41-78-mm-blindable-sertir-ip67-version-courte",
+    "title": "M16 Connecteur mâle, Contacts: 4 (04-a), 4,1-7,8 mm, blindable, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte",
+    "mainImage": "produits/connecteur/img/m16-ip67__sertir.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_1_KS_Kurz_schirm_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5109-700-04-m16-ip67-connecteur-male-contacts-4-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5113-700-05-m16-ip67-connecteur-male-contacts-5-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-700-06-m16-ip67-connecteur-male-contacts-6-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5125-700-07-m16-ip67-connecteur-male-contacts-7-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5171-700-08-m16-ip67-connecteur-male-contacts-8-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5109-760-04-m16-ip67-connecteur-male-contacts-4-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5113-760-05-m16-ip67-connecteur-male-contacts-5-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-760-06-m16-ip67-connecteur-male-contacts-6-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5125-760-07-m16-ip67-connecteur-male-contacts-7-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5171-760-08-m16-ip67-connecteur-male-contacts-8-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5609-700-04-m16-ip67-connecteur-male-contacts-4-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5613-700-05-m16-ip67-connecteur-male-contacts-5-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5621-700-06-m16-ip67-connecteur-male-contacts-6-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5625-700-07-m16-ip67-connecteur-male-contacts-7-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5671-700-08-m16-ip67-connecteur-male-contacts-8-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5109-740-04-m16-ip67-connecteur-male-contacts-4-41-78-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5113-740-05-m16-ip67-connecteur-male-contacts-5-41-78-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-740-06-m16-ip67-connecteur-male-contacts-6-din-41-78-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5125-740-07-m16-ip67-connecteur-male-contacts-7-41-78-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5171-740-08-m16-ip67-connecteur-male-contacts-8-din-41-78-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme-version-courte",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": true,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5109-750-04-m16-ip67-connecteur-male-coude-contacts-4-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5113-750-05-m16-ip67-connecteur-male-coude-contacts-5-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-750-06-m16-ip67-connecteur-male-coude-contacts-6-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5125-750-07-m16-ip67-connecteur-male-coude-contacts-7-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5171-750-08-m16-ip67-connecteur-male-coude-contacts-8-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5609-750-04-m16-ip67-connecteur-male-coude-contacts-4-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5613-750-05-m16-ip67-connecteur-male-coude-contacts-5-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5621-750-06-m16-ip67-connecteur-male-coude-contacts-6-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5625-750-07-m16-ip67-connecteur-male-coude-contacts-7-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5671-750-08-m16-ip67-connecteur-male-coude-contacts-8-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-700-04-m16-ip67-connecteur-femelle-contacts-4-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-700-05-m16-ip67-connecteur-femelle-contacts-5-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-700-06-m16-ip67-connecteur-femelle-contacts-6-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-700-07-m16-ip67-connecteur-femelle-contacts-7-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5172-700-08-m16-ip67-connecteur-femelle-contacts-8-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-760-04-m16-ip67-connecteur-femelle-contacts-4-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-760-05-m16-ip67-connecteur-femelle-contacts-5-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-760-06-m16-ip67-connecteur-femelle-contacts-6-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-760-07-m16-ip67-connecteur-femelle-contacts-7-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5172-760-08-m16-ip67-connecteur-femelle-contacts-8-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "41-78",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5610-700-04-m16-ip67-connecteur-femelle-contacts-4-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5614-700-05-m16-ip67-connecteur-femelle-contacts-5-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5622-700-06-m16-ip67-connecteur-femelle-contacts-6-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5626-700-07-m16-ip67-connecteur-femelle-contacts-7-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-700-08-m16-ip67-connecteur-femelle-contacts-8-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-740-04-m16-ip67-connecteur-femelle-contacts-4-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-740-05-m16-ip67-connecteur-femelle-contacts-5-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-740-06-m16-ip67-connecteur-femelle-contacts-6-din-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-740-07-m16-ip67-connecteur-femelle-contacts-7-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": true,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5172-740-08-m16-ip67-connecteur-femelle-contacts-8-din-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme-version-courte",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-80",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": true,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-750-04-m16-ip67-connecteur-femelle-coude-contacts-4-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-750-05-m16-ip67-connecteur-femelle-coude-contacts-5-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-750-06-m16-ip67-connecteur-femelle-coude-contacts-6-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-750-07-m16-ip67-connecteur-femelle-coude-contacts-7-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5172-750-08-m16-ip67-connecteur-femelle-coude-contacts-8-din-40-60-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5610-750-04-m16-ip67-connecteur-femelle-coude-contacts-4-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5614-750-05-m16-ip67-connecteur-femelle-coude-contacts-5-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5622-750-06-m16-ip67-connecteur-femelle-coude-contacts-6-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5626-750-07-m16-ip67-connecteur-femelle-coude-contacts-7-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-750-08-m16-ip67-connecteur-femelle-coude-contacts-8-din-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-370-04-m16-ip67-embase-male-carre-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-370-05-m16-ip67-embase-male-carre-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0123-370-06-m16-ip67-embase-male-carre-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-370-07-m16-ip67-embase-male-carre-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-370-08-m16-ip67-embase-male-carre-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-370-04-m16-ip67-embase-femelle-carre-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-370-05-m16-ip67-embase-femelle-carre-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-370-06-m16-ip67-embase-femelle-carre-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-370-07-m16-ip67-embase-femelle-carre-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0174-370-08-m16-ip67-embase-femelle-carre-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-700-04-m16-ip67-embase-male-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-700-05-m16-ip67-embase-male-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0123-700-06-m16-ip67-embase-male-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-700-07-m16-ip67-embase-male-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-700-08-m16-ip67-embase-male-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-780-04-m16-ip67-embase-male-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-780-05-m16-ip67-embase-male-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0123-780-06-m16-ip67-embase-male-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-780-07-m16-ip67-embase-male-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-780-08-m16-ip67-embase-male-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme-visse-a-lavant",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-700-04-m16-ip67-embase-femelle-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-700-05-m16-ip67-embase-femelle-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-700-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-700-07-m16-ip67-embase-femelle-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0174-700-08-m16-ip67-embase-femelle-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-780-04-m16-ip67-embase-femelle-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-780-05-m16-ip67-embase-femelle-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-780-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 6,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-780-07-m16-ip67-embase-femelle-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "contacts": 7,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0174-780-08-m16-ip67-embase-femelle-contacts-8-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip68-ul-aisg-conforme-visse-a-lavant",
+      "contacts": 8,
+      "standard": "din",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": true,
+        "contactsSepares": true
+      }
+    }
+  ]
+}

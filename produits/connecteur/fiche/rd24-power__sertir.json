@@ -1,0 +1,335 @@
+{
+  "generatedAt": "2026-02-27T05:13:42.217Z",
+  "group": {
+    "key": "RD24 Power__sertir",
+    "slug": "rd24-power__sertir",
+    "family": "RD24 Power",
+    "terminaison": "sertir",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "contacts": [
+      6
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "00-120",
+      "20-140",
+      "60-80",
+      "70-170",
+      "80-100",
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "99 4201 00 07 Référence alternative: 99 0201 00 07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+    "title": "RD24 Connecteur mâle, Contacts: 6+PE, 6,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL, ESTI+, VDE, PG 9",
+    "mainImage": "produits/connecteur/img/rd24-power__sertir.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_1_00.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 4201 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-110-07-rd24-connecteur-male-contacts-6-pe-80-100-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 4201 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-14-07-rd24-connecteur-male-contacts-6-pe-100-120-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-160-07-rd24-connecteur-male-contacts-6-pe-120-140-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-300-07-rd24-connecteur-male-contacts-6-pe-70-170-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 4201 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-70-07-rd24-connecteur-male-coude-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-210-07-rd24-connecteur-male-coude-contacts-6-pe-80-100-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4201-215-07-rd24-connecteur-male-coude-contacts-6-pe-100-120-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 4202 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-00-07-rd24-connecteur-femelle-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-110-07-rd24-connecteur-femelle-contacts-6-pe-80-100-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 4202 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-14-07-rd24-connecteur-femelle-contacts-6-pe-100-120-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-160-07-rd24-connecteur-femelle-contacts-6-pe-120-140-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-300-07-rd24-connecteur-femelle-contacts-6-pe-70-170-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 4202 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-70-07-rd24-connecteur-femelle-coude-contacts-6-pe-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-210-07-rd24-connecteur-femelle-coude-contacts-6-pe-80-100-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4202-215-07-rd24-connecteur-femelle-coude-contacts-6-pe-100-120-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "09 4203 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4203-00-07-rd24-embase-male-contacts-6-pe-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "09 4204 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4204-00-07-rd24-embase-femelle-contacts-6-pe-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    }
+  ]
+}

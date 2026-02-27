@@ -1,0 +1,689 @@
+{
+  "generatedAt": "2026-02-27T05:13:40.784Z",
+  "group": {
+    "key": "RD24 Power__pince-a-visser",
+    "slug": "rd24-power__pince-a-visser",
+    "family": "RD24 Power",
+    "terminaison": "pince-a-visser",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "contacts": [
+      3,
+      6
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "00-120",
+      "20-140",
+      "60-80",
+      "60-90",
+      "70-170",
+      "80-100",
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "99 4217 00 07 Référence alternative: 99 0217 00 07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+    "title": "RD24 Connecteur mâle, Contacts: 6+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9",
+    "mainImage": "produits/connecteur/img/rd24-power__pince-a-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_1_00.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 4221 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-00-04-rd24-connecteur-male-contacts-3-pe-60-90-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-90",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4217 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-00-07-rd24-connecteur-male-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-110-04-rd24-connecteur-male-contacts-3-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-110-07-rd24-connecteur-male-contacts-6-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4221 14 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-14-04-rd24-connecteur-male-contacts-3-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4217 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-14-07-rd24-connecteur-male-contacts-6-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-160-04-rd24-connecteur-male-contacts-3-pe-120-140-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-16",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-160-07-rd24-connecteur-male-contacts-6-pe-120-140-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-300-04-rd24-connecteur-male-contacts-3-pe-70-170-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-vario",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-300-07-rd24-connecteur-male-contacts-6-pe-70-170-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4221 70 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-70-04-rd24-connecteur-male-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4217 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-70-07-rd24-connecteur-male-coude-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-210-04-rd24-connecteur-male-coude-contacts-3-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-210-07-rd24-connecteur-male-coude-contacts-6-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-215-04-rd24-connecteur-male-coude-contacts-3-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-215-07-rd24-connecteur-male-coude-contacts-6-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4222 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-00-04-rd24-connecteur-femelle-contacts-3-pe-60-90-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-90",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4218 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-00-07-rd24-connecteur-femelle-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-110-04-rd24-connecteur-femelle-contacts-3-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-110-07-rd24-connecteur-femelle-contacts-6-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4222 14 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-14-04-rd24-connecteur-femelle-contacts-3-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4218 14 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-14-07-rd24-connecteur-femelle-contacts-6-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-160-04-rd24-connecteur-femelle-contacts-3-pe-120-140-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-16",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-160-07-rd24-connecteur-femelle-contacts-6-pe-120-140-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-16",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "20-140",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-300-04-rd24-connecteur-femelle-contacts-3-pe-70-170-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-vario",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-300-07-rd24-connecteur-femelle-contacts-6-pe-70-170-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-vario",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "70-170",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4222 70 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-70-04-rd24-connecteur-femelle-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "99 4218 70 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-70-07-rd24-connecteur-femelle-coude-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-210-04-rd24-connecteur-femelle-coude-contacts-3-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-210-07-rd24-connecteur-femelle-coude-contacts-6-pe-80-100-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-11",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "80-100",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-215-04-rd24-connecteur-femelle-coude-contacts-3-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-215-07-rd24-connecteur-femelle-coude-contacts-6-pe-100-120-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-135",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "00-120",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4223 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4223-00-04-rd24-embase-male-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4219 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4219-00-07-rd24-embase-male-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4224 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4224-00-04-rd24-embase-femelle-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 4220 00 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4220-00-07-rd24-embase-femelle-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4219-150-07-rd24-embase-male-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4220-150-07-rd24-embase-femelle-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4224-150-04-rd24-embase-femelle-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4223-150-04-rd24-embase-male-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

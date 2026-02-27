@@ -1,0 +1,5298 @@
+{
+  "generatedAt": "2026-02-27T05:13:42.846Z",
+  "group": {
+    "key": "M8__unknown",
+    "slug": "m8__unknown",
+    "family": "M8",
+    "terminaison": "unknown",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "contacts": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      12
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde",
+      "unknown"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "25-50",
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "86 6319 1120 00003 Référence alternative: 09 3419 81 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00003-m8-embase-male-contacts-3-blindable-tht-ip67-visse-a-lavant",
+    "title": "M8 Embase mâle, Contacts: 3, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8__unknown.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_FS_front_schirm_fg.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3379-500-03-m8-connecteur-male-contacts-3-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3379-550-03-m8-connecteur-male-contacts-3-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3383-500-04-m8-connecteur-male-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3383-550-04-m8-connecteur-male-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3400-500-03-m8-connecteur-femelle-contacts-3-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3400-550-03-m8-connecteur-femelle-contacts-3-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-500-04-m8-connecteur-femelle-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-550-04-m8-connecteur-femelle-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "25-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50003-0100-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-1-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50003-0200-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50004-0100-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-4-x-034-mm2-1-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-3405-50004-0200-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-3405-50003-0100-m8-cable-de-raccordement-connecteur-male-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-1-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-3405-50003-0200-m8-cable-de-raccordement-connecteur-male-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-3405-50004-0100-m8-cable-de-raccordement-connecteur-male-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-1-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-3405-50004-0200-m8-cable-de-raccordement-connecteur-male-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-3405-50003-0100-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-avec-led-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-1-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-3405-50003-0200-m8-cable-de-raccordement-connecteur-male-connecteur-dangle-femelle-avec-led-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50005-0200-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50005-0500-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50005-0200-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50005-0500-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3409 42 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3409-42-03-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3409 45 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3409-45-03-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3409 52 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3409-52-03-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3409 55 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3409-55-03-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3411 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3411-52-04-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3411 55 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3411-55-04-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3413 52 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3413-52-05-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3413 55 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3413-55-05-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3415 52 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3415-52-06-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3415 55 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3415-55-06-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20003-0500-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20004-0200-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20004-0500-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20005-0200-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20005-0500-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20008-0200-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-20008-0500-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50003-0500-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50004-0200-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50004-0500-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50005-0200-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50005-0500-m8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50006-0200-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50006-0500-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50008-0200-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50008-0500-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50012-0200-m8-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-009-mm2-2-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3405-0000-50012-0500-m8-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-009-mm2-5-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20003-0500-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20004-0200-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20004-0500-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20008-0200-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-20008-0500-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50703-0200-m8-connecteur-male-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50703-0500-m8-connecteur-male-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50704-0200-m8-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50704-0500-m8-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50706-0200-m8-connecteur-male-contacts-6-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50706-0500-m8-connecteur-male-contacts-6-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50708-0200-m8-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-50708-0500-m8-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20703-0200-m8-connecteur-male-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20703-0500-m8-connecteur-male-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20704-0200-m8-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20704-0500-m8-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20706-0200-m8-connecteur-male-contacts-6-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20706-0500-m8-connecteur-male-contacts-6-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20708-0200-m8-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3505-0000-20708-0500-m8-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50003-0500-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50004-0200-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50004-0500-m8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50006-0200-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50006-0500-m8-connecteur-male-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50008-0200-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50008-0500-m8-connecteur-male-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20003-0200-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20003-0500-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20004-0500-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20005-0200-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20005-0500-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20008-0200-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20008-0500-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20012-0200-m8-connecteur-male-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pvc-gris-12-x-awg-28-2-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20012-0500-m8-connecteur-male-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pvc-gris-12-x-awg-28-5-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50003-0200-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50003-0500-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50004-0500-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50006-0200-m8-connecteur-male-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50006-0500-m8-connecteur-male-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50008-0200-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50008-0500-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50012-0200-m8-connecteur-male-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-12-x-awg-28-2-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-50012-0500-m8-connecteur-male-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-12-x-awg-28-5-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20003-0200-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20003-0500-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20004-0500-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20008-0200-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-20008-0500-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50003-0200-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50003-0500-m8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50004-0500-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50006-0200-m8-connecteur-male-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50006-0500-m8-connecteur-male-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50008-0200-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50008-0500-m8-connecteur-male-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 02 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-02-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-014-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 05 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-05-03-m8-connecteur-femelle-contacts-3-non-blinde-pvc-noir-3-x-014-mm2",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 42 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-42-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 45 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-45-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3386 42 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3386-42-04-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-4-x-025-mm2-aligner-version-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3386 45 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3386-45-04-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-4-x-025-mm2-aligner-version-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 12 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-12-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-014-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 15 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-15-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-014-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 52 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-52-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3410 55 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3410-55-03-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3386 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3386-52-04-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-025-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3386 55 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3386-55-04-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-025-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3418 52 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3418-52-05-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3418 55 05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3418-55-05-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3420 52 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3420-52-06-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3420 55 06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3420-55-06-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20004-0200-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20004-0500-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20005-0200-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20005-0500-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20008-0200-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-20008-0500-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50004-0200-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50004-0500-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50005-0200-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50005-0500-m8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50006-0200-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50006-0500-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50008-0200-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50008-0500-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50012-0200-m8-connecteur-femelle-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-009-mm2-2-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50012-0500-m8-connecteur-femelle-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-009-mm2-5-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20004-0200-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20004-0500-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20008-0200-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-20008-0500-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50004-0200-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50004-0500-m8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50006-0200-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50006-0500-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50008-0200-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3706-0000-50008-0500-m8-connecteur-femelle-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50003-0200-m8-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50003-0500-m8-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50004-0200-m8-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50004-0500-m8-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-20003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-50003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-50003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 02 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-02-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-pvc-noir-3-x-014-mm2",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 05 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-05-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-pvc-noir-3-x-014-mm2",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 42 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-42-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 45 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-45-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3388 42 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3388-42-04-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-4-x-025-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3388 45 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3388-45-04-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pvc-noir-4-x-025-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 12 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-12-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-pur-noir-3-x-014-mm2",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 15 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-15-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-pur-noir-3-x-014-mm2",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 52 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-52-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3414 55 03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3414-55-03-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-3-x-025-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3388 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3388-52-04-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-025-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3388 55 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3388-55-04-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip65-pur-noir-4-x-025-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20005-0200-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20005-0500-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20008-0200-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20008-0500-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50006-0200-m8-connecteur-femelle-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50006-0500-m8-connecteur-femelle-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50008-0200-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50008-0500-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50012-0200-m8-connecteur-femelle-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-12-x-awg-28-2-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-50012-0500-m8-connecteur-femelle-coude-contacts-12-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-12-x-awg-28-5-m",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20008-0200-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-20008-0500-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50006-0200-m8-connecteur-femelle-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50006-0500-m8-connecteur-femelle-coude-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-6-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50008-0200-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50008-0500-m8-connecteur-femelle-coude-contacts-8-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-8-x-025-mm2-acier-inoxydable-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3508-0000-50003-0200-m8-connecteur-femelle-coude-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3508-0000-50003-0500-m8-connecteur-femelle-coude-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3508-0000-50004-0200-m8-connecteur-femelle-coude-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3508-0000-50004-0500-m8-connecteur-femelle-coude-contacts-4-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-20003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-20003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-20004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-20004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-50003-0200-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-50003-0500-m8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-50004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3608-0000-50004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6819-0000-00703-m8-encastrable-male-contacts-3-non-blinde-tht-ip67",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6819-0000-00704-m8-encastrable-male-contacts-4-non-blinde-tht-ip67",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6019-0111-00003-0200-m8-embase-male-contacts-3-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6019-0111-00004-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6019-0111-00006-0200-m8-embase-male-contacts-6-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6019-0111-00008-0200-m8-embase-male-contacts-8-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6119-1111-00003-0200-m8-embase-male-contacts-3-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6119-1111-00004-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6119-1111-00006-0200-m8-embase-male-contacts-6-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6119-1111-00008-0200-m8-embase-male-contacts-8-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00003-m8-embase-male-contacts-3-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00004-m8-embase-male-contacts-4-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00006-m8-embase-male-contacts-6-non-blinde-tht-ip67-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00008-m8-embase-male-contacts-8-non-blinde-tht-ip67-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00012-m8-embase-male-contacts-12-non-blinde-tht-ip67-vissable-par-lavant",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/70-3421-005-04-m8-embase-male-contacts-4-blinde-assembles-avec-cable-ip67-ethernet-pur-vert-4-x-awg-22-05-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00003-0200-m8-embase-male-contacts-3-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00004-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00005-0200-m8-embase-male-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00006-0200-m8-embase-male-contacts-6-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00008-0200-m8-embase-male-contacts-8-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6319-1111-00003-0200-m8-embase-male-contacts-3-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6319-1111-00004-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6319-1111-00005-0200-m8-embase-male-contacts-5-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6319-1111-00006-0200-m8-embase-male-contacts-6-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6319-1111-00008-0200-m8-embase-male-contacts-8-non-blinde-fils-ip67-ul-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00003-m8-embase-male-contacts-3-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00004-m8-embase-male-contacts-4-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00005-m8-embase-male-contacts-5-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00006-m8-embase-male-contacts-6-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00008-m8-embase-male-contacts-8-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00003-m8-embase-male-contacts-3-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00004-m8-embase-male-contacts-4-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00005-m8-embase-male-contacts-5-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00006-m8-embase-male-contacts-6-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00008-m8-embase-male-contacts-8-blindable-tht-ip67-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3403-282-03-m8-embase-male-coude-contacts-3-non-blinde-thr-ip67-ul-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3391-282-04-m8-embase-male-coude-contacts-4-non-blinde-thr-ip67-ul-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6018-0111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ip69k-ul-m8x05",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6518-1111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ip69k-ul-m12x10-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6518-1111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ip69k-ul-m12x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6518-1111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ip69k-ul-m12x10-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6518-1111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ip69k-ul-m12x10-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1122-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1122-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1123-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1123-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-ul-m12x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00003-m8-embase-femelle-contacts-3-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00006-m8-embase-femelle-contacts-6-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00008-m8-embase-femelle-contacts-8-non-blinde-tht-ip67-m12x10-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1100-00012-m8-embase-femelle-contacts-12-non-blinde-tht-ip67-vissable-par-lavant",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00005-0200-m8-embase-femelle-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6218-1111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ul-m10x075",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00003-0200-m8-embase-femelle-contacts-3-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00004-0200-m8-embase-femelle-contacts-4-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00005-0200-m8-embase-femelle-contacts-5-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00006-0200-m8-embase-femelle-contacts-6-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6618-1111-00008-0200-m8-embase-femelle-contacts-8-non-blinde-fils-ip67-ul-m10x075-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1120-00003-m8-embase-femelle-contacts-3-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1120-00004-m8-embase-femelle-contacts-4-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1120-00005-m8-embase-femelle-contacts-5-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1120-00006-m8-embase-femelle-contacts-6-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1120-00008-m8-embase-femelle-contacts-8-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1121-00003-m8-embase-femelle-contacts-3-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1121-00004-m8-embase-femelle-contacts-4-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1121-00005-m8-embase-femelle-contacts-5-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1121-00006-m8-embase-femelle-contacts-6-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6618-1121-00008-m8-embase-femelle-contacts-8-blindable-tht-ip67-m10x075-visse-a-lavant",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/70-3420-005-04-m8-embase-femelle-contacts-4-blinde-assembles-avec-cable-ip67-ethernet-pur-vert-4-x-awg-22-05-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-281-03-m8-embase-femelle-contacts-3-non-blinde-thr-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-281-04-m8-embase-femelle-contacts-4-non-blinde-thr-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-280-03-m8-embase-femelle-contacts-3-non-blinde-thr-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-280-04-m8-embase-femelle-contacts-4-non-blinde-thr-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-282-03-m8-embase-femelle-coudee-contacts-3-non-blinde-thr-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-282-04-m8-embase-femelle-coudee-contacts-4-non-blinde-thr-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 5280 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-5280-00-04-cables-de-raccordement-repartiteur-double-contacts-4-3-non-blinde-enfichable-ip68-ul-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 5232 70 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-5232-70-04-cables-de-raccordement-repartiteur-double-contacts-4-3-non-blinde-enfichable-ip67-ul-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 5204 00 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-5204-00-04-cables-de-raccordement-repartiteur-double-contacts-4-3-non-blinde-enfichable-ip68-ul-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 5232 90 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-5232-90-04-cables-de-raccordement-repartiteur-double-contacts-4-3-non-blinde-enfichable-ip68-ul-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6518-1118-00012-0200-m8-embase-femelle-contacts-12-non-blinde-fils-ip67-ip69k-ul-m12x10-visse-a-lavant",
+      "contacts": 12,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 3411 45 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3411-45-04-m8-connecteur-male-pvc-noir-4-x-025-mm2",
+      "contacts": null,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "unknown",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50703-0200-m8-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-3-x-034-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50703-0500-m8-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-3-x-034-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50704-0200-m8-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-4-x-034-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50704-0500-m8-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-4-x-034-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50705-0200-m8-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-5-x-025-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50705-0500-m8-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-5-x-025-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50706-0200-m8-connecteur-femelle-contacts-6-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-6-x-025-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50706-0500-m8-connecteur-femelle-contacts-6-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-6-x-025-mm2-5-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50708-0200-m8-connecteur-femelle-contacts-8-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-8-x-025-mm2-2-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50708-0500-m8-connecteur-femelle-contacts-8-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-8-x-025-mm2-5-m",
+      "contacts": 8,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

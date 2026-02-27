@@ -1,0 +1,170 @@
+{
+  "generatedAt": "2026-02-27T05:13:42.376Z",
+  "group": {
+    "key": "RD24 Power__unknown",
+    "slug": "rd24-power__unknown",
+    "family": "RD24 Power",
+    "terminaison": "unknown",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "contacts": [
+      3,
+      6
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "79 0231 20 04",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0231-20-04-rd24-connecteur-male-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+    "title": "RD24 Connecteur mâle, Contacts: 3+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 4 x 1,50 mm², 2 m",
+    "mainImage": "produits/connecteur/img/rd24-power__unknown.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/692_1_KS_u.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79 0231 20 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0231-20-04-rd24-connecteur-male-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0235 20 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0235-20-07-rd24-connecteur-male-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0233 20 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0233-20-04-rd24-connecteur-male-coude-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0237 20 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0237-20-07-rd24-connecteur-male-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0232 20 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0232-20-04-rd24-connecteur-femelle-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0236 20 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0236-20-07-rd24-connecteur-femelle-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0234 20 04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0234-20-04-rd24-connecteur-femelle-coude-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 0238 20 07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0238-20-07-rd24-connecteur-femelle-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "contacts": 6,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

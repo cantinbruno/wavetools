@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-02-27T05:13:43.792Z",
+  "group": {
+    "key": "M8-D__unknown",
+    "slug": "m8-d__unknown",
+    "family": "M8-D",
+    "terminaison": "unknown",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "contacts": [
+      4
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde",
+      "unknown"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "86 6321 1120 00404",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6321-1120-00404-m8-d-embase-male-contacts-4-blindable-tht-ip67-1",
+    "title": "M8 Embase mâle, Contacts: 4, blindable, THT, IP67, M8x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-d__unknown.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_3_FS-D_ger.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5429-0000-50704-0200-m8-d-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-2-m-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5429-0000-50704-0500-m8-d-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-5-m-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5430-0000-50704-0200-m8-d-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-2-m-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5430-0000-50704-0500-m8-d-connecteur-femelle-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-5-m-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "unknown",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6321-1120-00404-m8-d-embase-male-contacts-4-blindable-tht-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6321-1121-00404-m8-d-embase-male-coude-contacts-4-blindable-tht-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6620-1121-00404-m8-d-embase-femelle-coudee-contacts-4-blindable-tht-ip67-3",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6620-1120-00404-m8-d-embase-femelle-contacts-4-blindable-tht-ip67-3",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6321-1011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6221-0011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6620-1011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6220-0011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

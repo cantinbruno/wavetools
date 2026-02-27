@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-02-27T05:13:43.645Z",
+  "group": {
+    "key": "M8-D__pince-a-visser",
+    "slug": "m8-d__pince-a-visser",
+    "family": "M8-D",
+    "terminaison": "pince-a-visser",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "contacts": [
+      4
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "formes": [
+      "droit"
+    ],
+    "longueurs": [
+      "40-55",
+      "50-80"
+    ]
+  },
+  "canonical": {
+    "ref": "99 3369 100 04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/99-3369-100-04-m8-d-connecteur-male-contacts-4-40-55-mm-blindable-pince-a-visser-ip67-1",
+    "title": "M8 Connecteur mâle, Contacts: 4, 4,0-5,5 mm, blindable, pince à visser, IP67, ressort à iris",
+    "mainImage": "produits/connecteur/img/m8-d__pince-a-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_1_KS_D_met.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/99-3369-100-04-m8-d-connecteur-male-contacts-4-40-55-mm-blindable-pince-a-visser-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/99-3369-600-04-m8-d-connecteur-male-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "50-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/99-3368-600-04-m8-d-connecteur-femelle-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-m8x10-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "50-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/99-3368-100-04-m8-d-connecteur-femelle-contacts-4-40-55-mm-blindable-pince-a-visser-ip67-m8x10-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

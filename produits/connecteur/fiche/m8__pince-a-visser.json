@@ -1,0 +1,301 @@
+{
+  "generatedAt": "2026-02-27T05:13:42.684Z",
+  "group": {
+    "key": "M8__pince-a-visser",
+    "slug": "m8__pince-a-visser",
+    "family": "M8",
+    "terminaison": "pince-a-visser",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "contacts": [
+      3,
+      4
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "35-50",
+      "40-55",
+      "60-80"
+    ]
+  },
+  "canonical": {
+    "ref": "99 3361 300 03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3361-300-03-m8-connecteur-male-contacts-3-60-80-mm-blindable-pince-a-visser-ip67-ul",
+    "title": "M8 Connecteur mâle, Contacts: 3, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection",
+    "mainImage": "produits/connecteur/img/m8__pince-a-visser.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/768_1_KS_6-8.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3379-100-03-m8-connecteur-male-contacts-3-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3383-100-04-m8-connecteur-male-contacts-4-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3361-100-03-m8-connecteur-male-contacts-3-40-55-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3363-100-04-m8-connecteur-male-contacts-4-40-55-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3361-300-03-m8-connecteur-male-contacts-3-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3363-300-04-m8-connecteur-male-contacts-4-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3379-110-03-m8-connecteur-male-coude-contacts-3-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3383-110-04-m8-connecteur-male-coude-contacts-4-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3400-100-03-m8-connecteur-femelle-contacts-3-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-100-04-m8-connecteur-femelle-contacts-4-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3360-100-03-m8-connecteur-femelle-contacts-3-40-55-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3362-100-04-m8-connecteur-femelle-contacts-4-40-55-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "40-55",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3360-300-03-m8-connecteur-femelle-contacts-3-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3362-300-04-m8-connecteur-femelle-contacts-4-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3400-110-03-m8-connecteur-femelle-coude-contacts-3-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-110-04-m8-connecteur-femelle-coude-contacts-4-35-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "35-50",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}

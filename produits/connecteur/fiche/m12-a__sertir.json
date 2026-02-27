@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-02-27T05:13:43.003Z",
+  "group": {
+    "key": "M12-A__sertir",
+    "slug": "m12-a__sertir",
+    "family": "M12-A",
+    "terminaison": "sertir",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "contacts": [
+      4
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "40-60",
+      "50-80",
+      "60-80"
+    ]
+  },
+  "canonical": {
+    "ref": "99 0530 24 04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-24-04-m12-a-connecteur-femelle-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+    "title": "M12 Connecteur femelle coudé, Contacts: 4, 4,0-6,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a__sertir.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_SK_Wi_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99 0530 24 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-24-04-m12-a-connecteur-femelle-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0530 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-52-04-m12-a-connecteur-femelle-coude-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1434-824-04-m12-a-connecteur-femelle-coude-contacts-4-60-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0529 12 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0529-12-04-m12-a-connecteur-male-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0529 14 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0529-14-04-m12-a-connecteur-male-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1433-814-04-m12-a-connecteur-male-contacts-4-50-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "50-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0530 14 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-14-04-m12-a-connecteur-femelle-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0530 12 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-12-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1434-814-04-m12-a-connecteur-femelle-contacts-4-50-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "blindable",
+      "forme": "droit",
+      "longueur": "50-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1433-824-04-m12-a-connecteur-male-coude-contacts-4-50-80-mm-blindable-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "blindable",
+      "forme": "coude",
+      "longueur": "50-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0529 24 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0529-24-04-m12-a-connecteur-male-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "40-60",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    },
+    {
+      "ref": "99 0529 52 04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0529-52-04-m12-a-connecteur-male-coude-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "60-80",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": true
+      }
+    }
+  ]
+}

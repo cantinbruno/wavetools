@@ -1,0 +1,1293 @@
+{
+  "generatedAt": "2026-02-27T05:13:45.311Z",
+  "group": {
+    "key": "7/8\"__unknown",
+    "slug": "7-8__unknown",
+    "family": "7/8\"",
+    "terminaison": "unknown",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "contacts": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "standards": [
+      "none"
+    ],
+    "genres": [
+      "femelle",
+      "male",
+      "unknown"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "formes": [
+      "coude",
+      "droit"
+    ],
+    "longueurs": [
+      "unknown"
+    ]
+  },
+  "canonical": {
+    "ref": "77 1429 0000 50003-0200 Référence alternative: 79 2453 20 03",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50003-0200-7-8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-2-m",
+    "title": "7/8\" Connecteur mâle, Contacts: 3, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 3 x 1,50 mm², 2 m",
+    "mainImage": "produits/connecteur/img/7-8__unknown.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/870_1_KS_s.jpg"
+  },
+  "variants": [
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50003-0200-7-8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50003-0500-7-8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50003-1000-7-8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-10-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50004-0200-7-8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50004-0500-7-8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50004-1000-7-8-connecteur-male-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-10-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50005-0200-7-8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50005-0500-7-8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1429-0000-50005-1000-7-8-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-10-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50003-0200-7-8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50003-0500-7-8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50003-1000-7-8-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-10-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50004-0200-7-8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50004-0500-7-8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50004-1000-7-8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-10-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-0200-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-0500-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1427-0000-50005-1000-7-8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-10-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "male",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50003-0200-7-8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50003-0500-7-8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50003-1000-7-8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-10-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50004-0200-7-8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50004-0500-7-8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50004-1000-7-8-connecteur-femelle-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-10-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50005-0200-7-8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50005-0500-7-8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1430-0000-50005-1000-7-8-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-10-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50003-0200-7-8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-2-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50003-0500-7-8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-5-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50003-1000-7-8-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-150-mm2-10-m",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50004-0200-7-8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-2-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50004-0500-7-8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-5-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50004-1000-7-8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-4-x-150-mm2-10-m",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50005-0200-7-8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-2-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50005-0500-7-8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-5-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/77-1434-0000-50005-1000-7-8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-5-x-150-mm2-10-m",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "femelle",
+      "blindage": "non-blinde",
+      "forme": "coude",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-310-03-7-8-embase-male-contacts-2-pe-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-300-03-7-8-embase-male-contacts-2-pe-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-320-03-7-8-embase-male-contacts-2-pe-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-310-04-7-8-embase-male-contacts-4-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-300-04-7-8-embase-male-contacts-4-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-320-04-7-8-embase-male-contacts-4-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-310-05-7-8-embase-male-contacts-4-pe-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-300-05-7-8-embase-male-contacts-4-pe-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-320-05-7-8-embase-male-contacts-4-pe-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-100-03-7-8-embase-male-contacts-2-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-100-04-7-8-embase-male-contacts-4-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-100-05-7-8-embase-male-contacts-4-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-330-03-7-8-embase-male-contacts-2-pe-non-blinde-tht-ip68-ul-vde",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-330-04-7-8-embase-male-contacts-4-non-blinde-tht-ip68-ul-vde",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-330-05-7-8-embase-male-contacts-4-pe-non-blinde-tht-ip68-ul-vde",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-180-03-7-8-embase-male-contacts-2-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-180-04-7-8-embase-male-contacts-4-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-180-05-7-8-embase-male-contacts-4-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-310-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-300-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-320-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-310-04-7-8-embase-femelle-contacts-4-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-300-04-7-8-embase-femelle-contacts-4-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-320-04-7-8-embase-femelle-contacts-4-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-310-05-7-8-embase-femelle-contacts-4-pe-non-blinde-fils-ip68-ul-vde-pg-11",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-300-05-7-8-embase-femelle-contacts-4-pe-non-blinde-fils-ip68-ul-vde-pg-135",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-320-05-7-8-embase-femelle-contacts-4-pe-non-blinde-fils-ip68-ul-vde-m20x15",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-100-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-100-04-7-8-embase-femelle-contacts-4-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-100-05-7-8-embase-femelle-contacts-4-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-330-03-7-8-embase-femelle-contacts-2-pe-non-blinde-tht-ip68-ul-vde",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-330-04-7-8-embase-femelle-contacts-4-non-blinde-tht-ip68-ul-vde",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-330-05-7-8-embase-femelle-contacts-4-pe-non-blinde-tht-ip68-ul-vde",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-180-03-7-8-embase-femelle-contacts-2-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 2,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-180-04-7-8-embase-femelle-contacts-4-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-180-05-7-8-embase-femelle-contacts-4-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "09 2472 00 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2472-00-05-7-8-adaptateur-contacts-5-non-blinde-enfichable-ip67-vde",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-5475-100-05-7-8-repartiteur-double-contacts-5-non-blinde-ip68",
+      "contacts": 5,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-5474-100-04-7-8-repartiteur-double-contacts-4-non-blinde-ip68",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": null,
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-5473-100-03-7-8-repartiteur-double-contacts-3-non-blinde-ip68",
+      "contacts": 3,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip68",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 2475 00 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-2475-00-05-7-8-adaptateur-contacts-4-fe-non-blinde-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    },
+    {
+      "ref": "79 2476 00 05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-2476-00-05-7-8-adaptateur-contacts-4-fe-non-blinde-ip67-1",
+      "contacts": 4,
+      "standard": "none",
+      "genre": "unknown",
+      "blindage": "non-blinde",
+      "forme": "droit",
+      "longueur": "unknown",
+      "ip": "ip67",
+      "flags": {
+        "versionCourte": false,
+        "aisg": false,
+        "contactsSepares": false
+      }
+    }
+  ]
+}
