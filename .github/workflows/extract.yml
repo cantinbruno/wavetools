@@ -3,7 +3,6 @@ name: Extract binder specs (manual)
 on:
   workflow_dispatch:
 
-# Empêche 2 runs de push en même temps
 concurrency:
   group: binder-extract-main
   cancel-in-progress: true
@@ -13,15 +12,12 @@ permissions:
 
 jobs:
   extract:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # IMPORTANT pour git pull --rebase
           fetch-depth: 0
 
       - name: Setup NodeJS
@@ -36,8 +32,6 @@ jobs:
         run: node produits/connecteur/scripts/extract-binder-specs.mjs
         env:
           # DELAY_MS: "120"
-
-          # ⭐ Pour tester seulement 20 produits :
           MAX_PRODUCTS: "20"
 
       - name: Commit & push generated catalog
@@ -47,12 +41,9 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # ajoute JSON + images
-          git add produits/connecteur/fiche/*.json \
-                  produits/connecteur/fiche/index.json \
-                  produits/connecteur/img/* || true
+          # ✅ JSON + IMG (ajouts/modifs/suppressions)
+          git add -A produits/connecteur/fiche produits/connecteur/img
 
-          # rien changé ?
           if git diff --cached --quiet; then
             echo "Nothing to commit."
             exit 0
@@ -60,7 +51,5 @@ jobs:
 
           git commit -m "auto: update binder catalog"
 
-          # 🔥 solution stable anti conflit
           git pull --rebase --autostash origin main
-
           git push origin main
