@@ -3,15 +3,23 @@ name: Extract binder specs (manual)
 on:
   workflow_dispatch: {}
 
+concurrency:
+  group: binder-extract-main
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
 jobs:
   extract:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # important pour rebase/push sans galère
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -24,12 +32,31 @@ jobs:
       - name: Run extractor
         run: node produits/connecteur/scripts/extract-binder-specs.mjs
         env:
+          # ✅ Mets 20 pour tester, puis commente/supprime pour tout faire
           MAX_PRODUCTS: "20"
+          # DELAY_MS: "120"
 
-      - name: Commit generated JSON
+      - name: Commit & push generated catalog
         run: |
+          set -e
+
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add produits/connecteur/fiche/*.json produits/connecteur/fiche/index.json || true
-          git diff --cached --quiet || git commit -m "chore: generate binder product specs"
-          git push
+
+          # Ajout des fichiers générés
+          git add produits/connecteur/fiche/*.json produits/connecteur/fiche/index.json produits/connecteur/img/* || true
+
+          # Si rien n'a changé, on sort
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "auto: update binder catalog"
+
+          # Récupérer l'état distant et rebase pour éviter 'fetch first'
+          git fetch origin main
+          git rebase origin/main || (git rebase --abort && exit 1)
+
+          # Push robuste (safe force)
+          git push origin HEAD:main --force-with-lease
