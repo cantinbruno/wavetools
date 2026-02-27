@@ -9,12 +9,13 @@ const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 const IMG_DIR = path.resolve("produits/connecteur/img");
 
-const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
+// 0 = tout
+const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0);
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
 const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
 
-const FETCH_RETRIES = Number(process.env.FETCH_RETRIES || 4); // nb tentatives total
-const RETRY_BACKOFF_MULT = Number(process.env.RETRY_BACKOFF_MULT || 2); // backoff = DELAY_MS * attempt * mult
+const FETCH_RETRIES = Number(process.env.FETCH_RETRIES || 4);
+const RETRY_BACKOFF_MULT = Number(process.env.RETRY_BACKOFF_MULT || 2);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
@@ -26,7 +27,6 @@ function isRetryableStatus(code) {
 
 async function fetchText(url, attempt = 1) {
   const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-
   if (res.ok) return res.text();
 
   if (isRetryableStatus(res.status) && attempt < FETCH_RETRIES) {
@@ -58,12 +58,6 @@ async function downloadToFile(url, destPath, attempt = 1) {
   throw new Error(`Image HTTP ${res.status} on ${url}`);
 }
 
-function slugRef(ref) {
-  // "99 0530 24 04" -> "99-0530-24-04"
-  // "08 2679 000 001" -> "08-2679-000-001"
-  return clean(ref).replace(/\s+/g, "-");
-}
-
 function ensureDirsAndCleanup() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   fs.mkdirSync(IMG_DIR, { recursive: true });
@@ -83,8 +77,7 @@ function ensureDirsAndCleanup() {
 }
 
 /**
- * ✅ UNIQUEMENT les familles que tu as données (filtrage AVANT crawl)
- * On stocke: prefix -> family label
+ * ✅ familles autorisées (filtrage AVANT crawl)
  */
 const FAMILY_PREFIXES = [
   { family: "M12-A", prefix: "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/" },
@@ -98,7 +91,6 @@ const FAMILY_PREFIXES = [
   { family: '7/8"', prefix: "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/" }
 ];
 
-// normalisation (au cas où)
 for (const p of FAMILY_PREFIXES) {
   if (!p.prefix.endsWith("/")) p.prefix += "/";
 }
@@ -148,21 +140,36 @@ function extractCategory1FromUrl(productUrl) {
   }
 }
 
-/** Ref depuis URL */
+/** Ref depuis URL (rapide, sans crawl) */
 function extractRefFromUrl(productUrl) {
   const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
   return m ? m[1].replace(/-/g, " ") : null;
 }
 
-/** Ref depuis texte (plusieurs formats) */
+function slugRef(ref) {
+  // "99 0530 24 04" -> "99-0530-24-04"
+  // "08 2679 000 001" -> "08-2679-000-001"
+  return clean(ref).replace(/\s+/g, "-");
+}
+
+function safeFileSlug(s) {
+  // slug safe filename
+  return clean(s)
+    .toLowerCase()
+    .replace(/["']/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-_.]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** Ref depuis texte (si crawl) */
 function extractRefFromText($) {
   const txt = clean($("body").text());
 
-  // ex: 08 2679 000 001
   let m = txt.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   if (m) return m[0];
 
-  // ex: 99 0530 24 04 (M12-A)
   m = txt.match(/\b\d{2}\s\d{4}\s\d{2}\s\d{2}\b/);
   if (m) return m[0];
 
@@ -290,9 +297,7 @@ function getImageExtensionFromUrl(url) {
   return ".jpg";
 }
 
-/* -------------------------------------------------------------------------- */
-/* ✅ NOUVEAU: parsing options depuis l'URL + regroupement + image canonique   */
-/* -------------------------------------------------------------------------- */
+/* ------------------- Parsing options depuis URL (sans crawl) ------------------- */
 
 function getSlug(productUrl) {
   try {
@@ -320,7 +325,7 @@ function parseVariantOptionsFromUrl(productUrl) {
 
   const standard = slug.includes("-din-") ? "din" : slug.includes("-stereo-") ? "stereo" : "none";
 
-  // longueur: on capture 40-60-mm, 41-78-mm, 40-80-mm, 80-100-mm...
+  // longueur: 40-60 / 41-78 / 60-80 / 80-100 / 40-80 ...
   const mLen = slug.match(/(\d{2}-\d{2,3})-mm/);
   const longueur = mLen ? mLen[1] : "unknown";
 
@@ -353,28 +358,47 @@ function parseVariantOptionsFromUrl(productUrl) {
   };
 }
 
-function pickCanonicalVariant(candidates) {
-  // candidates: array of { url, ref, options }
-  const lenPref = ["60-80", "40-60", "80-100", "41-78", "unknown"];
+/**
+ * On stocke les variants en liste (simple et robuste).
+ * Ton front pourra filtrer facilement.
+ */
+function variantKey(v) {
+  // évite les doublons exacts (mêmes attributs + url)
+  return [
+    v.contacts ?? "unknown",
+    v.standard ?? "unknown",
+    v.genre ?? "unknown",
+    v.blindage ?? "unknown",
+    v.forme ?? "unknown",
+    v.longueur ?? "unknown",
+    v.url
+  ].join("|");
+}
 
-  function score(v) {
-    const o = v.options;
+function pickCanonicalVariant(candidates) {
+  // Heuristique simple : préférer droit + blindable + ip68 + longueur “standard” + éviter contacts séparés/versions courtes
+  const lenPref = ["60-80", "40-60", "80-100", "41-78", "40-80", "unknown"];
+
+  function score(c) {
+    const o = c.options;
     let s = 0;
 
-    // "sertir + contacts séparés" => on évite en canonique
     if (o.flags?.contactsSepares) return -10_000;
 
+    if (o.forme === "droit") s += 30;
     if (o.blindage === "blindable") s += 20;
-    if (o.forme === "droit") s += 10;
-
-    const li = lenPref.indexOf(o.longueur);
-    s += li === -1 ? 0 : (10 - li);
 
     if (o.ip === "ip68") s += 10;
     if (o.ip === "ip67") s += 2;
 
-    if (o.flags?.versionCourte) s -= 8;
-    if (o.flags?.aisg) s -= 3;
+    const li = lenPref.indexOf(o.longueur);
+    s += li === -1 ? 0 : (10 - li);
+
+    if (o.flags?.versionCourte) s -= 6;
+    if (o.flags?.aisg) s -= 2;
+
+    // bonus si on a une ref dans l’URL
+    if (c.ref) s += 4;
 
     return s;
   }
@@ -397,24 +421,6 @@ function setToSortedArray(set, numeric = false) {
   return arr.sort();
 }
 
-function pushVariantNested(variants, options, payload) {
-  const c = String(options.contacts ?? "unknown");
-  const st = options.standard ?? "unknown";
-  const g = options.genre ?? "unknown";
-  const bl = options.blindage ?? "unknown";
-  const f = options.forme ?? "unknown";
-  const l = options.longueur ?? "unknown";
-
-  variants[c] ??= {};
-  variants[c][st] ??= {};
-  variants[c][st][g] ??= {};
-  variants[c][st][g][bl] ??= {};
-  variants[c][st][g][bl][f] ??= {};
-  variants[c][st][g][bl][f][l] ??= [];
-
-  variants[c][st][g][bl][f][l].push(payload);
-}
-
 /* -------------------------------------------------------------------------- */
 
 async function main() {
@@ -424,96 +430,34 @@ async function main() {
   let urls = await getAllProductUrlsFromSitemap();
   console.log(`Produits sitemap (total): ${urls.length}`);
 
-  // ✅ FILTRE AVANT CRAWL
   urls = filterUrlsByPrefixes(urls);
   console.log(`Produits après filtre familles: ${urls.length}`);
 
   if (MAX_PRODUCTS > 0) urls = urls.slice(0, MAX_PRODUCTS);
 
-  const indexItems = [];
-  let skippedNoRef = 0;
-  let skippedHttp = 0;
-
-  // ✅ regroupement
-  // Par défaut: groupKey = family + terminaison
+  // ✅ Pré-regroupement SANS crawl
+  // groupKey = family + terminaison (tu peux changer si tu veux grouper autrement)
   const grouped = new Map();
 
-  for (let i = 0; i < urls.length; i++) {
-    const url = urls[i];
-    const family = getFamilyFromUrl(url); // garanti non-null ici
-    console.log(`[${i + 1}/${urls.length}] [${family}] ${url}`);
+  for (const url of urls) {
+    const family = getFamilyFromUrl(url);
+    if (!family) continue;
 
-    // ✅ fetch résilient (skip au lieu de crash)
-    let html;
-    try {
-      html = await fetchText(url);
-    } catch (e) {
-      console.warn(`  ❌ Skip (page inaccessible): ${e.message}`);
-      skippedHttp++;
-      await sleep(DELAY_MS);
-      continue;
-    }
-
-    const $ = cheerio.load(html);
-
-    const title = clean($("h1").first().text()) || null;
+    const options = parseVariantOptionsFromUrl(url);
+    const ref = extractRefFromUrl(url);
     const category1 = extractCategory1FromUrl(url);
 
-    const secA = extractSectionsBinderAccordion($);
-    const secB = extractTechnicalTablesFallback($);
-    const sections = mergeSections(secA, secB);
-
-    // ✅ ref: sections -> texte -> url
-    let ref = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url);
-    if (!ref) {
-      console.warn("  ❌ Ref introuvable => skip (pour rester propre/cohérent)");
-      skippedNoRef++;
-      await sleep(DELAY_MS);
-      continue;
-    }
-
-    const refSlug = slugRef(ref);
-
-    // ✅ On garde la capacité d'extraire l'image, mais on ne télécharge pas ici.
-    const mainImageUrl = extractMainImageUrl($, url);
-
-    // ✅ JSON = même nom que ref (fonctionnalité d'avant conservée)
-    const jsonFilename = `${refSlug}.json`;
-    const jsonPath = path.join(OUT_DIR, jsonFilename);
-
-    const data = {
-      ref,
-      title,
-      url,
-      family,
-      category1,
-      mainImage: null, // image locale réservée au canonique du regroupement
-      mainImageUrl: mainImageUrl || null,
-      sections
-    };
-
-    fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), "utf-8");
-
-    indexItems.push({
-      ref,
-      title,
-      url,
-      family,
-      category1,
-      mainImage: null,
-      file: `produits/connecteur/fiche/${jsonFilename}`
-    });
-
-    // ✅ Ajout au regroupement
-    const options = parseVariantOptionsFromUrl(url);
     const groupKey = `${family}__${options.terminaison}`;
+    const groupSlug = safeFileSlug(groupKey);
 
     if (!grouped.has(groupKey)) {
       grouped.set(groupKey, {
         key: groupKey,
+        slug: groupSlug,
         family,
         terminaison: options.terminaison,
-        options: {
+        category1,
+        optionsSets: {
           contacts: new Set(),
           standards: new Set(),
           genres: new Set(),
@@ -521,133 +465,178 @@ async function main() {
           formes: new Set(),
           longueurs: new Set()
         },
-        variants: {},
-        _candidatesForImage: [] // interne
+        // variantes (liste unique)
+        variantsMap: new Map(),
+        // candidats canonique
+        candidates: []
       });
     }
 
     const G = grouped.get(groupKey);
 
-    if (options.contacts != null) G.options.contacts.add(options.contacts);
-    G.options.standards.add(options.standard);
-    G.options.genres.add(options.genre);
-    G.options.blindages.add(options.blindage);
-    G.options.formes.add(options.forme);
-    G.options.longueurs.add(options.longueur);
+    if (options.contacts != null) G.optionsSets.contacts.add(options.contacts);
+    G.optionsSets.standards.add(options.standard);
+    G.optionsSets.genres.add(options.genre);
+    G.optionsSets.blindages.add(options.blindage);
+    G.optionsSets.formes.add(options.forme);
+    G.optionsSets.longueurs.add(options.longueur);
 
-    pushVariantNested(G.variants, options, {
-      ref,
+    const v = {
+      ref: ref || null,
       url,
-      file: `produits/connecteur/fiche/${jsonFilename}`,
-      mainImageUrl: mainImageUrl || null
-    });
+      // Les critères que tu as demandés
+      contacts: options.contacts,
+      standard: options.standard,
+      genre: options.genre,
+      blindage: options.blindage,
+      forme: options.forme,
+      longueur: options.longueur,
+      ip: options.ip,
+      flags: options.flags
+    };
 
-    G._candidatesForImage.push({
-      ref,
+    const vk = variantKey(v);
+    if (!G.variantsMap.has(vk)) G.variantsMap.set(vk, v);
+
+    G.candidates.push({
       url,
+      ref,
       options
     });
-
-    await sleep(DELAY_MS);
   }
 
-  // ✅ Index (comme avant)
+  console.log(`✅ Groupes construits (sans crawl): ${grouped.size}`);
+
+  // ✅ Crawl UNIQUEMENT des canoniques : 1 page par groupe
+  const indexGroups = [];
+  let skippedCanonicalHttp = 0;
+  let skippedCanonicalNoRef = 0;
+  let skippedGroupImages = 0;
+
+  for (const [groupKey, G] of grouped.entries()) {
+    const canonical = pickCanonicalVariant(G.candidates);
+
+    console.log(`[CANON] [${G.family}] [${G.terminaison}] ${canonical?.url ?? "(none)"}`);
+
+    let title = null;
+    let sections = {};
+    let canonicalRef = canonical?.ref || null;
+    let canonicalUrl = canonical?.url || null;
+
+    let mainImageLocal = null;
+    let mainImageUrl = null;
+
+    if (canonicalUrl) {
+      // fetch canonique + sections + ref fiable + image
+      let html;
+      try {
+        html = await fetchText(canonicalUrl);
+      } catch (e) {
+        console.warn(`  ❌ Canon skip (HTTP): ${e.message}`);
+        skippedCanonicalHttp++;
+        // On écrit quand même le groupe, juste sans image/sections
+        html = null;
+      }
+
+      if (html) {
+        const $ = cheerio.load(html);
+
+        title = clean($("h1").first().text()) || null;
+
+        const secA = extractSectionsBinderAccordion($);
+        const secB = extractTechnicalTablesFallback($);
+        sections = mergeSections(secA, secB);
+
+        // ref fiable (si dispo dans page)
+        canonicalRef = refFromSections(sections) || extractRefFromText($) || canonicalRef || extractRefFromUrl(canonicalUrl);
+        if (!canonicalRef) {
+          console.warn("  ⚠️ Ref canon introuvable (groupe écrit mais sans ref canon)");
+          skippedCanonicalNoRef++;
+        }
+
+        // image
+        try {
+          const imgUrl = extractMainImageUrl($, canonicalUrl);
+          if (imgUrl) {
+            mainImageUrl = imgUrl;
+
+            // nom image = basé sur le groupe (stable) pour avoir 1 image par groupe
+            const ext = getImageExtensionFromUrl(imgUrl);
+            const imgFilename = `${G.slug}${ext}`;
+            const imgDest = path.join(IMG_DIR, imgFilename);
+
+            await downloadToFile(imgUrl, imgDest);
+            mainImageLocal = `produits/connecteur/img/${imgFilename}`;
+          } else {
+            skippedGroupImages++;
+          }
+        } catch (e) {
+          console.warn(`  ⚠️ Image canon skip: ${e.message}`);
+          skippedGroupImages++;
+        }
+      }
+
+      await sleep(DELAY_MS);
+    }
+
+    // ✅ Construction JSON groupe
+    const variants = Array.from(G.variantsMap.values());
+
+    const groupJson = {
+      generatedAt: new Date().toISOString(),
+      group: {
+        key: G.key,
+        slug: G.slug,
+        family: G.family,
+        terminaison: G.terminaison,
+        category1: G.category1
+      },
+      availableOptions: {
+        // utile pour UI filtres
+        contacts: setToSortedArray(G.optionsSets.contacts, true),
+        standards: setToSortedArray(G.optionsSets.standards),
+        genres: setToSortedArray(G.optionsSets.genres),
+        blindages: setToSortedArray(G.optionsSets.blindages),
+        formes: setToSortedArray(G.optionsSets.formes),
+        longueurs: setToSortedArray(G.optionsSets.longueurs)
+      },
+      canonical: {
+        ref: canonicalRef,
+        url: canonicalUrl,
+        title,
+        mainImage: mainImageLocal,
+        mainImageUrl
+      },
+      variants
+    };
+
+    // ✅ 1 fichier JSON par groupe
+    const groupFilename = `${G.slug}.json`;
+    const groupPath = path.join(OUT_DIR, groupFilename);
+    fs.writeFileSync(groupPath, JSON.stringify(groupJson, null, 2), "utf-8");
+
+    indexGroups.push({
+      key: G.key,
+      family: G.family,
+      terminaison: G.terminaison,
+      file: `produits/connecteur/fiche/${groupFilename}`,
+      image: mainImageLocal,
+      canonicalUrl
+    });
+  }
+
+  // ✅ index des groupes
   fs.writeFileSync(
     path.join(OUT_DIR, "index.json"),
     JSON.stringify(
       {
         generatedAt: new Date().toISOString(),
-        count: indexItems.length,
-        skippedNoRef,
-        skippedHttp,
-        families: FAMILY_PREFIXES.map((x) => x.family),
-        items: indexItems
-      },
-      null,
-      2
-    ),
-    "utf-8"
-  );
-
-  // ✅ grouped.json + 1 image par regroupement (image du canonique)
-  const groupedOut = [];
-  let skippedGroupImages = 0;
-
-  for (const [key, G] of grouped.entries()) {
-    const canonical = pickCanonicalVariant(G._candidatesForImage);
-
-    let mainImageLocal = null;
-    let canonicalImageUrl = null;
-
-    if (canonical) {
-      try {
-        // refetch canonique (robuste)
-        const html = await fetchText(canonical.url);
-        const $ = cheerio.load(html);
-        const imgUrl = extractMainImageUrl($, canonical.url);
-
-        if (imgUrl) {
-          canonicalImageUrl = imgUrl;
-          const ext = getImageExtensionFromUrl(imgUrl);
-          const imgFilename = `${slugRef(canonical.ref)}${ext}`;
-          const imgDest = path.join(IMG_DIR, imgFilename);
-
-          try {
-            await downloadToFile(imgUrl, imgDest);
-            mainImageLocal = `produits/connecteur/img/${imgFilename}`;
-          } catch (e) {
-            console.warn(`  ⚠️ Image skip (download fail): ${e.message}`);
-            skippedGroupImages++;
-          }
-        } else {
-          skippedGroupImages++;
-        }
-      } catch (e) {
-        console.warn(`  ⚠️ Canonical fetch/image skip pour ${key}: ${e.message}`);
-        skippedGroupImages++;
-      }
-    } else {
-      skippedGroupImages++;
-    }
-
-    groupedOut.push({
-      key,
-      family: G.family,
-      terminaison: G.terminaison,
-      options: {
-        contacts: setToSortedArray(G.options.contacts, true),
-        standards: setToSortedArray(G.options.standards),
-        genres: setToSortedArray(G.options.genres),
-        blindages: setToSortedArray(G.options.blindages),
-        formes: setToSortedArray(G.options.formes),
-        longueurs: setToSortedArray(G.options.longueurs)
-      },
-      canonical: canonical
-        ? {
-            ref: canonical.ref,
-            url: canonical.url,
-            mainImage: mainImageLocal,
-            mainImageUrl: canonicalImageUrl
-          }
-        : {
-            ref: null,
-            url: null,
-            mainImage: null,
-            mainImageUrl: null
-          },
-      variants: G.variants
-    });
-  }
-
-  fs.writeFileSync(
-    path.join(OUT_DIR, "grouped.json"),
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        groupCount: groupedOut.length,
+        groupCount: indexGroups.length,
+        skippedCanonicalHttp,
+        skippedCanonicalNoRef,
         skippedGroupImages,
-        // note: groupKey = family + terminaison
-        groups: groupedOut
+        families: FAMILY_PREFIXES.map((x) => x.family),
+        groups: indexGroups
       },
       null,
       2
@@ -656,7 +645,7 @@ async function main() {
   );
 
   console.log(
-    `✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef} | http skipped: ${skippedHttp} | groups: ${groupedOut.length} | group images skipped: ${skippedGroupImages}`
+    `✅ Terminé. Groupes: ${indexGroups.length} | Canon HTTP skipped: ${skippedCanonicalHttp} | Canon noRef: ${skippedCanonicalNoRef} | Group images skipped: ${skippedGroupImages}`
   );
 }
 
