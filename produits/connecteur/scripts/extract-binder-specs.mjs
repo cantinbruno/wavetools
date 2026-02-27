@@ -13,21 +13,49 @@ const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
 const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
 
+const FETCH_RETRIES = Number(process.env.FETCH_RETRIES || 4); // nb tentatives total
+const RETRY_BACKOFF_MULT = Number(process.env.RETRY_BACKOFF_MULT || 2); // backoff = DELAY_MS * attempt * mult
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
 const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
-async function fetchText(url) {
-  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-  if (!res.ok) throw new Error(`HTTP ${res.status} on ${url}`);
-  return res.text();
+function isRetryableStatus(code) {
+  return [429, 500, 502, 503, 504].includes(code);
 }
 
-async function downloadToFile(url, destPath) {
+async function fetchText(url, attempt = 1) {
   const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
-  if (!res.ok) throw new Error(`Image HTTP ${res.status} on ${url}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  fs.writeFileSync(destPath, buf);
+
+  if (res.ok) return res.text();
+
+  if (isRetryableStatus(res.status) && attempt < FETCH_RETRIES) {
+    const backoff = DELAY_MS * attempt * RETRY_BACKOFF_MULT;
+    console.warn(`  ⚠️ HTTP ${res.status} sur ${url} -> retry ${attempt}/${FETCH_RETRIES - 1} dans ${backoff}ms`);
+    await sleep(backoff);
+    return fetchText(url, attempt + 1);
+  }
+
+  throw new Error(`HTTP ${res.status} on ${url}`);
+}
+
+async function downloadToFile(url, destPath, attempt = 1) {
+  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
+
+  if (res.ok) {
+    const buf = Buffer.from(await res.arrayBuffer());
+    fs.writeFileSync(destPath, buf);
+    return;
+  }
+
+  if (isRetryableStatus(res.status) && attempt < FETCH_RETRIES) {
+    const backoff = DELAY_MS * attempt * RETRY_BACKOFF_MULT;
+    console.warn(`  ⚠️ Image HTTP ${res.status} -> retry ${attempt}/${FETCH_RETRIES - 1} dans ${backoff}ms`);
+    await sleep(backoff);
+    return downloadToFile(url, destPath, attempt + 1);
+  }
+
+  throw new Error(`Image HTTP ${res.status} on ${url}`);
 }
 
 function slugRef(ref) {
@@ -292,7 +320,7 @@ function parseVariantOptionsFromUrl(productUrl) {
 
   const standard = slug.includes("-din-") ? "din" : slug.includes("-stereo-") ? "stereo" : "none";
 
-  // longueur: on capture un truc type 40-60-mm, 41-78-mm, 40-80-mm, 80-100-mm...
+  // longueur: on capture 40-60-mm, 41-78-mm, 40-80-mm, 80-100-mm...
   const mLen = slug.match(/(\d{2}-\d{2,3})-mm/);
   const longueur = mLen ? mLen[1] : "unknown";
 
@@ -333,7 +361,7 @@ function pickCanonicalVariant(candidates) {
     const o = v.options;
     let s = 0;
 
-    // Si sertir + contacts séparés => très souvent "bruit" pour une fiche canonique
+    // "sertir + contacts séparés" => on évite en canonique
     if (o.flags?.contactsSepares) return -10_000;
 
     if (o.blindage === "blindable") s += 20;
@@ -347,10 +375,6 @@ function pickCanonicalVariant(candidates) {
 
     if (o.flags?.versionCourte) s -= 8;
     if (o.flags?.aisg) s -= 3;
-
-    // petite préférence si tout est "unknown"
-    if (o.genre === "unknown") s -= 2;
-    if (o.standard === "none") s += 1;
 
     return s;
   }
@@ -408,10 +432,10 @@ async function main() {
 
   const indexItems = [];
   let skippedNoRef = 0;
+  let skippedHttp = 0;
 
-  // ✅ NOUVEAU: regroupement
-  // Par défaut: 1 "groupe" = family + terminaison (ça garde une cohérence produit)
-  // Si tu veux regrouper différemment, change juste la construction de groupKey plus bas.
+  // ✅ regroupement
+  // Par défaut: groupKey = family + terminaison
   const grouped = new Map();
 
   for (let i = 0; i < urls.length; i++) {
@@ -419,7 +443,17 @@ async function main() {
     const family = getFamilyFromUrl(url); // garanti non-null ici
     console.log(`[${i + 1}/${urls.length}] [${family}] ${url}`);
 
-    const html = await fetchText(url);
+    // ✅ fetch résilient (skip au lieu de crash)
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch (e) {
+      console.warn(`  ❌ Skip (page inaccessible): ${e.message}`);
+      skippedHttp++;
+      await sleep(DELAY_MS);
+      continue;
+    }
+
     const $ = cheerio.load(html);
 
     const title = clean($("h1").first().text()) || null;
@@ -440,11 +474,10 @@ async function main() {
 
     const refSlug = slugRef(ref);
 
-    // ✅ Image (on conserve la fonction, mais on télécharge seulement pour le canonique à la fin)
-    // On garde tout de même l'URL image brute si tu veux l'exploiter plus tard.
+    // ✅ On garde la capacité d'extraire l'image, mais on ne télécharge pas ici.
     const mainImageUrl = extractMainImageUrl($, url);
 
-    // ✅ JSON = même nom que ref (COMPORTEMENT D'AVANT CONSERVÉ)
+    // ✅ JSON = même nom que ref (fonctionnalité d'avant conservée)
     const jsonFilename = `${refSlug}.json`;
     const jsonPath = path.join(OUT_DIR, jsonFilename);
 
@@ -454,7 +487,7 @@ async function main() {
       url,
       family,
       category1,
-      mainImage: null, // sera renseigné pour l'item canonique du regroupement (si tu veux)
+      mainImage: null, // image locale réservée au canonique du regroupement
       mainImageUrl: mainImageUrl || null,
       sections
     };
@@ -471,10 +504,10 @@ async function main() {
       file: `produits/connecteur/fiche/${jsonFilename}`
     });
 
-    // ✅ NOUVEAU: ajout au regroupement
+    // ✅ Ajout au regroupement
     const options = parseVariantOptionsFromUrl(url);
+    const groupKey = `${family}__${options.terminaison}`;
 
-    const groupKey = `${family}__${options.terminaison}`; // ← clé de regroupement "grosse fiche"
     if (!grouped.has(groupKey)) {
       grouped.set(groupKey, {
         key: groupKey,
@@ -506,9 +539,6 @@ async function main() {
       ref,
       url,
       file: `produits/connecteur/fiche/${jsonFilename}`,
-      // tu peux garder title ici si tu veux (mais ça alourdit)
-      // title,
-      // on garde l'url image brute au niveau variant si besoin
       mainImageUrl: mainImageUrl || null
     });
 
@@ -521,7 +551,7 @@ async function main() {
     await sleep(DELAY_MS);
   }
 
-  // ✅ Index (COMPORTEMENT D'AVANT CONSERVÉ)
+  // ✅ Index (comme avant)
   fs.writeFileSync(
     path.join(OUT_DIR, "index.json"),
     JSON.stringify(
@@ -529,6 +559,7 @@ async function main() {
         generatedAt: new Date().toISOString(),
         count: indexItems.length,
         skippedNoRef,
+        skippedHttp,
         families: FAMILY_PREFIXES.map((x) => x.family),
         items: indexItems
       },
@@ -538,8 +569,9 @@ async function main() {
     "utf-8"
   );
 
-  // ✅ NOUVEAU: grouped.json + 1 image par regroupement (image du canonique)
+  // ✅ grouped.json + 1 image par regroupement (image du canonique)
   const groupedOut = [];
+  let skippedGroupImages = 0;
 
   for (const [key, G] of grouped.entries()) {
     const canonical = pickCanonicalVariant(G._candidatesForImage);
@@ -548,9 +580,8 @@ async function main() {
     let canonicalImageUrl = null;
 
     if (canonical) {
-      // On refetch la page canonique pour extraire l'image "proprement"
-      // (plus fiable que d'avoir mémorisé une image qui pourrait changer)
       try {
+        // refetch canonique (robuste)
         const html = await fetchText(canonical.url);
         const $ = cheerio.load(html);
         const imgUrl = extractMainImageUrl($, canonical.url);
@@ -560,12 +591,23 @@ async function main() {
           const ext = getImageExtensionFromUrl(imgUrl);
           const imgFilename = `${slugRef(canonical.ref)}${ext}`;
           const imgDest = path.join(IMG_DIR, imgFilename);
-          await downloadToFile(imgUrl, imgDest);
-          mainImageLocal = `produits/connecteur/img/${imgFilename}`;
+
+          try {
+            await downloadToFile(imgUrl, imgDest);
+            mainImageLocal = `produits/connecteur/img/${imgFilename}`;
+          } catch (e) {
+            console.warn(`  ⚠️ Image skip (download fail): ${e.message}`);
+            skippedGroupImages++;
+          }
+        } else {
+          skippedGroupImages++;
         }
       } catch (e) {
-        console.warn(`  ⚠️ Image canonique impossible pour ${key}: ${e?.message || e}`);
+        console.warn(`  ⚠️ Canonical fetch/image skip pour ${key}: ${e.message}`);
+        skippedGroupImages++;
       }
+    } else {
+      skippedGroupImages++;
     }
 
     groupedOut.push({
@@ -603,8 +645,8 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         groupCount: groupedOut.length,
-        // (optionnel) pour debug
-        // note: "groupKey = family + terminaison"
+        skippedGroupImages,
+        // note: groupKey = family + terminaison
         groups: groupedOut
       },
       null,
@@ -614,7 +656,7 @@ async function main() {
   );
 
   console.log(
-    `✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef} | groups: ${groupedOut.length}`
+    `✅ Terminé. Produits exportés: ${indexItems.length} | noRef skipped: ${skippedNoRef} | http skipped: ${skippedHttp} | groups: ${groupedOut.length} | group images skipped: ${skippedGroupImages}`
   );
 }
 
