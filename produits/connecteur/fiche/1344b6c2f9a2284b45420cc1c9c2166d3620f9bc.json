@@ -2,35 +2,7 @@
   "ref": null,
   "title": "Snap-In Embase mâle, Contacts: 3, non blindé, THT, IP40, 1/4\" 28 UNF, Montage frontal",
   "url": "https://www.binder-connector.com/fr/produits/connecteurs-subminiatures/connecteur-encliquetable-ip40/09-9749-20-03-snap-in-ip40-embase-male-contacts-3-non-blinde-tht-ip40",
-  "sections": {
-    "Données techniques": {
-      "Référence": "09 9749 20 03",
-      "Design du connecteur": "Embase mâle",
-      "Version": "Connecteur mâle droite",
-      "Verrouillage du connecteur": "snap-in",
-      "Connexion": "THT",
-      "Indice de protection": "IP40",
-      "Plage de températures de/à": "-25 °C / 70 °C",
-      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
-      "Poids (g)": "1.13",
-      "Numéro de tarif douanier": "85369010",
-      "Pays d'origine": "DE",
-      "Tension nominale": "60 V",
-      "Tension de choc nominale": "800 V",
-      "Courant nominal (40 °C)": "3,0 A",
-      "Résistance d'isolation": "≥ 1010 Ω",
-      "Degré d’encrassement": "1",
-      "Catégorie de surtension": "II",
-      "Groupe de matériau isolant": "III",
-      "Conformité CEM": "non blindé",
-      "Matériau du boîtier": "PA",
-      "Matériau du corps de contact": "PA",
-      "Matériau du contact": "CuZn (laiton)",
-      "Revêtement du contact": "Au (or)",
-      "REACH SVHC": "CAS 7439-92-1 (Lead)",
-      "Numéro SCIP": "d6cf6f75-0186-4753-8a65-0282e07404f7",
-      "eCl@ss 11.1": "27-44-01-09",
-      "ETIM 9.0": "EC003569"
-    }
-  }
+  "category1": "connecteurs-subminiatures",
+  "mainImage": "produits/connecteur/img/1344b6c2f9a2284b45420cc1c9c2166d3620f9bc.jpg",
+  "sections": {}
 }
