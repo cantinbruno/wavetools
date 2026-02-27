@@ -1,18 +1,11 @@
 /**
- * extract-binder-specs.mjs
- * One-shot extractor:
- * - lit le sitemap products (TYPO3)
- * - visite chaque page produit
- * - extrait les tableaux "Caractéristiques / Matériaux / Classifications" (et autres sections similaires)
- * - écrit 1 JSON par produit dans produits/connecteur/fiche/
- * - écrit un index.json (liste des produits) dans le même dossier
+ * extract-binder-specs.mjs (version robuste "accordéons/texte")
+ * - sitemap products -> urls produit
+ * - extrait ref/titre + sections Caractéristiques/Matériaux/Classifications (et autres)
+ * - écrit 1 JSON par produit + index.json
+ * - SUPPRIME tous les anciens .json dans produits/connecteur/fiche à chaque exécution
  *
- * IMPORTANT :
- * - Script prévu pour tourner en local OU GitHub Actions.
- * - Ne télécharge pas de PDF/CAO/etc (on ignore volontairement les pièces jointes).
- *
- * Dépendances:
- *   npm i cheerio xml2js
+ * Déps: npm i cheerio xml2js
  */
 
 import fs from "node:fs";
@@ -24,13 +17,14 @@ import { parseStringPromise } from "xml2js";
 const BASE = "https://www.binder-connector.com";
 const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 
-// Où écrire les JSON (adapté à TON arborescence)
+// Sortie (TON arborescence)
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 
-// Réglages (optionnels via variables d’environnement)
+// Réglages
 const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
-const DELAY_MS = Number(process.env.DELAY_MS || 200); // politesse
-const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1"; // si 1 -> ne supprime pas les anciens json
+const DELAY_MS = Number(process.env.DELAY_MS || 150); // un peu plus rapide
+const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1"; // 1 -> ne supprime pas les anciens json
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function fetchText(url) {
@@ -51,10 +45,7 @@ function slugRef(ref) {
   return clean(ref).replace(/\s+/g, "-");
 }
 
-/**
- * Supprime UNIQUEMENT les .json du dossier OUT_DIR
- * (pour repartir proprement à chaque exécution).
- */
+/** Nettoyage: supprime uniquement les .json dans OUT_DIR */
 function cleanupOutDirJson() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -64,18 +55,12 @@ function cleanupOutDirJson() {
   }
 
   console.log(`Nettoyage: suppression des anciens *.json dans ${OUT_DIR}`);
-  const files = fs.readdirSync(OUT_DIR);
-  for (const f of files) {
-    if (f.toLowerCase().endsWith(".json")) {
-      fs.unlinkSync(path.join(OUT_DIR, f));
-    }
+  for (const f of fs.readdirSync(OUT_DIR)) {
+    if (f.toLowerCase().endsWith(".json")) fs.unlinkSync(path.join(OUT_DIR, f));
   }
 }
 
-/**
- * Récupère la liste de sitemaps "products" depuis l'index TYPO3.
- * Puis extrait toutes les URLs produit (loc).
- */
+/** Récupère toutes les URLs produit depuis les sitemaps paginés */
 async function getAllProductUrlsFromSitemap() {
   const indexXml = await fetchText(SITEMAP_INDEX);
   const indexObj = await parseStringPromise(indexXml);
@@ -85,9 +70,7 @@ async function getAllProductUrlsFromSitemap() {
     .filter(Boolean);
 
   const productSitemaps = sitemapUrls.filter((u) => u.includes("sitemap=products"));
-  if (!productSitemaps.length) {
-    throw new Error("Aucun sitemap=products trouvé dans l’index.");
-  }
+  if (!productSitemaps.length) throw new Error("Aucun sitemap=products trouvé dans l’index.");
 
   const urls = [];
   for (const sm of productSitemaps) {
@@ -98,94 +81,112 @@ async function getAllProductUrlsFromSitemap() {
     await sleep(DELAY_MS);
   }
 
-  // dédup
   return Array.from(new Set(urls));
 }
 
-/**
- * Essaie d’extraire la référence produit dans le texte de page.
- * binder affiche souvent "08 2679 000 001" (avec espaces).
- */
-function extractRef($) {
-  const bodyText = clean($("body").text());
-  const m = bodyText.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
+/** Référence binder typique: "08 2679 000 001" */
+function extractRefFromText(text) {
+  const m = text.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   return m ? m[0] : null;
 }
 
 /**
- * Extrait des sections de specs sous forme:
- *   { "Caractéristiques générales": { "clé": "valeur", ... }, ... }
- *
- * On couvre 2 cas:
- * - tables <table><tr><td>clé</td><td>valeur</td></tr>...
- * - "table-like" en div (si jamais)
- *
- * NOTE : sans le HTML exact, on reste volontairement robuste + heuristique.
+ * Convertit HTML -> texte AVEC retours à la ligne (robuste quand pas de <table>)
+ * On force des \n sur des tags "bloc" puis on strip.
  */
-function extractSections($) {
+function htmlToTextWithLines(html) {
+  if (!html) return "";
+
+  // enlever scripts/styles vite fait
+  html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+  html = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "");
+
+  // retours ligne sur tags de bloc et br
+  html = html.replace(/<br\s*\/?>/gi, "\n");
+  html = html.replace(/<\/(div|p|li|tr|h1|h2|h3|h4|section|article|header|footer|table|ul|ol)>/gi, "\n");
+
+  // strip tags
+  html = html.replace(/<[^>]+>/g, " ");
+
+  // normaliser espaces
+  html = html.replace(/\r/g, "");
+  html = html.replace(/[ \t]+/g, " ");
+  // rétablir lignes propres
+  html = html.replace(/ *\n+ */g, "\n");
+  return html.trim();
+}
+
+/**
+ * Parse sections depuis texte :
+ * Repère un titre de section, puis lit les lignes "clé  valeur"
+ * jusqu'au prochain titre.
+ */
+function parseSectionsFromText(text) {
+  const lines = text
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l.length > 0);
+
+  // Titres possibles (FR). Tu peux en ajouter si tu vois d’autres sections.
+  const knownTitles = new Set([
+    "Caractéristiques générales",
+    "Caractéristiques",
+    "Matériaux",
+    "Classifications",
+    "Classification",
+    "Security notices",
+    "Indications de sécurité",
+  ]);
+
+  // Heuristique : certaines pages ont "Plus less" collé au titre
+  function normalizeTitle(line) {
+    return line.replace(/\b(Plus|less)\b/gi, "").trim();
+  }
+
   const sections = {};
+  let currentTitle = null;
 
-  // --- 1) Cas "table" : un titre (h2/h3/h4) suivi d'un tableau
-  const headings = $("h2, h3, h4").toArray();
-  for (const h of headings) {
-    const title = clean($(h).text());
-    if (!title) continue;
+  // Une ligne KV binder ressemble souvent à: "Poids (g)  34.89"
+  // On split sur 2+ espaces.
+  function tryParseKV(line) {
+    const parts = line.split(/\s{2,}/).map((p) => p.trim()).filter(Boolean);
+    if (parts.length >= 2) {
+      const key = parts[0];
+      const val = parts.slice(1).join(" ");
+      // évite les faux positifs trop courts
+      if (key.length >= 2 && val.length >= 1) return [key, val];
+    }
+    return null;
+  }
 
-    // Cherche un tableau après le titre ou dans le même bloc
-    let table = $(h).nextAll("table").first();
-    if (!table.length) table = $(h).parent().find("table").first();
-    if (!table.length) continue;
+  for (const raw of lines) {
+    const titleCand = normalizeTitle(raw);
 
-    const kv = {};
-    table.find("tr").each((_, tr) => {
-      const cells = $(tr)
-        .find("th, td")
-        .toArray()
-        .map((el) => clean($(el).text()))
-        .filter(Boolean);
+    // Si la ligne est un titre connu ou ressemble à un titre
+    if (knownTitles.has(titleCand)) {
+      currentTitle = titleCand;
+      if (!sections[currentTitle]) sections[currentTitle] = {};
+      continue;
+    }
 
-      if (cells.length >= 2) {
-        const key = cells[0];
-        const val = cells.slice(1).join(" ");
-        kv[key] = val;
+    // Détection "souple" des titres : lignes courtes sans chiffres, souvent capitalisées
+    if (!currentTitle) {
+      // rien
+    }
+
+    if (currentTitle) {
+      const kv = tryParseKV(raw);
+      if (kv) {
+        const [k, v] = kv;
+        sections[currentTitle][k] = v;
+      } else {
+        // certaines pages mettent "Référence  08..." juste après breadcrumb, sans titre
+        // on ignore les lignes non kv.
       }
-    });
-
-    if (Object.keys(kv).length) {
-      sections[title] = kv;
     }
   }
 
-  // --- 2) Cas "pas de table" : lignes label/value (fallback)
-  if (Object.keys(sections).length === 0) {
-    // Quelques conteneurs probables
-    const containers = $(".product, .product-detail, .productdetails, .productDetails, main").toArray();
-
-    for (const c of containers) {
-      const $c = $(c);
-
-      // bloc section : titre + rows
-      $c.find("section, .section, .accordion-item, .accordion").each((_, block) => {
-        const $b = $(block);
-        const title = clean($b.find("h2, h3, h4").first().text());
-        if (!title) return;
-
-        const kv = {};
-
-        // patterns classiques label/value
-        $b.find(".row, .spec-row, .table-row, .dl-row").each((_, row) => {
-          const $r = $(row);
-          const key = clean($r.find(".label, .key, dt, .col-1, .left").first().text());
-          const val = clean($r.find(".value, .val, dd, .col-2, .right").first().text());
-          if (key && val) kv[key] = val;
-        });
-
-        if (Object.keys(kv).length) sections[title] = kv;
-      });
-    }
-  }
-
-  // Dédup / nettoyage : supprimer sections vides
+  // Supprimer sections vides
   for (const [k, v] of Object.entries(sections)) {
     if (!v || Object.keys(v).length === 0) delete sections[k];
   }
@@ -193,14 +194,39 @@ function extractSections($) {
   return sections;
 }
 
+/**
+ * Extraction finale :
+ * - tente d’abord parse via texte "main" (le plus fiable ici)
+ * - fallback sur body
+ */
+function extractProductData(html, url) {
+  const $ = cheerio.load(html);
+
+  const title = clean($("h1").first().text()) || null;
+
+  // texte avec lignes : on privilégie <main> si présent
+  const mainHtml = $("main").length ? $("main").html() : null;
+  const bodyHtml = $("body").html();
+
+  const textMain = htmlToTextWithLines(mainHtml || "");
+  const textBody = htmlToTextWithLines(bodyHtml || "");
+
+  const ref = extractRefFromText(textMain) || extractRefFromText(textBody);
+
+  // sections depuis texte
+  let sections = parseSectionsFromText(textMain);
+  if (Object.keys(sections).length === 0) sections = parseSectionsFromText(textBody);
+
+  return { ref, title, url, sections };
+}
+
 async function main() {
-  // 0) Nettoyage
   cleanupOutDirJson();
 
-  // 1) URLs produits depuis sitemap
   console.log("Lecture du sitemap products…");
   let productUrls = await getAllProductUrlsFromSitemap();
   if (MAX_PRODUCTS > 0) productUrls = productUrls.slice(0, MAX_PRODUCTS);
+
   console.log(`URLs produits à traiter : ${productUrls.length}`);
 
   const indexItems = [];
@@ -217,40 +243,27 @@ async function main() {
       continue;
     }
 
-    const $ = cheerio.load(html);
+    const data = extractProductData(html, url);
 
-    const ref = extractRef($);
-    const title = clean($("h1").first().text()) || null;
-
-    const sections = extractSections($);
-
-    // Si aucune section, on garde quand même une fiche (pour debug)
-    if (Object.keys(sections).length === 0) {
-      console.warn("  ⚠️ Aucune section de caractéristiques détectée sur cette page (HTML possiblement dynamique).");
+    if (!data.ref) console.warn("  ⚠️ Référence non trouvée (fallback hash).");
+    if (Object.keys(data.sections || {}).length === 0) {
+      console.warn("  ⚠️ Aucune section détectée (regarde la page: structure atypique).");
     }
 
-    const data = {
-      ref,
-      title,
-      url,
-      sections,
-    };
-
-    const fileBase = ref ? slugRef(ref) : sha1(url);
+    const fileBase = data.ref ? slugRef(data.ref) : sha1(url);
     const outFile = path.join(OUT_DIR, `${fileBase}.json`);
     fs.writeFileSync(outFile, JSON.stringify(data, null, 2), "utf-8");
 
     indexItems.push({
-      ref,
-      title,
-      url,
+      ref: data.ref,
+      title: data.title,
+      url: data.url,
       file: `produits/connecteur/fiche/${path.basename(outFile)}`,
     });
 
     await sleep(DELAY_MS);
   }
 
-  // 3) Écrire index.json (liste)
   indexItems.sort((a, b) => String(a.ref ?? "").localeCompare(String(b.ref ?? ""), "fr"));
 
   const indexJson = {
