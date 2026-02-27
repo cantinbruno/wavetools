@@ -1,11 +1,22 @@
 /**
- * extract-binder-specs.mjs (binder accordion parser)
- * - sitemap products -> urls produit
- * - extrait ref/titre + sections "Caractéristiques générales / Matériaux / Classifications" etc.
- * - écrit 1 JSON par produit + index.json
- * - supprime les anciens .json dans produits/connecteur/fiche à chaque exécution
+ * extract-binder-specs.mjs
+ * Binder (TYPO3) extractor - HTML accordion parser
  *
- * Déps: npm i cheerio xml2js
+ * Sortie:
+ *  - produits/connecteur/fiche/<REF>.json (ou hash si ref inconnue)
+ *  - produits/connecteur/fiche/index.json
+ *
+ * Contenu:
+ *  - ref, title, url
+ *  - category1 (uniquement 1ère catégorie depuis l'URL)
+ *  - mainImage (1ère image jpg utile trouvée sur la page)
+ *  - sections (Caractéristiques/Matériaux/Classifications... selon la page)
+ *
+ * Nettoyage:
+ *  - supprime les anciens *.json dans produits/connecteur/fiche à chaque run (sauf KEEP_OLD=1)
+ *
+ * Dépendances:
+ *  npm i cheerio xml2js
  */
 
 import fs from "node:fs";
@@ -17,7 +28,7 @@ import { parseStringPromise } from "xml2js";
 const BASE = "https://www.binder-connector.com";
 const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 
-// SORTIE (ton arborescence)
+// TON dossier de sortie
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 
 // Réglages (optionnels via env)
@@ -41,7 +52,8 @@ function sha1(s) {
 }
 
 function slugRef(ref) {
-  return clean(ref).replace(/\s+/g, "-"); // "08 2679..." -> "08-2679..."
+  // "09 9767 00 04" => "09-9767-00-04"
+  return clean(ref).replace(/\s+/g, "-");
 }
 
 function cleanupOutDirJson() {
@@ -85,35 +97,47 @@ async function getAllProductUrlsFromSitemap() {
   return Array.from(new Set(urls));
 }
 
-function extractRef($) {
-  // binder affiche souvent "08 2679 000 001" quelque part sur la page
+/**
+ * Catégorie 1 = premier segment après /produits/
+ * Ex:
+ *  /fr/produits/connecteurs-subminiatures/connecteur-encliquetable-ip40/.... -> connecteurs-subminiatures
+ */
+function extractCategory1FromUrl(productUrl) {
+  try {
+    const u = new URL(productUrl);
+    const parts = u.pathname.split("/").filter(Boolean); // ["fr","produits","connecteurs-subminiatures", ...]
+    const i = parts.indexOf("produits");
+    if (i === -1) return null;
+    return parts[i + 1] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function extractRefRegex($) {
+  // Format souvent vu: "08 2679 000 001"
   const bodyText = clean($("body").text());
   const m = bodyText.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   return m ? m[0] : null;
 }
 
 /**
- * ✅ Extraction spéciale binder :
- * Les sections sont dans un accordéon :
- *   <div class="accordion__header">Caractéristiques générales</div>
- *   ... <table class="table--technicaldata"> ... </table>
+ * ✅ Extraction binder:
+ * sections dans un accordéon:
+ *   .accordion__header = titre
+ *   table.table--technicaldata = lignes clé/valeur
  */
 function extractSectionsBinderAccordion($) {
   const sections = {};
 
-  // Les tables de specs ont souvent la classe "table--technicaldata"
-  // On parcourt chaque header et on récupère le tableau dans le même "item"
   $(".accordion__header").each((_, header) => {
-    const title = clean($(header).text());
+    const title = clean($(header).text()).replace(/\b(Plus|less)\b/gi, "").trim();
     if (!title) return;
 
-    // On remonte à un conteneur raisonnable (accordéon item) puis on cherche la table dedans
     const container =
       $(header).closest(".accordion__item").length
         ? $(header).closest(".accordion__item")
-        : $(header).closest("[data-collapse='technicaldata']").length
-          ? $(header).closest("[data-collapse='technicaldata']")
-          : $(header).parent();
+        : $(header).parent();
 
     const table =
       container.find("table.table--technicaldata").first().length
@@ -146,33 +170,27 @@ function extractSectionsBinderAccordion($) {
 }
 
 /**
- * Fallback : au cas où certaines pages ont des tables en dehors de l'accordéon.
+ * Fallback: si une page n'a pas l'accordéon standard, on tente de lire toutes les tables
+ * en les mettant sous une section "Données techniques".
  */
 function extractSectionsGenericTables($) {
-  const sections = {};
+  const kv = {};
 
-  // si on a des tables verticales "datatable", on les lit et on les met sous une section générique
   $("table").each((_, t) => {
     const table = $(t);
-    const kv = {};
-
     table.find("tr").each((_, tr) => {
       const cells = $(tr)
         .find("th, td")
         .toArray()
         .map((el) => clean($(el).text()))
         .filter(Boolean);
-      if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
+      if (cells.length >= 2) {
+        kv[cells[0]] = cells.slice(1).join(" ");
+      }
     });
-
-    if (Object.keys(kv).length) {
-      // évite de créer 10 sections "Table"
-      const name = "Données techniques";
-      sections[name] = { ...(sections[name] || {}), ...kv };
-    }
   });
 
-  return sections;
+  return Object.keys(kv).length ? { "Données techniques": kv } : {};
 }
 
 function mergeSections(a, b) {
@@ -180,11 +198,54 @@ function mergeSections(a, b) {
   for (const [sec, kv] of Object.entries(b || {})) {
     out[sec] = { ...(out[sec] || {}), ...(kv || {}) };
   }
-  // nettoie les sections vides
   for (const [k, v] of Object.entries(out)) {
     if (!v || Object.keys(v).length === 0) delete out[k];
   }
   return out;
+}
+
+/**
+ * Image principale:
+ * binder propose des liens "Télécharger l’image JPG - ..."
+ * On prend la première URL .jpg trouvée correspondant à ce pattern.
+ */
+function extractMainImage($, pageUrl) {
+  let found = null;
+
+  $("a[href]").each((_, a) => {
+    if (found) return;
+
+    const href = $(a).attr("href");
+    if (!href) return;
+
+    const text = clean($(a).text());
+    const abs = href.startsWith("http") ? href : new URL(href, pageUrl).toString();
+
+    // Pattern fiable sur binder: "Télécharger l’image JPG" + lien .jpg
+    if (/télécharger l’image/i.test(text) && /\.jpe?g(\?.*)?$/i.test(abs)) {
+      found = abs;
+    }
+  });
+
+  // Fallback: si pas de lien "Télécharger l’image", on tente img src (souvent thumbnail)
+  if (!found) {
+    const img = $("img").first();
+    const src = img.attr("src");
+    if (src) found = src.startsWith("http") ? src : new URL(src, pageUrl).toString();
+  }
+
+  return found;
+}
+
+/**
+ * Fallback ref depuis les sections:
+ * Dans ton exemple, "Référence" est dans les KV.
+ */
+function fallbackRefFromSections(sections) {
+  for (const kv of Object.values(sections || {})) {
+    if (kv && typeof kv === "object" && kv["Référence"]) return kv["Référence"];
+  }
+  return null;
 }
 
 async function main() {
@@ -193,7 +254,6 @@ async function main() {
   console.log("Lecture du sitemap products…");
   let productUrls = await getAllProductUrlsFromSitemap();
   if (MAX_PRODUCTS > 0) productUrls = productUrls.slice(0, MAX_PRODUCTS);
-
   console.log(`URLs produits à traiter : ${productUrls.length}`);
 
   const indexItems = [];
@@ -212,21 +272,31 @@ async function main() {
 
     const $ = cheerio.load(html);
 
-    const ref = extractRef($);
     const title = clean($("h1").first().text()) || null;
+    const category1 = extractCategory1FromUrl(url);
+    const mainImage = extractMainImage($, url);
 
-    // ✅ binder accordion
-    const sec1 = extractSectionsBinderAccordion($);
-    // fallback
-    const sec2 = Object.keys(sec1).length ? {} : extractSectionsGenericTables($);
+    // sections
+    const secA = extractSectionsBinderAccordion($);
+    const secB = Object.keys(secA).length ? {} : extractSectionsGenericTables($);
+    let sections = mergeSections(secA, secB);
 
-    const sections = mergeSections(sec1, sec2);
+    // ref
+    let ref = extractRefRegex($);
+    if (!ref) ref = fallbackRefFromSections(sections);
 
-    if (Object.keys(sections).length === 0) {
-      console.warn("  ⚠️ Aucune section détectée (page atypique ou contenu non présent dans le HTML).");
-    }
+    if (!ref) console.warn("  ⚠️ Référence non trouvée (nom de fichier = hash).");
+    if (Object.keys(sections).length === 0) console.warn("  ⚠️ Aucune section détectée (page atypique).");
+    if (!mainImage) console.warn("  ⚠️ Aucune image principale détectée.");
 
-    const data = { ref, title, url, sections };
+    const data = {
+      ref,
+      title,
+      url,
+      category1,
+      mainImage,
+      sections,
+    };
 
     const fileBase = ref ? slugRef(ref) : sha1(url);
     const outFile = path.join(OUT_DIR, `${fileBase}.json`);
@@ -236,6 +306,8 @@ async function main() {
       ref,
       title,
       url,
+      category1,
+      mainImage,
       file: `produits/connecteur/fiche/${path.basename(outFile)}`,
     });
 
