@@ -30,5 +30,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add produits/connecteur/fiche/*.json produits/connecteur/fiche/index.json || true
-          git diff --cached --quiet || git commit -m "chore: generate product specs"
+          git diff --cached --quiet || git commit -m "chore: generate binder product specs"
           git push
