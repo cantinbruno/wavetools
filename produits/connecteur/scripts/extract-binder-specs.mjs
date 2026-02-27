@@ -1,12 +1,14 @@
 /**
- * extract-binder-specs.mjs (clean & coherent)
- * - JSON + image ont exactement le même nom: <REF_SLUG>.(json|jpg)
- * - REF récupérée dans cet ordre:
- *   1) "Référence" dans les sections
- *   2) format avec espaces dans le texte (08 2679 000 001)
- *   3) format dans l'URL (09-9792-30-05 ou 08-2679-000-001)
+ * extract-binder-specs.mjs (CLEAN + FILTER FAMILLES + SECTIONS ROBUSTES)
  *
- * Déps: npm i cheerio xml2js
+ * Objectif:
+ * - Ne garder QUE les familles (M12-A, M8, etc.)
+ * - Garder toutes leurs "variantes" => toutes les pages produit du sitemap qui matchent la famille
+ * - JSON + image ont exactement le même nom: <REF_SLUG>.json / <REF_SLUG>.<ext>
+ * - sections jamais vides si les données sont dans le HTML (fallback tables)
+ *
+ * Déps:
+ *   npm i cheerio xml2js
  */
 
 import fs from "node:fs";
@@ -20,9 +22,28 @@ const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 const IMG_DIR = path.resolve("produits/connecteur/img");
 
-const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0);
+// Réglages
+const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
 const DELAY_MS = Number(process.env.DELAY_MS || 120);
 const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1";
+
+// ✅ Liste des familles autorisées (ta 2e image)
+// Tu peux enlever/ajouter des entrées ici.
+const FAMILY_WHITELIST = [
+  "M12-A",
+  "RD24 Power",
+  "M8",
+  "M12-D",
+  "M12-L",
+  "M8-D",
+  "M12-K",
+  "M16 IP67",
+  '7/8"'
+];
+
+const FAMILY_WHITELIST_LOWER = FAMILY_WHITELIST.map((f) =>
+  f.toLowerCase().replace(/"/g, "")
+);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -43,7 +64,7 @@ const asArray = (x) => (Array.isArray(x) ? x : x ? [x] : []);
 const clean = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
 
 function slugRef(ref) {
-  // "09 9792 30 05" -> "09-9792-30-05"
+  // "99 0530 24 04" -> "99-0530-24-04"
   // "08 2679 000 001" -> "08-2679-000-001"
   return clean(ref).replace(/\s+/g, "-");
 }
@@ -90,6 +111,7 @@ async function getAllProductUrlsFromSitemap() {
   return Array.from(new Set(urls));
 }
 
+/** Catégorie1 = segment après /produits/ */
 function extractCategory1FromUrl(productUrl) {
   try {
     const u = new URL(productUrl);
@@ -101,24 +123,61 @@ function extractCategory1FromUrl(productUrl) {
   }
 }
 
-/** 1) Ref dans le HTML texte (format espaces) */
-function extractRefFromTextRegex($) {
+/** ✅ Détecte famille via breadcrumb + texte page */
+function detectFamily({ url, title, $ }) {
+  // Breadcrumb visible sur ta capture : "Produits > ... > M12-A > ..."
+  const breadcrumb = clean($(".breadcrumb, .breadcrumbs, nav[aria-label='breadcrumb']").first().text());
   const bodyText = clean($("body").text());
-  const m = bodyText.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/); // ex 08 2679 000 001
-  return m ? m[0] : null;
+
+  const hay = `${url} ${title || ""} ${breadcrumb} ${bodyText}`
+    .toLowerCase()
+    .replace(/"/g, "");
+
+  for (let i = 0; i < FAMILY_WHITELIST_LOWER.length; i++) {
+    const token = FAMILY_WHITELIST_LOWER[i];
+    if (hay.includes(token)) return FAMILY_WHITELIST[i];
+  }
+  return null;
 }
 
-/** 2) Ref depuis URL (fiable) */
+/** Ref depuis sections (champ "Référence") */
+function refFromSections(sections) {
+  for (const kv of Object.values(sections || {})) {
+    if (kv && kv["Référence"]) return kv["Référence"];
+  }
+  return null;
+}
+
+/** Ref depuis le texte (plusieurs formats possibles) */
+function extractRefFromText($) {
+  const txt = clean($("body").text());
+
+  // 1) ex: 08 2679 000 001
+  let m = txt.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
+  if (m) return m[0];
+
+  // 2) ex: 99 0530 24 04 (comme ta capture M12-A)
+  m = txt.match(/\b\d{2}\s\d{4}\s\d{2}\s\d{2}\b/);
+  if (m) return m[0];
+
+  return null;
+}
+
+/** Ref depuis URL (fallback fiable) */
 function extractRefFromUrl(productUrl) {
   // Supporte:
   // - 09-9792-30-05 (2-4-2-2)
+  // - 99-0530-24-04 (2-4-2-2)
   // - 08-2679-000-001 (2-4-3-3)
   const m = productUrl.match(/\b(\d{2}-\d{4}-\d{2}-\d{2}|\d{2}-\d{4}-\d{3}-\d{3})\b/);
   if (!m) return null;
   return m[1].replace(/-/g, " ");
 }
 
-/** Extraction sections binder (accordéon) */
+/**
+ * Extraction sections accordéon binder si présent:
+ * .accordion__header + table(.table--technicaldata)
+ */
 function extractSectionsBinderAccordion($) {
   const sections = {};
 
@@ -144,9 +203,7 @@ function extractSectionsBinderAccordion($) {
         .map((el) => clean($(el).text()))
         .filter(Boolean);
 
-      if (cells.length >= 2) {
-        kv[cells[0]] = cells.slice(1).join(" ");
-      }
+      if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
     });
 
     if (Object.keys(kv).length) sections[title] = kv;
@@ -155,12 +212,54 @@ function extractSectionsBinderAccordion($) {
   return sections;
 }
 
-/** fallback ref depuis sections ("Référence") */
-function refFromSections(sections) {
-  for (const kv of Object.values(sections || {})) {
-    if (kv && kv["Référence"]) return kv["Référence"];
+/**
+ * ✅ Fallback robuste: récupère des tables "techniques" même si pas d'accordéon
+ * et les met dans "Données techniques".
+ */
+function extractTechnicalTablesFallback($) {
+  let merged = {};
+
+  $("table").each((_, t) => {
+    const kv = {};
+    $(t)
+      .find("tr")
+      .each((_, tr) => {
+        const cells = $(tr)
+          .find("th, td")
+          .toArray()
+          .map((el) => clean($(el).text()))
+          .filter(Boolean);
+        if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
+      });
+
+    const keys = Object.keys(kv).join(" ").toLowerCase();
+    const looksLikeSpecs =
+      keys.includes("référence") ||
+      keys.includes("indice de protection") ||
+      keys.includes("tension") ||
+      keys.includes("courant") ||
+      keys.includes("poids") ||
+      keys.includes("matériau") ||
+      keys.includes("etim") ||
+      keys.includes("ecl@ss");
+
+    if (looksLikeSpecs && Object.keys(kv).length) {
+      merged = { ...merged, ...kv };
+    }
+  });
+
+  return Object.keys(merged).length ? { "Données techniques": merged } : {};
+}
+
+function mergeSections(a, b) {
+  const out = { ...(a || {}) };
+  for (const [sec, kv] of Object.entries(b || {})) {
+    out[sec] = { ...(out[sec] || {}), ...(kv || {}) };
   }
-  return null;
+  for (const [k, v] of Object.entries(out)) {
+    if (!v || Object.keys(v).length === 0) delete out[k];
+  }
+  return out;
 }
 
 /** Image principale = 1er lien "Télécharger l’image JPG" */
@@ -176,10 +275,16 @@ function extractMainImageUrl($, pageUrl) {
     const text = clean($(a).text());
     const abs = href.startsWith("http") ? href : new URL(href, pageUrl).toString();
 
-    if (/télécharger l’image/i.test(text) && /\.jpe?g(\?.*)?$/i.test(abs)) {
+    if (/télécharger l’image/i.test(text) && /\.(jpg|jpeg|png|webp)(\?.*)?$/i.test(abs)) {
       found = abs;
     }
   });
+
+  // fallback: 1ère balise img si aucun lien download
+  if (!found) {
+    const src = $("img").first().attr("src");
+    if (src) found = src.startsWith("http") ? src : new URL(src, pageUrl).toString();
+  }
 
   return found;
 }
@@ -200,21 +305,24 @@ async function main() {
   ensureDirsAndCleanup();
 
   console.log("Lecture sitemap products…");
-  let productUrls = await getAllProductUrlsFromSitemap();
-  if (MAX_PRODUCTS > 0) productUrls = productUrls.slice(0, MAX_PRODUCTS);
-  console.log(`Produits à traiter: ${productUrls.length}`);
+  let urls = await getAllProductUrlsFromSitemap();
+  if (MAX_PRODUCTS > 0) urls = urls.slice(0, MAX_PRODUCTS);
+  console.log(`Produits à traiter (brut sitemap): ${urls.length}`);
 
   const indexItems = [];
+  let kept = 0;
+  let skipped = 0;
 
-  for (let i = 0; i < productUrls.length; i++) {
-    const url = productUrls[i];
-    console.log(`[${i + 1}/${productUrls.length}] ${url}`);
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
+    console.log(`[${i + 1}/${urls.length}] ${url}`);
 
     let html;
     try {
       html = await fetchText(url);
     } catch (e) {
       console.warn(`  ⚠️ Page inaccessible: ${e.message}`);
+      skipped++;
       continue;
     }
 
@@ -223,17 +331,27 @@ async function main() {
     const title = clean($("h1").first().text()) || null;
     const category1 = extractCategory1FromUrl(url);
 
-    const sections = extractSectionsBinderAccordion($);
+    // ✅ Filtre familles (M12-A etc.)
+    const family = detectFamily({ url, title, $ });
+    if (!family) {
+      console.log("  ⏭️ skip (hors whitelist familles)");
+      skipped++;
+      await sleep(DELAY_MS);
+      continue;
+    }
 
-    // ✅ REF: priorité sections -> texte -> URL
-    let ref =
-      refFromSections(sections) ||
-      extractRefFromTextRegex($) ||
-      extractRefFromUrl(url);
+    // ✅ Sections robustes: accordéon + fallback tables
+    const secA = extractSectionsBinderAccordion($);
+    const secB = extractTechnicalTablesFallback($);
+    const sections = mergeSections(secA, secB);
+
+    // ✅ REF: sections -> texte -> URL
+    let ref = refFromSections(sections) || extractRefFromText($) || extractRefFromUrl(url);
 
     if (!ref) {
-      // Là ça devient vraiment rare. On préfère SKIP plutôt que créer un hash (tu veux du propre/cohérent).
-      console.warn("  ❌ Référence introuvable => produit ignoré pour rester cohérent.");
+      console.warn("  ❌ Ref introuvable => skip pour rester propre/cohérent.");
+      skipped++;
+      await sleep(DELAY_MS);
       continue;
     }
 
@@ -252,7 +370,7 @@ async function main() {
         await downloadToFile(mainImageUrl, imgDest);
         mainImageLocal = `produits/connecteur/img/${imgFilename}`;
       } catch (e) {
-        console.warn(`  ⚠️ Image non téléchargée: ${e.message}`);
+        console.warn(`  ⚠️ image non téléchargée: ${e.message}`);
       }
     }
 
@@ -265,8 +383,9 @@ async function main() {
       title,
       url,
       category1,
-      mainImage: mainImageLocal, // chemin local (ou null)
-      sections,
+      family,              // ✅ ex "M12-A"
+      mainImage: mainImageLocal,
+      sections
     };
 
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), "utf-8");
@@ -276,24 +395,35 @@ async function main() {
       title,
       url,
       category1,
+      family,
       mainImage: mainImageLocal,
-      file: `produits/connecteur/fiche/${jsonFilename}`,
+      file: `produits/connecteur/fiche/${jsonFilename}`
     });
 
+    kept++;
     await sleep(DELAY_MS);
   }
 
   indexItems.sort((a, b) => String(a.ref ?? "").localeCompare(String(b.ref ?? ""), "fr"));
 
-  const indexJson = {
-    generatedAt: new Date().toISOString(),
-    count: indexItems.length,
-    items: indexItems,
-  };
+  fs.writeFileSync(
+    path.join(OUT_DIR, "index.json"),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        count: indexItems.length,
+        kept,
+        skipped,
+        families: FAMILY_WHITELIST,
+        items: indexItems
+      },
+      null,
+      2
+    ),
+    "utf-8"
+  );
 
-  fs.writeFileSync(path.join(OUT_DIR, "index.json"), JSON.stringify(indexJson, null, 2), "utf-8");
-
-  console.log(`✅ Terminé. Produits exportés: ${indexItems.length}`);
+  console.log(`✅ Terminé. Gardés: ${kept} | Skippés: ${skipped}`);
 }
 
 main().catch((e) => {
