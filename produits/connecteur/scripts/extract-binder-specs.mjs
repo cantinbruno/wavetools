@@ -1,9 +1,9 @@
 /**
- * extract-binder-specs.mjs (version robuste "accordéons/texte")
+ * extract-binder-specs.mjs (binder accordion parser)
  * - sitemap products -> urls produit
- * - extrait ref/titre + sections Caractéristiques/Matériaux/Classifications (et autres)
+ * - extrait ref/titre + sections "Caractéristiques générales / Matériaux / Classifications" etc.
  * - écrit 1 JSON par produit + index.json
- * - SUPPRIME tous les anciens .json dans produits/connecteur/fiche à chaque exécution
+ * - supprime les anciens .json dans produits/connecteur/fiche à chaque exécution
  *
  * Déps: npm i cheerio xml2js
  */
@@ -17,13 +17,13 @@ import { parseStringPromise } from "xml2js";
 const BASE = "https://www.binder-connector.com";
 const SITEMAP_INDEX = `${BASE}/fr/sitemap.xml`;
 
-// Sortie (TON arborescence)
+// SORTIE (ton arborescence)
 const OUT_DIR = path.resolve("produits/connecteur/fiche");
 
-// Réglages
+// Réglages (optionnels via env)
 const MAX_PRODUCTS = Number(process.env.MAX_PRODUCTS || 0); // 0 = tout
-const DELAY_MS = Number(process.env.DELAY_MS || 150); // un peu plus rapide
-const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1"; // 1 -> ne supprime pas les anciens json
+const DELAY_MS = Number(process.env.DELAY_MS || 120); // politesse
+const KEEP_OLD = (process.env.KEEP_OLD || "0") === "1"; // 1 = ne pas supprimer les anciens JSON
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -41,11 +41,9 @@ function sha1(s) {
 }
 
 function slugRef(ref) {
-  // "08 2679 000 001" -> "08-2679-000-001"
-  return clean(ref).replace(/\s+/g, "-");
+  return clean(ref).replace(/\s+/g, "-"); // "08 2679..." -> "08-2679..."
 }
 
-/** Nettoyage: supprime uniquement les .json dans OUT_DIR */
 function cleanupOutDirJson() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -56,11 +54,12 @@ function cleanupOutDirJson() {
 
   console.log(`Nettoyage: suppression des anciens *.json dans ${OUT_DIR}`);
   for (const f of fs.readdirSync(OUT_DIR)) {
-    if (f.toLowerCase().endsWith(".json")) fs.unlinkSync(path.join(OUT_DIR, f));
+    if (f.toLowerCase().endsWith(".json")) {
+      fs.unlinkSync(path.join(OUT_DIR, f));
+    }
   }
 }
 
-/** Récupère toutes les URLs produit depuis les sitemaps paginés */
 async function getAllProductUrlsFromSitemap() {
   const indexXml = await fetchText(SITEMAP_INDEX);
   const indexObj = await parseStringPromise(indexXml);
@@ -70,7 +69,9 @@ async function getAllProductUrlsFromSitemap() {
     .filter(Boolean);
 
   const productSitemaps = sitemapUrls.filter((u) => u.includes("sitemap=products"));
-  if (!productSitemaps.length) throw new Error("Aucun sitemap=products trouvé dans l’index.");
+  if (!productSitemaps.length) {
+    throw new Error("Aucun sitemap=products trouvé dans l’index.");
+  }
 
   const urls = [];
   for (const sm of productSitemaps) {
@@ -84,140 +85,106 @@ async function getAllProductUrlsFromSitemap() {
   return Array.from(new Set(urls));
 }
 
-/** Référence binder typique: "08 2679 000 001" */
-function extractRefFromText(text) {
-  const m = text.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
+function extractRef($) {
+  // binder affiche souvent "08 2679 000 001" quelque part sur la page
+  const bodyText = clean($("body").text());
+  const m = bodyText.match(/\b\d{2}\s\d{4}\s\d{3}\s\d{3}\b/);
   return m ? m[0] : null;
 }
 
 /**
- * Convertit HTML -> texte AVEC retours à la ligne (robuste quand pas de <table>)
- * On force des \n sur des tags "bloc" puis on strip.
+ * ✅ Extraction spéciale binder :
+ * Les sections sont dans un accordéon :
+ *   <div class="accordion__header">Caractéristiques générales</div>
+ *   ... <table class="table--technicaldata"> ... </table>
  */
-function htmlToTextWithLines(html) {
-  if (!html) return "";
-
-  // enlever scripts/styles vite fait
-  html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
-  html = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "");
-
-  // retours ligne sur tags de bloc et br
-  html = html.replace(/<br\s*\/?>/gi, "\n");
-  html = html.replace(/<\/(div|p|li|tr|h1|h2|h3|h4|section|article|header|footer|table|ul|ol)>/gi, "\n");
-
-  // strip tags
-  html = html.replace(/<[^>]+>/g, " ");
-
-  // normaliser espaces
-  html = html.replace(/\r/g, "");
-  html = html.replace(/[ \t]+/g, " ");
-  // rétablir lignes propres
-  html = html.replace(/ *\n+ */g, "\n");
-  return html.trim();
-}
-
-/**
- * Parse sections depuis texte :
- * Repère un titre de section, puis lit les lignes "clé  valeur"
- * jusqu'au prochain titre.
- */
-function parseSectionsFromText(text) {
-  const lines = text
-    .split("\n")
-    .map((l) => l.trim())
-    .filter((l) => l.length > 0);
-
-  // Titres possibles (FR). Tu peux en ajouter si tu vois d’autres sections.
-  const knownTitles = new Set([
-    "Caractéristiques générales",
-    "Caractéristiques",
-    "Matériaux",
-    "Classifications",
-    "Classification",
-    "Security notices",
-    "Indications de sécurité",
-  ]);
-
-  // Heuristique : certaines pages ont "Plus less" collé au titre
-  function normalizeTitle(line) {
-    return line.replace(/\b(Plus|less)\b/gi, "").trim();
-  }
-
+function extractSectionsBinderAccordion($) {
   const sections = {};
-  let currentTitle = null;
 
-  // Une ligne KV binder ressemble souvent à: "Poids (g)  34.89"
-  // On split sur 2+ espaces.
-  function tryParseKV(line) {
-    const parts = line.split(/\s{2,}/).map((p) => p.trim()).filter(Boolean);
-    if (parts.length >= 2) {
-      const key = parts[0];
-      const val = parts.slice(1).join(" ");
-      // évite les faux positifs trop courts
-      if (key.length >= 2 && val.length >= 1) return [key, val];
-    }
-    return null;
-  }
+  // Les tables de specs ont souvent la classe "table--technicaldata"
+  // On parcourt chaque header et on récupère le tableau dans le même "item"
+  $(".accordion__header").each((_, header) => {
+    const title = clean($(header).text());
+    if (!title) return;
 
-  for (const raw of lines) {
-    const titleCand = normalizeTitle(raw);
+    // On remonte à un conteneur raisonnable (accordéon item) puis on cherche la table dedans
+    const container =
+      $(header).closest(".accordion__item").length
+        ? $(header).closest(".accordion__item")
+        : $(header).closest("[data-collapse='technicaldata']").length
+          ? $(header).closest("[data-collapse='technicaldata']")
+          : $(header).parent();
 
-    // Si la ligne est un titre connu ou ressemble à un titre
-    if (knownTitles.has(titleCand)) {
-      currentTitle = titleCand;
-      if (!sections[currentTitle]) sections[currentTitle] = {};
-      continue;
-    }
+    const table =
+      container.find("table.table--technicaldata").first().length
+        ? container.find("table.table--technicaldata").first()
+        : container.find("table").first();
 
-    // Détection "souple" des titres : lignes courtes sans chiffres, souvent capitalisées
-    if (!currentTitle) {
-      // rien
-    }
+    if (!table || !table.length) return;
 
-    if (currentTitle) {
-      const kv = tryParseKV(raw);
-      if (kv) {
-        const [k, v] = kv;
-        sections[currentTitle][k] = v;
-      } else {
-        // certaines pages mettent "Référence  08..." juste après breadcrumb, sans titre
-        // on ignore les lignes non kv.
+    const kv = {};
+    table.find("tr").each((_, tr) => {
+      const cells = $(tr)
+        .find("th, td")
+        .toArray()
+        .map((el) => clean($(el).text()))
+        .filter(Boolean);
+
+      if (cells.length >= 2) {
+        const key = cells[0];
+        const val = cells.slice(1).join(" ");
+        kv[key] = val;
       }
-    }
-  }
+    });
 
-  // Supprimer sections vides
-  for (const [k, v] of Object.entries(sections)) {
-    if (!v || Object.keys(v).length === 0) delete sections[k];
-  }
+    if (Object.keys(kv).length) {
+      sections[title] = kv;
+    }
+  });
 
   return sections;
 }
 
 /**
- * Extraction finale :
- * - tente d’abord parse via texte "main" (le plus fiable ici)
- * - fallback sur body
+ * Fallback : au cas où certaines pages ont des tables en dehors de l'accordéon.
  */
-function extractProductData(html, url) {
-  const $ = cheerio.load(html);
+function extractSectionsGenericTables($) {
+  const sections = {};
 
-  const title = clean($("h1").first().text()) || null;
+  // si on a des tables verticales "datatable", on les lit et on les met sous une section générique
+  $("table").each((_, t) => {
+    const table = $(t);
+    const kv = {};
 
-  // texte avec lignes : on privilégie <main> si présent
-  const mainHtml = $("main").length ? $("main").html() : null;
-  const bodyHtml = $("body").html();
+    table.find("tr").each((_, tr) => {
+      const cells = $(tr)
+        .find("th, td")
+        .toArray()
+        .map((el) => clean($(el).text()))
+        .filter(Boolean);
+      if (cells.length >= 2) kv[cells[0]] = cells.slice(1).join(" ");
+    });
 
-  const textMain = htmlToTextWithLines(mainHtml || "");
-  const textBody = htmlToTextWithLines(bodyHtml || "");
+    if (Object.keys(kv).length) {
+      // évite de créer 10 sections "Table"
+      const name = "Données techniques";
+      sections[name] = { ...(sections[name] || {}), ...kv };
+    }
+  });
 
-  const ref = extractRefFromText(textMain) || extractRefFromText(textBody);
+  return sections;
+}
 
-  // sections depuis texte
-  let sections = parseSectionsFromText(textMain);
-  if (Object.keys(sections).length === 0) sections = parseSectionsFromText(textBody);
-
-  return { ref, title, url, sections };
+function mergeSections(a, b) {
+  const out = { ...(a || {}) };
+  for (const [sec, kv] of Object.entries(b || {})) {
+    out[sec] = { ...(out[sec] || {}), ...(kv || {}) };
+  }
+  // nettoie les sections vides
+  for (const [k, v] of Object.entries(out)) {
+    if (!v || Object.keys(v).length === 0) delete out[k];
+  }
+  return out;
 }
 
 async function main() {
@@ -243,21 +210,32 @@ async function main() {
       continue;
     }
 
-    const data = extractProductData(html, url);
+    const $ = cheerio.load(html);
 
-    if (!data.ref) console.warn("  ⚠️ Référence non trouvée (fallback hash).");
-    if (Object.keys(data.sections || {}).length === 0) {
-      console.warn("  ⚠️ Aucune section détectée (regarde la page: structure atypique).");
+    const ref = extractRef($);
+    const title = clean($("h1").first().text()) || null;
+
+    // ✅ binder accordion
+    const sec1 = extractSectionsBinderAccordion($);
+    // fallback
+    const sec2 = Object.keys(sec1).length ? {} : extractSectionsGenericTables($);
+
+    const sections = mergeSections(sec1, sec2);
+
+    if (Object.keys(sections).length === 0) {
+      console.warn("  ⚠️ Aucune section détectée (page atypique ou contenu non présent dans le HTML).");
     }
 
-    const fileBase = data.ref ? slugRef(data.ref) : sha1(url);
+    const data = { ref, title, url, sections };
+
+    const fileBase = ref ? slugRef(ref) : sha1(url);
     const outFile = path.join(OUT_DIR, `${fileBase}.json`);
     fs.writeFileSync(outFile, JSON.stringify(data, null, 2), "utf-8");
 
     indexItems.push({
-      ref: data.ref,
-      title: data.title,
-      url: data.url,
+      ref,
+      title,
+      url,
       file: `produits/connecteur/fiche/${path.basename(outFile)}`,
     });
 

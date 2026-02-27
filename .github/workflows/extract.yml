@@ -23,6 +23,8 @@ jobs:
 
       - name: Run extractor
         run: node produits/connecteur/scripts/extract-binder-specs.mjs
+        env:
+          MAX_PRODUCTS: "20"
 
       - name: Commit generated JSON
         run: |
