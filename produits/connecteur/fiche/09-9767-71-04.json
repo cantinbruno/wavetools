@@ -1,0 +1,41 @@
+{
+  "ref": "09 9767 71 04",
+  "title": "Snap-In Connecteur mâle, Contacts: 4, 4,0-5,0 mm, non blindé, souder, IP40",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-subminiatures/connecteur-encliquetable-ip40/09-9767-71-04-snap-in-ip40-connecteur-male-contacts-4-40-50-mm-non-blinde-souder-ip40",
+  "category1": "connecteurs-subminiatures",
+  "mainImage": "https://www.binder-connector.com/prod_media/produktfoto_seo/719_1_70.1.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 9767 71 04",
+      "Design du connecteur": "Connecteur mâle",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "snap-in",
+      "Connexion": "souder",
+      "Indice de protection": "IP40",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Passage de câble": "4,0-5,0 mm",
+      "Plage de températures de/à": "-25 °C / 70 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "1.36",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "800 V",
+      "Courant nominal (40 °C)": "3,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "1",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "PA",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "d12e4963-48f3-44a4-820c-966c264378ec",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

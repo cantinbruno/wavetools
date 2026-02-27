@@ -1,0 +1,39 @@
+{
+  "ref": "09 9750 30 03",
+  "title": "Snap-In Embase femelle, Contacts: 3, non blindé, souder, IP40, 1/4\" 28 UNF, Montage frontal",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-subminiatures/connecteur-encliquetable-ip40/09-9750-30-03-snap-in-ip40-embase-femelle-contacts-3-non-blinde-souder-ip40",
+  "category1": "connecteurs-subminiatures",
+  "mainImage": "https://www.binder-connector.com/prod_media/produktfoto_seo/719_4_30.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 9750 30 03",
+      "Design du connecteur": "Embase femelle",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "snap-in",
+      "Connexion": "souder",
+      "Indice de protection": "IP40",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Plage de températures de/à": "-25 °C / 70 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "1.20",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "800 V",
+      "Courant nominal (40 °C)": "3,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "1",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "PA",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuSn (bronze)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "0c2cba33-6f85-4d7c-92d7-28bd9dd550ed",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}
