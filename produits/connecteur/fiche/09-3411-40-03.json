@@ -1,0 +1,41 @@
+{
+  "ref": "09 3411 40 03",
+  "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP65",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/09-3411-40-03-m8-encastrable-male-contacts-3-non-blinde-souder-ip65",
+  "family": "M8",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_E.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 3411 40 03",
+      "Design du connecteur": "Encastrable mâle",
+      "Norme de conception": "DIN EN 61076-2-104",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "snap-in",
+      "Connexion": "souder",
+      "Indice de protection": "IP65",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Plage de températures de/à": "-25 °C / 70 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "0.90",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "10 - 30 V",
+      "Tension de choc nominale": "500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "CuZn (Laiton, nickelé)",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "d693f1f2-0579-4aa6-b934-e128b53ab8bf",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "ref": "09 3491 969 12",
+  "title": "M12 Embase mâle, Contacts: 12, non blindé, THT, IP68, M12x1,0, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-3491-969-12-m12-a-embase-male-contacts-12-non-blinde-tht-ip68-m12x10",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_12pol_tl_6mm.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 3491 969 12",
+      "Design du connecteur": "Embase mâle",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "THT",
+      "Indice de protection": "IP68",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "9.44",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "30 V",
+      "Tension de choc nominale": "500 V",
+      "Courant nominal (40 °C)": "1,5 A",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PA noir",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "582b71c0-f061-4d0f-9143-c8382bf48564",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

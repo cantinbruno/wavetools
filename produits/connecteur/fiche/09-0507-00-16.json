@@ -1,0 +1,41 @@
+{
+  "ref": "09 0507 00 16",
+  "title": "M16 Embase mâle, Contacts: 16, non blindé, souder, IP67, UL 2238, M18x0,75, Montage frontal",
+  "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0507-00-16-m16-ip67-embase-male-contacts-16-non-blinde-souder-ip67-ul",
+  "family": "M16 IP67",
+  "category1": "miniatures",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_00.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 0507 00 16",
+      "Design du connecteur": "Embase mâle",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "souder",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Plage de températures de/à": "-40 °C / 95 °C",
+      "Durée de vie mécanique": "> 500 Cycles d'accouplement",
+      "Poids (g)": "11.53",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "500 V",
+      "Courant nominal (40 °C)": "3,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "1",
+      "Catégorie de surtension": "I",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PBT (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "59f0898d-3b6e-4163-97f7-c27d4805539c",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

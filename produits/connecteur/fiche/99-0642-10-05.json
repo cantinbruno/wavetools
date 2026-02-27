@@ -1,0 +1,42 @@
+{
+  "ref": "99 0642 10 05",
+  "title": "M12 Embase femelle, Contacts: 4+FE, non blindé, THR, IP67, UL 2238, M16x1,5, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0642-10-05-m12-l-embase-femelle-contacts-5-non-blinde-thr-ip67-m16x15-visse-a-lavant",
+  "family": "M12-L",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_4_FD_L_2teil_Front_mitO_ohneD.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 0642 10 05",
+      "Design du connecteur": "Embase femelle",
+      "Norme de conception": "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "Codage": "L-codé",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "M12x1",
+      "Connexion": "THR",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-40 °C / 105 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "16.28",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "63 V",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "16,0 A",
+      "Résistance d'isolation": "> 1010 Ω",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PA (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton) / CuSn (bronze)",
+      "Revêtement du contact": "Au (or)",
+      "Matériel de verrouillage": "Zinc coulé sous pression nickelé",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "efee7d9c-9b8a-4495-8b7b-02ccd9428156",
+      "eCl@ss 11.1": "27-44-01-02",
+      "ETIM 9.0": "EC002635"
+    }
+  }
+}

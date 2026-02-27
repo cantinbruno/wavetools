@@ -1,0 +1,41 @@
+{
+  "ref": "99 3442 401 05",
+  "title": "M12 Embase femelle, Contacts: 5, blindable, SMT, IP67, M14x1,0, Montage frontal",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3442-401-05-m12-a-embase-femelle-contacts-5-blindable-smt-ip67",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_EBD_SMT_schirm_Gehaeuse_9mm.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 3442 401 05",
+      "Design du connecteur": "Embase femelle",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "SMT",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Hauteur d'installation": "9",
+      "Poids (g)": "7.50",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "blindable",
+      "Raccordement du blindage": "Plaque de protection",
+      "Matériau du boîtier": "CuZn (Laiton, nickelé)",
+      "Matériau du corps de contact": "LCP",
+      "Matériau du contact": "CuSn (bronze)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "f79b79d5-a7f5-4bda-aaa6-c218e4ecdab8"
+    }
+  }
+}

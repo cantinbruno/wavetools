@@ -1,0 +1,41 @@
+{
+  "ref": "99 0638 58 04",
+  "title": "M12 Connecteur femelle coudé, Contacts: 4, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2238, M12x1,0, pour l'alimentation électrique",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0638-58-04-m12-connecteur-femelle-coude-contacts-4-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-pour-lalimentation-electrique",
+  "family": "M12-L",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_2_WD_L_4pol_schwarz.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 0638 58 04",
+      "Design du connecteur": "Connecteur femelle coudé",
+      "Codage": "L-codé",
+      "Version": "Connecteur d‘angle femelle",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "pince à visser",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "max. 1,50 mm² avec embout / max. 2,50 mm² sans embout / 16 avec embout / AWG 14 sans embout",
+      "Passage de câble": "8,0-13,0 mm",
+      "Plage de températures de/à": "-40 °C / 105 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "52.31",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "63 V",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "12 A (à 1,5 mm²/AWG 16) / 16 A (à 2,5 mm²/AWG 14)",
+      "Résistance d'isolation": "> 1010 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "I",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "PA",
+      "Matériau du corps de contact": "PA (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "c34f1009-b411-4f74-b2d0-8b3e5786ca84"
+    }
+  }
+}

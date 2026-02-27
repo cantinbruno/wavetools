@@ -1,0 +1,41 @@
+{
+  "ref": "99 0433 500 05",
+  "title": "M12 Embase mâle, Contacts: 5, non blindé, pince à visser, IP67, UL 2238, M20x1,5, Montage frontal, pour l'alimentation électrique",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0433-500-05-m12-a-embase-male-contacts-5-non-blinde-pince-a-visser-ip67-ul-m20x15",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3_FS_schrkl.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 0433 500 05",
+      "Design du connecteur": "Embase mâle",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "pince à visser",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "max. 1,50 mm² / AWG 16",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "25.63",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V (125 V UL)",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "Contacts 1-4: 8 A / Contact 5: 2 A (2,0 A UL)",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "Matériel de verrouillage": "Zinc coulé sous pression nickelé",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "c09d7530-2a0d-47a9-8339-8d8223ed8326",
+      "ETIM 9.0": "EC002635"
+    }
+  }
+}

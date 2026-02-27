@@ -1,0 +1,41 @@
+{
+  "ref": "99 3433 100 04",
+  "title": "M12 Embase mâle, carré, Contacts: 4, non blindé, fils, IP69k, IP68, IP67, UL 2238, M3 (4x), Montage frontal, Boîtier carré 20 mm, Alignement de codage positionnable",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3433-100-04-m12-a-embase-male-carre-contacts-4-non-blinde-fils-ip69-ip68-ip67-ul-carre-boitier-carre-20-mm",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_pos_einrast.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 3433 100 04",
+      "Design du connecteur": "Embase mâle, carré",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Longueur du fil": "0,2 m (Standard 0,2 m. D'autres longueurs sont possibles sur demande).",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "fils",
+      "Indice de protection": "IP69k, IP68, IP67",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "11.87",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "250 V",
+      "Tension de choc nominale": "2500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "Laiton nickelé / zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "d8b1b6be-3df0-4f8a-8f7b-c0fa01d5a8ff"
+    }
+  }
+}

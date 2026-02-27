@@ -1,0 +1,43 @@
+{
+  "ref": "99 0486 29 08",
+  "title": "M12 Connecteur femelle, Contacts: 8, 8,0-10,0 mm, non blindé, pince à visser, IP67, UL 2238, PG 11",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0486-29-08-m12-a-connecteur-femelle-contacts-8-80-100-mm-non-blinde-pince-a-visser-ip67-ul-pg-11",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_KD_P.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 0486 29 08",
+      "Design du connecteur": "Connecteur femelle",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "pince à visser",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "max. 0,50 mm² / AWG 20",
+      "Passage de câble": "8,0-10,0 mm",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "28.00",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "30 V",
+      "Tension de choc nominale": "800 V",
+      "Courant nominal (40 °C)": "2,0 A",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "PA",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuSn (bronze)",
+      "Revêtement du contact": "Au (or)",
+      "Matériel de verrouillage": "Zinc coulé sous pression nickelé",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "18e04225-9f82-4f3c-8284-2dd3b9fa0c8b",
+      "eCl@ss 11.1": "27-44-01-02"
+    }
+  }
+}

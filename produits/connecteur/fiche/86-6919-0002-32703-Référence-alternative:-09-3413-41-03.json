@@ -1,0 +1,43 @@
+{
+  "ref": "86 6919 0002 32703 Référence alternative: 09 3413 41 03",
+  "title": "M8 Encastrable mâle, Contacts: 3, non blindé, souder, IP65, Montage frontal",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6919-0002-32703-m8-encastrable-male-contacts-3-non-blinde-souder-ip65",
+  "family": "M8",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_EG.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "86 6919 0002 32703 Référence alternative: 09 3413 41 03",
+      "Avis": "Veuillez noter qu’à la suite du passage de l’ancien au nouveau numéro de commande, des écarts sont possibles dans les spécifications techniques. Pour des informations détaillées sur le produit, veuillez utiliser l’option « Contacter le service client » en haut à droite. Plus",
+      "Design du connecteur": "Encastrable mâle",
+      "Norme de conception": "DIN EN 61076-2-104",
+      "Codage": "A-codé",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "snap-in, vis",
+      "Connexion": "souder",
+      "Indice de protection": "IP65",
+      "Section de raccordement": "0,25 mm² / AWG 24",
+      "Plage de températures de/à": "-40 °C / 70 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "1.38",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "50 V (AC) / 60 V (DC)",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "CuZn (Laiton, nickelé)",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS-119-47-1 (2,2'-Methylenbis) CAS 7439-92-1 (Lead) NK (Nicht klassifiziert)",
+      "Numéro SCIP": "3e8501f7-c87d-411c-bc52-dd9c1dc1e9e0",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

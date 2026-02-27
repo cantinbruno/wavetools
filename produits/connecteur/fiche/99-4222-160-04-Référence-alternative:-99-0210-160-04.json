@@ -1,0 +1,42 @@
+{
+  "ref": "99 4222 160 04 Référence alternative: 99 0210 160 04",
+  "title": "RD24 Connecteur femelle, Contacts: 3+PE, 12,0-14,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 16",
+  "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-160-04-rd24-connecteur-femelle-contacts-3-pe-120-140-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-16",
+  "family": "RD24 Power",
+  "category1": "power",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_2_14.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 4222 160 04 Référence alternative: 99 0210 160 04",
+      "Design du connecteur": "Connecteur femelle",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "pince à visser",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "max. 2,50 mm² / AWG 14",
+      "Passage de câble": "12,0-14,0 mm",
+      "Plage de températures de/à": "-40 °C / 100 °C",
+      "Durée de vie mécanique": "> 500 Cycles d'accouplement",
+      "Poids (g)": "43.40",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "400 V (600 V UL)",
+      "Tension de choc nominale": "6000 V",
+      "Courant nominal (40 °C)": "16 A (12 A UL)",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du corps de contact": "PBT (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Ag (argent)",
+      "REACH SVHC": "CAS 96-45-7 (Imidazolidine-2-thione) CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "41f1b91c-02a9-47b0-9cac-a3133235931c",
+      "eCl@ss 11.1": "27-44-01-02",
+      "ETIM 9.0": "EC002635",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

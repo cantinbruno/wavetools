@@ -1,0 +1,43 @@
+{
+  "ref": "86 6518 1123 00004 Référence alternative: 09 3390 80 04",
+  "title": "M8 Embase femelle, Contacts: 4, non blindé, THT, IP67, M12x1,0, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6518-1123-00004-m8-embase-femelle-contacts-4-non-blinde-tht-ip67-ul-m12x10-visse-a-lavant",
+  "family": "M8",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4_FF.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "86 6518 1123 00004 Référence alternative: 09 3390 80 04",
+      "Avis": "Veuillez noter qu’à la suite du passage de l’ancien au nouveau numéro de commande, des écarts sont possibles dans les spécifications techniques. Pour des informations détaillées sur le produit, veuillez utiliser l’option « Contacter le service client » en haut à droite. Plus",
+      "Design du connecteur": "Embase femelle",
+      "Norme de conception": "DIN EN 61076-2-104",
+      "Codage": "A-codé",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "THT",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "11.88",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "50 V (AC) / 60 V (DC)",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "CuZn (Laiton, nickelé)",
+      "Matériau du corps de contact": "PA noir",
+      "Matériau du contact": "CuSn (bronze)",
+      "Revêtement du contact": "Au (or)",
+      "Longueur de contact": "9,5 mm",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "a006fd1d-4add-49b3-88ec-3da7d11bf479",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

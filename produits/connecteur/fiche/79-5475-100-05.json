@@ -1,0 +1,37 @@
+{
+  "ref": "79 5475 100 05",
+  "title": "7/8\" Répartiteur double, Contacts: 5, non blindé, IP68",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/79-5475-100-05-7-8-repartiteur-double-contacts-5-non-blinde-ip68",
+  "family": "7/8\"",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/870_T_ZDG_SDD_5pol.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "79 5475 100 05",
+      "Design du connecteur": "Répartiteur double",
+      "Codage": "T-codé",
+      "Version": "T-Distributeurs",
+      "Verrouillage du connecteur": "visser",
+      "Indice de protection": "IP68",
+      "Plage de températures de/à": "-25 °C / 80 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "84.00",
+      "Numéro de tarif douanier": "85444290",
+      "Pays d'origine": "DE",
+      "Tension nominale": "400 V",
+      "Tension de choc nominale": "4000 V",
+      "Courant nominal (40 °C)": "5,6 A",
+      "Résistance d'isolation": "> 1010 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "I",
+      "Conformité CEM": "non blindé",
+      "Matériau du corps de contact": "PUR",
+      "Matériau du contact": "CuSn (bronze) / CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

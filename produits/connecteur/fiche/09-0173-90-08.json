@@ -1,0 +1,40 @@
+{
+  "ref": "09 0173 90 08",
+  "title": "M16 Embase mâle, Contacts: 8 (08-a), non blindé, THT, IP67, UL 2238, AISG conforme, M18x0,75, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-90-08-m16-ip67-embase-male-contacts-8-din-non-blinde-tht-ip68-ul-aisg-conforme-visse-a-lavant",
+  "family": "M16 IP67",
+  "category1": "miniatures",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_90.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 0173 90 08",
+      "Design du connecteur": "Embase mâle",
+      "Norme de conception": "DIN EN 61076-2-106",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "THT",
+      "Indice de protection": "IP67 IP68",
+      "Plage de températures de/à": "-40 °C / 95 °C",
+      "Durée de vie mécanique": "> 500 Cycles d'accouplement",
+      "Poids (g)": "13.63",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "500 V",
+      "Courant nominal (40 °C)": "5,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "1",
+      "Catégorie de surtension": "I",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PBT (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Ag (argent)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "d9c26d70-a406-4d3c-8d9f-b7114ca955c5",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

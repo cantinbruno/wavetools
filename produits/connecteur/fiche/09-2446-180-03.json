@@ -1,0 +1,40 @@
+{
+  "ref": "09 2446 180 03",
+  "title": "7/8\" Embase femelle, Contacts: 2+PE, non blindé, THT, IP68, UL 2238, VDE, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-180-03-7-8-embase-femelle-contacts-2-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+  "family": "7/8\"",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_4_FD_TL_vv.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 2446 180 03",
+      "Design du connecteur": "Embase femelle",
+      "Version": "Connecteur femelle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "THT",
+      "Indice de protection": "IP68",
+      "Section de raccordement": "0,75 mm² / AWG 18",
+      "Plage de températures de/à": "-25 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "60.91",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "300 V (600 V UL)",
+      "Tension de choc nominale": "4000 V",
+      "Courant nominal (40 °C)": "10,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "I",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PUR",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "3fb0cc27-f037-4137-9e5b-b51f4a661bbe",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

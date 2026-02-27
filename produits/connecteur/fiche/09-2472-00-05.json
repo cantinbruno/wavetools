@@ -1,0 +1,40 @@
+{
+  "ref": "09 2472 00 05",
+  "title": "7/8\" Traversée de panneau, Contacts: 5, non blindé, enfichable, IP67, VDE, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2472-00-05-7-8-adaptateur-contacts-5-non-blinde-enfichable-ip67-vde",
+  "family": "7/8\"",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_SSDF.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 2472 00 05",
+      "Design du connecteur": "Traversée de panneau",
+      "Version": "Adaptateur",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "enfichable",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-25 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "122.37",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "CZ",
+      "Tension nominale": "300 V (600 V UL)",
+      "Tension de choc nominale": "4000 V",
+      "Courant nominal (40 °C)": "6,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "I",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PUR",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "f6c29127-c1a9-4f8e-96d7-3e1be735e103",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

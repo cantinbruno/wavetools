@@ -1,0 +1,41 @@
+{
+  "ref": "09 5290 10 05",
+  "title": "M12 Traversée de panneau, Contacts: 4+PE, blindé, enfichable, IP67, UL 2238, M12x1,0, Montage mural arrière",
+  "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/09-5290-10-05-m12-k-traversee-de-panneau-contacts-4-pe-blinde-enfichable-ip67-m12x10",
+  "family": "M12-K",
+  "category1": "connecteurs-dautomatisme-tension-et-alimentation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/824_2_SSDF_DS5pol.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 5290 10 05",
+      "Design du connecteur": "Traversée de panneau",
+      "Norme de conception": "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "Codage": "K-codé",
+      "Version": "Traversée de panneau",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "enfichable",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "40.06",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "630 V (600 V UL)",
+      "Tension de choc nominale": "6000 V",
+      "Courant nominal (40 °C)": "12,0 A",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "II",
+      "Conformité CEM": "blindé",
+      "Matériau du boîtier": "CuZn (Laiton, nickelé)",
+      "Matériau du corps de contact": "PA noir",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "ff566f35-f807-4851-ba64-e290dc0c42d0",
+      "ETIM 9.0": "EC003569",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

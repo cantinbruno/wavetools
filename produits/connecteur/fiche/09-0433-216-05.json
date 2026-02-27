@@ -1,0 +1,42 @@
+{
+  "ref": "09 0433 216 05",
+  "title": "M12 Encastrable mâle, Contacts: 5, non blindé, THT, IP67",
+  "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0433-216-05-m12-a-encastrable-male-contacts-5-non-blinde-tht-ip67",
+  "family": "M12-A",
+  "category1": "technologie-dautomatisation",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3_EDT.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 0433 216 05",
+      "Design du connecteur": "Encastrable mâle",
+      "Norme de conception": "DIN EN 61076-2-101",
+      "Codage": "A-codé",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "THT",
+      "Indice de protection": "IP67",
+      "Plage de températures de/à": "-40 °C / 85 °C",
+      "Durée de vie mécanique": "> 100 Cycles d'accouplement",
+      "Poids (g)": "0.98",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "60 V",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "4,0 A",
+      "Résistance d'isolation": "> 108 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "II",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "PA",
+      "Matériau du corps de contact": "PA",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Au (or)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "40cf7959-3074-4393-a2c3-bdef2bbdc64c",
+      "eCl@ss 11.1": "27-44-01-09",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}

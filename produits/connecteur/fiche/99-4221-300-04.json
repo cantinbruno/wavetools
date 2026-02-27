@@ -1,0 +1,42 @@
+{
+  "ref": "99 4221 300 04",
+  "title": "RD24 Connecteur mâle, Contacts: 3+PE, 7,0-17,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE",
+  "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-300-04-rd24-connecteur-male-contacts-3-pe-70-170-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-vario",
+  "family": "RD24 Power",
+  "category1": "power",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_1_KS_Vario.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "99 4221 300 04",
+      "Design du connecteur": "Connecteur mâle",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "pince à visser",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "max. 2,50 mm² / AWG 14",
+      "Passage de câble": "7,0-17,0 mm",
+      "Plage de températures de/à": "-40 °C / 100 °C",
+      "Durée de vie mécanique": "> 500 Cycles d'accouplement",
+      "Poids (g)": "48.40",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "400 V (600 V UL)",
+      "Tension de choc nominale": "6000 V",
+      "Courant nominal (40 °C)": "16,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "3",
+      "Catégorie de surtension": "III",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du corps de contact": "PBT",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Ag (argent)",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "ebf8b8ad-8bb5-4001-a908-1f008456f02e",
+      "eCl@ss 11.1": "27-44-01-02",
+      "ETIM 9.0": "EC002635",
+      "Directive basse tension": "2014/35/EU (EN 60529:1991 | 2014/35/EU;EN 60204-1:2018)"
+    }
+  }
+}

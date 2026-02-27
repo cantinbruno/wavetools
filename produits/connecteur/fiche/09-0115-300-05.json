@@ -1,0 +1,42 @@
+{
+  "ref": "09 0115 300 05",
+  "title": "M16 Embase mâle, carré, Contacts: 5 (05-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal",
+  "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-300-05-m16-ip67-embase-male-carre-contacts-5-non-blinde-souder-ip67-ul",
+  "family": "M16 IP67",
+  "category1": "miniatures",
+  "mainImage": null,
+  "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_FS_Viereck_loe.jpg",
+  "sections": {
+    "Données techniques": {
+      "Référence": "09 0115 300 05",
+      "Design du connecteur": "Embase mâle, carré",
+      "Norme de conception": "DIN EN 61076-2-106",
+      "Version": "Connecteur mâle droite",
+      "Verrouillage du connecteur": "visser",
+      "Connexion": "souder",
+      "Indice de protection": "IP67",
+      "Section de raccordement": "0,75 mm² / AWG 18",
+      "Plage de températures de/à": "-40 °C / 95 °C",
+      "Durée de vie mécanique": "> 500 Cycles d'accouplement",
+      "Poids (g)": "12.85",
+      "Numéro de tarif douanier": "85369010",
+      "Pays d'origine": "DE",
+      "Tension nominale": "250 V",
+      "Tension de choc nominale": "1500 V",
+      "Courant nominal (40 °C)": "6,0 A",
+      "Résistance d'isolation": "≥ 1010 Ω",
+      "Degré d’encrassement": "1",
+      "Catégorie de surtension": "I",
+      "Groupe de matériau isolant": "III",
+      "Conformité CEM": "non blindé",
+      "Matériau du boîtier": "zinc coulé sous pression nickelé",
+      "Matériau du corps de contact": "PBT (UL94 V-0)",
+      "Matériau du contact": "CuZn (laiton)",
+      "Revêtement du contact": "Ag (argent)",
+      "Matériel de verrouillage": "Zinc coulé sous pression nickelé",
+      "REACH SVHC": "CAS 7439-92-1 (Lead)",
+      "Numéro SCIP": "93bff90f-a761-4f54-ae2c-a2b3d2685713",
+      "ETIM 9.0": "EC003569"
+    }
+  }
+}
