@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-02-28T01:20:15.278Z",
+  "group": {
+    "key": "M16 IP67__6-0-8-0-mm-souder-ul-2238",
+    "slug": "m16-ip67-6-0-8-0-mm-souder-ul-2238",
+    "family": "M16 IP67",
+    "typeProduit": "6-0-8-0-mm-souder-ul-2238",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      14,
+      16,
+      19,
+      24
+    ]
+  },
+  "canonical": {
+    "ref": "99-5601-75-02",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5601-75-02-m16-ip67-connecteur-male-coude-contacts-2-60-80-mm-blindable-souder-ip67-ul",
+    "title": "M16 Connecteur mâle coudé, Contacts: 2 (02-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m16-ip67-6-0-8-0-mm-souder-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_1_WS_PG9.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-5601-75-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5601-75-02-m16-ip67-connecteur-male-coude-contacts-2-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 2 (02-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5605-75-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5605-75-03-m16-ip67-connecteur-male-coude-contacts-3-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 3 (03-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5609-75-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5609-75-04-m16-ip67-connecteur-male-coude-contacts-4-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 4 (04-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5613-75-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5613-75-05-m16-ip67-connecteur-male-coude-contacts-5-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 5 (05-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5617-75-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5617-75-05-m16-ip67-connecteur-male-coude-contacts-5-stereo-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 5 (05-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5621-75-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5621-75-06-m16-ip67-connecteur-male-coude-contacts-6-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 6 (06-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5621-79-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5621-79-06-m16-ip67-connecteur-male-coude-contacts-6-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 6 (06-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5625-75-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5625-75-07-m16-ip67-connecteur-male-coude-contacts-7-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 7 (07-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5625-79-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5625-79-07-m16-ip67-connecteur-male-coude-contacts-7-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 7 (07-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5681-75-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5681-75-07-m16-ip67-connecteur-male-coude-contacts-7-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 7 (07-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5671-75-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5671-75-08-m16-ip67-connecteur-male-coude-contacts-8-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5671-79-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5671-79-08-m16-ip67-connecteur-male-coude-contacts-8-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5629-75-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5629-75-12-m16-ip67-connecteur-male-coude-contacts-12-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 12 (12-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5651-75-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5651-75-14-m16-ip67-connecteur-male-coude-contacts-14-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 14 (14-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5455-75-16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5455-75-16-m16-ip67-connecteur-male-coude-contacts-16-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 16, 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5661-75-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5661-75-19-m16-ip67-connecteur-male-coude-contacts-19-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 19 (19-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5695-75-24",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5695-75-24-m16-ip67-connecteur-male-coude-contacts-24-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur mâle coudé, Contacts: 24, 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5602-75-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5602-75-02-m16-ip67-connecteur-femelle-coude-contacts-2-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 2 (02-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5606-75-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5606-75-03-m16-ip67-connecteur-femelle-coude-contacts-3-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 3 (03-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5610-75-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5610-75-04-m16-ip67-connecteur-femelle-coude-contacts-4-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 4 (04-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5614-75-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5614-75-05-m16-ip67-connecteur-femelle-coude-contacts-5-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 5 (05-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5618-75-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5618-75-05-m16-ip67-connecteur-femelle-coude-contacts-5-stereo-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 5 (05-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5622-75-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5622-75-06-m16-ip67-connecteur-femelle-coude-contacts-6-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 6 (06-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5626-75-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5626-75-07-m16-ip67-connecteur-femelle-coude-contacts-7-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 7 (07-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5682-75-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5682-75-07-m16-ip67-connecteur-femelle-coude-contacts-7-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 7 (07-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5672-75-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-75-08-m16-ip67-connecteur-femelle-coude-contacts-8-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5672-79-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-79-08-m16-ip67-connecteur-femelle-coude-contacts-8-din-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5630-75-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5630-75-12-m16-ip67-connecteur-femelle-coude-contacts-12-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 12 (12-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5652-75-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5652-75-14-m16-ip67-connecteur-femelle-coude-contacts-14-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 14 (14-b), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5456-75-16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5456-75-16-m16-ip67-connecteur-femelle-coude-contacts-16-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 16, 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5662-75-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5662-75-19-m16-ip67-connecteur-femelle-coude-contacts-19-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 19 (19-a), 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    },
+    {
+      "ref": "99-5696-75-24",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5696-75-24-m16-ip67-connecteur-femelle-coude-contacts-24-60-80-mm-blindable-souder-ip67-ul",
+      "title": "M16 Connecteur femelle coudé, Contacts: 24, 6,0-8,0 mm, blindable, souder, IP67, UL 2238"
+    }
+  ]
+}

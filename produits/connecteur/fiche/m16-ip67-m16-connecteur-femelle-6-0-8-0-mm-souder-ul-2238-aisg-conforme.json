@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-02-28T01:20:15.760Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-femelle-6-0-8-0-mm-souder-ul-2238-aisg-conforme",
+    "slug": "m16-ip67-m16-connecteur-femelle-6-0-8-0-mm-souder-ul-2238-aisg-conforme",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-femelle-6-0-8-0-mm-souder-ul-2238-aisg-conforme",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-5672-19-08",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-19-08-m16-ip67-connecteur-femelle-contacts-8-din-60-80-mm-blindable-souder-ip68-ul-aisg-conforme",
+    "title": "M16 Connecteur femelle, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP68, UL 2238, AISG conforme",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-femelle-6-0-8-0-mm-souder-ul-2238-aisg-conforme.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_2_56.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-5672-19-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-19-08-m16-ip67-connecteur-femelle-contacts-8-din-60-80-mm-blindable-souder-ip68-ul-aisg-conforme",
+      "title": "M16 Connecteur femelle, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP68, UL 2238, AISG conforme"
+    },
+    {
+      "ref": "99-5672-00-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-00-08-m16-ip67-connecteur-femelle-contacts-8-din-60-80-mm-blindable-souder-ip68-ul-aisg-conforme",
+      "title": "M16 Connecteur femelle, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP68, UL 2238, AISG conforme"
+    },
+    {
+      "ref": "99-5672-09-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5672-09-08-m16-ip67-connecteur-femelle-contacts-8-din-60-80-mm-blindable-souder-ip68-ul-aisg-conforme",
+      "title": "M16 Connecteur femelle, Contacts: 8 (08-a), 6,0-8,0 mm, blindable, souder, IP68, UL 2238, AISG conforme"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-02-28T01:20:25.900Z",
+  "group": {
+    "key": "M8__m8-embase-m-le-tht-ul-2238-m8x1-0-montage-mural-arri-re",
+    "slug": "m8-m8-embase-m-le-tht-ul-2238-m8x1-0-montage-mural-arri-re",
+    "family": "M8",
+    "typeProduit": "m8-embase-m-le-tht-ul-2238-m8x1-0-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      5,
+      6,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "86-6119-1100-00003-Référence-alternative:-09-3403-81-03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00003-m8-embase-male-contacts-3-non-blinde-tht-ip67-ul-visse-a-lavant",
+    "title": "M8 Embase mâle, Contacts: 3, non blindé, THT, IP67, UL 2238, M8x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-m-le-tht-ul-2238-m8x1-0-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_FS_FF_2022.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-6119-1100-00003-Référence-alternative:-09-3403-81-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00003-m8-embase-male-contacts-3-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 3, non blindé, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6119-1100-00004-Référence-alternative:-09-3391-81-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00004-m8-embase-male-contacts-4-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 4, non blindé, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6119-1100-00006-Référence-alternative:-09-3463-81-06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00006-m8-embase-male-contacts-6-non-blinde-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 6, non blindé, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6119-1100-00008-Référence-alternative:-09-3487-81-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6119-1100-00008-m8-embase-male-contacts-8-non-blinde-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 8, non blindé, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1120-00003-Référence-alternative:-09-3419-81-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00003-m8-embase-male-contacts-3-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 3, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1120-00004-Référence-alternative:-09-3421-81-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00004-m8-embase-male-contacts-4-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 4, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1120-00005-Référence-alternative:-09-3425-81-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00005-m8-embase-male-contacts-5-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 5, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1120-00006-Référence-alternative:-09-3423-81-06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00006-m8-embase-male-contacts-6-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 6, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1120-00008-Référence-alternative:-09-3427-81-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1120-00008-m8-embase-male-contacts-8-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 8, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1121-00003-Référence-alternative:-09-3419-82-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00003-m8-embase-male-contacts-3-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 3, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1121-00004-Référence-alternative:-09-3421-82-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00004-m8-embase-male-contacts-4-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 4, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1121-00005-Référence-alternative:-09-3425-82-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00005-m8-embase-male-contacts-5-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 5, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1121-00006-Référence-alternative:-09-3423-82-06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00006-m8-embase-male-contacts-6-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 6, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    },
+    {
+      "ref": "86-6319-1121-00008-Référence-alternative:-09-3427-82-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6319-1121-00008-m8-embase-male-contacts-8-blindable-tht-ip67-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 8, blindable, THT, IP67, UL 2238, M8x1,0, Montage mural arrière"
+    }
+  ]
+}

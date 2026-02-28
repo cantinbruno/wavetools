@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-02-28T01:20:21.387Z",
+  "group": {
+    "key": "RD24 Power__rd24-embase-femelle-pince-visser-ul-esti-vde-montage-frontal",
+    "slug": "rd24-power-rd24-embase-femelle-pince-visser-ul-esti-vde-montage-frontal",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-embase-femelle-pince-visser-ul-esti-vde-montage-frontal",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "09-4224-00-04-Référence-alternative:-09-0212-00-04",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4224-00-04-rd24-embase-femelle-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+    "title": "RD24 Embase femelle, Contacts: 3+PE, non blindé, pince à visser, IP67, UL, ESTI+, VDE, Montage frontal",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-embase-femelle-pince-visser-ul-esti-vde-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_4_3S.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-4224-00-04-Référence-alternative:-09-0212-00-04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4224-00-04-rd24-embase-femelle-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "title": "RD24 Embase femelle, Contacts: 3+PE, non blindé, pince à visser, IP67, UL, ESTI+, VDE, Montage frontal"
+    },
+    {
+      "ref": "09-4220-00-07-Référence-alternative:-09-0220-00-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4220-00-07-rd24-embase-femelle-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde",
+      "title": "RD24 Embase femelle, Contacts: 6+PE, non blindé, pince à visser, IP67, UL, ESTI+, VDE, Montage frontal"
+    },
+    {
+      "ref": "09-4220-150-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4220-150-07-rd24-embase-femelle-contacts-6-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "title": "RD24 Embase femelle, Contacts: 6+PE, non blindé, pince à visser, IP67, UL, ESTI+, VDE, Montage frontal"
+    },
+    {
+      "ref": "09-4224-150-04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4224-150-04-rd24-embase-femelle-contacts-3-pe-non-blinde-pince-a-visser-ip67-ul-esti-vde-fixation-centrale",
+      "title": "RD24 Embase femelle, Contacts: 3+PE, non blindé, pince à visser, IP67, UL, ESTI+, VDE, Montage frontal"
+    }
+  ]
+}

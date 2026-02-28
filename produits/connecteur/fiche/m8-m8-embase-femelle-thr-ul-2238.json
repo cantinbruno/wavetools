@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-02-28T01:20:26.596Z",
+  "group": {
+    "key": "M8__m8-embase-femelle-thr-ul-2238",
+    "slug": "m8-m8-embase-femelle-thr-ul-2238",
+    "family": "M8",
+    "typeProduit": "m8-embase-femelle-thr-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "coude",
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-3412-281-03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-281-03-m8-embase-femelle-contacts-3-non-blinde-thr-ip67-ul",
+    "title": "M8 Embase femelle, Contacts: 3, non blindé, THR, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-femelle-thr-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_4_P6.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3412-281-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-281-03-m8-embase-femelle-contacts-3-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, THR, IP67, UL 2238"
+    },
+    {
+      "ref": "99-3390-281-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-281-04-m8-embase-femelle-contacts-4-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, THR, IP67, UL 2238"
+    },
+    {
+      "ref": "99-3412-280-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-280-03-m8-embase-femelle-contacts-3-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, Contacts: 3, non blindé, THR, IP67, UL 2238"
+    },
+    {
+      "ref": "99-3390-280-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-280-04-m8-embase-femelle-contacts-4-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, Contacts: 4, non blindé, THR, IP67, UL 2238"
+    },
+    {
+      "ref": "99-3412-282-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3412-282-03-m8-embase-femelle-coudee-contacts-3-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, coudé, Contacts: 3, non blindé, THR, IP67, UL 2238"
+    },
+    {
+      "ref": "99-3390-282-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3390-282-04-m8-embase-femelle-coudee-contacts-4-non-blinde-thr-ip67-ul",
+      "title": "M8 Embase femelle, coudé, Contacts: 4, non blindé, THR, IP67, UL 2238"
+    }
+  ]
+}

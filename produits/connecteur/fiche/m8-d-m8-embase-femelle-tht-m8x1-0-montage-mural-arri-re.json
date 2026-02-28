@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:42.236Z",
+  "group": {
+    "key": "M8-D__m8-embase-femelle-tht-m8x1-0-montage-mural-arri-re",
+    "slug": "m8-d-m8-embase-femelle-tht-m8x1-0-montage-mural-arri-re",
+    "family": "M8-D",
+    "typeProduit": "m8-embase-femelle-tht-m8x1-0-montage-mural-arri-re",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-114"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "86-6620-1120-00404",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6620-1120-00404-m8-d-embase-femelle-contacts-4-blindable-tht-ip67-3",
+    "title": "M8 Embase femelle, Contacts: 4, blindable, THT, IP67, M8x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-d-m8-embase-femelle-tht-m8x1-0-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_4_FD-D_ger.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-6620-1120-00404",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/86-6620-1120-00404-m8-d-embase-femelle-contacts-4-blindable-tht-ip67-3",
+      "title": "M8 Embase femelle, Contacts: 4, blindable, THT, IP67, M8x1,0, Montage mural arrière"
+    }
+  ]
+}

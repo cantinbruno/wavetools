@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:41.422Z",
+  "group": {
+    "key": "M12-A__m12-r-partiteur-double-y-distributeur-m-le-2-femelle-enfichable-ul-2238",
+    "slug": "m12-a-m12-r-partiteur-double-y-distributeur-m-le-2-femelle-enfichable-ul-2238",
+    "family": "M12-A",
+    "typeProduit": "m12-r-partiteur-double-y-distributeur-m-le-2-femelle-enfichable-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males+2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "79-5200-00-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/79-5200-00-04-cables-de-raccordement-repartiteur-double-contacts-4-non-blinde-enfichable-ip68-ul-m12x10",
+    "title": "M12 Répartiteur double, Y-distributeur, mâle - 2 femelle, Contacts: 4, non blindé, enfichable, IP68, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-r-partiteur-double-y-distributeur-m-le-2-femelle-enfichable-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/765_V2.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79-5200-00-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/79-5200-00-04-cables-de-raccordement-repartiteur-double-contacts-4-non-blinde-enfichable-ip68-ul-m12x10",
+      "title": "M12 Répartiteur double, Y-distributeur, mâle - 2 femelle, Contacts: 4, non blindé, enfichable, IP68, UL 2238"
+    },
+    {
+      "ref": "79-5207-00-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/79-5207-00-05-cables-de-raccordement-repartiteur-double-contacts-5-4-non-blinde-enfichable-ip68-ul-m12x10",
+      "title": "M12 Répartiteur double, Y-distributeur, mâle - 2 femelle, Contacts: 5/4, non blindé, enfichable, IP68, UL 2238"
+    }
+  ]
+}

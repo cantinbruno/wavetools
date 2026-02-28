@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:37.430Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-carr-souder-m3-4x-montage-frontal-alignement-de-codage-positionnable",
+    "slug": "m12-a-m12-embase-m-le-carr-souder-m3-4x-montage-frontal-alignement-de-codage-positionnable",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-carr-souder-m3-4x-montage-frontal-alignement-de-codage-positionnable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip40"
+    ],
+    "contacts": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "09-0431-16-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-16-04-m12-a-embase-male-carre-contacts-4-non-blinde-souder-ip40-carre",
+    "title": "M12 Embase mâle, carré, Contacts: 4, non blindé, souder, IP40, M3 (4x), Montage frontal, Alignement de codage positionnable",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-carr-souder-m3-4x-montage-frontal-alignement-de-codage-positionnable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3VF.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0431-16-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0431-16-04-m12-a-embase-male-carre-contacts-4-non-blinde-souder-ip40-carre",
+      "title": "M12 Embase mâle, carré, Contacts: 4, non blindé, souder, IP40, M3 (4x), Montage frontal, Alignement de codage positionnable"
+    },
+    {
+      "ref": "09-0433-16-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0433-16-05-m12-a-embase-male-carre-contacts-5-non-blinde-souder-ip40-carre",
+      "title": "M12 Embase mâle, carré, Contacts: 5, non blindé, souder, IP40, M3 (4x), Montage frontal, Alignement de codage positionnable"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:35.928Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-tht-m12x1-0-montage-mural-arri-re",
+    "slug": "m12-a-m12-embase-m-le-tht-m12x1-0-montage-mural-arri-re",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-tht-m12x1-0-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "09-3491-969-12",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-3491-969-12-m12-a-embase-male-contacts-12-non-blinde-tht-ip68-m12x10",
+    "title": "M12 Embase mâle, Contacts: 12, non blindé, THT, IP68, M12x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-tht-m12x1-0-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_12pol_tl_6mm.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-3491-969-12",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-3491-969-12-m12-a-embase-male-contacts-12-non-blinde-tht-ip68-m12x10",
+      "title": "M12 Embase mâle, Contacts: 12, non blindé, THT, IP68, M12x1,0, Montage mural arrière"
+    }
+  ]
+}

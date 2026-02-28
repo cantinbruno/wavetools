@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:27.706Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-8-0-10-0-mm-souder-ul-2238-avec-anneau-de-protection",
+    "slug": "m12-a-m12-connecteur-m-le-8-0-10-0-mm-souder-ul-2238-avec-anneau-de-protection",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-8-0-10-0-mm-souder-ul-2238-avec-anneau-de-protection",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "8.0-10.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "99-1491-914-12",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1491-914-12-m12-a-connecteur-male-contacts-12-80-100-mm-blindable-souder-ip67",
+    "title": "M12 Connecteur mâle, Contacts: 12, 8,0-10,0 mm, blindable, souder, IP67, UL 2238, avec anneau de protection",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-8-0-10-0-mm-souder-ul-2238-avec-anneau-de-protection.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_1_8-10.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-1491-914-12",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1491-914-12-m12-a-connecteur-male-contacts-12-80-100-mm-blindable-souder-ip67",
+      "title": "M12 Connecteur mâle, Contacts: 12, 8,0-10,0 mm, blindable, souder, IP67, UL 2238, avec anneau de protection"
+    }
+  ]
+}

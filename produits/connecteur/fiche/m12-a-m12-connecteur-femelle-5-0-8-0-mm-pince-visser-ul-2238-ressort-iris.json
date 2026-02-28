@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-02-28T01:20:29.632Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "slug": "m12-a-m12-connecteur-femelle-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "5.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-1432-814-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1432-814-04-m12-a-connecteur-femelle-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur femelle, Contacts: 4, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_KD_met_nDS_4u5pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-1432-814-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1432-814-04-m12-a-connecteur-femelle-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 4, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris"
+    },
+    {
+      "ref": "99-1438-814-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1438-814-05-m12-a-connecteur-femelle-contacts-5-50-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 5, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris"
+    },
+    {
+      "ref": "99-1488-814-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1488-814-08-m12-a-connecteur-femelle-contacts-8-50-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 8, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris"
+    }
+  ]
+}

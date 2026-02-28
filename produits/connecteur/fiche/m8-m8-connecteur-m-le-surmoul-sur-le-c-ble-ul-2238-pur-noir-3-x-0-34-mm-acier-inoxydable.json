@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:23.393Z",
+  "group": {
+    "key": "M8__m8-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-acier-inoxydable",
+    "slug": "m8-m8-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-acier-inoxydable",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-acier-inoxydable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77-3705-0000-50003-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+    "title": "M8 Connecteur mâle, Contacts: 3, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², Acier inoxydable, 2 m",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-acier-inoxydable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_1_KS_VA.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3705-0000-50003-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50003-0200-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M8 Connecteur mâle, Contacts: 3, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², Acier inoxydable, 2 m"
+    },
+    {
+      "ref": "77-3705-0000-50003-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3705-0000-50003-0500-m8-connecteur-male-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M8 Connecteur mâle, Contacts: 3, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 3 x 0,34 mm², Acier inoxydable, 5 m"
+    }
+  ]
+}

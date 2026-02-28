@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T01:20:28.656Z",
+  "group": {
+    "key": "M12-A__6-0-8-0-mm-pince-visser-ul-2238-avec-anneau-de-protection",
+    "slug": "m12-a-6-0-8-0-mm-pince-visser-ul-2238-avec-anneau-de-protection",
+    "family": "M12-A",
+    "typeProduit": "6-0-8-0-mm-pince-visser-ul-2238-avec-anneau-de-protection",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-1429-822-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1429-822-04-m12-a-connecteur-male-coude-contacts-4-60-80-mm-blindable-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur mâle coudé, Contacts: 4, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection",
+    "mainImage": "produits/connecteur/img/m12-a-6-0-8-0-mm-pince-visser-ul-2238-avec-anneau-de-protection.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_1_WS_schrkl_4pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-1429-822-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1429-822-04-m12-a-connecteur-male-coude-contacts-4-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle coudé, Contacts: 4, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    },
+    {
+      "ref": "99-1437-822-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1437-822-05-m12-a-connecteur-male-coude-contacts-5-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle coudé, Contacts: 5, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    },
+    {
+      "ref": "99-1487-822-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1487-822-08-m12-a-connecteur-male-coude-contacts-8-60-80-mm-blindable-pince-a-visser-ip67",
+      "title": "M12 Connecteur mâle coudé, Contacts: 8, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    },
+    {
+      "ref": "99-1430-822-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1430-822-04-m12-a-connecteur-femelle-coude-contacts-4-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle coudé, Contacts: 4, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    },
+    {
+      "ref": "99-1436-822-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1436-822-05-m12-a-connecteur-femelle-coude-contacts-5-60-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle coudé, Contacts: 5, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    },
+    {
+      "ref": "99-1486-822-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-1486-822-08-m12-a-connecteur-femelle-coude-contacts-8-60-80-mm-blindable-pince-a-visser-ip67",
+      "title": "M12 Connecteur femelle coudé, Contacts: 8, 6,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, avec anneau de protection"
+    }
+  ]
+}

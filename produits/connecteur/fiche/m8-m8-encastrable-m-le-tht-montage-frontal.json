@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:25.650Z",
+  "group": {
+    "key": "M8__m8-encastrable-m-le-tht-montage-frontal",
+    "slug": "m8-m8-encastrable-m-le-tht-montage-frontal",
+    "family": "M8",
+    "typeProduit": "m8-encastrable-m-le-tht-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "86-6819-0000-00703",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6819-0000-00703-m8-encastrable-male-contacts-3-non-blinde-tht-ip67",
+    "title": "M8 Encastrable mâle, Contacts: 3, non blindé, THT, IP67, Montage frontal",
+    "mainImage": "produits/connecteur/img/m8-m8-encastrable-m-le-tht-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_EBS_Met_kurz.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-6819-0000-00703",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6819-0000-00703-m8-encastrable-male-contacts-3-non-blinde-tht-ip67",
+      "title": "M8 Encastrable mâle, Contacts: 3, non blindé, THT, IP67, Montage frontal"
+    },
+    {
+      "ref": "86-6819-0000-00704-Référence-alternative:-09-3415-150-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/86-6819-0000-00704-m8-encastrable-male-contacts-4-non-blinde-tht-ip67",
+      "title": "M8 Encastrable mâle, Contacts: 4, non blindé, THT, IP67, Montage frontal"
+    }
+  ]
+}

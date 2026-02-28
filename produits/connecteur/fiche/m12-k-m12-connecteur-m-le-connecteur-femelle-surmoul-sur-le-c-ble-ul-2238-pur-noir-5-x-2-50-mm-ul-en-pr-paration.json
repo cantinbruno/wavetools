@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:44.900Z",
+  "group": {
+    "key": "M12-K__m12-connecteur-m-le-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-2-50-mm-ul-en-pr-paration",
+    "slug": "m12-k-m12-connecteur-m-le-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-2-50-mm-ul-en-pr-paration",
+    "family": "M12-K",
+    "typeProduit": "m12-connecteur-m-le-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-2-50-mm-ul-en-pr-paration",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males+2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "77-0679-0670-50505-0200",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/77-0679-0670-50505-0200-m12-connecteur-male-connecteur-femelle-m12x1-contacts-4-pe-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-250-mm2-ul-en-preparation-2-m",
+    "title": "M12 Connecteur mâle - connecteur femelle, Contacts: 4+PE, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 2,50 mm², UL en préparation, 2 m",
+    "mainImage": "produits/connecteur/img/m12-k-m12-connecteur-m-le-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-2-50-mm-ul-en-pr-paration.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/824_VL_KS_KD_PUR.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-0679-0670-50505-0200",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/77-0679-0670-50505-0200-m12-connecteur-male-connecteur-femelle-m12x1-contacts-4-pe-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-250-mm2-ul-en-preparation-2-m",
+      "title": "M12 Connecteur mâle - connecteur femelle, Contacts: 4+PE, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 2,50 mm², UL en préparation, 2 m"
+    },
+    {
+      "ref": "77-0679-0670-50505-0500",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/77-0679-0670-50505-0500-m12-connecteur-male-connecteur-femelle-m12x1-contacts-4-pe-non-blinde-surmoule-sur-le-cable-ip68-pur-noir-5-x-250-mm2-ul-en-preparation-5-m",
+      "title": "M12 Connecteur mâle - connecteur femelle, Contacts: 4+PE, non blindé, surmoulé sur le câble, IP68, UL 2238, PUR, noir, 5 x 2,50 mm², UL en préparation, 5 m"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:21.276Z",
+  "group": {
+    "key": "RD24 Power__rd24-embase-m-le-souder-ul-esti-vde-montage-frontal",
+    "slug": "rd24-power-rd24-embase-m-le-souder-ul-esti-vde-montage-frontal",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-embase-m-le-souder-ul-esti-vde-montage-frontal",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "09-4227-00-07-Référence-alternative:-09-0215-00-07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4227-00-07-rd24-embase-male-contacts-6-pe-non-blinde-souder-ip67-ul-esti-vde",
+    "title": "RD24 Embase mâle, Contacts: 6+PE, non blindé, souder, IP67, UL, ESTI+, VDE, Montage frontal",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-embase-m-le-souder-ul-esti-vde-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_3_6L.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-4227-00-07-Référence-alternative:-09-0215-00-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4227-00-07-rd24-embase-male-contacts-6-pe-non-blinde-souder-ip67-ul-esti-vde",
+      "title": "RD24 Embase mâle, Contacts: 6+PE, non blindé, souder, IP67, UL, ESTI+, VDE, Montage frontal"
+    }
+  ]
+}

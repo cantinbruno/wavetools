@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:39.203Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-pince-visser-ul-2238-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "slug": "m12-a-m12-embase-m-le-pince-visser-ul-2238-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-pince-visser-ul-2238-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "99-0431-500-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0431-500-04-m12-a-embase-male-contacts-4-non-blinde-pince-a-visser-ip67-ul-m20x15-pour-lalimentation-electrique",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, pince à visser, IP67, UL 2238, M20x1,5, Montage frontal, pour l'alimentation électrique",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-pince-visser-ul-2238-m20x1-5-montage-frontal-pour-l-alimentation-lectrique.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3_FS_schrkl.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0431-500-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0431-500-04-m12-a-embase-male-contacts-4-non-blinde-pince-a-visser-ip67-ul-m20x15-pour-lalimentation-electrique",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, pince à visser, IP67, UL 2238, M20x1,5, Montage frontal, pour l'alimentation électrique"
+    },
+    {
+      "ref": "99-0433-500-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0433-500-05-m12-a-embase-male-contacts-5-non-blinde-pince-a-visser-ip67-ul-m20x15",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, pince à visser, IP67, UL 2238, M20x1,5, Montage frontal, pour l'alimentation électrique"
+    }
+  ]
+}

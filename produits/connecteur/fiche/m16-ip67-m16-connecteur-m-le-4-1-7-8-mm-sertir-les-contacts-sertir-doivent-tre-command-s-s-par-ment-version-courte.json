@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-02-28T01:20:14.952Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-m-le-4-1-7-8-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-version-courte",
+    "slug": "m16-ip67-m16-connecteur-m-le-4-1-7-8-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-version-courte",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-m-le-4-1-7-8-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-version-courte",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.1-7.8mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6,
+      7,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-5121-760-06",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-760-06-m16-ip67-connecteur-male-contacts-6-din-41-78-mm-blindable-sertir-ip67-version-courte",
+    "title": "M16 Connecteur mâle, Contacts: 6 (06-a), 4,1-7,8 mm, blindable, sertir (Les contacts à sertir doivent être commandés séparément), IP67, Version courte",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-m-le-4-1-7-8-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-version-courte.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_1_KS_Kurz_schirm_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-5121-760-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5121-760-06-m16-ip67-connecteur-male-contacts-6-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "title": "M16 Connecteur mâle, Contacts: 6 (06-a), 4,1-7,8 mm, blindable, sertir (Les contacts à sertir doivent être commandés séparément), IP67, Version courte"
+    },
+    {
+      "ref": "99-5125-760-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5125-760-07-m16-ip67-connecteur-male-contacts-7-41-78-mm-blindable-sertir-ip67-version-courte",
+      "title": "M16 Connecteur mâle, Contacts: 7 (07-a), 4,1-7,8 mm, blindable, sertir (Les contacts à sertir doivent être commandés séparément), IP67, Version courte"
+    },
+    {
+      "ref": "99-5171-760-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5171-760-08-m16-ip67-connecteur-male-contacts-8-din-41-78-mm-blindable-sertir-ip67-version-courte",
+      "title": "M16 Connecteur mâle, Contacts: 8 (08-a), 4,1-7,8 mm, blindable, sertir (Les contacts à sertir doivent être commandés séparément), IP67, Version courte"
+    }
+  ]
+}

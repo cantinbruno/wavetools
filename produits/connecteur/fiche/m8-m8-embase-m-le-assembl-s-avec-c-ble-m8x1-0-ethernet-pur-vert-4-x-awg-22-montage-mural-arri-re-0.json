@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:26.003Z",
+  "group": {
+    "key": "M8__m8-embase-m-le-assembl-s-avec-c-ble-m8x1-0-ethernet-pur-vert-4-x-awg-22-montage-mural-arri-re-0",
+    "slug": "m8-m8-embase-m-le-assembl-s-avec-c-ble-m8x1-0-ethernet-pur-vert-4-x-awg-22-montage-mural-arri-re-0",
+    "family": "M8",
+    "typeProduit": "m8-embase-m-le-assembl-s-avec-c-ble-m8x1-0-ethernet-pur-vert-4-x-awg-22-montage-mural-arri-re-0",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "70-3421-005-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/70-3421-005-04-m8-embase-male-contacts-4-blinde-assembles-avec-cable-ip67-ethernet-pur-vert-4-x-awg-22-05-m",
+    "title": "M8 Embase mâle, Contacts: 4, blindé, assemblés avec câble, IP67, M8x1,0, Ethernet, PUR, vert, 4 x AWG 22, Montage mural arrière, 0,5 m",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-m-le-assembl-s-avec-c-ble-m8x1-0-ethernet-pur-vert-4-x-awg-22-montage-mural-arri-re-0.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_1_FS_Ethernet.jpg"
+  },
+  "variants": [
+    {
+      "ref": "70-3421-005-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/70-3421-005-04-m8-embase-male-contacts-4-blinde-assembles-avec-cable-ip67-ethernet-pur-vert-4-x-awg-22-05-m",
+      "title": "M8 Embase mâle, Contacts: 4, blindé, assemblés avec câble, IP67, M8x1,0, Ethernet, PUR, vert, 4 x AWG 22, Montage mural arrière, 0,5 m"
+    }
+  ]
+}

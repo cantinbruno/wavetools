@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-02-28T01:20:32.243Z",
+  "group": {
+    "key": "M12-A__surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-avec-led-pnp",
+    "slug": "m12-a-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-avec-led-pnp",
+    "family": "M12-A",
+    "typeProduit": "surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-avec-led-pnp",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip69k"
+    ],
+    "contacts": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77-3627-0000-50003-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3627-0000-50003-0200-m12-a-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-2-m",
+    "title": "M12 Connecteur mâle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², avec LED, PNP, 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm-avec-led-pnp.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_WS_SK_LED_PUR.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3627-0000-50003-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3627-0000-50003-0200-m12-a-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-2-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², avec LED, PNP, 2 m"
+    },
+    {
+      "ref": "77-3627-0000-50003-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3627-0000-50003-0500-m12-a-connecteur-male-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-5-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², avec LED, PNP, 5 m"
+    },
+    {
+      "ref": "77-3634-0000-50003-0200-Référence-alternative:-79-3436-32-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3634-0000-50003-0200-m12-a-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-2-m",
+      "title": "M12 Connecteur femelle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², avec LED, PNP, 2 m"
+    },
+    {
+      "ref": "77-3634-0000-50003-0500-Référence-alternative:-79-3436-35-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3634-0000-50003-0500-m12-a-connecteur-femelle-coude-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-avec-led-pnp-a-fermeture-5-m",
+      "title": "M12 Connecteur femelle coudé, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², avec LED, PNP, 5 m"
+    }
+  ]
+}
