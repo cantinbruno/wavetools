@@ -9,6 +9,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   extract:
@@ -31,17 +32,17 @@ jobs:
       - name: Run extractor
         run: node produits/connecteur/scripts/extract-binder-specs.mjs
         # env:
-          # DELAY_MS: "120"
-          # MAX_PRODUCTS: "20"
+        #   DELAY_MS: "120"
+        #   MAX_PRODUCTS: "20"
 
-      - name: Commit & push generated catalog
+      - name: Commit changes (local)
         run: |
           set -e
 
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # ✅ JSON + IMG (ajouts/modifs/suppressions)
+          # Ajouts/modifs/suppressions
           git add -A produits/connecteur/fiche produits/connecteur/img
 
           if git diff --cached --quiet; then
@@ -51,5 +52,16 @@ jobs:
 
           git commit -m "auto: update binder catalog"
 
-          git pull --rebase --autostash origin main
-          git push origin main
+      - name: Create Pull Request
+        if: success()
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/binder-catalog
+          base: main
+          delete-branch: true
+          title: "auto: update binder catalog"
+          body: |
+            Mise à jour automatique du catalogue Binder (JSON + images).
+            Généré via GitHub Actions.
+          commit-message: "auto: update binder catalog"
