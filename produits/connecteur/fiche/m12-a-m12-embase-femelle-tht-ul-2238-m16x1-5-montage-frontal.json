@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-28T01:20:37.197Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-tht-ul-2238-m16x1-5-montage-frontal",
+    "slug": "m12-a-m12-embase-femelle-tht-ul-2238-m16x1-5-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-tht-ul-2238-m16x1-5-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8,
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "86-0232-0000-00004",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0232-0000-00004-m12-a-embase-femelle-contacts-4-non-blinde-tht-ip68-ul-m16x15",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, THT, IP68, UL 2238, M16x1,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-tht-ul-2238-m16x1-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_RT.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-0232-0000-00004",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0232-0000-00004-m12-a-embase-femelle-contacts-4-non-blinde-tht-ip68-ul-m16x15",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, THT, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0232-0000-00005",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0232-0000-00005-m12-a-embase-femelle-contacts-5-non-blinde-tht-ip68-ul-m16x15",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, THT, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0232-0000-00008",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0232-0000-00008-m12-a-embase-femelle-contacts-8-non-blinde-tht-ip68-ul-m16x15",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, THT, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0232-0000-00012",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0232-0000-00012-m12-a-embase-femelle-contacts-12-non-blinde-tht-ip68-ul-m16x15",
+      "title": "M12 Embase femelle, Contacts: 12, non blindé, THT, IP68, UL 2238, M16x1,5, Montage frontal"
+    }
+  ]
+}

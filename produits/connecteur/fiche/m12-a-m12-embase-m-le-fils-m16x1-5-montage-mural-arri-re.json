@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-02-28T01:20:34.451Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-fils-m16x1-5-montage-mural-arri-re",
+    "slug": "m12-a-m12-embase-m-le-fils-m16x1-5-montage-mural-arri-re",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-fils-m16x1-5-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "76-0631-1015-00004-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-0631-1015-00004-0200-m12-a-embase-male-contacts-4-non-blinde-fils-ip68-ul-m16x15-visse-a-lavant",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, fils, IP68, M16x1,5, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-fils-m16x1-5-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_Li_AWG16_vv.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-0631-1015-00004-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-0631-1015-00004-0200-m12-a-embase-male-contacts-4-non-blinde-fils-ip68-ul-m16x15-visse-a-lavant",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, fils, IP68, M16x1,5, Montage mural arrière"
+    },
+    {
+      "ref": "76-4731-3111-00012-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-4731-3111-00012-0200-m12-a-embase-male-contacts-12-non-blinde-fils-ip67-ul-m16x15-visse-a-lavant",
+      "title": "M12 Embase mâle, Contacts: 12, non blindé, fils, IP67, M16x1,5, Montage mural arrière"
+    }
+  ]
+}

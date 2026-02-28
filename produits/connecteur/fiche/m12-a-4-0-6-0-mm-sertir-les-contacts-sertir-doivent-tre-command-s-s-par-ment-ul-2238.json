@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:27.267Z",
+  "group": {
+    "key": "M12-A__4-0-6-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "slug": "m12-a-4-0-6-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "family": "M12-A",
+    "typeProduit": "4-0-6-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.0-6.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0530-24-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-24-04-m12-a-connecteur-femelle-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+    "title": "M12 Connecteur femelle coudé, Contacts: 4, 4,0-6,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-4-0-6-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_SK_Wi_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0530-24-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-24-04-m12-a-connecteur-femelle-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M12 Connecteur femelle coudé, Contacts: 4, 4,0-6,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238"
+    },
+    {
+      "ref": "99-0529-24-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0529-24-04-m12-a-connecteur-male-coude-contacts-4-40-60-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M12 Connecteur mâle coudé, Contacts: 4, 4,0-6,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-02-28T01:20:27.481Z",
+  "group": {
+    "key": "M12-A__m12-duo-connecteur-m-le-pince-visser-ul-2238",
+    "slug": "m12-a-m12-duo-connecteur-m-le-pince-visser-ul-2238",
+    "family": "M12-A",
+    "typeProduit": "m12-duo-connecteur-m-le-pince-visser-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2.1-3.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-0429-142-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-142-04-m12-a-duo-connecteur-male-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+    "title": "M12 Duo-connecteur mâle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-duo-connecteur-m-le-pince-visser-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_1_KS_Duo_Ku_ger_PG11_4p_5p.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0429-142-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-142-04-m12-a-duo-connecteur-male-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0437-142-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-142-05-m12-a-duo-connecteur-male-contacts-5-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0429-186-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-186-04-m12-a-duo-connecteur-male-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0437-186-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-186-05-m12-a-duo-connecteur-male-contacts-5-2-x-2-21-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0487-186-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0487-186-08-m12-a-duo-connecteur-male-contacts-8-2-x-2-21-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 8, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0429-287-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0429-287-04-m12-a-duo-connecteur-male-contacts-4-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 4, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0437-287-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0437-287-05-m12-a-duo-connecteur-male-contacts-5-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 5, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0487-287-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0487-287-08-m12-a-duo-connecteur-male-contacts-8-2-x-2-10-30-mm-oe-40-50-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Duo-connecteur mâle, Contacts: 8, 2.1-3.0 mm (2 câble) ou 4-5 mm (2 câble), non blindé, pince à visser, IP67, UL 2238"
+    }
+  ]
+}

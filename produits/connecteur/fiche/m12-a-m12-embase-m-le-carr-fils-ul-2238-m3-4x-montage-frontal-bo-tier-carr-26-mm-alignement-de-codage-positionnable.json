@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-02-28T01:20:30.731Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-carr-fils-ul-2238-m3-4x-montage-frontal-bo-tier-carr-26-mm-alignement-de-codage-positionnable",
+    "slug": "m12-a-m12-embase-m-le-carr-fils-ul-2238-m3-4x-montage-frontal-bo-tier-carr-26-mm-alignement-de-codage-positionnable",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-carr-fils-ul-2238-m3-4x-montage-frontal-bo-tier-carr-26-mm-alignement-de-codage-positionnable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip69k"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-3433-116-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3433-116-04-m12-a-embase-male-carre-contacts-4-non-blinde-fils-ip69-ip68-ip67-ul-positionnable-verrouillable-boitier-carre-26-mm",
+    "title": "M12 Embase mâle, carré, Contacts: 4, non blindé, fils, IP69k, IP68, IP67, UL 2238, M3 (4x), Montage frontal, Boîtier carré 26 mm, Alignement de codage positionnable",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-carr-fils-ul-2238-m3-4x-montage-frontal-bo-tier-carr-26-mm-alignement-de-codage-positionnable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FS_pos_einrast_26mm.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3433-116-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3433-116-04-m12-a-embase-male-carre-contacts-4-non-blinde-fils-ip69-ip68-ip67-ul-positionnable-verrouillable-boitier-carre-26-mm",
+      "title": "M12 Embase mâle, carré, Contacts: 4, non blindé, fils, IP69k, IP68, IP67, UL 2238, M3 (4x), Montage frontal, Boîtier carré 26 mm, Alignement de codage positionnable"
+    },
+    {
+      "ref": "99-3443-116-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3443-116-05-m12-a-embase-male-carre-contacts-5-non-blinde-fils-ip69-ip68-ip67-ul-positionnable-verrouillable-boitier-carre-26-mm",
+      "title": "M12 Embase mâle, carré, Contacts: 5, non blindé, fils, IP69k, IP68, IP67, UL 2238, M3 (4x), Montage frontal, Boîtier carré 26 mm, Alignement de codage positionnable"
+    },
+    {
+      "ref": "99-3483-116-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3483-116-08-m12-a-embase-male-carre-contacts-8-non-blinde-fils-ip69-ip68-ip67-ul-positionnable-verrouillable-boitier-carre-26-mm",
+      "title": "M12 Embase mâle, carré, Contacts: 8, non blindé, fils, IP69k, IP68, IP67, UL 2238, M3 (4x), Montage frontal, Boîtier carré 26 mm, Alignement de codage positionnable"
+    }
+  ]
+}

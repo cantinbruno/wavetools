@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-28T01:20:17.406Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-m-le-carr-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m3-4x-montage-frontal",
+    "slug": "m16-ip67-m16-embase-m-le-carr-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m3-4x-montage-frontal",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-m-le-carr-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m3-4x-montage-frontal",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "canonical": {
+    "ref": "09-0111-370-04",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-370-04-m16-ip67-embase-male-carre-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+    "title": "M16 Embase mâle, carré, Contacts: 4 (04-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M3 (4x), Montage frontal",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-m-le-carr-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m3-4x-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_FS_Viereck_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0111-370-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-370-04-m16-ip67-embase-male-carre-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M16 Embase mâle, carré, Contacts: 4 (04-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0115-370-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-370-05-m16-ip67-embase-male-carre-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M16 Embase mâle, carré, Contacts: 5 (05-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0123-370-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0123-370-06-m16-ip67-embase-male-carre-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M16 Embase mâle, carré, Contacts: 6 (06-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0127-370-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-370-07-m16-ip67-embase-male-carre-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M16 Embase mâle, carré, Contacts: 7 (07-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M3 (4x), Montage frontal"
+    }
+  ]
+}

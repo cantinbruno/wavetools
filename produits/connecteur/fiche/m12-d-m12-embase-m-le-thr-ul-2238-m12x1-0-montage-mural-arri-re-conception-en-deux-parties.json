@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:43.239Z",
+  "group": {
+    "key": "M12-D__m12-embase-m-le-thr-ul-2238-m12x1-0-montage-mural-arri-re-conception-en-deux-parties",
+    "slug": "m12-d-m12-embase-m-le-thr-ul-2238-m12x1-0-montage-mural-arri-re-conception-en-deux-parties",
+    "family": "M12-D",
+    "typeProduit": "m12-embase-m-le-thr-ul-2238-m12x1-0-montage-mural-arri-re-conception-en-deux-parties",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-3731-202-04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/99-3731-202-04-m12-d-embase-male-contacts-4-non-blinde-thr-ip67-ul-conception-en-deux-parties",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, THR, IP67, UL 2238, M12x1,0, Montage mural arrière, conception en deux parties",
+    "mainImage": "produits/connecteur/img/m12-d-m12-embase-m-le-thr-ul-2238-m12x1-0-montage-mural-arri-re-conception-en-deux-parties.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/876_3_FS_PCB_zweit_wi.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3731-202-04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/99-3731-202-04-m12-d-embase-male-contacts-4-non-blinde-thr-ip67-ul-conception-en-deux-parties",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, THR, IP67, UL 2238, M12x1,0, Montage mural arrière, conception en deux parties"
+    }
+  ]
+}

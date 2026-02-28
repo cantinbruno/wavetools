@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-28T01:20:18.224Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-m-le-tht-m18x0-75-montage-mural-arri-re",
+    "slug": "m16-ip67-m16-embase-m-le-tht-m18x0-75-montage-mural-arri-re",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-m-le-tht-m18x0-75-montage-mural-arri-re",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      7,
+      8,
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "09-0127-65-07",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-65-07-m16-ip67-embase-male-contacts-7-non-blinde-tht-ip67-visse-a-lavant",
+    "title": "M16 Embase mâle, Contacts: 7 (07-a), non blindé, THT, IP67, M18x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-m-le-tht-m18x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_65_8.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0127-65-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-65-07-m16-ip67-embase-male-contacts-7-non-blinde-tht-ip67-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 7 (07-a), non blindé, THT, IP67, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0173-65-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-65-08-m16-ip67-embase-male-contacts-8-din-non-blinde-tht-ip68-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 8 (08-a), non blindé, THT, IP68, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0131-65-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0131-65-12-m16-ip67-embase-male-contacts-12-non-blinde-tht-ip67-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 12 (12-a), non blindé, THT, IP67, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0131-66-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0131-66-12-m16-ip67-embase-male-contacts-12-non-blinde-tht-ip67-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 12 (12-a), non blindé, THT, IP67, M18x0,75, Montage mural arrière"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T01:20:47.033Z",
+  "group": {
+    "key": "7/8\"__6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "slug": "7-8-6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "family": "7/8\"",
+    "typeProduit": "6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-2441-52-03",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-52-03-7-8-connecteur-male-coude-contacts-2-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+    "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+    "mainImage": "produits/connecteur/img/7-8-6-0-8-0-mm-pince-visser-ul-2238-vde.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_1_DG_Wi_KKA.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-2441-52-03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2441-52-03-7-8-connecteur-male-coude-contacts-2-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 2+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    },
+    {
+      "ref": "99-2443-52-04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2443-52-04-7-8-connecteur-male-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    },
+    {
+      "ref": "99-2445-52-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2445-52-05-7-8-connecteur-male-coude-contacts-4-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur mâle coudé, Contacts: 4+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    },
+    {
+      "ref": "99-2440-52-03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2440-52-03-7-8-connecteur-femelle-coude-contacts-2-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur femelle coudé, Contacts: 2+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    },
+    {
+      "ref": "99-2442-52-04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2442-52-04-7-8-connecteur-femelle-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur femelle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    },
+    {
+      "ref": "99-2444-52-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/99-2444-52-05-7-8-connecteur-femelle-coude-contacts-4-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "7/8\" Connecteur femelle coudé, Contacts: 4+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    }
+  ]
+}

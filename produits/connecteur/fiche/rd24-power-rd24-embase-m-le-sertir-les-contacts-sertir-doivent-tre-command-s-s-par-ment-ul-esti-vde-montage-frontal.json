@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:21.330Z",
+  "group": {
+    "key": "RD24 Power__rd24-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-montage-frontal",
+    "slug": "rd24-power-rd24-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-montage-frontal",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-montage-frontal",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "09-4203-00-07-Référence-alternative:-09-0203-00-07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4203-00-07-rd24-embase-male-contacts-6-pe-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde",
+    "title": "RD24 Embase mâle, Contacts: 6+PE, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL, ESTI+, VDE, Montage frontal",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-esti-vde-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_3_6C.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-4203-00-07-Référence-alternative:-09-0203-00-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/09-4203-00-07-rd24-embase-male-contacts-6-pe-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-esti-vde",
+      "title": "RD24 Embase mâle, Contacts: 6+PE, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL, ESTI+, VDE, Montage frontal"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-28T01:20:18.142Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m18x0-75-montage-mural-arri-re",
+    "slug": "m16-ip67-m16-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m18x0-75-montage-mural-arri-re",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m18x0-75-montage-mural-arri-re",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "canonical": {
+    "ref": "09-0111-780-04",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-780-04-m16-ip67-embase-male-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+    "title": "M16 Embase mâle, Contacts: 4 (04-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M18x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-m-le-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-m18x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/M16_IP67_3_FS_crimp_vv._1_.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0111-780-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0111-780-04-m16-ip67-embase-male-contacts-4-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 4 (04-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0115-780-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0115-780-05-m16-ip67-embase-male-contacts-5-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 5 (05-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0123-780-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0123-780-06-m16-ip67-embase-male-contacts-6-din-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 6 (06-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0127-780-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0127-780-07-m16-ip67-embase-male-contacts-7-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase mâle, Contacts: 7 (07-a), non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, M18x0,75, Montage mural arrière"
+    }
+  ]
+}

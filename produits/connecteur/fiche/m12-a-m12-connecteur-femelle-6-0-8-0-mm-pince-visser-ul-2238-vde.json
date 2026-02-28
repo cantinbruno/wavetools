@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:38.864Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "slug": "m12-a-m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238-vde",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "99-0436-32-05",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0436-32-05-m12-a-connecteur-femelle-contacts-5-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+    "title": "M12 Connecteur femelle, Contacts: 5, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238-vde.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/other/Dera_A-Kodierung_en.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0436-32-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0436-32-05-m12-a-connecteur-femelle-contacts-5-60-80-mm-non-blinde-pince-a-visser-ip67-ul-vde",
+      "title": "M12 Connecteur femelle, Contacts: 5, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238, VDE"
+    }
+  ]
+}

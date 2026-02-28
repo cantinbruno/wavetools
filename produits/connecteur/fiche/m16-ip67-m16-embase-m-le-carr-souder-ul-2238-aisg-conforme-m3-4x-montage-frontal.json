@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:17.274Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-m-le-carr-souder-ul-2238-aisg-conforme-m3-4x-montage-frontal",
+    "slug": "m16-ip67-m16-embase-m-le-carr-souder-ul-2238-aisg-conforme-m3-4x-montage-frontal",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-m-le-carr-souder-ul-2238-aisg-conforme-m3-4x-montage-frontal",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "09-0173-300-08",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-300-08-m16-ip67-embase-male-carre-contacts-8-din-non-blinde-souder-ip68-ul-aisg-conforme",
+    "title": "M16 Embase mâle, carré, Contacts: 8 (08-a), non blindé, souder, IP68, UL 2238, AISG conforme, M3 (4x), Montage frontal",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-m-le-carr-souder-ul-2238-aisg-conforme-m3-4x-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_3_FS_Viereck_loe.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0173-300-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0173-300-08-m16-ip67-embase-male-carre-contacts-8-din-non-blinde-souder-ip68-ul-aisg-conforme",
+      "title": "M16 Embase mâle, carré, Contacts: 8 (08-a), non blindé, souder, IP68, UL 2238, AISG conforme, M3 (4x), Montage frontal"
+    }
+  ]
+}

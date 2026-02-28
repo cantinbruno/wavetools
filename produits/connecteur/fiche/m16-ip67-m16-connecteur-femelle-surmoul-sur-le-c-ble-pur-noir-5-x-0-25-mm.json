@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:17.045Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-femelle-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "slug": "m16-ip67-m16-connecteur-femelle-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-femelle-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blinde",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "79-6014-20-05",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6014-20-05-m16-ip67-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-5-x-025-mm2-2-m",
+    "title": "M16 Connecteur femelle, Contacts: 5 (05-a), non blindé, surmoulé sur le câble, IP67, PUR, noir, 5 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-femelle-surmoul-sur-le-c-ble-pur-noir-5-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/425_2_KD.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79-6014-20-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6014-20-05-m16-ip67-connecteur-femelle-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-5-x-025-mm2-2-m",
+      "title": "M16 Connecteur femelle, Contacts: 5 (05-a), non blindé, surmoulé sur le câble, IP67, PUR, noir, 5 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "79-6114-20-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6114-20-05-m16-ip67-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-pur-noir-5-x-025-mm2-2-m",
+      "title": "M16 Connecteur femelle, Contacts: 5 (05-a), blindé, surmoulé sur le câble, IP67, PUR, noir, 5 x 0,25 mm², 2 m"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:16.938Z",
+  "group": {
+    "key": "M16 IP67__surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm-2-x-0-50-mm",
+    "slug": "m16-ip67-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm-2-x-0-50-mm",
+    "family": "M16 IP67",
+    "typeProduit": "surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm-2-x-0-50-mm",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      14
+    ]
+  },
+  "canonical": {
+    "ref": "79-6251-200-14",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6251-200-14-m16-ip67-connecteur-male-coude-contacts-14-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-8-x-025-mm2-2-x-050-mm2-2-m",
+    "title": "M16 Connecteur mâle coudé, Contacts: 14 (14-b), non blindé, surmoulé sur le câble, IP67, PUR, noir, 8 x 0,25 mm² / 2 x 0,50 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m16-ip67-surmoul-sur-le-c-ble-pur-noir-8-x-0-25-mm-2-x-0-50-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/425_1_WS.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79-6251-200-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6251-200-14-m16-ip67-connecteur-male-coude-contacts-14-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-8-x-025-mm2-2-x-050-mm2-2-m",
+      "title": "M16 Connecteur mâle coudé, Contacts: 14 (14-b), non blindé, surmoulé sur le câble, IP67, PUR, noir, 8 x 0,25 mm² / 2 x 0,50 mm², 2 m"
+    },
+    {
+      "ref": "79-6252-200-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/79-6252-200-14-m16-ip67-connecteur-femelle-coude-contacts-14-non-blinde-surmoule-sur-le-cable-ip67-pur-noir-8-x-025-mm2-2-x-050-mm2-2-m",
+      "title": "M16 Connecteur femelle coudé, Contacts: 14 (14-b), non blindé, surmoulé sur le câble, IP67, PUR, noir, 8 x 0,25 mm² / 2 x 0,50 mm², 2 m"
+    }
+  ]
+}

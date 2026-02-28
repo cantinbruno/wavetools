@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:34.623Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-souder-m20x1-5-montage-frontal",
+    "slug": "m12-a-m12-embase-m-le-souder-m20x1-5-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-souder-m20x1-5-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09-0439-397-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0439-397-04-m12-a-embase-male-contacts-4-non-blinde-souder-ip67-m20x15",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP67, M20x1,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-souder-m20x1-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_3_FLAPO.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0439-397-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-0439-397-04-m12-a-embase-male-contacts-4-non-blinde-souder-ip67-m20x15",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP67, M20x1,5, Montage frontal"
+    }
+  ]
+}

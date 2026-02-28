@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T01:20:38.463Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-assembl-s-avec-c-ble-m16x1-5-pur-noir-8-x-0-25-mm-montage-mural-arri-re-0",
+    "slug": "m12-a-m12-embase-femelle-assembl-s-avec-c-ble-m16x1-5-pur-noir-8-x-0-25-mm-montage-mural-arri-re-0",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-assembl-s-avec-c-ble-m16x1-5-pur-noir-8-x-0-25-mm-montage-mural-arri-re-0",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "70-3482-288-08",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/70-3482-288-08-m12-a-embase-femelle-contacts-8-blinde-assembles-avec-cable-ip68-m16x15-pur-noir-8-x-025-mm2-visse-a-lavant-05-m",
+    "title": "M12 Embase femelle, Contacts: 8, blindé, assemblés avec câble, IP68, M16x1,5, PUR, noir, 8 x 0,25 mm², Montage mural arrière, 0,5 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-assembl-s-avec-c-ble-m16x1-5-pur-noir-8-x-0-25-mm-montage-mural-arri-re-0.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_FD_Profi_vv_M16x1_5_8pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "70-3482-288-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/70-3482-288-08-m12-a-embase-femelle-contacts-8-blinde-assembles-avec-cable-ip68-m16x15-pur-noir-8-x-025-mm2-visse-a-lavant-05-m",
+      "title": "M12 Embase femelle, Contacts: 8, blindé, assemblés avec câble, IP68, M16x1,5, PUR, noir, 8 x 0,25 mm², Montage mural arrière, 0,5 m"
+    }
+  ]
+}

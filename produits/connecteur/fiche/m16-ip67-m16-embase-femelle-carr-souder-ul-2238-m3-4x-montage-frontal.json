@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-02-28T01:20:17.327Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-femelle-carr-souder-ul-2238-m3-4x-montage-frontal",
+    "slug": "m16-ip67-m16-embase-femelle-carr-souder-ul-2238-m3-4x-montage-frontal",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-femelle-carr-souder-ul-2238-m3-4x-montage-frontal",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12,
+      14,
+      16,
+      19
+    ]
+  },
+  "canonical": {
+    "ref": "09-0104-300-02",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-300-02-m16-ip67-embase-femelle-carre-contacts-2-non-blinde-souder-ip67-ul",
+    "title": "M16 Embase femelle, carré, Contacts: 2 (02-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-femelle-carr-souder-ul-2238-m3-4x-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_4_FD_Viereck_loe.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0104-300-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-300-02-m16-ip67-embase-femelle-carre-contacts-2-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 2 (02-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0108-300-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-300-03-m16-ip67-embase-femelle-carre-contacts-3-din-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 3 (03-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0112-300-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-300-04-m16-ip67-embase-femelle-carre-contacts-4-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 4 (04-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0116-300-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-300-05-m16-ip67-embase-femelle-carre-contacts-5-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 5 (05-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0124-300-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-300-06-m16-ip67-embase-femelle-carre-contacts-6-din-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 6 (06-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0128-300-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-300-07-m16-ip67-embase-femelle-carre-contacts-7-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 7 (07-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0132-300-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0132-300-12-m16-ip67-embase-femelle-carre-contacts-12-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 12 (12-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0454-300-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0454-300-14-m16-ip67-embase-femelle-carre-contacts-14-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 14 (14-b), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0508-300-16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0508-300-16-m16-ip67-embase-femelle-carre-contacts-16-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 16, non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    },
+    {
+      "ref": "09-0464-300-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0464-300-19-m16-ip67-embase-femelle-carre-contacts-19-non-blinde-souder-ip67-ul",
+      "title": "M16 Embase femelle, carré, Contacts: 19 (19-a), non blindé, souder, IP67, UL 2238, M3 (4x), Montage frontal"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-02-28T01:20:45.614Z",
+  "group": {
+    "key": "M12-L__m12-embase-femelle-thr-ul-2238-m16x1-5-montage-frontal",
+    "slug": "m12-l-m12-embase-femelle-thr-ul-2238-m16x1-5-montage-frontal",
+    "family": "M12-L",
+    "typeProduit": "m12-embase-femelle-thr-ul-2238-m16x1-5-montage-frontal",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "unknown"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0642-20-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0642-20-05-m12-l-embase-femelle-contacts-5-non-blinde-thr-ip67-m16x15",
+    "title": "M12 Embase femelle, Contacts: 4+FE, non blindé, THR, IP67, UL 2238, M16x1,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-l-m12-embase-femelle-thr-ul-2238-m16x1-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_4_FD_L_2teil_mitO_ohneD.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0642-20-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0642-20-05-m12-l-embase-femelle-contacts-5-non-blinde-thr-ip67-m16x15",
+      "title": "M12 Embase femelle, Contacts: 4+FE, non blindé, THR, IP67, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0244-0000-00044",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/86-0244-0000-00044-m12-embase-femelle-contacts-4-non-blinde-thr-ip68-ul-2238-m16x15-montage-frontal",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, THR, IP68, UL 2238, M16x1,5, Montage frontal"
+    }
+  ]
+}

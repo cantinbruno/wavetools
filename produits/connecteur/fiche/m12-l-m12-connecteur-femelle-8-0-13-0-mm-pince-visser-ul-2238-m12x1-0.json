@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T01:20:45.440Z",
+  "group": {
+    "key": "M12-L__m12-connecteur-femelle-8-0-13-0-mm-pince-visser-ul-2238-m12x1-0",
+    "slug": "m12-l-m12-connecteur-femelle-8-0-13-0-mm-pince-visser-ul-2238-m12x1-0",
+    "family": "M12-L",
+    "typeProduit": "m12-connecteur-femelle-8-0-13-0-mm-pince-visser-ul-2238-m12x1-0",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "8.0-13.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0640-29-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0640-29-05-m12-l-connecteur-femelle-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-m12x10",
+    "title": "M12 Connecteur femelle, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2238, M12x1,0",
+    "mainImage": "produits/connecteur/img/m12-l-m12-connecteur-femelle-8-0-13-0-mm-pince-visser-ul-2238-m12x1-0.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_2_KD_L.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0640-29-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0640-29-05-m12-l-connecteur-femelle-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-m12x10",
+      "title": "M12 Connecteur femelle, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2238, M12x1,0"
+    },
+    {
+      "ref": "99-0638-29-04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0638-29-04-m12-connecteur-femelle-contacts-4-80-130-mm-non-blinde-pince-a-visser-ip67-ul-m12x10",
+      "title": "M12 Connecteur femelle, Contacts: 4, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2238, M12x1,0"
+    }
+  ]
+}

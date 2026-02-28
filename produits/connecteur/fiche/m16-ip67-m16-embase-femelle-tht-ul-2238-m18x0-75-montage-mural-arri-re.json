@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-02-28T01:20:16.350Z",
+  "group": {
+    "key": "M16 IP67__m16-embase-femelle-tht-ul-2238-m18x0-75-montage-mural-arri-re",
+    "slug": "m16-ip67-m16-embase-femelle-tht-ul-2238-m18x0-75-montage-mural-arri-re",
+    "family": "M16 IP67",
+    "typeProduit": "m16-embase-femelle-tht-ul-2238-m18x0-75-montage-mural-arri-re",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12,
+      14,
+      16,
+      19,
+      24
+    ]
+  },
+  "canonical": {
+    "ref": "09-0108-290-03",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-290-03-m16-ip67-embase-femelle-contacts-3-din-blindable-tht-ip67-ul-visse-a-lavant",
+    "title": "M16 Embase femelle, Contacts: 3 (03-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-embase-femelle-tht-ul-2238-m18x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_4_FD_Masse.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0108-290-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-290-03-m16-ip67-embase-femelle-contacts-3-din-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 3 (03-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0112-290-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-290-04-m16-ip67-embase-femelle-contacts-4-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 4 (04-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0116-290-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-290-05-m16-ip67-embase-femelle-contacts-5-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0124-290-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-290-06-m16-ip67-embase-femelle-contacts-6-din-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 6 (06-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0128-290-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-290-07-m16-ip67-embase-femelle-contacts-7-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 7 (07-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0132-290-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0132-290-12-m16-ip67-embase-femelle-contacts-12-blindable-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 12 (12-a), blindable, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0464-290-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0464-290-19-m16-ip67-embase-femelle-contacts-19-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 19 (19-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0104-90-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-90-02-m16-ip67-embase-femelle-contacts-2-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 2 (02-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0104-99-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0104-99-02-m16-ip67-embase-femelle-contacts-2-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 2 (02-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0108-90-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-90-03-m16-ip67-embase-femelle-contacts-3-din-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 3 (03-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0108-99-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0108-99-03-m16-ip67-embase-femelle-contacts-3-din-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 3 (03-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0112-90-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-90-04-m16-ip67-embase-femelle-contacts-4-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 4 (04-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0112-99-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0112-99-04-m16-ip67-embase-femelle-contacts-4-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 4 (04-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0116-90-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-90-05-m16-ip67-embase-femelle-contacts-5-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0116-99-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0116-99-05-m16-ip67-embase-femelle-contacts-5-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0120-90-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0120-90-05-m16-ip67-embase-femelle-contacts-5-stereo-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 5 (05-b), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0124-90-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-90-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 6 (06-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0124-99-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0124-99-06-m16-ip67-embase-femelle-contacts-6-din-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 6 (06-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0128-90-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-90-07-m16-ip67-embase-femelle-contacts-7-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 7 (07-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0128-99-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0128-99-07-m16-ip67-embase-femelle-contacts-7-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 7 (07-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0132-90-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0132-90-12-m16-ip67-embase-femelle-contacts-12-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 12 (12-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0454-90-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0454-90-14-m16-ip67-embase-femelle-contacts-14-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 14 (14-b), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0508-90-16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0508-90-16-m16-ip67-embase-femelle-contacts-16-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 16, non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0464-90-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0464-90-19-m16-ip67-embase-femelle-contacts-19-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 19 (19-a), non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    },
+    {
+      "ref": "09-0498-90-24",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0498-90-24-m16-ip67-embase-femelle-contacts-24-non-blinde-tht-ip67-ul-visse-a-lavant",
+      "title": "M16 Embase femelle, Contacts: 24, non blindé, THT, IP67, UL 2238, M18x0,75, Montage mural arrière"
+    }
+  ]
+}
