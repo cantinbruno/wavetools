@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:11.423Z",
+  "group": {
+    "key": "M8__m8-connecteur-femelle-2-0-3-5-mm-souder",
+    "slug": "m8-m8-connecteur-femelle-2-0-3-5-mm-souder",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-femelle-2-0-3-5-mm-souder",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2.0-3.5mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-3360-25-03",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3360-25-03-m8-connecteur-femelle-contacts-3-20-35-mm-blindable-souder-ip67",
+    "title": "M8 Connecteur femelle, Contacts: 3, 2,0-3,5 mm, blindable, souder, IP67",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-femelle-2-0-3-5-mm-souder.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/768_2_M.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3360-25-03",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3360-25-03-m8-connecteur-femelle-contacts-3-20-35-mm-blindable-souder-ip67",
+      "title": "M8 Connecteur femelle, Contacts: 3, 2,0-3,5 mm, blindable, souder, IP67"
+    },
+    {
+      "ref": "99-3362-25-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3362-25-04-m8-connecteur-femelle-contacts-4-20-35-mm-blindable-souder-ip67",
+      "title": "M8 Connecteur femelle, Contacts: 4, 2,0-3,5 mm, blindable, souder, IP67"
+    }
+  ]
+}

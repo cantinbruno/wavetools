@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:44:04.100Z",
+  "group": {
+    "key": "RD24 Power__rd24-connecteur-femelle-surmoul-sur-le-c-ble-pvc-noir-4-x-1-50-mm",
+    "slug": "rd24-power-rd24-connecteur-femelle-surmoul-sur-le-c-ble-pvc-noir-4-x-1-50-mm",
+    "family": "RD24 Power",
+    "typeProduit": "rd24-connecteur-femelle-surmoul-sur-le-c-ble-pvc-noir-4-x-1-50-mm",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "79-0232-20-04",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0232-20-04-rd24-connecteur-femelle-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+    "title": "RD24 Connecteur femelle, Contacts: 3+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 4 x 1,50 mm², 2 m",
+    "mainImage": "produits/connecteur/img/rd24-power-rd24-connecteur-femelle-surmoul-sur-le-c-ble-pvc-noir-4-x-1-50-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/692_2_KD_u.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79-0232-20-04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0232-20-04-rd24-connecteur-femelle-contacts-3-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-4-x-150-mm2-2-m",
+      "title": "RD24 Connecteur femelle, Contacts: 3+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 4 x 1,50 mm², 2 m"
+    }
+  ]
+}

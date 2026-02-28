@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:46:54.083Z",
+  "group": {
+    "key": "M12-L__m12-encastrable-femelle-thr-ul-2238-montage-frontal",
+    "slug": "m12-l-m12-encastrable-femelle-thr-ul-2238-montage-frontal",
+    "family": "M12-L",
+    "typeProduit": "m12-encastrable-femelle-thr-ul-2238-montage-frontal",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "86-5444-0000-00845-Référence-alternative:-09-0642-100-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/86-5444-0000-00845-m12-encastrable-femelle-contacts-4-fe-non-blinde-thr-ip68",
+    "title": "M12 Encastrable femelle, Contacts: 5, non blindé, THR, IP68, UL 2238, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-l-m12-encastrable-femelle-thr-ul-2238-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_4_FD_L_2teil_vv_Kontakteinsatz.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-5444-0000-00845-Référence-alternative:-09-0642-100-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/86-5444-0000-00845-m12-encastrable-femelle-contacts-4-fe-non-blinde-thr-ip68",
+      "title": "M12 Encastrable femelle, Contacts: 5, non blindé, THR, IP68, UL 2238, Montage frontal"
+    }
+  ]
+}

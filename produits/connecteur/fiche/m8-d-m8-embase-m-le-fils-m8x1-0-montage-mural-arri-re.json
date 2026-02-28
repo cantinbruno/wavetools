@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:46:15.461Z",
+  "group": {
+    "key": "M8-D__m8-embase-m-le-fils-m8x1-0-montage-mural-arri-re",
+    "slug": "m8-d-m8-embase-m-le-fils-m8x1-0-montage-mural-arri-re",
+    "family": "M8-D",
+    "typeProduit": "m8-embase-m-le-fils-m8x1-0-montage-mural-arri-re",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "76-6321-1011-00404-0200",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6321-1011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10-visse-a-lavant",
+    "title": "M8 Embase mâle, Contacts: 4, non blindé, fils, IP67, M8x1,0, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-d-m8-embase-m-le-fils-m8x1-0-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_3_FS_Li_vv.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-6321-1011-00404-0200",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/76-6321-1011-00404-0200-m8-embase-male-contacts-4-non-blinde-fils-ip67-m8x10-visse-a-lavant",
+      "title": "M8 Embase mâle, Contacts: 4, non blindé, fils, IP67, M8x1,0, Montage mural arrière"
+    }
+  ]
+}

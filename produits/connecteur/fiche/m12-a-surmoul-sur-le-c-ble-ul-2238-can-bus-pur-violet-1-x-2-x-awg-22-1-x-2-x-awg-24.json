@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T00:45:24.679Z",
+  "group": {
+    "key": "M12-A__surmoul-sur-le-c-ble-ul-2238-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24",
+    "slug": "m12-a-surmoul-sur-le-c-ble-ul-2238-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24",
+    "family": "M12-A",
+    "typeProduit": "surmoul-sur-le-c-ble-ul-2238-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "10m",
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77-2527-0000-50705-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2527-0000-50705-0200-m12-a-connecteur-male-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-2-m",
+    "title": "M12 Connecteur mâle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-surmoul-sur-le-c-ble-ul-2238-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_WS_CAN.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-2527-0000-50705-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2527-0000-50705-0200-m12-a-connecteur-male-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-2-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 2 m"
+    },
+    {
+      "ref": "77-2527-0000-50705-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2527-0000-50705-0500-m12-a-connecteur-male-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-5-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 5 m"
+    },
+    {
+      "ref": "77-2527-0000-50705-1000",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2527-0000-50705-1000-m12-a-connecteur-male-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-10-m",
+      "title": "M12 Connecteur mâle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 10 m"
+    },
+    {
+      "ref": "77-2534-0000-50705-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2534-0000-50705-0500-m12-a-connecteur-femelle-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-5-m",
+      "title": "M12 Connecteur femelle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 5 m"
+    },
+    {
+      "ref": "77-2534-0000-50705-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2534-0000-50705-0200-m12-a-connecteur-femelle-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-2-m",
+      "title": "M12 Connecteur femelle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 2 m"
+    },
+    {
+      "ref": "77-2534-0000-50705-1000",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-2534-0000-50705-1000-m12-a-connecteur-femelle-coude-contacts-5-blinde-surmoule-sur-le-cable-ip67-ul-can-bus-pur-violet-1-x-2-x-awg-22-1-x-2-x-awg-24-10-m",
+      "title": "M12 Connecteur femelle coudé, Contacts: 5, blindé, surmoulé sur le câble, IP67, UL 2238, CAN-Bus, PUR, violet, 1 x 2 x AWG 22 + 1 x 2 x AWG 24, 10 m"
+    }
+  ]
+}

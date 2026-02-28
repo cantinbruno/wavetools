@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-28T00:43:36.173Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-femelle-4-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-version-courte",
+    "slug": "m16-ip67-m16-connecteur-femelle-4-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-version-courte",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-femelle-4-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-version-courte",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "canonical": {
+    "ref": "99-5110-740-04",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-740-04-m16-ip67-connecteur-femelle-contacts-4-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+    "title": "M16 Connecteur femelle, Contacts: 4 (04-a), 4,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-femelle-4-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238-version-courte.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_2_kurz_Met_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-5110-740-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-740-04-m16-ip67-connecteur-femelle-contacts-4-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 4 (04-a), 4,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5114-740-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-740-05-m16-ip67-connecteur-femelle-contacts-5-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 5 (05-a), 4,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5122-740-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-740-06-m16-ip67-connecteur-femelle-contacts-6-din-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 6 (06-a), 4,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5126-740-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-740-07-m16-ip67-connecteur-femelle-contacts-7-40-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 7 (07-a), 4,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238, Version courte"
+    }
+  ]
+}

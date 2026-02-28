@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:44:10.726Z",
+  "group": {
+    "key": "M8__m8-connecteur-femelle-2-5-5-0-mm-idc",
+    "slug": "m8-m8-connecteur-femelle-2-5-5-0-mm-idc",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-femelle-2-5-5-0-mm-idc",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2.5-5.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-3376-550-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-550-04-m8-connecteur-femelle-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+    "title": "M8 Connecteur femelle, Contacts: 4, 2,5-5,0 mm, non blindé, IDC, IP67",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-femelle-2-5-5-0-mm-idc.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/768_2_KD_Schneid.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3376-550-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/99-3376-550-04-m8-connecteur-femelle-contacts-4-25-50-mm-non-blinde-borne-de-coupure-ip67-ul",
+      "title": "M8 Connecteur femelle, Contacts: 4, 2,5-5,0 mm, non blindé, IDC, IP67"
+    }
+  ]
+}

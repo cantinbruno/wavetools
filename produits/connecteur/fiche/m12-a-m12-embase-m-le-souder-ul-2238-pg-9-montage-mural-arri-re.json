@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-02-28T00:45:33.202Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-souder-ul-2238-pg-9-montage-mural-arri-re",
+    "slug": "m12-a-m12-embase-m-le-souder-ul-2238-pg-9-montage-mural-arri-re",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-souder-ul-2238-pg-9-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "86-0531-1002-00004",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0531-1002-00004-m12-a-embase-male-contacts-4-non-blinde-souder-ip68-ul-pg-9-visse-a-lavant",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP68, UL 2238, PG 9, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-souder-ul-2238-pg-9-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_FT_loet.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-0531-1002-00004",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0531-1002-00004-m12-a-embase-male-contacts-4-non-blinde-souder-ip68-ul-pg-9-visse-a-lavant",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP68, UL 2238, PG 9, Montage mural arrière"
+    },
+    {
+      "ref": "86-0531-1002-00005",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0531-1002-00005-m12-a-embase-male-contacts-5-non-blinde-souder-ip68-ul-pg-9-visse-a-lavant",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, souder, IP68, UL 2238, PG 9, Montage mural arrière"
+    },
+    {
+      "ref": "86-0531-1002-00008",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0531-1002-00008-m12-a-embase-male-contacts-8-non-blinde-souder-ip68-ul-pg-9-visse-a-lavant",
+      "title": "M12 Embase mâle, Contacts: 8, non blindé, souder, IP68, UL 2238, PG 9, Montage mural arrière"
+    }
+  ]
+}

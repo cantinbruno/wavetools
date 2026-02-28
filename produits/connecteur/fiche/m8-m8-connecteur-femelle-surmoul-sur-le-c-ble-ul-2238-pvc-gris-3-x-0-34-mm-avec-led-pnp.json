@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:24.116Z",
+  "group": {
+    "key": "M8__m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pvc-gris-3-x-0-34-mm-avec-led-pnp",
+    "slug": "m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pvc-gris-3-x-0-34-mm-avec-led-pnp",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pvc-gris-3-x-0-34-mm-avec-led-pnp",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77-3606-0000-20003-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+    "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 3 x 0,34 mm², avec LED, PNP, 2 m",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pvc-gris-3-x-0-34-mm-avec-led-pnp.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_2_KD_DG_SK_trans_nT_PVC.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3606-0000-20003-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-20003-0200-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-2-m",
+      "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 3 x 0,34 mm², avec LED, PNP, 2 m"
+    },
+    {
+      "ref": "77-3606-0000-20003-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3606-0000-20003-0500-m8-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-3-x-034-mm2-5-m",
+      "title": "M8 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 3 x 0,34 mm², avec LED, PNP, 5 m"
+    }
+  ]
+}

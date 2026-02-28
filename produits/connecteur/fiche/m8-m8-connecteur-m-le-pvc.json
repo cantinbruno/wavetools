@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-27T06:24:58.100Z",
+  "generatedAt": "2026-02-28T00:44:36.348Z",
   "group": {
     "key": "M8__m8-connecteur-m-le-pvc",
     "slug": "m8-m8-connecteur-m-le-pvc",
@@ -15,7 +15,7 @@
       "unknown"
     ],
     "genres": [
-      "male"
+      "4males"
     ],
     "blindages": [
       "unknown"
@@ -28,13 +28,10 @@
     ],
     "contacts": [
       4
-    ],
-    "contactsDisponibles": [
-      4
     ]
   },
   "canonical": {
-    "ref": "79 3411 45 04",
+    "ref": "79-3411-45-04",
     "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3411-45-04-m8-connecteur-male-pvc-noir-4-x-025-mm2",
     "title": "M8 Connecteur mâle, Contacts: 4, PVC",
     "mainImage": "produits/connecteur/img/m8-m8-connecteur-m-le-pvc.jpg",
@@ -42,19 +39,9 @@
   },
   "variants": [
     {
-      "ref": "79 3411 45 04",
+      "ref": "79-3411-45-04",
       "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/79-3411-45-04-m8-connecteur-male-pvc-noir-4-x-025-mm2",
-      "title": "M8 Connecteur mâle, Contacts: 4, PVC",
-      "longueur": "unknown",
-      "forme": "unknown",
-      "genre": "male",
-      "blindage": "unknown",
-      "contacts": 4,
-      "contactsDisponibles": [
-        4
-      ],
-      "standard": "unknown",
-      "ip": "unknown"
+      "title": "M8 Connecteur mâle, Contacts: 4, PVC"
     }
   ]
 }

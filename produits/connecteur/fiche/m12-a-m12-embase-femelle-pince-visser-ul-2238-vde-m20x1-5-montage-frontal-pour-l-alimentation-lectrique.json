@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:46:09.460Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-pince-visser-ul-2238-vde-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "slug": "m12-a-m12-embase-femelle-pince-visser-ul-2238-vde-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-pince-visser-ul-2238-vde-m20x1-5-montage-frontal-pour-l-alimentation-lectrique",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "99-0432-500-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0432-0003-00004-embase-femelle-contacts-4-non-blinde-pince-a-visser-ip67-ul-vde-m20x15-1",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, pince à visser, IP67, UL 2238, VDE, M20x1,5, Montage frontal, pour l'alimentation électrique",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-pince-visser-ul-2238-vde-m20x1-5-montage-frontal-pour-l-alimentation-lectrique.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_4_FD_schrkl.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0432-500-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0432-0003-00004-embase-femelle-contacts-4-non-blinde-pince-a-visser-ip67-ul-vde-m20x15-1",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, pince à visser, IP67, UL 2238, VDE, M20x1,5, Montage frontal, pour l'alimentation électrique"
+    },
+    {
+      "ref": "99-0434-500-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0432-0003-00005-embase-femelle-contacts-5-non-blinde-pince-a-visser-ip67-ul-vde-m20x15-1",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, pince à visser, IP67, UL 2238, VDE, M20x1,5, Montage frontal, pour l'alimentation électrique"
+    }
+  ]
+}

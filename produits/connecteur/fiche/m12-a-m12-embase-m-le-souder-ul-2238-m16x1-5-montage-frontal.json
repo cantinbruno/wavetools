@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T00:45:30.986Z",
+  "group": {
+    "key": "M12-A__m12-embase-m-le-souder-ul-2238-m16x1-5-montage-frontal",
+    "slug": "m12-a-m12-embase-m-le-souder-ul-2238-m16x1-5-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-m-le-souder-ul-2238-m16x1-5-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "86-0231-0002-00004-Référence-alternative:-09-3431-578-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0231-0002-00004-m12-a-embase-male-contacts-4-non-blinde-souder-ip68-ul-m16x15",
+    "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP68, UL 2238, M16x1,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-m-le-souder-ul-2238-m16x1-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_3_RT_OL.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-0231-0002-00004-Référence-alternative:-09-3431-578-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0231-0002-00004-m12-a-embase-male-contacts-4-non-blinde-souder-ip68-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0231-0002-00005",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0231-0002-00005-m12-a-embase-male-contacts-5-non-blinde-souder-ip68-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, souder, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-0231-0002-00008",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0231-0002-00008-m12-a-embase-male-contacts-8-non-blinde-souder-ip68-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 8, non blindé, souder, IP68, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-4331-1002-00004-Référence-alternative:-09-0431-387-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4331-1002-00004-m12-a-embase-male-contacts-4-non-blinde-souder-ip67-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 4, non blindé, souder, IP67, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-4331-1002-00005-Référence-alternative:-09-0433-387-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4331-1002-00005-m12-a-embase-male-contacts-5-non-blinde-souder-ip67-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 5, non blindé, souder, IP67, UL 2238, M16x1,5, Montage frontal"
+    },
+    {
+      "ref": "86-4331-1002-00008",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4331-1002-00008-m12-a-embase-male-contacts-8-non-blinde-souder-ip67-ul-m16x15",
+      "title": "M12 Embase mâle, Contacts: 8, non blindé, souder, IP67, UL 2238, M16x1,5, Montage frontal"
+    }
+  ]
+}

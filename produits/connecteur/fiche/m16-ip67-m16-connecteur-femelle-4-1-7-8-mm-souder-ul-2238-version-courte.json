@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-02-28T00:43:34.151Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-femelle-4-1-7-8-mm-souder-ul-2238-version-courte",
+    "slug": "m16-ip67-m16-connecteur-femelle-4-1-7-8-mm-souder-ul-2238-version-courte",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-femelle-4-1-7-8-mm-souder-ul-2238-version-courte",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.1-7.8mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      14,
+      19
+    ]
+  },
+  "canonical": {
+    "ref": "99-5102-60-02",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5102-60-02-m16-ip67-connecteur-femelle-contacts-2-41-78-mm-blindable-souder-ip68-version-courte",
+    "title": "M16 Connecteur femelle, Contacts: 2 (02-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-femelle-4-1-7-8-mm-souder-ul-2238-version-courte.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/423_2_KD_Kurz_schirm.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-5102-60-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5102-60-02-m16-ip67-connecteur-femelle-contacts-2-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 2 (02-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5106-60-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5106-60-03-m16-ip67-connecteur-femelle-contacts-3-din-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 3 (03-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5110-60-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-60-04-m16-ip67-connecteur-femelle-contacts-4-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 4 (04-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5114-60-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-60-05-m16-ip67-connecteur-femelle-contacts-5-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 5 (05-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5122-60-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-60-06-m16-ip67-connecteur-femelle-contacts-6-din-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 6 (06-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5126-60-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-60-07-m16-ip67-connecteur-femelle-contacts-7-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 7 (07-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5172-60-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5172-60-08-m16-ip67-connecteur-femelle-contacts-8-din-41-78-mm-blindable-souder-ip67-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 8 (08-a), 4,1-7,8 mm, blindable, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5130-60-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5130-60-12-m16-ip67-connecteur-femelle-contacts-12-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 12 (12-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5152-60-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5152-60-14-m16-ip67-connecteur-femelle-contacts-14-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 14 (14-b), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5462-60-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5462-60-19-m16-ip67-connecteur-femelle-contacts-19-41-78-mm-blindable-souder-ip68-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 19 (19-a), 4,1-7,8 mm, blindable, souder, IP68, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5102-40-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5102-40-02-m16-ip67-connecteur-femelle-contacts-2-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 2 (02-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5106-40-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5106-40-03-m16-ip67-connecteur-femelle-contacts-3-din-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 3 (03-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5110-40-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5110-40-04-m16-ip67-connecteur-femelle-contacts-4-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 4 (04-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5114-40-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5114-40-05-m16-ip67-connecteur-femelle-contacts-5-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 5 (05-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5122-40-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5122-40-06-m16-ip67-connecteur-femelle-contacts-6-din-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 6 (06-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5126-40-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5126-40-07-m16-ip67-connecteur-femelle-contacts-7-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 7 (07-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5130-40-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5130-40-12-m16-ip67-connecteur-femelle-contacts-12-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 12 (12-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5152-40-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5152-40-14-m16-ip67-connecteur-femelle-contacts-14-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 14 (14-b), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    },
+    {
+      "ref": "99-5462-40-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/99-5462-40-19-m16-ip67-connecteur-femelle-contacts-19-41-78-mm-non-blinde-souder-ip67-ul-version-courte",
+      "title": "M16 Connecteur femelle, Contacts: 19 (19-a), 4,1-7,8 mm, non blindé, souder, IP67, UL 2238, Version courte"
+    }
+  ]
+}

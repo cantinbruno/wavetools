@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-02-28T00:44:19.201Z",
+  "group": {
+    "key": "M8__surmoul-sur-le-c-ble-ul-2238-pur-noir-4-x-0-34-mm-acier-inoxydable",
+    "slug": "m8-surmoul-sur-le-c-ble-ul-2238-pur-noir-4-x-0-34-mm-acier-inoxydable",
+    "family": "M8",
+    "typeProduit": "surmoul-sur-le-c-ble-ul-2238-pur-noir-4-x-0-34-mm-acier-inoxydable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "77-3703-0000-50004-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+    "title": "M8 Connecteur mâle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², Acier inoxydable, 2 m",
+    "mainImage": "produits/connecteur/img/m8-surmoul-sur-le-c-ble-ul-2238-pur-noir-4-x-0-34-mm-acier-inoxydable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_1_WS_VA.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3703-0000-50004-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50004-0200-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M8 Connecteur mâle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², Acier inoxydable, 2 m"
+    },
+    {
+      "ref": "77-3703-0000-50004-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3703-0000-50004-0500-m8-connecteur-male-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M8 Connecteur mâle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², Acier inoxydable, 5 m"
+    },
+    {
+      "ref": "77-3708-0000-50004-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50004-0200-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M8 Connecteur femelle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², Acier inoxydable, 2 m"
+    },
+    {
+      "ref": "77-3708-0000-50004-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3708-0000-50004-0500-m8-connecteur-femelle-coude-contacts-4-non-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-4-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M8 Connecteur femelle coudé, Contacts: 4, non blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 4 x 0,34 mm², Acier inoxydable, 5 m"
+    }
+  ]
+}

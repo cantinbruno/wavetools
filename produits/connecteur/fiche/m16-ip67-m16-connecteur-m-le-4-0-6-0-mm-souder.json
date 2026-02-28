@@ -1,0 +1,164 @@
+{
+  "generatedAt": "2026-02-28T00:43:37.580Z",
+  "group": {
+    "key": "M16 IP67__m16-connecteur-m-le-4-0-6-0-mm-souder",
+    "slug": "m16-ip67-m16-connecteur-m-le-4-0-6-0-mm-souder",
+    "family": "M16 IP67",
+    "typeProduit": "m16-connecteur-m-le-4-0-6-0-mm-souder",
+    "category1": "miniatures"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.0-6.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-106",
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      14,
+      16,
+      19,
+      24
+    ]
+  },
+  "canonical": {
+    "ref": "09-0101-25-02",
+    "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0101-25-02-m16-ip67-connecteur-male-contacts-2-40-60-mm-non-blinde-souder-ip67",
+    "title": "M16 Connecteur mâle, Contacts: 2 (02-a), 4,0-6,0 mm, non blindé, souder, IP67",
+    "mainImage": "produits/connecteur/img/m16-ip67-m16-connecteur-m-le-4-0-6-0-mm-souder.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/723_1_25.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-0101-25-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0101-25-02-m16-ip67-connecteur-male-contacts-2-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 2 (02-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0101-19-02",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0101-19-02-m16-ip67-connecteur-male-contacts-2-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 2 (02-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0105-25-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0105-25-03-m16-ip67-connecteur-male-contacts-3-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 3 (03-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0105-19-03",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0105-19-03-m16-ip67-connecteur-male-contacts-3-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 3 (03-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0109-25-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0109-25-04-m16-ip67-connecteur-male-contacts-4-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 4 (04-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0109-19-04",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0109-19-04-m16-ip67-connecteur-male-contacts-4-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 4 (04-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0113-25-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0113-25-05-m16-ip67-connecteur-male-contacts-5-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 5 (05-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0113-19-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0113-19-05-m16-ip67-connecteur-male-contacts-5-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 5 (05-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0117-25-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0117-25-05-m16-ip67-connecteur-male-contacts-5-stereo-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 5 (05-b), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0117-19-05",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0117-19-05-m16-ip67-connecteur-male-contacts-5-stereo-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 5 (05-b), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0121-25-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0121-25-06-m16-ip67-connecteur-male-contacts-6-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 6 (06-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0121-19-06",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0121-19-06-m16-ip67-connecteur-male-contacts-6-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 6 (06-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0125-25-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0125-25-07-m16-ip67-connecteur-male-contacts-7-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 7 (07-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0125-19-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0125-19-07-m16-ip67-connecteur-male-contacts-7-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 7 (07-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0581-25-07",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0581-25-07-m16-ip67-connecteur-male-contacts-7-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 7 (07-b), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0171-25-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0171-25-08-m16-ip67-connecteur-male-contacts-8-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 8 (08-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0171-19-08",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0171-19-08-m16-ip67-connecteur-male-contacts-8-din-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 8 (08-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0129-25-12",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0129-25-12-m16-ip67-connecteur-male-contacts-12-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 12 (12-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0451-25-14",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0451-25-14-m16-ip67-connecteur-male-contacts-14-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 14 (14-b), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0505-25-16",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0505-25-16-m16-ip67-connecteur-male-contacts-16-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 16, 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0461-25-19",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0461-25-19-m16-ip67-connecteur-male-contacts-19-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 19 (19-a), 4,0-6,0 mm, non blindé, souder, IP67"
+    },
+    {
+      "ref": "09-0495-25-24",
+      "url": "https://www.binder-connector.com/fr/produits/miniatures/m16-ip67/09-0495-25-24-m16-ip67-connecteur-male-contacts-24-40-60-mm-non-blinde-souder-ip67",
+      "title": "M16 Connecteur mâle, Contacts: 24, 4,0-6,0 mm, non blindé, souder, IP67"
+    }
+  ]
+}

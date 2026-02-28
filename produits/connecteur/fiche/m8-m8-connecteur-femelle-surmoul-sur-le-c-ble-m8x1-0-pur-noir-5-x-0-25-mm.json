@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:37.832Z",
+  "group": {
+    "key": "M8__m8-connecteur-femelle-surmoul-sur-le-c-ble-m8x1-0-pur-noir-5-x-0-25-mm",
+    "slug": "m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-m8x1-0-pur-noir-5-x-0-25-mm",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-femelle-surmoul-sur-le-c-ble-m8x1-0-pur-noir-5-x-0-25-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77-3506-0000-50705-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50705-0200-m8-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-5-x-025-mm2-2-m",
+    "title": "M8 Connecteur femelle, Contacts: 5, blindé, surmoulé sur le câble, IP67, M8x1,0, PUR, noir, 5 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-m8x1-0-pur-noir-5-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_2_KD_u_5pol_PUR.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3506-0000-50705-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50705-0200-m8-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-5-x-025-mm2-2-m",
+      "title": "M8 Connecteur femelle, Contacts: 5, blindé, surmoulé sur le câble, IP67, M8x1,0, PUR, noir, 5 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3506-0000-50705-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3506-0000-50705-0500-m8-connecteur-femelle-contacts-5-blinde-surmoule-sur-le-cable-ip67-m8x10-pur-noir-5-x-025-mm2-5-m",
+      "title": "M8 Connecteur femelle, Contacts: 5, blindé, surmoulé sur le câble, IP67, M8x1,0, PUR, noir, 5 x 0,25 mm², 5 m"
+    }
+  ]
+}

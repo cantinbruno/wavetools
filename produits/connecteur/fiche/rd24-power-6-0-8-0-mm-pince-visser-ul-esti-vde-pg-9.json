@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-02-28T00:43:59.684Z",
+  "group": {
+    "key": "RD24 Power__6-0-8-0-mm-pince-visser-ul-esti-vde-pg-9",
+    "slug": "rd24-power-6-0-8-0-mm-pince-visser-ul-esti-vde-pg-9",
+    "family": "RD24 Power",
+    "typeProduit": "6-0-8-0-mm-pince-visser-ul-esti-vde-pg-9",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "99-4221-70-04-Référence-alternative:-99-0209-70-04",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-70-04-rd24-connecteur-male-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+    "title": "RD24 Connecteur mâle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9",
+    "mainImage": "produits/connecteur/img/rd24-power-6-0-8-0-mm-pince-visser-ul-esti-vde-pg-9.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/693_1_70.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-4221-70-04-Référence-alternative:-99-0209-70-04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4221-70-04-rd24-connecteur-male-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "title": "RD24 Connecteur mâle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9"
+    },
+    {
+      "ref": "99-4217-70-07-Référence-alternative:-99-0217-70-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4217-70-07-rd24-connecteur-male-coude-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "title": "RD24 Connecteur mâle coudé, Contacts: 6+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9"
+    },
+    {
+      "ref": "99-4222-70-04-Référence-alternative:-99-0210-70-04",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4222-70-04-rd24-connecteur-femelle-coude-contacts-3-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "title": "RD24 Connecteur femelle coudé, Contacts: 3+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9"
+    },
+    {
+      "ref": "99-4218-70-07-Référence-alternative:-99-0218-70-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/99-4218-70-07-rd24-connecteur-femelle-coude-contacts-6-pe-60-80-mm-non-blinde-pince-a-visser-ip67-ul-esti-vde-pg-9",
+      "title": "RD24 Connecteur femelle coudé, Contacts: 6+PE, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL, ESTI+, VDE, PG 9"
+    }
+  ]
+}

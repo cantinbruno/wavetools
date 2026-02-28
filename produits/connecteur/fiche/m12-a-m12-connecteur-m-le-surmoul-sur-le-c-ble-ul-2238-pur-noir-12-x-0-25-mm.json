@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-02-28T00:45:07.942Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-12-x-0-25-mm",
+    "slug": "m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-12-x-0-25-mm",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-12-x-0-25-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "10m",
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blinde",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67",
+      "ip69k"
+    ],
+    "contacts": [
+      12
+    ]
+  },
+  "canonical": {
+    "ref": "77-3419-0000-50712-0500",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3419-0000-50712-0500-m12-a-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-12-x-025-mm2-5-m",
+    "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 5 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-12-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_KS_u_Kunststoffgew.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3419-0000-50712-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3419-0000-50712-0500-m12-a-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-12-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 5 m"
+    },
+    {
+      "ref": "77-3419-0000-50712-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3419-0000-50712-0200-m12-a-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-12-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3429-0000-50712-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3429-0000-50712-0200-m12-a-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-12-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3429-0000-50712-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3429-0000-50712-0500-m12-a-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-12-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 5 m"
+    },
+    {
+      "ref": "77-3529-0000-50712-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3529-0000-50712-0200-m12-a-connecteur-male-contacts-12-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 12 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3529-0000-50712-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3529-0000-50712-0500-m12-a-connecteur-male-contacts-12-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-12-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 12 x 0,25 mm², 5 m"
+    },
+    {
+      "ref": "77-3729-0000-50712-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50712-0200-m12-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip69k-ul-2238-pur-noir-12-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3729-0000-50712-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50712-0500-m12-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip69k-ul-2238-pur-noir-12-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 5 m"
+    },
+    {
+      "ref": "77-3729-0000-50712-1000",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50712-1000-m12-connecteur-male-contacts-12-non-blinde-surmoule-sur-le-cable-ip69k-ul-2238-pur-noir-12-x-025-mm2-10-m",
+      "title": "M12 Connecteur mâle, Contacts: 12, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 12 x 0,25 mm², 10 m"
+    }
+  ]
+}

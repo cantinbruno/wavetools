@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T00:45:08.181Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm",
+    "slug": "m12-a-m12-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blinde",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67",
+      "ip69k"
+    ],
+    "contacts": [
+      3
+    ]
+  },
+  "canonical": {
+    "ref": "77-3420-0000-50003-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3420-0000-50003-0200-m12-a-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-034-mm2-2-m",
+    "title": "M12 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-3-x-0-34-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_2_KD_u_Kunststoffgew.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3420-0000-50003-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3420-0000-50003-0200-m12-a-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-034-mm2-2-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², 2 m"
+    },
+    {
+      "ref": "77-3420-0000-50003-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3420-0000-50003-0500-m12-a-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip68-ul-pur-noir-3-x-034-mm2-5-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², 5 m"
+    },
+    {
+      "ref": "77-3530-0000-50703-0200-Référence-alternative:-79-3530-32-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3530-0000-50703-0200-m12-a-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-2-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 3 x 0,34 mm², 2 m"
+    },
+    {
+      "ref": "77-3530-0000-50703-0500-Référence-alternative:-79-3530-35-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3530-0000-50703-0500-m12-a-connecteur-femelle-contacts-3-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-3-x-034-mm2-5-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, blindé, surmoulé sur le câble, IP67, UL 2238, PUR, noir, 3 x 0,34 mm², 5 m"
+    },
+    {
+      "ref": "77-3430-0000-50003-0200-Référence-alternative:-79-3430-32-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3430-0000-50003-0200-m12-a-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-2-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², 2 m"
+    },
+    {
+      "ref": "77-3430-0000-50003-0500-Référence-alternative:-79-3430-35-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3430-0000-50003-0500-m12-a-connecteur-femelle-contacts-3-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-3-x-034-mm2-5-m",
+      "title": "M12 Connecteur femelle, Contacts: 3, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 3 x 0,34 mm², 5 m"
+    }
+  ]
+}

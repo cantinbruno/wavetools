@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:44:31.035Z",
+  "group": {
+    "key": "M8__m8-embase-m-le-fils-ul-2238-m10x0-75-montage-mural-arri-re",
+    "slug": "m8-m8-embase-m-le-fils-ul-2238-m10x0-75-montage-mural-arri-re",
+    "family": "M8",
+    "typeProduit": "m8-embase-m-le-fils-ul-2238-m10x0-75-montage-mural-arri-re",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "76-6219-1111-00005-0200-Référence-alternative:-09-3425-00-05",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00005-0200-m8-embase-male-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+    "title": "M8 Embase mâle, Contacts: 5, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/m8-m8-embase-m-le-fils-ul-2238-m10x0-75-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_3_FS_konf.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-6219-1111-00005-0200-Référence-alternative:-09-3425-00-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/76-6219-1111-00005-0200-m8-embase-male-contacts-5-non-blinde-fils-ip67-ul-m10x075",
+      "title": "M8 Embase mâle, Contacts: 5, non blindé, fils, IP67, UL 2238, M10x0,75, Montage mural arrière"
+    }
+  ]
+}

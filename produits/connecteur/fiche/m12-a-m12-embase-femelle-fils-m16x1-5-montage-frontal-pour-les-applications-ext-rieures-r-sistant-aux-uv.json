@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:45:46.155Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-fils-m16x1-5-montage-frontal-pour-les-applications-ext-rieures-r-sistant-aux-uv",
+    "slug": "m12-a-m12-embase-femelle-fils-m16x1-5-montage-frontal-pour-les-applications-ext-rieures-r-sistant-aux-uv",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-fils-m16x1-5-montage-frontal-pour-les-applications-ext-rieures-r-sistant-aux-uv",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip69k"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09-3432-284-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-3432-284-04-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip69k-m16x15-pour-les-applications-exterieures",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP69K, M16x1,5, Montage frontal, pour les applications extérieures, résistant aux UV",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-fils-m16x1-5-montage-frontal-pour-les-applications-ext-rieures-r-sistant-aux-uv.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_FD_Outdoor.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-3432-284-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/09-3432-284-04-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip69k-m16x15-pour-les-applications-exterieures",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP69K, M16x1,5, Montage frontal, pour les applications extérieures, résistant aux UV"
+    }
+  ]
+}

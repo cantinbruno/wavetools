@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:45:01.185Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-6-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "slug": "m12-a-m12-connecteur-femelle-6-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-6-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0530-12-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-12-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+    "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-6-0-8-0-mm-sertir-les-contacts-sertir-doivent-tre-command-s-s-par-ment-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_SK_crimp.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0530-12-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0530-12-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-sertir-les-contacts-a-sertir-doivent-etre-commandes-separement-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, sertir (Les contacts à sertir doivent être commandés séparément), IP67, UL 2238"
+    }
+  ]
+}

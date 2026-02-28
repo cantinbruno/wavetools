@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-02-28T00:45:53.196Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-smt-m14x1-0-montage-frontal",
+    "slug": "m12-a-m12-embase-femelle-smt-m14x1-0-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-smt-m14x1-0-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "blindable",
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-3432-351-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3432-351-04-m12-a-embase-femelle-contacts-4-non-blinde-smt-ip67",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, SMT, IP67, M14x1,0, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-smt-m14x1-0-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_EBD_SMT_Gehaeuse_9mm.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3432-351-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3432-351-04-m12-a-embase-femelle-contacts-4-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3432-352-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3432-352-04-m12-a-embase-femelle-contacts-4-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3442-351-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3442-351-05-m12-a-embase-femelle-contacts-5-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3442-352-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3442-352-05-m12-a-embase-femelle-contacts-5-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3482-351-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3482-351-08-m12-a-embase-femelle-contacts-8-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3482-352-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3482-352-08-m12-a-embase-femelle-contacts-8-non-blinde-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3432-401-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3432-401-04-m12-a-embase-femelle-contacts-4-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 4, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3432-402-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3432-402-04-m12-a-embase-femelle-contacts-4-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 4, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3442-401-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3442-401-05-m12-a-embase-femelle-contacts-5-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 5, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3442-402-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3442-402-05-m12-a-embase-femelle-contacts-5-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 5, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3482-401-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3482-401-08-m12-a-embase-femelle-contacts-8-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 8, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    },
+    {
+      "ref": "99-3482-402-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-3482-402-08-m12-a-embase-femelle-contacts-8-blindable-smt-ip67",
+      "title": "M12 Embase femelle, Contacts: 8, blindable, SMT, IP67, M14x1,0, Montage frontal"
+    }
+  ]
+}

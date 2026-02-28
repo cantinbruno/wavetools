@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-02-28T00:44:18.503Z",
+  "group": {
+    "key": "M8__surmoul-sur-le-c-ble-ul-2238-pvc-gris-5-x-0-34-mm",
+    "slug": "m8-surmoul-sur-le-c-ble-ul-2238-pvc-gris-5-x-0-34-mm",
+    "family": "M8",
+    "typeProduit": "surmoul-sur-le-c-ble-ul-2238-pvc-gris-5-x-0-34-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77-3403-0000-20005-0200",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20005-0200-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+    "title": "M8 Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 5 x 0,34 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m8-surmoul-sur-le-c-ble-ul-2238-pvc-gris-5-x-0-34-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_1_WS_DG_SK_nT_PVC.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3403-0000-20005-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20005-0200-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+      "title": "M8 Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 5 x 0,34 mm², 2 m"
+    },
+    {
+      "ref": "77-3403-0000-20005-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3403-0000-20005-0500-m8-connecteur-male-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-5-m",
+      "title": "M8 Connecteur mâle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 5 x 0,34 mm², 5 m"
+    },
+    {
+      "ref": "77-3408-0000-20005-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20005-0200-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-2-m",
+      "title": "M8 Connecteur femelle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 5 x 0,34 mm², 2 m"
+    },
+    {
+      "ref": "77-3408-0000-20005-0500",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3408-0000-20005-0500-m8-connecteur-femelle-coude-contacts-5-non-blinde-surmoule-sur-le-cable-ip67-ul-pvc-gris-5-x-034-mm2-5-m",
+      "title": "M8 Connecteur femelle coudé, Contacts: 5, non blindé, surmoulé sur le câble, IP67, UL 2238, PVC, gris, 5 x 0,34 mm², 5 m"
+    }
+  ]
+}

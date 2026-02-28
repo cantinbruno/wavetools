@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:46:20.118Z",
+  "group": {
+    "key": "M12-D__5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "slug": "m12-d-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "family": "M12-D",
+    "typeProduit": "5-0-8-0-mm-pince-visser-ul-2238-ressort-iris",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "5.0-8.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "blindable"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-3728-820-04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/99-3728-820-04-m12-d-connecteur-femelle-coude-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur femelle coudé, Contacts: 4, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris",
+    "mainImage": "produits/connecteur/img/m12-d-5-0-8-0-mm-pince-visser-ul-2238-ressort-iris.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_WD_Iris_SK.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-3728-820-04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/99-3728-820-04-m12-d-connecteur-femelle-coude-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle coudé, Contacts: 4, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris"
+    },
+    {
+      "ref": "99-3727-820-04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/99-3727-820-04-m12-d-connecteur-male-coude-contacts-4-50-80-mm-blindable-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur mâle coudé, Contacts: 4, 5,0-8,0 mm, blindable, pince à visser, IP67, UL 2238, ressort à iris"
+    }
+  ]
+}

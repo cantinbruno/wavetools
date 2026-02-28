@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-02-28T00:47:06.005Z",
+  "group": {
+    "key": "7/8\"__7-8-embase-femelle-fils-ul-2238-vde-montage-frontal",
+    "slug": "7-8-7-8-embase-femelle-fils-ul-2238-vde-montage-frontal",
+    "family": "7/8\"",
+    "typeProduit": "7-8-embase-femelle-fils-ul-2238-vde-montage-frontal",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      2,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09-2446-100-03",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-100-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+    "title": "7/8\" Embase femelle, Contacts: 2+PE, non blindé, fils, IP68, UL 2238, VDE, Montage frontal",
+    "mainImage": "produits/connecteur/img/7-8-7-8-embase-femelle-fils-ul-2238-vde-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_4_FD_front.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-2446-100-03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2446-100-03-7-8-embase-femelle-contacts-2-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase femelle, Contacts: 2+PE, non blindé, fils, IP68, UL 2238, VDE, Montage frontal"
+    },
+    {
+      "ref": "09-2448-100-04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2448-100-04-7-8-embase-femelle-contacts-4-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase femelle, Contacts: 4, non blindé, fils, IP68, UL 2238, VDE, Montage frontal"
+    },
+    {
+      "ref": "09-2450-100-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2450-100-05-7-8-embase-femelle-contacts-4-pe-non-blinde-fils-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase femelle, Contacts: 4+PE, non blindé, fils, IP68, UL 2238, VDE, Montage frontal"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:46:43.362Z",
+  "group": {
+    "key": "M12-K__m12-embase-m-le-fils-m16x1-5-montage-frontal-ul-2237-en-pr-paration",
+    "slug": "m12-k-m12-embase-m-le-fils-m16x1-5-montage-frontal-ul-2237-en-pr-paration",
+    "family": "M12-K",
+    "typeProduit": "m12-embase-m-le-fils-m16x1-5-montage-frontal-ul-2237-en-pr-paration",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "76-0245-0134-00065-0200-Référence-alternative:-09-0701-37-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/76-0245-0134-00065-0200-m12-embase-male-contacts-4-pe-non-blinde-fils-ip68-m16x15-ul-2237-en-preparation",
+    "title": "M12 Embase mâle, Contacts: 4+PE, non blindé, fils, IP68, M16x1,5, Montage frontal, UL 2237 en préparation",
+    "mainImage": "produits/connecteur/img/m12-k-m12-embase-m-le-fils-m16x1-5-montage-frontal-ul-2237-en-pr-paration.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/824_3_FS_Li_PE.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-0245-0134-00065-0200-Référence-alternative:-09-0701-37-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/76-0245-0134-00065-0200-m12-embase-male-contacts-4-pe-non-blinde-fils-ip68-m16x15-ul-2237-en-preparation",
+      "title": "M12 Embase mâle, Contacts: 4+PE, non blindé, fils, IP68, M16x1,5, Montage frontal, UL 2237 en préparation"
+    }
+  ]
+}

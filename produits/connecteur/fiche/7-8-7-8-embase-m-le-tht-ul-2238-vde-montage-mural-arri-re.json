@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-02-28T00:47:05.718Z",
+  "group": {
+    "key": "7/8\"__7-8-embase-m-le-tht-ul-2238-vde-montage-mural-arri-re",
+    "slug": "7-8-7-8-embase-m-le-tht-ul-2238-vde-montage-mural-arri-re",
+    "family": "7/8\"",
+    "typeProduit": "7-8-embase-m-le-tht-ul-2238-vde-montage-mural-arri-re",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      2,
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "09-2447-180-03",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-180-03-7-8-embase-male-contacts-2-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+    "title": "7/8\" Embase mâle, Contacts: 2+PE, non blindé, THT, IP68, UL 2238, VDE, Montage mural arrière",
+    "mainImage": "produits/connecteur/img/7-8-7-8-embase-m-le-tht-ul-2238-vde-montage-mural-arri-re.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/820_3_FS_TL_vv.jpg"
+  },
+  "variants": [
+    {
+      "ref": "09-2447-180-03",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2447-180-03-7-8-embase-male-contacts-2-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase mâle, Contacts: 2+PE, non blindé, THT, IP68, UL 2238, VDE, Montage mural arrière"
+    },
+    {
+      "ref": "09-2449-180-04",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2449-180-04-7-8-embase-male-contacts-4-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase mâle, Contacts: 4, non blindé, THT, IP68, UL 2238, VDE, Montage mural arrière"
+    },
+    {
+      "ref": "09-2451-180-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/7-8/09-2451-180-05-7-8-embase-male-contacts-4-pe-non-blinde-tht-ip68-ul-vde-visse-a-lavant",
+      "title": "7/8\" Embase mâle, Contacts: 4+PE, non blindé, THT, IP68, UL 2238, VDE, Montage mural arrière"
+    }
+  ]
+}

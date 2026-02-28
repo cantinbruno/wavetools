@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-02-28T00:45:43.998Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal-acier-inoxydable-positionnable",
+    "slug": "m12-a-m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal-acier-inoxydable-positionnable",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal-acier-inoxydable-positionnable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101",
+      "unknown"
+    ],
+    "ips": [
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "76-2832-0111-00004-0200-Référence-alternative:-09-3432-778-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2832-0111-00004-0200-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip68-ip69k-ul-m16x15-acier-inoxydable",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP68/IP69K, UL 2238, M16x1,5, Montage frontal, Acier inoxydable, positionnable",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal-acier-inoxydable-positionnable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_FD_pos_VA_Li_4pol.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-2832-0111-00004-0200-Référence-alternative:-09-3432-778-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2832-0111-00004-0200-m12-a-embase-femelle-contacts-4-non-blinde-fils-ip68-ip69k-ul-m16x15-acier-inoxydable",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP68/IP69K, UL 2238, M16x1,5, Montage frontal, Acier inoxydable, positionnable"
+    },
+    {
+      "ref": "76-2832-0111-00005-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2832-0111-00005-0200-m12-a-embase-femelle-contacts-5-non-blinde-fils-ip68-ip69k-ul-m16x15-acier-inoxydable",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, fils, IP68/IP69K, UL 2238, M16x1,5, Montage frontal, Acier inoxydable, positionnable"
+    },
+    {
+      "ref": "76-2832-0111-00008-0200",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/76-2832-0111-00008-0200-m12-embase-femelle-contacts-8-non-blinde-fils-ip68-ip69k-ul-m16x15-acier-inoxydable-positionnable",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, fils, IP68/IP69K, UL 2238, M16x1,5, Montage frontal, Acier inoxydable, positionnable"
+    }
+  ]
+}

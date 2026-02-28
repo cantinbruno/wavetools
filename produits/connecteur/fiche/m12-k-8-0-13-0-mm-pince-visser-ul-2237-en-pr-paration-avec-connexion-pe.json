@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:46:36.248Z",
+  "group": {
+    "key": "M12-K__8-0-13-0-mm-pince-visser-ul-2237-en-pr-paration-avec-connexion-pe",
+    "slug": "m12-k-8-0-13-0-mm-pince-visser-ul-2237-en-pr-paration-avec-connexion-pe",
+    "family": "M12-K",
+    "typeProduit": "8-0-13-0-mm-pince-visser-ul-2237-en-pr-paration-avec-connexion-pe",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "8.0-13.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0700-370-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-370-05-m12-k-connecteur-femelle-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+    "title": "M12 Connecteur femelle coudé, Contacts: 4+PE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2237 en préparation, avec connexion PE",
+    "mainImage": "produits/connecteur/img/m12-k-8-0-13-0-mm-pince-visser-ul-2237-en-pr-paration-avec-connexion-pe.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/824_2_WD_K.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0700-370-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0700-370-05-m12-k-connecteur-femelle-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "title": "M12 Connecteur femelle coudé, Contacts: 4+PE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2237 en préparation, avec connexion PE"
+    },
+    {
+      "ref": "99-0699-370-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-k/99-0699-370-05-m12-k-connecteur-male-coude-contacts-4-pe-80-130-mm-non-blinde-pince-a-visser-ip67-ul-2237-en-preparation-avec-connexion-pe",
+      "title": "M12 Connecteur mâle coudé, Contacts: 4+PE, 8,0-13,0 mm, non blindé, pince à visser, IP67, UL 2237 en préparation, avec connexion PE"
+    }
+  ]
+}

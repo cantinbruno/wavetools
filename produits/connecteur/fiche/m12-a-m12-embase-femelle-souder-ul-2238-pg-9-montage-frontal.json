@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-02-28T00:45:40.890Z",
+  "group": {
+    "key": "M12-A__m12-embase-femelle-souder-ul-2238-pg-9-montage-frontal",
+    "slug": "m12-a-m12-embase-femelle-souder-ul-2238-pg-9-montage-frontal",
+    "family": "M12-A",
+    "typeProduit": "m12-embase-femelle-souder-ul-2238-pg-9-montage-frontal",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67",
+      "ip68"
+    ],
+    "contacts": [
+      4,
+      5,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "86-4232-1002-00004-Référence-alternative:-09-0432-87-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4232-1002-00004-m12-a-embase-femelle-contacts-4-non-blinde-souder-ip67-ul-pg-9",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, souder, IP67, UL 2238, PG 9, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-a-m12-embase-femelle-souder-ul-2238-pg-9-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_4_FD_Vollku_Met.jpg"
+  },
+  "variants": [
+    {
+      "ref": "86-4232-1002-00004-Référence-alternative:-09-0432-87-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4232-1002-00004-m12-a-embase-femelle-contacts-4-non-blinde-souder-ip67-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, souder, IP67, UL 2238, PG 9, Montage frontal"
+    },
+    {
+      "ref": "86-4232-1002-00005-Référence-alternative:-09-0434-87-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4232-1002-00005-m12-a-embase-femelle-contacts-5-non-blinde-souder-ip67-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, souder, IP67, UL 2238, PG 9, Montage frontal"
+    },
+    {
+      "ref": "86-4232-1002-00008-Référence-alternative:-09-0484-87-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-4232-1002-00008-m12-a-embase-femelle-contacts-8-non-blinde-souder-ip67-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, souder, IP67, UL 2238, PG 9, Montage frontal"
+    },
+    {
+      "ref": "86-0132-0002-00004",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0132-0002-00004-m12-a-embase-femelle-contacts-4-non-blinde-souder-ip68-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, souder, IP68, UL 2238, PG 9, Montage frontal"
+    },
+    {
+      "ref": "86-0132-0002-00005",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0132-0002-00005-m12-a-embase-femelle-contacts-5-non-blinde-souder-ip68-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 5, non blindé, souder, IP68, UL 2238, PG 9, Montage frontal"
+    },
+    {
+      "ref": "86-0132-0002-00008",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/86-0132-0002-00008-m12-a-embase-femelle-contacts-8-non-blinde-souder-ip68-ul-pg-9",
+      "title": "M12 Embase femelle, Contacts: 8, non blindé, souder, IP68, UL 2238, PG 9, Montage frontal"
+    }
+  ]
+}

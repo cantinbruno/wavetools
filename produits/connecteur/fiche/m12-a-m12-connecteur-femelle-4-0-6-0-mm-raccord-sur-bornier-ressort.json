@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:59.561Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-4-0-6-0-mm-raccord-sur-bornier-ressort",
+    "slug": "m12-a-m12-connecteur-femelle-4-0-6-0-mm-raccord-sur-bornier-ressort",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-4-0-6-0-mm-raccord-sur-bornier-ressort",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.0-6.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4,
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "99-0524-14-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0524-14-04-m12-a-connecteur-femelle-contacts-4-40-60-mm-non-blinde-raccord-sur-bornier-a-ressort-ip67",
+    "title": "M12 Connecteur femelle, Contacts: 4, 4,0-6,0 mm, non blindé, raccord sur bornier à ressort, IP67",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-4-0-6-0-mm-raccord-sur-bornier-ressort.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_SK.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0524-14-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0524-14-04-m12-a-connecteur-femelle-contacts-4-40-60-mm-non-blinde-raccord-sur-bornier-a-ressort-ip67",
+      "title": "M12 Connecteur femelle, Contacts: 4, 4,0-6,0 mm, non blindé, raccord sur bornier à ressort, IP67"
+    },
+    {
+      "ref": "99-0536-14-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0536-14-05-m12-a-connecteur-femelle-contacts-5-40-60-mm-non-blinde-raccord-sur-bornier-a-ressort-ip67",
+      "title": "M12 Connecteur femelle, Contacts: 5, 4,0-6,0 mm, non blindé, raccord sur bornier à ressort, IP67"
+    }
+  ]
+}

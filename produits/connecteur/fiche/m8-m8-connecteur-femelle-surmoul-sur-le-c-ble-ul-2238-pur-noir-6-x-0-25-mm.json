@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:22.036Z",
+  "group": {
+    "key": "M8__m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-6-x-0-25-mm",
+    "slug": "m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-6-x-0-25-mm",
+    "family": "M8",
+    "typeProduit": "m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-6-x-0-25-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-104"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "77-3406-0000-50006-0200-Référence-alternative:-79-3464-52-06",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50006-0200-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-2-m",
+    "title": "M8 Connecteur femelle, Contacts: 6, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PUR, noir, 6 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m8-m8-connecteur-femelle-surmoul-sur-le-c-ble-ul-2238-pur-noir-6-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/718_2_KD_DG_SK_nT.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3406-0000-50006-0200-Référence-alternative:-79-3464-52-06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50006-0200-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-2-m",
+      "title": "M8 Connecteur femelle, Contacts: 6, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PUR, noir, 6 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3406-0000-50006-0500-Référence-alternative:-79-3464-55-06",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m8/77-3406-0000-50006-0500-m8-connecteur-femelle-contacts-6-non-blinde-surmoule-sur-le-cable-ip67-ip69k-ul-pur-noir-6-x-025-mm2-5-m",
+      "title": "M8 Connecteur femelle, Contacts: 6, non blindé, surmoulé sur le câble, IP67/IP69K, UL 2238, PUR, noir, 6 x 0,25 mm², 5 m"
+    }
+  ]
+}

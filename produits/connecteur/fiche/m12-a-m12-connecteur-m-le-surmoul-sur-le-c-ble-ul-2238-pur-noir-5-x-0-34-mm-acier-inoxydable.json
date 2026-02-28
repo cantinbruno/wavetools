@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:45:09.679Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-0-34-mm-acier-inoxydable",
+    "slug": "m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-0-34-mm-acier-inoxydable",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-0-34-mm-acier-inoxydable",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip69k"
+    ],
+    "contacts": [
+      5
+    ]
+  },
+  "canonical": {
+    "ref": "77-3729-0000-50005-0200-Référence-alternative:-79-3439-52-05",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50005-0200-m12-a-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-5-x-034-mm2-acier-inoxydable-2-m",
+    "title": "M12 Connecteur mâle, Contacts: 5, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 5 x 0,34 mm², Acier inoxydable, 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-ul-2238-pur-noir-5-x-0-34-mm-acier-inoxydable.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_KSVA_DG_SK.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3729-0000-50005-0200-Référence-alternative:-79-3439-52-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50005-0200-m12-a-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-5-x-034-mm2-acier-inoxydable-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 5, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 5 x 0,34 mm², Acier inoxydable, 2 m"
+    },
+    {
+      "ref": "77-3729-0000-50005-0500-Référence-alternative:-79-3439-55-05",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3729-0000-50005-0500-m12-a-connecteur-male-contacts-5-non-blinde-surmoule-sur-le-cable-ip69k-ul-pur-noir-5-x-034-mm2-acier-inoxydable-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 5, non blindé, surmoulé sur le câble, IP69K, UL 2238, PUR, noir, 5 x 0,34 mm², Acier inoxydable, 5 m"
+    }
+  ]
+}

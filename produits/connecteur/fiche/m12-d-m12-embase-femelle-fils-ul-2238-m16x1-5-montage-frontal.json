@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:46:28.711Z",
+  "group": {
+    "key": "M12-D__m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal",
+    "slug": "m12-d-m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal",
+    "family": "M12-D",
+    "typeProduit": "m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "unknown"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "76-0236-0011-00404-0200-Référence-alternative:-09-3732-700-04",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/76-0236-0011-00404-0200-m12-d-embase-femelle-contacts-4-non-blinde-fils-ip67-ul-m16x15",
+    "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP67, UL 2238, M16x1,5, Montage frontal",
+    "mainImage": "produits/connecteur/img/m12-d-m12-embase-femelle-fils-ul-2238-m16x1-5-montage-frontal.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/825_4_L_gruen.jpg"
+  },
+  "variants": [
+    {
+      "ref": "76-0236-0011-00404-0200-Référence-alternative:-09-3732-700-04",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m12-d/76-0236-0011-00404-0200-m12-d-embase-femelle-contacts-4-non-blinde-fils-ip67-ul-m16x15",
+      "title": "M12 Embase femelle, Contacts: 4, non blindé, fils, IP67, UL 2238, M16x1,5, Montage frontal"
+    }
+  ]
+}

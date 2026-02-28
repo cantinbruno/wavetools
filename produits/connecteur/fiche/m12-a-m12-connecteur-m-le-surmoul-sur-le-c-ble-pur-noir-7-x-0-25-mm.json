@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:45:24.819Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-m-le-surmoul-sur-le-c-ble-pur-noir-7-x-0-25-mm",
+    "slug": "m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-pur-noir-7-x-0-25-mm",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-m-le-surmoul-sur-le-c-ble-pur-noir-7-x-0-25-mm",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "77-3429-0000-50608-0200-Référence-alternative:-79-3479-32-08",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3429-0000-50608-0200-m12-a-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-7-x-025-mm2-2-m",
+    "title": "M12 Connecteur mâle, Contacts: 8, blindé, surmoulé sur le câble, IP67, PUR, noir, 7 x 0,25 mm², 2 m",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-m-le-surmoul-sur-le-c-ble-pur-noir-7-x-0-25-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/763_1_KS_DG_SK.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-3429-0000-50608-0200-Référence-alternative:-79-3479-32-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3429-0000-50608-0200-m12-a-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-7-x-025-mm2-2-m",
+      "title": "M12 Connecteur mâle, Contacts: 8, blindé, surmoulé sur le câble, IP67, PUR, noir, 7 x 0,25 mm², 2 m"
+    },
+    {
+      "ref": "77-3429-0000-50608-0500-Référence-alternative:-79-3479-35-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/77-3429-0000-50608-0500-m12-a-connecteur-male-contacts-8-blinde-surmoule-sur-le-cable-ip67-ul-pur-noir-7-x-025-mm2-5-m",
+      "title": "M12 Connecteur mâle, Contacts: 8, blindé, surmoulé sur le câble, IP67, PUR, noir, 7 x 0,25 mm², 5 m"
+    }
+  ]
+}

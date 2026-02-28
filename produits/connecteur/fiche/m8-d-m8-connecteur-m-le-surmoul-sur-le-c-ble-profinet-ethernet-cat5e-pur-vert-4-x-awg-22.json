@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:46:11.807Z",
+  "group": {
+    "key": "M8-D__m8-connecteur-m-le-surmoul-sur-le-c-ble-profinet-ethernet-cat5e-pur-vert-4-x-awg-22",
+    "slug": "m8-d-m8-connecteur-m-le-surmoul-sur-le-c-ble-profinet-ethernet-cat5e-pur-vert-4-x-awg-22",
+    "family": "M8-D",
+    "typeProduit": "m8-connecteur-m-le-surmoul-sur-le-c-ble-profinet-ethernet-cat5e-pur-vert-4-x-awg-22",
+    "category1": "connectique-dautomatisme-speciaux"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m",
+      "5m"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "4males"
+    ],
+    "blindages": [
+      "blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-114"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "77-5429-0000-50704-0200",
+    "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5429-0000-50704-0200-m8-d-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-2-m-1",
+    "title": "M8 Connecteur mâle, Contacts: 4, blindé, surmoulé sur le câble, IP67, Profinet/Ethernet CAT5e, PUR, vert, 4 x AWG 22, 2 m",
+    "mainImage": "produits/connecteur/img/m8-d-m8-connecteur-m-le-surmoul-sur-le-c-ble-profinet-ethernet-cat5e-pur-vert-4-x-awg-22.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/818_1_KS-D_u_Ku.jpg"
+  },
+  "variants": [
+    {
+      "ref": "77-5429-0000-50704-0200",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5429-0000-50704-0200-m8-d-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-2-m-1",
+      "title": "M8 Connecteur mâle, Contacts: 4, blindé, surmoulé sur le câble, IP67, Profinet/Ethernet CAT5e, PUR, vert, 4 x AWG 22, 2 m"
+    },
+    {
+      "ref": "77-5429-0000-50704-0500",
+      "url": "https://www.binder-connector.com/fr/produits/connectique-dautomatisme-speciaux/m8-d/77-5429-0000-50704-0500-m8-d-connecteur-male-contacts-4-blinde-surmoule-sur-le-cable-ip67-ethernet-pur-vert-4-x-awg-22-5-m-1",
+      "title": "M8 Connecteur mâle, Contacts: 4, blindé, surmoulé sur le câble, IP67, Profinet/Ethernet CAT5e, PUR, vert, 4 x AWG 22, 5 m"
+    }
+  ]
+}

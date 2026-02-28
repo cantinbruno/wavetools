@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:46:49.646Z",
+  "group": {
+    "key": "M12-L__8-0-13-0-mm-pince-visser-m12x1-0-pour-l-alimentation-lectrique-ul-2237-en-pr-paration-avec-connexion-pe",
+    "slug": "m12-l-8-0-13-0-mm-pince-visser-m12x1-0-pour-l-alimentation-lectrique-ul-2237-en-pr-paration-avec-connexion-pe",
+    "family": "M12-L",
+    "typeProduit": "8-0-13-0-mm-pince-visser-m12x1-0-pour-l-alimentation-lectrique-ul-2237-en-pr-paration-avec-connexion-pe",
+    "category1": "connecteurs-dautomatisme-tension-et-alimentation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "8.0-13.0mm"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN IEC 61076-2-111:2018-10;VDE 0687-76-2-111:2018-10"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0640-370-05",
+    "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0640-370-05-m12-l-connecteur-femelle-coude-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-pour-lalimentation-electrique-ul-2237-en-preparation-avec-connexion-pe",
+    "title": "M12 Connecteur femelle coudé, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, M12x1,0, pour l'alimentation électrique, UL 2237 en préparation, avec connexion PE",
+    "mainImage": "produits/connecteur/img/m12-l-8-0-13-0-mm-pince-visser-m12x1-0-pour-l-alimentation-lectrique-ul-2237-en-pr-paration-avec-connexion-pe.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/823_2_WD_L.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0640-370-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0640-370-05-m12-l-connecteur-femelle-coude-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-pour-lalimentation-electrique-ul-2237-en-preparation-avec-connexion-pe",
+      "title": "M12 Connecteur femelle coudé, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, M12x1,0, pour l'alimentation électrique, UL 2237 en préparation, avec connexion PE"
+    },
+    {
+      "ref": "99-0639-370-05",
+      "url": "https://www.binder-connector.com/fr/produits/connecteurs-dautomatisme-tension-et-alimentation/m12-l/99-0639-370-05-m12-l-connecteur-male-coude-contacts-4-fe-80-130-mm-non-blinde-pince-a-visser-ip67-m12x10-pour-lalimentation-electrique-ul-2237-en-preparation-avec-connexion-pe",
+      "title": "M12 Connecteur mâle coudé, Contacts: 4+FE, 8,0-13,0 mm, non blindé, pince à visser, IP67, M12x1,0, pour l'alimentation électrique, UL 2237 en préparation, avec connexion PE"
+    }
+  ]
+}

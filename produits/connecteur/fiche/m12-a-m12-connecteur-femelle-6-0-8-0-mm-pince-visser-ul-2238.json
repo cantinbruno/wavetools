@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-02-28T00:44:55.174Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238",
+    "slug": "m12-a-m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "6.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      3,
+      4,
+      8
+    ]
+  },
+  "canonical": {
+    "ref": "99-0430-57-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-57-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+    "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-6-0-8-0-mm-pince-visser-ul-2238.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_2_KD_6Kant_Ku_PG9.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0430-57-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-57-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0430-158-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-158-04-m12-a-connecteur-femelle-contacts-3-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 3, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0430-12-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-12-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0430-282-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0430-282-04-m12-a-connecteur-femelle-contacts-4-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 4, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238"
+    },
+    {
+      "ref": "99-0486-282-08",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0486-282-08-m12-a-connecteur-femelle-contacts-8-60-80-mm-non-blinde-pince-a-visser-ip67-ul",
+      "title": "M12 Connecteur femelle, Contacts: 8, 6,0-8,0 mm, non blindé, pince à visser, IP67, UL 2238"
+    }
+  ]
+}

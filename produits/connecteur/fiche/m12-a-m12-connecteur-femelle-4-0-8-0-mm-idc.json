@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-02-28T00:45:00.401Z",
+  "group": {
+    "key": "M12-A__m12-connecteur-femelle-4-0-8-0-mm-idc",
+    "slug": "m12-a-m12-connecteur-femelle-4-0-8-0-mm-idc",
+    "family": "M12-A",
+    "typeProduit": "m12-connecteur-femelle-4-0-8-0-mm-idc",
+    "category1": "technologie-dautomatisation"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "4.0-8.0mm"
+    ],
+    "formes": [
+      "unknown"
+    ],
+    "genres": [
+      "2femelles"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "DIN EN 61076-2-101"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      4
+    ]
+  },
+  "canonical": {
+    "ref": "99-0528-12-04",
+    "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0528-12-04-m12-a-connecteur-femelle-contacts-4-40-80-mm-non-blinde-borne-de-coupure-ip67",
+    "title": "M12 Connecteur femelle, Contacts: 4, 4,0-8,0 mm, non blindé, IDC, IP67",
+    "mainImage": "produits/connecteur/img/m12-a-m12-connecteur-femelle-4-0-8-0-mm-idc.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/713_Quick_03_04.jpg"
+  },
+  "variants": [
+    {
+      "ref": "99-0528-12-04",
+      "url": "https://www.binder-connector.com/fr/produits/technologie-dautomatisation/m12-a/99-0528-12-04-m12-a-connecteur-femelle-contacts-4-40-80-mm-non-blinde-borne-de-coupure-ip67",
+      "title": "M12 Connecteur femelle, Contacts: 4, 4,0-8,0 mm, non blindé, IDC, IP67"
+    }
+  ]
+}

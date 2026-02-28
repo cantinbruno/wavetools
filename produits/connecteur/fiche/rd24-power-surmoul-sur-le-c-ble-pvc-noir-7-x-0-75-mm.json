@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-02-28T00:44:03.423Z",
+  "group": {
+    "key": "RD24 Power__surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "slug": "rd24-power-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "family": "RD24 Power",
+    "typeProduit": "surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm",
+    "category1": "power"
+  },
+  "availableOptions": {
+    "longueurs": [
+      "2m"
+    ],
+    "formes": [
+      "coude"
+    ],
+    "genres": [
+      "2femelles",
+      "4males"
+    ],
+    "blindages": [
+      "non-blinde"
+    ],
+    "standards": [
+      "unknown"
+    ],
+    "ips": [
+      "ip67"
+    ],
+    "contacts": [
+      6
+    ]
+  },
+  "canonical": {
+    "ref": "79-0237-20-07",
+    "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0237-20-07-rd24-connecteur-male-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+    "title": "RD24 Connecteur mâle coudé, Contacts: 6+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 7 x 0,75 mm², 2 m",
+    "mainImage": "produits/connecteur/img/rd24-power-surmoul-sur-le-c-ble-pvc-noir-7-x-0-75-mm.jpg",
+    "mainImageUrl": "https://www.binder-connector.com/prod_media/produktfoto_seo/692_1_WS_u.jpg"
+  },
+  "variants": [
+    {
+      "ref": "79-0237-20-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0237-20-07-rd24-connecteur-male-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "title": "RD24 Connecteur mâle coudé, Contacts: 6+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 7 x 0,75 mm², 2 m"
+    },
+    {
+      "ref": "79-0238-20-07",
+      "url": "https://www.binder-connector.com/fr/produits/power/rd24-power/79-0238-20-07-rd24-connecteur-femelle-coude-contacts-6-pe-non-blinde-surmoule-sur-le-cable-ip67-pvc-noir-7-x-075-mm2-2-m",
+      "title": "RD24 Connecteur femelle coudé, Contacts: 6+PE, non blindé, surmoulé sur le câble, IP67, PVC, noir, 7 x 0,75 mm², 2 m"
+    }
+  ]
+}
