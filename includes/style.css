@@ -293,37 +293,38 @@ main,
   height:100%;
 }
 
-/* Afficher les deux derniers menus dans le header sur mobile */
+/* Afficher les deux derniers menus dans le header sur mobile sans centrer */
 @media (max-width: 700px) {
-  /* Ajuster la disposition du menu pour qu'il ne déborde pas */
+  /* Ajuster la disposition du menu */
   .site-header .menu {
     display: flex;
-    flex-wrap: nowrap; /* Garder tous les éléments sur une seule ligne */
-    overflow-x: auto; /* Permet de faire défiler le menu horizontalement si nécessaire */
+    flex-wrap: wrap; /* Permet aux éléments de se répartir sur plusieurs lignes */
+    justify-content: flex-start; /* Garde les éléments alignés à gauche */
     gap: 12px; /* Espacement entre les éléments */
     padding: 0 10px; /* Un peu de marge autour */
+    overflow: hidden; /* Empêche les éléments de sortir de l'écran */
   }
 
-  /* Cibler les deux derniers éléments du menu pour les rendre visibles */
-  .site-header .menu > li:nth-last-child(-n+2) {
-    display: block !important; /* Assurez-vous que ces éléments sont visibles */
-    white-space: nowrap; /* Empêche la coupure des mots */
-  }
-
-  /* Rendre chaque élément du menu plus petit et éviter les débordements */
+  /* S'assurer que tous les éléments du menu sont visibles, y compris les deux derniers */
   .site-header .menu > li {
-    flex-shrink: 0; /* Empêche la réduction de la taille de ces éléments */
-    min-width: 120px; /* Donne une largeur minimale pour que les éléments ne soient pas trop étroits */
+    display: inline-block;
+    white-space: nowrap; /* Empêche la coupure des mots */
+    min-width: 120px; /* Largeur minimale pour éviter les éléments trop petits */
   }
 
-  /* Ajuster les liens du menu pour plus de lisibilité */
+  /* Ajuster les liens du menu */
   .site-header .menu > li > a {
     font-size: 14px;
     padding: 10px 14px;
     text-align: center;
   }
 
-  /* Ajouter une barre de défilement horizontale si nécessaire */
+  /* Si le menu déborde horizontalement, permettre le défilement */
+  .site-header .menu {
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+  }
+
+  /* Ajouter une barre de défilement horizontale */
   .site-header .menu::-webkit-scrollbar {
     height: 8px;
   }
