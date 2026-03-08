@@ -293,35 +293,32 @@ main,
   height:100%;
 }
 
-/* Ajustement du menu dans le header pour mobile */
+/* Afficher les éléments du menu en colonne sur mobile */
 @media (max-width: 700px) {
+  /* Ajuster la disposition du menu pour les petits écrans */
   .site-header .menu {
     display: flex;
-    flex-wrap: nowrap; /* Tous les éléments sur une seule ligne */
-    overflow-x: auto; /* Permet le défilement horizontal */
-    gap: 10px; /* Espacement entre les éléments */
-    width: 100%;
+    flex-direction: column; /* Aligner les éléments en colonne */
     padding: 10px 0; /* Un peu de marge autour */
-    justify-content: flex-start; /* Garde les éléments alignés à gauche */
-    box-sizing: border-box; /* Assure une gestion correcte de l'espace */
+    gap: 8px; /* Espacement entre les éléments */
+    width: 100%;
+    overflow: hidden; /* Éviter que les éléments sortent de l'écran */
   }
 
-  /* Empêcher les éléments de se réduire */
+  /* Affichage des éléments du menu */
   .site-header .menu > li {
-    flex-shrink: 0; /* Empêche les éléments de rétrécir */
+    display: block; /* Chaque élément du menu est affiché en bloc */
+    width: 100%; /* Chaque élément prend toute la largeur disponible */
+    text-align: center; /* Centrer le texte */
     white-space: nowrap; /* Empêche le texte de se couper en plusieurs lignes */
-    min-width: 120px; /* Largeur minimale pour chaque élément */
   }
 
   /* Ajustement des liens dans le menu */
   .site-header .menu > li > a {
     font-size: 14px;
-    padding: 10px 14px;
-    text-align: center;
-    display: block;
-    white-space: nowrap; /* Empêche le texte de se couper */
+    padding: 12px 14px; /* Plus de padding pour une meilleure expérience tactile */
+    text-decoration: none;
     color: #e5e7eb; /* Couleur du texte */
-    text-decoration: none; /* Pas de soulignement */
   }
 
   /* Style pour le survol des liens */
@@ -330,18 +327,9 @@ main,
     color: #fff;
   }
 
-  /* Barre de défilement horizontale (optionnelle, pour plus de visibilité) */
+  /* Barre de défilement horizontale (si nécessaire) */
   .site-header .menu::-webkit-scrollbar {
-    height: 8px; /* Hauteur de la barre de défilement */
-  }
-
-  .site-header .menu::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-  }
-
-  .site-header .menu::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    display: none; /* Masque la barre de défilement sur mobile */
   }
 }
 /* =========================
