@@ -293,43 +293,55 @@ main,
   height:100%;
 }
 
-/* Afficher les deux derniers menus dans le header sur mobile */
+/* Ajustement du menu dans le header pour mobile */
 @media (max-width: 700px) {
-  /* Ajuster la disposition du menu pour qu'il ne déborde pas */
   .site-header .menu {
     display: flex;
-    flex-wrap: nowrap; /* Garder les éléments sur une seule ligne */
-    overflow-x: auto; /* Permet de faire défiler le menu horizontalement si nécessaire */
-    gap: 12px; /* Espacement entre les éléments */
-    padding: 0 10px; /* Un peu de marge autour */
-    justify-content: flex-start; /* Aligner les éléments à gauche */
+    flex-wrap: nowrap; /* Tous les éléments sur une seule ligne */
+    overflow-x: auto; /* Permet le défilement horizontal */
+    gap: 10px; /* Espacement entre les éléments */
     width: 100%;
+    padding: 10px 0; /* Un peu de marge autour */
+    justify-content: flex-start; /* Garde les éléments alignés à gauche */
+    box-sizing: border-box; /* Assure une gestion correcte de l'espace */
   }
 
-  /* S'assurer que tous les éléments du menu sont visibles, y compris les deux derniers */
+  /* Empêcher les éléments de se réduire */
   .site-header .menu > li {
-    display: inline-block;
-    white-space: nowrap; /* Empêche la coupure des mots */
-    min-width: 120px; /* Largeur minimale pour éviter les éléments trop petits */
-    flex-shrink: 0; /* Empêche les éléments de se réduire */
+    flex-shrink: 0; /* Empêche les éléments de rétrécir */
+    white-space: nowrap; /* Empêche le texte de se couper en plusieurs lignes */
+    min-width: 120px; /* Largeur minimale pour chaque élément */
   }
 
-  /* Ajuster les liens du menu */
+  /* Ajustement des liens dans le menu */
   .site-header .menu > li > a {
     font-size: 14px;
     padding: 10px 14px;
     text-align: center;
+    display: block;
     white-space: nowrap; /* Empêche le texte de se couper */
+    color: #e5e7eb; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement */
   }
 
-  /* Si le menu déborde horizontalement, permettre le défilement */
+  /* Style pour le survol des liens */
+  .site-header .menu > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  /* Barre de défilement horizontale (optionnelle, pour plus de visibilité) */
   .site-header .menu::-webkit-scrollbar {
-    height: 8px; /* Hauteur de la barre de défilement horizontale */
+    height: 8px; /* Hauteur de la barre de défilement */
   }
 
   .site-header .menu::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
+  }
+
+  .site-header .menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 /* =========================
