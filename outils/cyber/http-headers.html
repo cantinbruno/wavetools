@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyse http </title>
+  <meta name="description" content="Analysez les en-tetes HTTP de securite d un site web et reperez les protections manquantes.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <meta name="google-adsense-account" content="ca-pub-9299852089790980">
+  <link rel="canonical" href="https://www.wavetools.fr/outils/cyber/http-headers.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveTools">
+  <meta property="og:title" content="Analyse http | WaveTools">
+  <meta property="og:description" content="Analysez les en-tetes HTTP de securite d un site web et reperez les protections manquantes.">
+  <meta property="og:url" content="https://www.wavetools.fr/outils/cyber/http-headers.html">
+  <meta property="og:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analyse http | WaveTools">
+  <meta name="twitter:description" content="Analysez les en-tetes HTTP de securite d un site web et reperez les protections manquantes.">
+  <meta name="twitter:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="/includes/style.css?v=header-layer-tools-1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<noscript>
+  <nav class="noscript-nav" aria-label="Navigation simplifiee">
+    <a href="/">Accueil</a>
+    <a href="/waveaudit.html">Audit</a>
+    <a href="/outils/">Boite a outils</a>
+    <a href="/contact/">Contact</a>
+    <a href="/administratif/confidentialite.html">Confidentialite</a>
+  </nav>
+</noscript>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main id="main-content" class="tool-main">
+  <section class="shell-section">
+    <div class="ip-card">
+      <h1 class="tool-title">Analyse HTTP </h1>
+
+      <div class="terminal-body">
+        <div class="line">URL (optionnel, pour aide) :</div>
+        <div class="line">
+          <input id="url" style="width:100%" placeholder="https://example.com" />
+        </div>
+
+        <div class="line">
+          <button class="copy-btn" id="btnCurlI">Copier curl -I</button>
+          <button class="copy-btn" id="btnCurlLv">Copier curl -ILv</button>
+        </div>
+
+        <div class="line">Coller une réponse HTTP (headers) :</div>
+        <div class="line">
+          <textarea id="raw" rows="10" style="width:100%"
+            placeholder="Colle ici des headers (depuis curl -I / -ILv ou DevTools)\n\nHTTP/2 200\nserver: nginx\ncontent-type: text/html\nstrict-transport-security: ...\n..."></textarea>
+        </div>
+
+        <button class="copy-btn" id="btnAnalyze">Analyser</button>
+        <button class="copy-btn" id="btnClear">Vider</button>
+
+        <div class="line">Rapport :</div>
+        <div class="line">
+          <textarea id="out" rows="16" style="width:100%" readonly></textarea>
+        </div>
+
+        <div class="line">Statut : <span id="status">—</span></div>
+        <div class="line">Note : <span id="note">—</span></div>
+      </div>
+
+      <button class="copy-btn" id="copyOut">Copier rapport</button>
+    </div>
+  </section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+
+  const $ = (id) => document.getElementById(id);
+  function setTxt(id, v) { $(id).textContent = (v===undefined||v===null||v==="") ? "—" : v; }
+  function setVal(id, v) { $(id).value = v || ""; }
+
+  function normalizeUrl(u){
+    u = (u||"").trim();
+    if (!u) throw new Error("URL vide.");
+    if (!/^https:\/\//i.test(u)) u = "https://" + u;
+    return u.replace(/#.*$/, "");
+  }
+
+  function splitResponses(text){
+    // Supporte curl -IL / -ILv qui imprime plusieurs blocs HTTP/...
+    const lines = (text || "").replace(/\r\n/g,"\n").split("\n");
+    const blocks = [];
+    let cur = [];
+    for (const line of lines){
+      if (/^HTTP\/\d(\.\d)\s+\d{3}/i.test(line.trim()) || /^HTTP\/2\s+\d{3}/i.test(line.trim())){
+        if (cur.length) blocks.push(cur.join("\n"));
+        cur = [line];
+      } else {
+        if (cur.length) cur.push(line);
+      }
+    }
+    if (cur.length) blocks.push(cur.join("\n"));
+    // si pas de status line détectée -> tout en un bloc
+    if (!blocks.length && text.trim()) blocks.push(text);
+    return blocks;
+  }
+
+  function parseHeadersBlock(block){
+    const map = new Map();
+    const lines = (block || "").replace(/\r\n/g,"\n").split("\n");
+    for (const raw of lines){
+      const line = raw.trim();
+      if (!line) continue;
+      if (/^HTTP\/\d(\.\d)\s+\d{3}/i.test(line) || /^HTTP\/2\s+\d{3}/i.test(line)){
+        map.set(":status-line", line);
+        continue;
+      }
+      const idx = line.indexOf(":");
+      if (idx <= 0) continue;
+      const k = line.slice(0, idx).trim().toLowerCase();
+      const v = line.slice(idx+1).trim();
+      if (!k) continue;
+      if (map.has(k)) map.set(k, map.get(k) + " | " + v);
+      else map.set(k, v);
+    }
+    return map;
+  }
+
+  function h(map, name){ return map.get(name.toLowerCase()) || ""; }
+  function has(map, name){ return map.has(name.toLowerCase()); }
+
+  function parseStatus(statusLine){
+    const m = (statusLine||"").match(/(\d{3})/);
+    return m ? Number(m[1]) : null;
+  }
+
+  function scoreSecurity(headers){
+    // Score simple (0..100)
+    let score = 0;
+    const add = (cond, pts) => { if (cond) score += pts; };
+
+    add(has(headers, "strict-transport-security"), 20);
+    add(has(headers, "content-security-policy"), 20);
+    add(has(headers, "x-content-type-options"), 10);
+    add(has(headers, "referrer-policy"), 10);
+    add(has(headers, "permissions-policy"), 10);
+    add(has(headers, "cross-origin-opener-policy"), 10);
+    add(has(headers, "cross-origin-resource-policy"), 5);
+    add(has(headers, "cross-origin-embedder-policy"), 5);
+
+    // cookies: on vérifie Secure/HttpOnly/SameSite
+    const sc = h(headers, "set-cookie");
+    if (sc){
+      const low = sc.toLowerCase();
+      add(low.includes("secure"), 3);
+      add(low.includes("httponly"), 3);
+      add(low.includes("samesite"), 4);
+    }
+
+    if (score > 100) score = 100;
+    return score;
+  }
+
+  function analyzeOne(headers){
+    const statusLine = h(headers, ":status-line");
+    const code = parseStatus(statusLine);
+
+    const server = h(headers, "server");
+    const powered = h(headers, "x-powered-by");
+    const via = h(headers, "via");
+
+    const location = h(headers, "location");
+    const contentType = h(headers, "content-type");
+    const contentLen = h(headers, "content-length");
+    const cacheControl = h(headers, "cache-control");
+    const etag = h(headers, "etag");
+    const lastMod = h(headers, "last-modified");
+
+    const cdn = [];
+    const all = Array.from(headers.entries()).map(([k,v]) => `${k}: ${v}`).join("\n").toLowerCase();
+    if (all.includes("cf-ray") || all.includes("cloudflare") || all.includes("cf-cache-status")) cdn.push("Cloudflare");
+    if (all.includes("x-amz-cf-id") || all.includes("cloudfront")) cdn.push("AWS CloudFront");
+    if (all.includes("akamai") || all.includes("x-akamai")) cdn.push("Akamai");
+    if (all.includes("fastly") || (all.includes("x-served-by") && all.includes("fastly"))) cdn.push("Fastly");
+
+    const secFindings = [];
+    const need = (n) => has(headers, n) ? "OK" : "MANQUANT";
+
+    secFindings.push(`HSTS: ${need("strict-transport-security")}`);
+    secFindings.push(`CSP: ${need("content-security-policy")}`);
+    secFindings.push(`X-Content-Type-Options: ${need("x-content-type-options")}`);
+    secFindings.push(`Referrer-Policy: ${need("referrer-policy")}`);
+    secFindings.push(`Permissions-Policy: ${need("permissions-policy")}`);
+    secFindings.push(`COOP: ${need("cross-origin-opener-policy")}`);
+    secFindings.push(`CORP: ${need("cross-origin-resource-policy")}`);
+    secFindings.push(`COEP: ${need("cross-origin-embedder-policy")}`);
+
+    // Cookies flags (simple)
+    const sc = h(headers, "set-cookie");
+    if (sc){
+      const low = sc.toLowerCase();
+      const flags = [];
+      flags.push(low.includes("secure") ? "Secure" : "no Secure");
+      flags.push(low.includes("httponly") ? "HttpOnly" : "no HttpOnly");
+      flags.push(low.includes("samesite") ? "SameSite" : "no SameSite");
+      secFindings.push("Cookies: " + flags.join(", "));
+    } else {
+      secFindings.push("Cookies: (aucun Set-Cookie)");
+    }
+
+    // Cache hints
+    const cacheHints = [];
+    if (cacheControl) cacheHints.push("Cache-Control=" + cacheControl);
+    if (etag) cacheHints.push("ETag présent");
+    if (lastMod) cacheHints.push("Last-Modified présent");
+    if (h(headers, "age")) cacheHints.push("Age=" + h(headers, "age"));
+    if (h(headers, "cf-cache-status")) cacheHints.push("CF-Cache-Status=" + h(headers, "cf-cache-status"));
+    if (h(headers, "x-cache")) cacheHints.push("X-Cache=" + h(headers, "x-cache"));
+
+    const score = scoreSecurity(headers);
+
+    return {
+      statusLine,
+      code,
+      location,
+      server,
+      powered,
+      via,
+      cdn: Array.from(new Set(cdn)),
+      contentType,
+      contentLen,
+      cacheHints,
+      secFindings,
+      score
+    };
+  }
+
+  function formatReport(blocks){
+    const lines = [];
+    lines.push("Analyse HTTP");
+    lines.push("===========");
+    lines.push("");
+
+    if ($("url").value.trim()){
+      try { lines.push("URL: " + normalizeUrl($("url").value)); lines.push(""); } catch {}
+    }
+
+    lines.push(`Blocs HTTP détectés: ${blocks.length}`);
+    lines.push("");
+
+    blocks.forEach((b, idx) => {
+      const headers = parseHeadersBlock(b);
+      const a = analyzeOne(headers);
+
+      lines.push(`Bloc #${idx+1}`);
+      lines.push("--------");
+      lines.push(`Status: ${a.statusLine || "—"}`);
+      if (a.location) lines.push(`Location: ${a.location}`);
+      if (a.server) lines.push(`Server: ${a.server}`);
+      if (a.powered) lines.push(`X-Powered-By: ${a.powered}`);
+      if (a.via) lines.push(`Via: ${a.via}`);
+      if (a.cdn.length) lines.push(`CDN probable: ${a.cdn.join(", ")}`);
+      if (a.contentType) lines.push(`Content-Type: ${a.contentType}`);
+      if (a.contentLen) lines.push(`Content-Length: ${a.contentLen}`);
+
+      lines.push("");
+      lines.push(`Score sécurité (simple): ${a.score}/100`);
+      lines.push("Sécurité (headers)");
+      for (const f of a.secFindings) lines.push("- " + f);
+
+      lines.push("");
+      lines.push("Cache / perf");
+      if (a.cacheHints.length) a.cacheHints.forEach(x => lines.push("- " + x));
+      else lines.push("- (aucun indice)");
+
+      lines.push("");
+    });
+
+    // Hint final
+    lines.push("Aide");
+    lines.push("----");
+    lines.push("Commande utile :");
+    lines.push("- curl -I https://site");
+    lines.push("- curl -ILv https://site  (suivre redirections + verbose)");
+    return lines.join("\n");
+  }
+
+  function run(){
+    setTxt("status","Analyse...");
+    setTxt("note","Colle une réponse HTTP (curl -I / -ILv / DevTools).");
+    setVal("out","");
+
+    const raw = ($("raw").value || "").trim();
+    if (!raw){
+      setTxt("status","Erreur");
+      setTxt("note","Colle des headers HTTP ? analyser.");
+      return;
+    }
+
+    const blocks = splitResponses(raw).filter(x => x.trim().length);
+    const report = formatReport(blocks);
+
+    setVal("out", report);
+    setTxt("status","OK");
+  }
+
+  $("btnAnalyze").addEventListener("click", run);
+
+  $("btnClear").addEventListener("click", () => {
+    setVal("url","");
+    setVal("raw","");
+    setVal("out","");
+    setTxt("status","—");
+    setTxt("note","—");
+  });
+
+  $("copyOut").addEventListener("click", ()=> {
+    navigator.clipboard.writeText($("out").value || "—").catch(()=>{});
+  });
+
+  $("btnCurlI").addEventListener("click", () => {
+    try{
+      const u = normalizeUrl($("url").value);
+      const cmd = `curl -I "${u}"`;
+      navigator.clipboard.writeText(cmd).catch(()=>{});
+      setTxt("note", "Commande copiée : " + cmd);
+    }catch{
+      setTxt("note", "Entre une URL valide pour générer curl -I.");
+    }
+  });
+
+  $("btnCurlLv").addEventListener("click", () => {
+    try{
+      const u = normalizeUrl($("url").value);
+      const cmd = `curl -ILv "${u}"`;
+      navigator.clipboard.writeText(cmd).catch(()=>{});
+      setTxt("note", "Commande copiée : " + cmd);
+    }catch{
+      setTxt("note", "Entre une URL valide pour générer curl -ILv.");
+    }
+  });
+
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js?v=menu-only-1"></script>
+</body>
+</html>

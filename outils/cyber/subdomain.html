@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scanner de sous domaines</title>
+  <meta name="description" content="Cherchez des sous-domaines connus afin de preparer un audit d exposition web.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <meta name="google-adsense-account" content="ca-pub-9299852089790980">
+  <link rel="canonical" href="https://www.wavetools.fr/outils/cyber/subdomain.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveTools">
+  <meta property="og:title" content="Scanner de sous domaines | WaveTools">
+  <meta property="og:description" content="Cherchez des sous-domaines connus afin de preparer un audit d exposition web.">
+  <meta property="og:url" content="https://www.wavetools.fr/outils/cyber/subdomain.html">
+  <meta property="og:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scanner de sous domaines | WaveTools">
+  <meta name="twitter:description" content="Cherchez des sous-domaines connus afin de preparer un audit d exposition web.">
+  <meta name="twitter:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="/includes/style.css?v=subdomain-log-1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<noscript>
+  <nav class="noscript-nav" aria-label="Navigation simplifiee">
+    <a href="/">Accueil</a>
+    <a href="/waveaudit.html">Audit</a>
+    <a href="/outils/">Boite a outils</a>
+    <a href="/contact/">Contact</a>
+    <a href="/administratif/confidentialite.html">Confidentialite</a>
+  </nav>
+</noscript>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+<main id="main-content" class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
+
+<h1 class="tool-title">Scanner sous-domaines</h1>
+
+<div class="terminal-body">
+
+<div class="line">Domaine :</div>
+
+<div class="line">
+<input id="domain" style="width:100%" placeholder="example.com">
+</div>
+
+<button class="copy-btn" id="scan">
+Scanner
+</button>
+
+<button class="copy-btn" id="clear">
+Vider
+</button>
+
+<div class="line">Résultats :</div>
+
+<div class="line">
+<textarea id="out" rows="14" style="width:100%" readonly></textarea>
+</div>
+
+<div class="line">
+Statut :
+<span id="status">—</span>
+</div>
+
+<div class="line">
+Note :
+<span id="note">—</span>
+</div>
+
+<div class="line">Journal :</div>
+
+<div class="line">
+<textarea id="log" rows="8" style="width:100%" readonly></textarea>
+</div>
+
+</div>
+
+<button class="copy-btn" id="copy">
+Copier résultats
+</button>
+
+</div>
+</section>
+</main>
+
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+function setTxt(id,v){
+$(id).textContent = v || "—";
+}
+
+function setVal(id,v){
+$(id).value = v || "";
+}
+
+function logLine(message){
+const now = new Date();
+const stamp = now.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+const log = $("log");
+log.value += "["+stamp+"] "+message+"\n";
+log.scrollTop = log.scrollHeight;
+}
+
+function normalizeDomain(d){
+
+d = (d||"")
+.trim()
+.toLowerCase()
+.replace(/^https:\/\//,"")
+.replace(/\/.*$/,"")
+.replace(/\.+$/,"");
+
+if(!d.includes(".")) throw "Domaine invalide";
+
+return d;
+
+}
+
+function uniq(arr){
+
+return [...new Set(arr)];
+
+}
+
+function clean(name,domain){
+
+let n = name
+.trim()
+.toLowerCase();
+
+if(!n) return "";
+
+n = n.replace(/\s+/g,"");
+
+
+// wildcard toujours nettoyé
+if(n.startsWith("*.")){
+
+n = n.substring(2);
+
+}
+
+if(n===domain) return n;
+
+if(n.endsWith("."+domain))
+return n;
+
+return "";
+
+}
+
+
+async function scan(){
+
+const scanBtn = $("scan");
+scanBtn.disabled = true;
+
+setTxt("status","Scan...");
+setTxt("note","Récupération CT logs crt.sh");
+
+setVal("out","");
+setVal("log","");
+logLine("Démarrage du scan.");
+
+let domain;
+
+try{
+
+domain = normalizeDomain(
+$("domain").value
+);
+logLine("Domaine validé : "+domain);
+
+}catch(e){
+
+setTxt("status","Erreur");
+setTxt("note","Domaine invalide");
+logLine("Erreur : domaine invalide.");
+scanBtn.disabled = false;
+
+return;
+
+}
+
+try{
+
+// Domaine EXACT demandé
+const url =
+"https://crt.sh/q="
++encodeURIComponent(domain)
++"&output=json";
+
+logLine("Interrogation de crt.sh...");
+const r = await fetch(url,{cache:"no-store"});
+
+if(!r.ok)
+throw "crt.sh indisponible";
+
+logLine("Réponse reçue : HTTP "+r.status+".");
+const txt = await r.text();
+logLine("Volume reçu : "+txt.length+" caractères.");
+
+let data;
+
+try{
+
+logLine("Analyse de la réponse JSON...");
+data = JSON.parse(txt);
+logLine(data.length+" entrée(s) de certificat ? traiter.");
+
+}catch{
+
+throw "crt.sh a renvoyé une réponse invalide (réessaie).";
+
+}
+
+const subs = [];
+let scannedNames = 0;
+
+for(const it of data){
+
+const nv =
+(it && it.name_value)
+ String(it.name_value)
+:"";
+
+for(const line of nv.split("\n")){
+
+scannedNames++;
+const c = clean(line,domain);
+
+if(c)
+subs.push(c);
+
+}
+
+}
+
+logLine(scannedNames+" nom(s) brut(s) analysé(s).");
+logLine(subs.length+" correspondance(s) avant dédoublonnage.");
+const result =
+uniq(subs)
+.sort((a,b)=>a.localeCompare(b));
+logLine(result.length+" sous-domaine(s) unique(s) après tri.");
+
+if(!result.length){
+
+setTxt("status","OK");
+setTxt("note","Aucun sous-domaine trouvé.");
+
+setVal("out","(vide)");
+logLine("Terminé : aucun résultat.");
+
+return;
+
+}
+
+setVal(
+"out",
+result.join("\n")
+);
+
+setTxt("status","OK");
+
+setTxt(
+"note",
+result.length+" sous-domaines trouvés via CT logs."
+);
+logLine("Terminé avec succès.");
+
+}catch(e){
+
+setTxt("status","Erreur");
+
+setTxt(
+"note",
+typeof e==="string"
+e
+:"Impossible d'interroger crt.sh (CORS ou charge)."
+);
+logLine("Erreur : "+(typeof e==="string" ? e : "impossible d'interroger crt.sh."));
+
+}finally{
+
+scanBtn.disabled = false;
+
+}
+
+}
+
+$("scan").onclick=scan;
+
+$("clear").onclick=()=>{
+
+setVal("domain","");
+setVal("out","");
+setVal("log","");
+
+setTxt("status","—");
+setTxt("note","—");
+
+};
+
+$("copy").onclick=()=>{
+
+navigator.clipboard.writeText(
+$("out").value||""
+);
+
+};
+
+  </script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js?v=menu-only-1"></script>
+</body>
+</html>

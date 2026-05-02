@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Géolocalisation IP</title>
+  <meta name="description" content="Localisez une adresse IP et consultez les informations reseau disponibles pour un diagnostic rapide.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <meta name="google-adsense-account" content="ca-pub-9299852089790980">
+  <link rel="canonical" href="https://www.wavetools.fr/outils/reseau/locip.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveTools">
+  <meta property="og:title" content="Géolocalisation IP | WaveTools">
+  <meta property="og:description" content="Localisez une adresse IP et consultez les informations reseau disponibles pour un diagnostic rapide.">
+  <meta property="og:url" content="https://www.wavetools.fr/outils/reseau/locip.html">
+  <meta property="og:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Géolocalisation IP | WaveTools">
+  <meta name="twitter:description" content="Localisez une adresse IP et consultez les informations reseau disponibles pour un diagnostic rapide.">
+  <meta name="twitter:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="/includes/style.css?v=header-layer-tools-1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<noscript>
+  <nav class="noscript-nav" aria-label="Navigation simplifiee">
+    <a href="/">Accueil</a>
+    <a href="/waveaudit.html">Audit</a>
+    <a href="/outils/">Boite a outils</a>
+    <a href="/contact/">Contact</a>
+    <a href="/administratif/confidentialite.html">Confidentialite</a>
+  </nav>
+</noscript>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+  <main id="main-content" class="tool-main">
+<section class="shell-section">
+<div class="ip-card">
+
+<h1 class="tool-title">Géolocaliser une IP</h1>
+
+<div class="terminal-body">
+
+<div class="line">
+IP :
+<input id="ipInput" placeholder="Ex: 8.8.8.8">
+</div>
+
+<button class="copy-btn" id="btnSearch">Rechercher</button>
+
+<div class="line">Pays : <span id="country">—</span></div>
+<div class="line">Ville : <span id="city">—</span></div>
+<div class="line">Région : <span id="region">—</span></div>
+<div class="line">FAI : <span id="org">—</span></div>
+<div class="line">Latitude : <span id="lat">—</span></div>
+<div class="line">Longitude : <span id="lon">—</span></div>
+
+<div class="line">Carte : <span id="mapStatus">—</span></div>
+
+<iframe
+  id="mapFrame"
+  style="display:none;width:100%;height:320px;border:0;margin-top:10px;border-radius:10px;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+</div>
+
+<button class="copy-btn" id="btnCopy">Copier le résultat</button>
+
+</div>
+</section>
+</main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $ = id => document.getElementById(id);
+
+function setText(id,v){
+  $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+}
+
+function resetMap(){
+  $("mapFrame").style.display = "none";
+  $("mapFrame").src = "about:blank";
+  $("mapStatus").textContent = "—";
+}
+
+function setLoading(){
+  setText("country","Détection...");
+  setText("city","Détection...");
+  setText("region","Détection...");
+  setText("org","Détection...");
+  setText("lat","Détection...");
+  setText("lon","Détection...");
+  resetMap();
+}
+
+async function geoIP(){
+  const ip = $("ipInput").value.trim();
+  if(!ip) return;
+
+  setLoading();
+
+  try{
+    const res = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/json/`,{cache:"no-store"});
+    const data = await res.json();
+
+    if(data.error) throw new Error(data.reason);
+
+    setText("country",data.country_name);
+    setText("city",data.city);
+    setText("region",data.region);
+    setText("org",data.org);
+    setText("lat",data.latitude);
+    setText("lon",data.longitude);
+
+    if(data.latitude && data.longitude){
+      $("mapFrame").src =
+        `https://maps.google.com/mapsq=${data.latitude},${data.longitude}&z=10&output=embed`;
+      $("mapFrame").style.display = "block";
+      $("mapStatus").textContent = "";
+    }else{
+      resetMap();
+    }
+
+  }catch(e){
+    ["country","city","region","org","lat","lon"].forEach(id=>setText(id,"—"));
+    resetMap();
+  }
+}
+
+function copyResult(){
+  const ip = $("ipInput").value.trim() || "—";
+  const txt =
+`IP: ${ip}
+Pays: ${$("country").textContent}
+Ville: ${$("city").textContent}
+Région: ${$("region").textContent}
+FAI: ${$("org").textContent}
+Latitude: ${$("lat").textContent}
+Longitude: ${$("lon").textContent}`;
+
+  navigator.clipboard.writeText(txt).catch(()=>{});
+}
+
+$("btnSearch").addEventListener("click",geoIP);
+$("btnCopy").addEventListener("click",copyResult);
+$("ipInput").addEventListener("keydown",e=>{
+  if(e.key==="Enter") geoIP();
+});
+
+// état initial
+resetMap();
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js?v=menu-only-1"></script>
+</body>
+</html>

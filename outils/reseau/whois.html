@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WHOIS</title>
+  <meta name="description" content="Consultez les informations WHOIS d un domaine ou d une adresse IP pour vos diagnostics reseau.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <meta name="google-adsense-account" content="ca-pub-9299852089790980">
+  <link rel="canonical" href="https://www.wavetools.fr/outils/reseau/whois.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveTools">
+  <meta property="og:title" content="WHOIS | WaveTools">
+  <meta property="og:description" content="Consultez les informations WHOIS d un domaine ou d une adresse IP pour vos diagnostics reseau.">
+  <meta property="og:url" content="https://www.wavetools.fr/outils/reseau/whois.html">
+  <meta property="og:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WHOIS | WaveTools">
+  <meta name="twitter:description" content="Consultez les informations WHOIS d un domaine ou d une adresse IP pour vos diagnostics reseau.">
+  <meta name="twitter:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="/includes/style.css?v=header-layer-tools-1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<noscript>
+  <nav class="noscript-nav" aria-label="Navigation simplifiee">
+    <a href="/">Accueil</a>
+    <a href="/waveaudit.html">Audit</a>
+    <a href="/outils/">Boite a outils</a>
+    <a href="/contact/">Contact</a>
+    <a href="/administratif/confidentialite.html">Confidentialite</a>
+  </nav>
+</noscript>
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+ <main id="main-content" class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">WHOIS</h1>
+
+        <div class="terminal-body">
+          <div class="line">
+            Domaine / IP : <input id="q" placeholder="example.com"/>
+          </div>
+
+          <button class="copy-btn" id="btnSearch">Rechercher</button>
+
+          <div class="line">Statut : <span id="status">—</span></div>
+
+          <div class="line">Type : <span id="type">—</span></div>
+          <div class="line">Nom (LDH) : <span id="nameLdh">—</span></div>
+          <div class="line">Nom (Unicode) : <span id="nameUni">—</span></div>
+          <div class="line">Handle : <span id="handle">—</span></div>
+
+          <div class="line">Registrar : <span id="registrar">—</span></div>
+          <div class="line">IANA ID : <span id="iana">—</span></div>
+
+          <div class="line">Créé le : <span id="created">—</span></div>
+          <div class="line">Expire le : <span id="expires">—</span></div>
+          <div class="line">Mis à jour : <span id="updated">—</span></div>
+
+          <div class="line">Domain Status : <span id="dstatus">—</span></div>
+          <div class="line">DNSSEC : <span id="dnssec">—</span></div>
+          <div class="line">Name Servers : <span id="ns">—</span></div>
+
+          <div class="line">Registrant : <span id="registrant">—</span></div>
+          <div class="line">Admin : <span id="admin">—</span></div>
+          <div class="line">Tech : <span id="tech">—</span></div>
+
+          <div class="line">Email(s) : <span id="emails">—</span></div>
+          <div class="line">Téléphone(s) : <span id="phones">—</span></div>
+          <div class="line">Adresse : <span id="addr">—</span></div>
+
+          <div class="line">RDAP : <span id="rdap">—</span></div>
+        </div>
+
+        <button class="copy-btn" id="btnCopy">Copier le résultat</button>
+      </div>
+    </section>
+  </main>
+
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+    function cleanQuery(q) {
+      q = (q || "").trim().replace(/^https:\/\//i, "").split("/")[0];
+      return q;
+    }
+
+    function isIP(q) {
+      return q.includes(":") || /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/.test(q);
+    }
+
+    function setTxt(id, v) {
+      $(id).textContent = (v === undefined || v === null || v === "") ? "—" : v;
+    }
+
+    function setLoading() {
+      setTxt("status", "Recherche...");
+      [
+        "type","nameLdh","nameUni","handle","registrar","iana","created","expires",
+        "updated","dstatus","dnssec","ns","registrant","admin","tech","emails",
+        "phones","addr","rdap"
+      ].forEach(id => setTxt(id, "Détection..."));
+    }
+
+    function vcardGet(entity, key) {
+      const arr = entity.vcardArray.[1];
+      if (!Array.isArray(arr)) return [];
+      return arr.filter(x => x[0] === key).map(x => x[3]).filter(Boolean);
+    }
+
+    function vcardFN(entity) {
+      return vcardGet(entity, "fn")[0] || null;
+    }
+
+    function pickEntityByRole(entities, role) {
+      if (!Array.isArray(entities)) return null;
+      return entities.find(e => Array.isArray(e.roles) && e.roles.includes(role)) || null;
+    }
+
+    function pickEventDate(data, keys) {
+      if (!Array.isArray(data.events)) return null;
+      for (const k of keys) {
+        const ev = data.events.find(e => String(e.eventAction || "").toLowerCase() === k);
+        if (ev.eventDate) return ev.eventDate;
+      }
+      return null;
+    }
+
+    function formatList(arr) {
+      if (!Array.isArray(arr) || !arr.length) return "—";
+      return arr.filter(Boolean).join(" | ");
+    }
+
+    function findIanaId(data) {
+      const scan = (arr) => {
+        if (!Array.isArray(arr)) return null;
+        for (const r of arr) {
+          const desc = r.description;
+          if (Array.isArray(desc)) {
+            for (const line of desc) {
+              const m = String(line).match(/IANA\s*ID\s*[:#]\s*(\d+)/i);
+              if (m) return m[1];
+            }
+          }
+        }
+        return null;
+      };
+      return scan(data.remarks) || scan(data.notices) || null;
+    }
+
+    function buildAddress(entity) {
+      const adr = vcardGet(entity, "adr")[0];
+      if (Array.isArray(adr)) return adr.filter(Boolean).join(", ");
+      return adr || null;
+    }
+
+    let lastCopy = "";
+
+    async function runWhois() {
+      const q = cleanQuery($("q").value);
+      if (!q) return;
+
+      setLoading();
+
+      try {
+        const rdapUrl = isIP(q)
+           `https://rdap.org/ip/${encodeURIComponent(q)}`
+          : `https://rdap.org/domain/${encodeURIComponent(q)}`;
+
+        const res = await fetch(rdapUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error("Introuvable / refusé");
+
+        const data = await res.json();
+
+        setTxt("status", "OK");
+        setTxt("type", isIP(q) ? "IP" : "Domaine");
+
+        setTxt("nameLdh", data.ldhName);
+        setTxt("nameUni", data.unicodeName);
+        setTxt("handle", data.handle);
+
+        const registrarEnt = pickEntityByRole(data.entities, "registrar");
+        setTxt("registrar", vcardFN(registrarEnt));
+        setTxt("iana", findIanaId(data));
+
+        setTxt("created", pickEventDate(data, ["registration","registered"]));
+        setTxt("expires", pickEventDate(data, ["expiration","expire"]));
+        setTxt("updated", pickEventDate(data, ["last changed","last update","changed"]));
+
+        setTxt("dstatus", formatList(data.status));
+        setTxt("dnssec",
+          data.secureDNS.delegationSigned === true ? "Signed" :
+          data.secureDNS.delegationSigned === false ? "Not signed" : "—"
+        );
+
+        const nss = Array.isArray(data.nameservers)
+           data.nameservers.map(n => n.ldhName).filter(Boolean)
+          : [];
+        setTxt("ns", nss.length ? nss.join(" | ") : "—");
+
+        const registrantEnt = pickEntityByRole(data.entities, "registrant");
+        const adminEnt = pickEntityByRole(data.entities, "administrative");
+        const techEnt = pickEntityByRole(data.entities, "technical");
+
+        setTxt("registrant", vcardFN(registrantEnt));
+        setTxt("admin", vcardFN(adminEnt));
+        setTxt("tech", vcardFN(techEnt));
+
+        const ents = [registrantEnt, adminEnt, techEnt].filter(Boolean);
+        const emails = [...new Set(ents.flatMap(e => vcardGet(e, "email")))];
+        const phones = [...new Set(ents.flatMap(e => vcardGet(e, "tel")))];
+        const addrs = ents.map(e => buildAddress(e)).filter(Boolean);
+
+        setTxt("emails", emails.length ? emails.join(" | ") : "—");
+        setTxt("phones", phones.length ? phones.join(" | ") : "—");
+        setTxt("addr", addrs.length ? addrs.join(" | ") : "—");
+
+        setTxt("rdap", rdapUrl);
+
+        lastCopy =
+`Query: ${q}
+Status: ${$("status").textContent}
+Type: ${$("type").textContent}
+LDH: ${$("nameLdh").textContent}
+Unicode: ${$("nameUni").textContent}
+Handle: ${$("handle").textContent}
+Registrar: ${$("registrar").textContent}
+IANA ID: ${$("iana").textContent}
+Created: ${$("created").textContent}
+Expires: ${$("expires").textContent}
+Updated: ${$("updated").textContent}
+Domain Status: ${$("dstatus").textContent}
+DNSSEC: ${$("dnssec").textContent}
+Name Servers: ${$("ns").textContent}
+Registrant: ${$("registrant").textContent}
+Admin: ${$("admin").textContent}
+Tech: ${$("tech").textContent}
+Emails: ${$("emails").textContent}
+Phones: ${$("phones").textContent}
+Address: ${$("addr").textContent}
+RDAP: ${$("rdap").textContent}`;
+
+      } catch (e) {
+        setTxt("status", "Erreur");
+        [
+          "type","nameLdh","nameUni","handle","registrar","iana","created","expires",
+          "updated","dstatus","dnssec","ns","registrant","admin","tech","emails",
+          "phones","addr","rdap"
+        ].forEach(id => setTxt(id, "—"));
+        lastCopy = "";
+      }
+    }
+
+    function copyResult() {
+      navigator.clipboard.writeText(lastCopy || "—").catch(()=>{});
+    }
+
+    $("btnSearch").addEventListener("click", runWhois);
+    $("btnCopy").addEventListener("click", copyResult);
+    $("q").addEventListener("keydown", (e) => { if (e.key === "Enter") runWhois(); });
+
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js?v=menu-only-1"></script>
+</body>
+</html>

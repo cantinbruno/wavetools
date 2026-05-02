@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9299852089790980"
+     crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon IP</title>
+  <meta name="description" content="Affichez votre adresse IP publique et les informations utiles de connexion directement depuis le navigateur.">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="content-language" content="fr">
+  <meta name="author" content="WaveTools">
+  <meta name="google-adsense-account" content="ca-pub-9299852089790980">
+  <link rel="canonical" href="https://www.wavetools.fr/outils/reseau/monip.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveTools">
+  <meta property="og:title" content="Mon IP | WaveTools">
+  <meta property="og:description" content="Affichez votre adresse IP publique et les informations utiles de connexion directement depuis le navigateur.">
+  <meta property="og:url" content="https://www.wavetools.fr/outils/reseau/monip.html">
+  <meta property="og:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mon IP | WaveTools">
+  <meta name="twitter:description" content="Affichez votre adresse IP publique et les informations utiles de connexion directement depuis le navigateur.">
+  <meta name="twitter:image" content="https://www.wavetools.fr/img/logo.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="stylesheet" href="/includes/style.css?v=header-layer-tools-1">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
+<canvas id="siteBg"></canvas>
+<script src="/includes/anime.js"></script>
+<div id="header"></div>
+<noscript>
+  <nav class="noscript-nav" aria-label="Navigation simplifiee">
+    <a href="/">Accueil</a>
+    <a href="/waveaudit.html">Audit</a>
+    <a href="/outils/">Boite a outils</a>
+    <a href="/contact/">Contact</a>
+    <a href="/administratif/confidentialite.html">Confidentialite</a>
+  </nav>
+</noscript>
+
+
+<!-- ****************************************************************************************************** -->
+<!--
+<div class="tool-layout">
+  <aside class="tool-ads">
+    <div class="ad-box">PUB GAUCHE</div>
+  </aside>
+-->
+
+  <main id="main-content" class="tool-main">
+    <section class="shell-section">
+      <div class="ip-card">
+        <h1 class="tool-title">Quelle est mon adresse IP </h1>
+
+        <div class="terminal-body">
+          <div class="line">IPv4 : <span id="ipv4">Détection...</span></div>
+          <div class="line">IPv6 : <span id="ipv6">Détection...</span></div>
+        </div>
+
+        <button class="copy-btn" onclick="copyIP()">Copier l'IP</button>
+      </div>
+    </section>
+  </main>
+<!--
+  <aside class="tool-ads">
+    <div class="ad-box">PUB DROITE</div>
+  </aside>
+</div>
+-->
+
+<script>
+async function fetchIP() {
+  try {
+    const v4 = await fetch("https://api.ipify.orgformat=json").then(r=>r.json());
+    document.getElementById("ipv4").textContent = v4.ip;
+  } catch { document.getElementById("ipv4").textContent="Non dispo"; }
+
+  try {
+    const v6 = await fetch("https://api64.ipify.orgformat=json").then(r=>r.json());
+    document.getElementById("ipv6").textContent = v6.ip;
+  } catch { document.getElementById("ipv6").textContent="Non dispo"; }
+}
+
+function copyIP() {
+  const text =
+`IPv4: ${document.getElementById("ipv4").textContent}
+IPv6: ${document.getElementById("ipv6").textContent}`;
+  navigator.clipboard.writeText(text);
+}
+
+fetchIP();
+</script>
+
+<!-- ****************************************************************************************************** -->
+
+<div id="footer"></div>
+<script src="/includes/load.js"></script>
+<script src="/includes/auto.js?v=menu-only-1"></script>
+</body>
+</html>
